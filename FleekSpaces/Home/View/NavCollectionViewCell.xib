@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="navCollection" id="gTV-IL-0wX" customClass="NavCollectionViewCell" customModule="FleekSpaces" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="398" height="73"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="398" height="73"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZO-ee-NdG">
+                        <rect key="frame" x="0.0" y="0.0" width="398" height="73"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="qa6-zU-y3a">
+                                <rect key="frame" x="0.0" y="0.0" width="398" height="73"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cd1-gn-r6T">
+                                        <rect key="frame" x="0.0" y="0.0" width="352.5" height="73"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Discover" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNM-F7-ek9">
+                                                <rect key="frame" x="0.0" y="0.0" width="352.5" height="73"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                <color key="textColor" name="Fleek_600"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8B-8z-lWl">
+                                                <rect key="frame" x="9" y="55" width="91" height="3"/>
+                                                <color key="backgroundColor" name="Fleek_600"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="91" id="MKV-Gw-cKS"/>
+                                                    <constraint firstAttribute="height" constant="3" id="XeK-Y8-18l"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="v8B-8z-lWl" firstAttribute="leading" secondItem="Cd1-gn-r6T" secondAttribute="leading" constant="9" id="F0h-Da-hHP"/>
+                                            <constraint firstAttribute="trailing" secondItem="sNM-F7-ek9" secondAttribute="trailing" id="KUD-p4-zLV"/>
+                                            <constraint firstItem="sNM-F7-ek9" firstAttribute="top" secondItem="Cd1-gn-r6T" secondAttribute="top" id="Snw-aa-7QI"/>
+                                            <constraint firstAttribute="bottom" secondItem="sNM-F7-ek9" secondAttribute="bottom" id="cLs-cU-F2W"/>
+                                            <constraint firstAttribute="bottom" secondItem="v8B-8z-lWl" secondAttribute="bottom" constant="15" id="eSs-4i-T6L"/>
+                                            <constraint firstItem="sNM-F7-ek9" firstAttribute="leading" secondItem="Cd1-gn-r6T" secondAttribute="leading" id="tbM-a6-fTZ"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kpy-I2-rNL">
+                                        <rect key="frame" x="352.5" y="0.0" width="45.5" height="73"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="qa6-zU-y3a" firstAttribute="leading" secondItem="TZO-ee-NdG" secondAttribute="leading" id="4z8-6M-3eJ"/>
+                            <constraint firstItem="qa6-zU-y3a" firstAttribute="top" secondItem="TZO-ee-NdG" secondAttribute="top" id="RVJ-DS-esh"/>
+                            <constraint firstAttribute="trailing" secondItem="qa6-zU-y3a" secondAttribute="trailing" id="WM6-Sh-th7"/>
+                            <constraint firstAttribute="bottom" secondItem="qa6-zU-y3a" secondAttribute="bottom" id="ZfT-uK-ys3"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="TZO-ee-NdG" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="JjH-Zt-MIw"/>
+                <constraint firstItem="TZO-ee-NdG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="NLE-qy-bcp"/>
+                <constraint firstItem="TZO-ee-NdG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fpr-yx-PSr"/>
+                <constraint firstItem="TZO-ee-NdG" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="hSp-aH-fcM"/>
+            </constraints>
+            <size key="customSize" width="398" height="73"/>
+            <point key="canvasLocation" x="389.85507246376812" y="142.29910714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <namedColor name="Fleek_600">
+            <color red="0.0" green="0.67500001192092896" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

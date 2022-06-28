@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="subSelected" reuseIdentifier="subSelected" id="gTV-IL-0wX" customClass="SelectedSubCollectionViewCell" customModule="FleekSpaces" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBS-O0-JvB">
+                        <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u0K-h6-4Vj">
+                                <rect key="frame" x="0.0" y="16" width="114" height="114"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLy-zN-N5O">
+                                <rect key="frame" x="93" y="0.0" width="37" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="S6f-u5-kld"/>
+                                    <constraint firstAttribute="height" constant="31" id="esD-Tf-Xkk"/>
+                                </constraints>
+                                <color key="tintColor" name="Danger_500"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="minus.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="deleteSubBtnTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="XnH-vd-xkt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="MLy-zN-N5O" secondAttribute="trailing" id="D7P-q7-adm"/>
+                            <constraint firstAttribute="trailing" secondItem="u0K-h6-4Vj" secondAttribute="trailing" constant="16" id="QBg-7K-be5"/>
+                            <constraint firstItem="MLy-zN-N5O" firstAttribute="top" secondItem="cBS-O0-JvB" secondAttribute="top" id="Zex-SF-b47"/>
+                            <constraint firstItem="u0K-h6-4Vj" firstAttribute="top" secondItem="cBS-O0-JvB" secondAttribute="top" constant="16" id="ixF-ib-6Ak"/>
+                            <constraint firstItem="u0K-h6-4Vj" firstAttribute="leading" secondItem="cBS-O0-JvB" secondAttribute="leading" id="jG7-Xa-kbq"/>
+                            <constraint firstAttribute="bottom" secondItem="u0K-h6-4Vj" secondAttribute="bottom" id="kWN-bM-RY5"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="cBS-O0-JvB" secondAttribute="bottom" id="0aH-PK-rTD"/>
+                <constraint firstAttribute="trailing" secondItem="cBS-O0-JvB" secondAttribute="trailing" id="CVo-VZ-7e0"/>
+                <constraint firstItem="cBS-O0-JvB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="XLE-mm-Unh"/>
+                <constraint firstItem="cBS-O0-JvB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Xk0-Je-Yyw"/>
+            </constraints>
+            <size key="customSize" width="130" height="130"/>
+            <connections>
+                <outlet property="subBtn" destination="MLy-zN-N5O" id="Lyy-jA-WPo"/>
+                <outlet property="subImage" destination="u0K-h6-4Vj" id="0ok-oG-hO3"/>
+            </connections>
+            <point key="canvasLocation" x="175.36231884057972" y="120.53571428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="minus.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="Danger_500">
+            <color red="1" green="0.27099999785423279" blue="0.22699999809265137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TVDetailViewController" customModule="FleekSpaces" customModuleProvider="target">
+            <connections>
+                <outlet property="tvCollectionView" destination="ul6-Aa-2d1" id="U8d-Xq-nEk"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dok-vm-sgI">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMM-f0-XEe">
+                            <rect key="frame" x="10" y="40" width="394" height="50"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIU-Qt-8gB">
+                            <rect key="frame" x="5" y="40" width="62" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="62" id="70N-VD-RhF"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title=""/>
+                            <connections>
+                                <action selector="backBtnTap:" destination="-1" eventType="touchUpInside" id="iuJ-we-bec"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="BGColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="ZIU-Qt-8gB" secondAttribute="bottom" constant="20" id="0HK-cr-Va3"/>
+                        <constraint firstItem="ZIU-Qt-8gB" firstAttribute="top" secondItem="Dok-vm-sgI" secondAttribute="top" constant="40" id="3sZ-iy-TVF"/>
+                        <constraint firstAttribute="bottom" secondItem="yMM-f0-XEe" secondAttribute="bottom" constant="10" id="75O-9Y-8Zx"/>
+                        <constraint firstAttribute="height" constant="100" id="AuI-hB-iGU"/>
+                        <constraint firstItem="ZIU-Qt-8gB" firstAttribute="leading" secondItem="Dok-vm-sgI" secondAttribute="leading" constant="5" id="KJF-WS-RkP"/>
+                        <constraint firstItem="yMM-f0-XEe" firstAttribute="leading" secondItem="Dok-vm-sgI" secondAttribute="leading" constant="10" id="bEm-cR-9VW"/>
+                        <constraint firstItem="yMM-f0-XEe" firstAttribute="top" secondItem="Dok-vm-sgI" secondAttribute="top" constant="40" id="jfc-zn-UkS"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="lbR-YW-1Ch"/>
+                        <constraint firstAttribute="trailing" secondItem="yMM-f0-XEe" secondAttribute="trailing" constant="10" id="ukv-ra-wXD"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-Aa-2d1">
+                    <rect key="frame" x="0.0" y="100" width="414" height="796"/>
+                    <color key="backgroundColor" name="BGColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BHt-9U-97R">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="BGColor"/>
+            <constraints>
+                <constraint firstItem="ul6-Aa-2d1" firstAttribute="top" secondItem="Dok-vm-sgI" secondAttribute="bottom" id="2Eh-Zf-CSb"/>
+                <constraint firstItem="Dok-vm-sgI" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Fmj-c1-DmY"/>
+                <constraint firstItem="Dok-vm-sgI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LbA-Lk-Iix"/>
+                <constraint firstItem="ul6-Aa-2d1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Utt-1x-8uQ"/>
+                <constraint firstItem="ul6-Aa-2d1" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="WF3-eh-DQl"/>
+                <constraint firstAttribute="bottom" secondItem="ul6-Aa-2d1" secondAttribute="bottom" id="fb2-U2-QPe"/>
+                <constraint firstItem="Dok-vm-sgI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rWV-Ti-qbY"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="85.714285714285708"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <namedColor name="BGColor">
+            <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

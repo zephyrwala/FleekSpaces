@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="addSub" reuseIdentifier="addSub" id="gTV-IL-0wX" customClass="AddSubCollectionViewCell" customModule="FleekSpaces" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="124"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="401" height="124"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTN-I0-aTg">
+                        <rect key="frame" x="0.0" y="0.0" width="401" height="124"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQw-cB-Rfb">
+                                <rect key="frame" x="3" y="3" width="395" height="118"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmw-mJ-tmt">
+                                        <rect key="frame" x="15" y="12" width="366" height="94"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n4M-m7-Bje">
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="94"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mLj-XJ-VY5">
+                                                        <rect key="frame" x="17.5" y="19.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="55" id="1XS-Lb-pZs"/>
+                                                            <constraint firstAttribute="width" constant="55" id="hyd-As-Maz"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="90" id="4rm-Ui-fMj"/>
+                                                    <constraint firstItem="mLj-XJ-VY5" firstAttribute="centerX" secondItem="n4M-m7-Bje" secondAttribute="centerX" id="D5X-GB-EKp"/>
+                                                    <constraint firstItem="mLj-XJ-VY5" firstAttribute="centerY" secondItem="n4M-m7-Bje" secondAttribute="centerY" id="gbI-YT-Fft"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Netflix Live View Comes here " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6D-x5-pMp">
+                                                <rect key="frame" x="90" y="0.0" width="220.5" height="94"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ue7-DV-49Z">
+                                                <rect key="frame" x="310.5" y="0.0" width="55.5" height="94"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="BorderColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="bmw-mJ-tmt" secondAttribute="bottom" constant="12" id="8Ez-c9-vEa"/>
+                                    <constraint firstAttribute="trailing" secondItem="bmw-mJ-tmt" secondAttribute="trailing" constant="14" id="GwZ-Wn-sa3"/>
+                                    <constraint firstItem="bmw-mJ-tmt" firstAttribute="top" secondItem="gQw-cB-Rfb" secondAttribute="top" constant="12" id="J4F-hm-mzN"/>
+                                    <constraint firstItem="bmw-mJ-tmt" firstAttribute="leading" secondItem="gQw-cB-Rfb" secondAttribute="leading" constant="15" id="SvX-CO-9BW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="gQw-cB-Rfb" secondAttribute="bottom" constant="3" id="Vvu-Td-9Gd"/>
+                            <constraint firstItem="gQw-cB-Rfb" firstAttribute="top" secondItem="RTN-I0-aTg" secondAttribute="top" constant="3" id="hGr-zq-DDe"/>
+                            <constraint firstAttribute="trailing" secondItem="gQw-cB-Rfb" secondAttribute="trailing" constant="3" id="og5-jP-FuQ"/>
+                            <constraint firstItem="gQw-cB-Rfb" firstAttribute="leading" secondItem="RTN-I0-aTg" secondAttribute="leading" constant="3" id="w2g-UB-VS4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="RTN-I0-aTg" secondAttribute="bottom" id="FhZ-UP-bdH"/>
+                <constraint firstItem="RTN-I0-aTg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="I1s-d1-Te7"/>
+                <constraint firstItem="RTN-I0-aTg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Nbm-rK-2Il"/>
+                <constraint firstAttribute="trailing" secondItem="RTN-I0-aTg" secondAttribute="trailing" id="xJY-mR-j7c"/>
+            </constraints>
+            <size key="customSize" width="401" height="124"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="checked.png"/>
+                <userDefinedRuntimeAttribute type="image" keyPath="deselectedImage" value="unchecked.png"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="CardBgView" destination="gQw-cB-Rfb" id="1cp-Fb-1Kw"/>
+                <outlet property="subscriptionLogo" destination="mLj-XJ-VY5" id="yPK-HN-RyF"/>
+                <outlet property="subscriptionName" destination="G6D-x5-pMp" id="5NJ-e1-qSD"/>
+            </connections>
+            <point key="canvasLocation" x="392.02898550724643" y="124.55357142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="checked.png" width="75" height="75"/>
+        <image name="unchecked.png" width="120" height="120"/>
+        <namedColor name="BorderColor">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

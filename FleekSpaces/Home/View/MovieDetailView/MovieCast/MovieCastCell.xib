@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="movCast" reuseIdentifier="movCast" id="gTV-IL-0wX" customClass="MovieCastCell" customModule="FleekSpaces" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="144" height="198"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="144" height="198"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fps-Yk-loc">
+                        <rect key="frame" x="0.0" y="0.0" width="144" height="198"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="MEl-he-faE">
+                                <rect key="frame" x="10" y="10" width="124" height="178"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="bene" translatesAutoresizingMaskIntoConstraints="NO" id="I3U-hP-gkD">
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="131"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Benedict Cucumber" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="BTA-IH-KlO">
+                                        <rect key="frame" x="0.0" y="140" width="124" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manoj" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="pJn-jJ-4jy">
+                                        <rect key="frame" x="0.0" y="163.5" width="124" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemGray5Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="I3U-hP-gkD" firstAttribute="top" secondItem="MEl-he-faE" secondAttribute="top" id="QTg-1P-LDh"/>
+                                    <constraint firstItem="I3U-hP-gkD" firstAttribute="leading" secondItem="MEl-he-faE" secondAttribute="leading" id="foY-nc-bl1"/>
+                                    <constraint firstAttribute="trailing" secondItem="I3U-hP-gkD" secondAttribute="trailing" id="gA1-M5-TCL"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="MEl-he-faE" firstAttribute="top" secondItem="Fps-Yk-loc" secondAttribute="top" constant="10" id="KQ2-Fm-cEB"/>
+                            <constraint firstAttribute="bottom" secondItem="MEl-he-faE" secondAttribute="bottom" constant="10" id="OEP-PZ-HQR"/>
+                            <constraint firstAttribute="trailing" secondItem="MEl-he-faE" secondAttribute="trailing" constant="10" id="SIu-cg-bdv"/>
+                            <constraint firstItem="MEl-he-faE" firstAttribute="leading" secondItem="Fps-Yk-loc" secondAttribute="leading" constant="10" id="VzJ-yn-j1L"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Fps-Yk-loc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2zx-fx-qDJ"/>
+                <constraint firstItem="Fps-Yk-loc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="HBD-HK-cWB"/>
+                <constraint firstAttribute="trailing" secondItem="Fps-Yk-loc" secondAttribute="trailing" id="P48-6v-2df"/>
+                <constraint firstAttribute="bottom" secondItem="Fps-Yk-loc" secondAttribute="bottom" id="ocJ-Qb-egd"/>
+            </constraints>
+            <size key="customSize" width="144" height="198"/>
+            <connections>
+                <outlet property="actorImage" destination="I3U-hP-gkD" id="Irw-yR-tkg"/>
+                <outlet property="actorName" destination="BTA-IH-KlO" id="kDq-sM-aiU"/>
+                <outlet property="characterName" destination="pJn-jJ-4jy" id="ClP-3l-5ns"/>
+                <outlet property="movieBg" destination="Fps-Yk-loc" id="QHV-6S-wvf"/>
+            </connections>
+            <point key="canvasLocation" x="205.79710144927537" y="141.29464285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bene" width="500" height="750"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

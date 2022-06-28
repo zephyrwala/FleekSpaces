@@ -1,0 +1,41 @@
+{
+  "pins" : [
+    {
+      "identity" : "checkmarkcollectionviewcell",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yonat/CheckmarkCollectionViewCell",
+      "state" : {
+        "revision" : "d5be769035881c69a0206ad2e86f89927be9dda0",
+        "version" : "1.0.5"
+      }
+    },
+    {
+      "identity" : "iqkeyboardmanager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hackiftekhar/IQKeyboardManager.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "f0fad1d51f9710cbd0ac6d49121d8b7fddd5c7f6"
+      }
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage",
+      "state" : {
+        "branch" : "master",
+        "revision" : "362ba2d43f7ac410819859dbd728db5ea471e133"
+      }
+    },
+    {
+      "identity" : "sweeterswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yonat/SweeterSwift",
+      "state" : {
+        "revision" : "74b3d19dc80158b2a87240d05894154a1ba7f2ef",
+        "version" : "1.2.1"
+      }
+    }
+  ],
+  "version" : 2
+}

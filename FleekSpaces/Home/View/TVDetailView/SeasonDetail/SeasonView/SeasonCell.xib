@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="seasonCell" id="gTV-IL-0wX" customClass="SeasonCell" customModule="FleekSpaces" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="151" height="61"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="151" height="61"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzl-FS-59W">
+                        <rect key="frame" x="0.0" y="0.0" width="151" height="61"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AbW-dm-ftk">
+                                <rect key="frame" x="10" y="12" width="131" height="37"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrN-nY-xVy">
+                                        <rect key="frame" x="0.0" y="0.0" width="131" height="37"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="BtnGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="lrN-nY-xVy" secondAttribute="bottom" id="8Oi-jb-aTS"/>
+                                    <constraint firstItem="lrN-nY-xVy" firstAttribute="top" secondItem="AbW-dm-ftk" secondAttribute="top" id="Ajv-wc-vU6"/>
+                                    <constraint firstItem="lrN-nY-xVy" firstAttribute="leading" secondItem="AbW-dm-ftk" secondAttribute="leading" id="FDw-q7-8TB"/>
+                                    <constraint firstItem="lrN-nY-xVy" firstAttribute="top" secondItem="AbW-dm-ftk" secondAttribute="top" id="GKk-KE-ci9"/>
+                                    <constraint firstAttribute="trailing" secondItem="lrN-nY-xVy" secondAttribute="trailing" id="HXJ-Dc-joC"/>
+                                    <constraint firstItem="lrN-nY-xVy" firstAttribute="leading" secondItem="AbW-dm-ftk" secondAttribute="leading" id="bpm-EC-GE9"/>
+                                    <constraint firstAttribute="bottom" secondItem="lrN-nY-xVy" secondAttribute="bottom" id="hgu-UC-FPB"/>
+                                    <constraint firstAttribute="trailing" secondItem="lrN-nY-xVy" secondAttribute="trailing" id="tg0-aF-e3d"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="AbW-dm-ftk" firstAttribute="leading" secondItem="Fzl-FS-59W" secondAttribute="leading" constant="10" id="56Z-WR-Xkl"/>
+                            <constraint firstAttribute="bottom" secondItem="AbW-dm-ftk" secondAttribute="bottom" constant="12" id="F8O-DD-zQp"/>
+                            <constraint firstAttribute="trailing" secondItem="AbW-dm-ftk" secondAttribute="trailing" constant="10" id="TYq-un-SRR"/>
+                            <constraint firstItem="AbW-dm-ftk" firstAttribute="top" secondItem="Fzl-FS-59W" secondAttribute="top" constant="12" id="wFX-Gl-5sw"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="Fzl-FS-59W" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2kw-Fz-P9u"/>
+                <constraint firstAttribute="trailing" secondItem="Fzl-FS-59W" secondAttribute="trailing" id="7VS-c9-SVw"/>
+                <constraint firstAttribute="bottom" secondItem="Fzl-FS-59W" secondAttribute="bottom" id="p0P-Vs-cNc"/>
+                <constraint firstItem="Fzl-FS-59W" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="q8A-4k-UDa"/>
+            </constraints>
+            <size key="customSize" width="151" height="61"/>
+            <connections>
+                <outlet property="btnView" destination="AbW-dm-ftk" id="kdX-pE-Z6z"/>
+                <outlet property="seasonBtn" destination="lrN-nY-xVy" id="Mcn-ky-bqq"/>
+            </connections>
+            <point key="canvasLocation" x="210.86956521739131" y="84.040178571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="BtnGreenColor">
+            <color red="0.0" green="0.67500001192092896" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

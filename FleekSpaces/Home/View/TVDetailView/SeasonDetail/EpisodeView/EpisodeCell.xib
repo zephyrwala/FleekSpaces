@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="episodeCell" id="gTV-IL-0wX" customClass="EpisodeCell" customModule="FleekSpaces" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="405" height="143"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="405" height="143"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPd-vm-lQW">
+                        <rect key="frame" x="0.0" y="0.0" width="405" height="143"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bene" translatesAutoresizingMaskIntoConstraints="NO" id="LS6-39-hb3">
+                                <rect key="frame" x="12" y="12" width="100" height="119"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="fdN-Sj-Z9k"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="a3p-mU-dcL">
+                                <rect key="frame" x="127" y="25" width="263" height="93"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Efectuar lo acordado" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAC-lK-ERq">
+                                        <rect key="frame" x="0.0" y="0.0" width="263" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 Nov 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qg9-w8-uht">
+                                        <rect key="frame" x="0.0" y="31" width="263" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" name="cellBorderColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKp-wp-bOj">
+                                        <rect key="frame" x="0.0" y="62" width="263" height="31"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imdb" translatesAutoresizingMaskIntoConstraints="NO" id="e9o-qq-lgx">
+                                                <rect key="frame" x="2" y="8" width="30" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="bDf-Qs-Gdu"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.8/10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gds-5A-3bQ">
+                                                <rect key="frame" x="44" y="6.5" width="60" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="D8k-R2-ghX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="gds-5A-3bQ" firstAttribute="centerY" secondItem="EKp-wp-bOj" secondAttribute="centerY" id="0NK-pO-xI9"/>
+                                            <constraint firstItem="e9o-qq-lgx" firstAttribute="centerY" secondItem="EKp-wp-bOj" secondAttribute="centerY" id="9UV-8i-v4I"/>
+                                            <constraint firstItem="gds-5A-3bQ" firstAttribute="leading" secondItem="e9o-qq-lgx" secondAttribute="trailing" constant="12" id="GE9-SN-rGM"/>
+                                            <constraint firstItem="e9o-qq-lgx" firstAttribute="leading" secondItem="EKp-wp-bOj" secondAttribute="leading" constant="2" id="mJS-WG-a22"/>
+                                            <constraint firstItem="e9o-qq-lgx" firstAttribute="bottom" secondItem="EKp-wp-bOj" secondAttribute="bottomMargin" id="nxX-BI-218"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="a3p-mU-dcL" secondAttribute="bottom" constant="25" id="4hI-aF-AsZ"/>
+                            <constraint firstItem="LS6-39-hb3" firstAttribute="top" secondItem="cPd-vm-lQW" secondAttribute="top" constant="12" id="6zp-C0-lrH"/>
+                            <constraint firstItem="a3p-mU-dcL" firstAttribute="top" secondItem="cPd-vm-lQW" secondAttribute="top" constant="25" id="OAs-sH-YvJ"/>
+                            <constraint firstItem="a3p-mU-dcL" firstAttribute="leading" secondItem="LS6-39-hb3" secondAttribute="trailing" constant="15" id="kEa-Uw-b29"/>
+                            <constraint firstAttribute="bottom" secondItem="LS6-39-hb3" secondAttribute="bottom" constant="12" id="ppl-TN-mNV"/>
+                            <constraint firstItem="LS6-39-hb3" firstAttribute="leading" secondItem="cPd-vm-lQW" secondAttribute="leading" constant="12" id="qwT-BX-3Ry"/>
+                            <constraint firstAttribute="trailing" secondItem="a3p-mU-dcL" secondAttribute="trailing" constant="15" id="txD-b4-gCZ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="cPd-vm-lQW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1Hs-zz-KCh"/>
+                <constraint firstItem="cPd-vm-lQW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="H2R-0k-frX"/>
+                <constraint firstAttribute="bottom" secondItem="cPd-vm-lQW" secondAttribute="bottom" id="HB6-JP-yJg"/>
+                <constraint firstAttribute="trailing" secondItem="cPd-vm-lQW" secondAttribute="trailing" id="uDs-CE-kju"/>
+            </constraints>
+            <size key="customSize" width="405" height="143"/>
+            <connections>
+                <outlet property="episodeDate" destination="qg9-w8-uht" id="gVR-um-5pf"/>
+                <outlet property="episodeImage" destination="LS6-39-hb3" id="pq7-eh-KSa"/>
+                <outlet property="episodeRating" destination="gds-5A-3bQ" id="ipf-qe-DWr"/>
+                <outlet property="episodeTitle" destination="GAC-lK-ERq" id="UnN-4a-IJv"/>
+            </connections>
+            <point key="canvasLocation" x="394.92753623188406" y="111.49553571428571"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bene" width="500" height="750"/>
+        <image name="imdb" width="69" height="37"/>
+        <namedColor name="cellBorderColor">
+            <color red="0.68599998950958252" green="0.68599998950958252" blue="0.68599998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="filmoH" reuseIdentifier="filmoH" id="U6b-Vx-4bR" customClass="filmographyHeader" customModule="FleekSpaces" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27c-sK-B7l">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Benedict's Filmography" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0m-3i-35L">
+                    <rect key="frame" x="25" y="10" width="285" height="30"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="W0m-3i-35L" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="25" id="I0P-zy-qjZ"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="27c-sK-B7l" secondAttribute="trailing" id="Qde-YK-Scx"/>
+                <constraint firstItem="27c-sK-B7l" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="TKj-vy-3ne"/>
+                <constraint firstItem="27c-sK-B7l" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="WiK-P1-x4x"/>
+                <constraint firstAttribute="bottom" secondItem="27c-sK-B7l" secondAttribute="bottom" id="aVW-42-zum"/>
+                <constraint firstItem="W0m-3i-35L" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="10" id="b2u-54-OCx"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="W0m-3i-35L" secondAttribute="bottom" constant="10" id="ilh-fb-3qR"/>
+                <constraint firstAttribute="trailing" secondItem="W0m-3i-35L" secondAttribute="trailing" constant="10" id="xd0-6E-zeH"/>
+            </constraints>
+            <connections>
+                <outlet property="actorTitlehead" destination="W0m-3i-35L" id="NeV-Wf-xB1"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="95"/>
+        </collectionReusableView>
+    </objects>
+</document>

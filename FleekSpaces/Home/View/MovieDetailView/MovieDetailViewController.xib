@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailViewController" customModule="FleekSpaces" customModuleProvider="target">
+            <connections>
+                <outlet property="backBtn" destination="OwX-Uz-D5y" id="fz2-L4-iaW"/>
+                <outlet property="movieDetailCollectionView" destination="dby-Nq-PAM" id="AM3-xb-t9v"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qan-37-pbw">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3c-yN-PRS">
+                            <rect key="frame" x="10" y="40" width="394" height="50"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwX-Uz-D5y">
+                            <rect key="frame" x="5" y="40" width="62" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="62" id="NKr-VF-qEa"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title=""/>
+                            <connections>
+                                <action selector="backBtnTap:" destination="-1" eventType="touchUpInside" id="tRt-VM-svu"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="BGColor"/>
+                    <constraints>
+                        <constraint firstItem="OwX-Uz-D5y" firstAttribute="leading" secondItem="qan-37-pbw" secondAttribute="leading" constant="5" id="DfO-Ux-Ab5"/>
+                        <constraint firstItem="s3c-yN-PRS" firstAttribute="top" secondItem="qan-37-pbw" secondAttribute="top" constant="40" id="EPR-kf-q4o"/>
+                        <constraint firstAttribute="bottom" secondItem="OwX-Uz-D5y" secondAttribute="bottom" constant="20" id="J8j-wh-edJ"/>
+                        <constraint firstAttribute="bottom" secondItem="s3c-yN-PRS" secondAttribute="bottom" constant="10" id="UdK-ZE-cKa"/>
+                        <constraint firstAttribute="height" constant="100" id="Xnr-f6-Lhb"/>
+                        <constraint firstAttribute="trailing" secondItem="s3c-yN-PRS" secondAttribute="trailing" constant="10" id="fWY-ov-FgN"/>
+                        <constraint firstItem="s3c-yN-PRS" firstAttribute="leading" secondItem="qan-37-pbw" secondAttribute="leading" constant="10" id="nR1-6J-FJj"/>
+                        <constraint firstItem="OwX-Uz-D5y" firstAttribute="top" secondItem="qan-37-pbw" secondAttribute="top" constant="40" id="nxA-2G-V4V"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="dby-Nq-PAM">
+                    <rect key="frame" x="0.0" y="100" width="414" height="791"/>
+                    <color key="backgroundColor" name="BGColor"/>
+                    <color key="tintColor" name="BGColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lth-zM-cFJ">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="BGColor"/>
+            <constraints>
+                <constraint firstItem="dby-Nq-PAM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="046-ZC-p2O"/>
+                <constraint firstItem="qan-37-pbw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8bl-Wa-PwZ"/>
+                <constraint firstItem="dby-Nq-PAM" firstAttribute="top" secondItem="qan-37-pbw" secondAttribute="bottom" id="9IJ-8Y-IIM"/>
+                <constraint firstItem="qan-37-pbw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Lxa-3m-WD7"/>
+                <constraint firstAttribute="trailing" secondItem="qan-37-pbw" secondAttribute="trailing" id="XFC-EE-XLJ"/>
+                <constraint firstAttribute="bottom" secondItem="dby-Nq-PAM" secondAttribute="bottom" constant="5" id="pTG-WF-hci"/>
+                <constraint firstItem="dby-Nq-PAM" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="sfX-B8-JLt"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <namedColor name="BGColor">
+            <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

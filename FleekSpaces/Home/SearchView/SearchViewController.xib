@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="FleekSpaces" customModuleProvider="target">
+            <connections>
+                <outlet property="backBtn" destination="Z58-gY-UaT" id="WJh-vk-rOl"/>
+                <outlet property="recentSearchCollectionView" destination="r9M-QV-EEW" id="R2r-MH-CGQ"/>
+                <outlet property="recentSearchView" destination="Qrl-6X-rvD" id="m9U-ga-Ap2"/>
+                <outlet property="searchBar" destination="LGv-0A-QLA" id="noe-tC-2D1"/>
+                <outlet property="searchCollectionView" destination="bBU-e8-s34" id="0hs-HR-Be5"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIt-fZ-k0h">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0e-ki-X12">
+                            <rect key="frame" x="10" y="40" width="394" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="ZTl-uj-Jbe"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z58-gY-UaT">
+                            <rect key="frame" x="5" y="40" width="62" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="H9P-4u-C0B"/>
+                                <constraint firstAttribute="width" constant="62" id="Sz8-iJ-b6k"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title=""/>
+                            <connections>
+                                <action selector="backBtnTap:" destination="-1" eventType="touchUpInside" id="A0S-DL-zNc"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="BGColor"/>
+                    <constraints>
+                        <constraint firstItem="B0e-ki-X12" firstAttribute="top" secondItem="xIt-fZ-k0h" secondAttribute="top" constant="40" id="7pz-OP-zp9"/>
+                        <constraint firstItem="Z58-gY-UaT" firstAttribute="top" secondItem="xIt-fZ-k0h" secondAttribute="top" constant="40" id="KiA-Df-jnj"/>
+                        <constraint firstAttribute="height" constant="100" id="kdC-Bg-wtg"/>
+                        <constraint firstItem="B0e-ki-X12" firstAttribute="leading" secondItem="xIt-fZ-k0h" secondAttribute="leading" constant="10" id="tkT-R1-A8I"/>
+                        <constraint firstItem="Z58-gY-UaT" firstAttribute="leading" secondItem="xIt-fZ-k0h" secondAttribute="leading" constant="5" id="tt3-fv-uit"/>
+                        <constraint firstAttribute="trailing" secondItem="B0e-ki-X12" secondAttribute="trailing" constant="10" id="zSq-oj-qmJ"/>
+                    </constraints>
+                </view>
+                <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" text="" placeholder="Search here" translatesAutoresizingMaskIntoConstraints="NO" id="LGv-0A-QLA">
+                    <rect key="frame" x="10" y="110" width="344" height="51"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="51" id="mvZ-Cb-W2q"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                    <scopeButtonTitles>
+                        <string>Title</string>
+                        <string>Title</string>
+                    </scopeButtonTitles>
+                </searchBar>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bBU-e8-s34">
+                    <rect key="frame" x="2" y="185" width="414" height="709"/>
+                    <color key="backgroundColor" name="BGColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ksh-Nc-tPQ">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qrl-6X-rvD">
+                    <rect key="frame" x="0.0" y="185" width="414" height="711"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="r9M-QV-EEW">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="711"/>
+                            <color key="backgroundColor" name="BGColor"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lNu-Es-AZG">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="r9M-QV-EEW" firstAttribute="leading" secondItem="Qrl-6X-rvD" secondAttribute="leading" id="D9d-Jk-iny"/>
+                        <constraint firstItem="r9M-QV-EEW" firstAttribute="top" secondItem="Qrl-6X-rvD" secondAttribute="top" id="HPf-YO-cRg"/>
+                        <constraint firstAttribute="bottom" secondItem="r9M-QV-EEW" secondAttribute="bottom" id="kee-e3-LoS"/>
+                        <constraint firstAttribute="trailing" secondItem="r9M-QV-EEW" secondAttribute="trailing" id="zgR-xZ-0vr"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFg-F4-Znm">
+                    <rect key="frame" x="359" y="121" width="50" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" id="i6u-xd-NlW"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="slider.horizontal.3" catalog="system"/>
+                    <connections>
+                        <action selector="filterTapBtn:" destination="-1" eventType="touchUpInside" id="cRO-6b-3ZI"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="BGColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="LGv-0A-QLA" secondAttribute="trailing" constant="60" id="0C0-h8-0Fc"/>
+                <constraint firstItem="xIt-fZ-k0h" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0C3-wx-iIV"/>
+                <constraint firstAttribute="bottom" secondItem="bBU-e8-s34" secondAttribute="bottom" constant="2" id="Agm-f6-W78"/>
+                <constraint firstItem="bBU-e8-s34" firstAttribute="top" secondItem="pFg-F4-Znm" secondAttribute="bottom" constant="33" id="CLY-yu-qRH"/>
+                <constraint firstItem="Qrl-6X-rvD" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Ebl-Q0-b5u"/>
+                <constraint firstItem="LGv-0A-QLA" firstAttribute="top" secondItem="xIt-fZ-k0h" secondAttribute="bottom" constant="10" id="Mg0-xf-jWj"/>
+                <constraint firstItem="Qrl-6X-rvD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="N3y-B5-VlM"/>
+                <constraint firstItem="pFg-F4-Znm" firstAttribute="leading" secondItem="LGv-0A-QLA" secondAttribute="trailing" constant="5" id="NTy-3M-VxF"/>
+                <constraint firstAttribute="bottom" secondItem="Qrl-6X-rvD" secondAttribute="bottom" id="VHa-MP-9DR"/>
+                <constraint firstItem="Qrl-6X-rvD" firstAttribute="top" secondItem="LGv-0A-QLA" secondAttribute="bottom" constant="24" id="Wux-fF-Og5"/>
+                <constraint firstItem="xIt-fZ-k0h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gBp-hu-hep"/>
+                <constraint firstItem="LGv-0A-QLA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="hBw-aO-zMQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pFg-F4-Znm" secondAttribute="trailing" constant="5" id="hdL-F6-1op"/>
+                <constraint firstItem="xIt-fZ-k0h" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="uYm-PM-da0"/>
+                <constraint firstItem="bBU-e8-s34" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="2" id="vev-HG-Cam"/>
+                <constraint firstItem="bBU-e8-s34" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="2" id="vuf-2f-cGs"/>
+                <constraint firstItem="bBU-e8-s34" firstAttribute="top" secondItem="LGv-0A-QLA" secondAttribute="bottom" constant="24" id="zLT-PN-uAW"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
+        <namedColor name="BGColor">
+            <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
