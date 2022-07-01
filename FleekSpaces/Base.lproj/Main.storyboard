@@ -186,7 +186,7 @@
             </objects>
             <point key="canvasLocation" x="92.753623188405811" y="569.86607142857144"/>
         </scene>
-        <!--Chats-->
+        <!--Chat View Controller-->
         <scene sceneID="5Z8-HC-AI9">
             <objects>
                 <viewController id="61s-vG-aG6" customClass="ChatViewController" customModule="FleekSpaces" customModuleProvider="target" sceneMemberID="viewController">
@@ -195,7 +195,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SY1-Fn-J2I">
-                                <rect key="frame" x="16" y="135" width="382" height="159"/>
+                                <rect key="frame" x="16" y="148" width="382" height="159"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_bg" translatesAutoresizingMaskIntoConstraints="NO" id="DPr-yT-aly">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="159"/>
@@ -284,12 +284,16 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Chats" translatesAutoresizingMaskIntoConstraints="NO" id="iA8-Ko-ckZ">
-                                <rect key="frame" x="24" y="65" width="100" height="58"/>
+                                <rect key="frame" x="24" y="78" width="100" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="8kv-SP-chB"/>
                                     <constraint firstAttribute="height" constant="58" id="Xhm-M8-Hcg"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jn-xa-qAX">
+                                <rect key="frame" x="0.0" y="317" width="414" height="496"/>
+                                <color key="backgroundColor" name="BGColor"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0J-0i-85a">
                                 <rect key="frame" x="327" y="726" width="66" height="66"/>
                                 <color key="backgroundColor" name="BtnGreenColor"/>
@@ -308,26 +312,33 @@
                         <viewLayoutGuide key="safeArea" id="HIc-rx-si6"/>
                         <color key="backgroundColor" name="BGColor"/>
                         <constraints>
+                            <constraint firstItem="1jn-xa-qAX" firstAttribute="top" secondItem="SY1-Fn-J2I" secondAttribute="bottom" constant="10" id="0wR-pu-Sag"/>
                             <constraint firstItem="iA8-Ko-ckZ" firstAttribute="leading" secondItem="HIc-rx-si6" secondAttribute="leading" constant="24" id="Aqb-MU-FWt"/>
+                            <constraint firstItem="1jn-xa-qAX" firstAttribute="bottom" secondItem="HIc-rx-si6" secondAttribute="bottom" id="B3E-iV-Box"/>
                             <constraint firstItem="HIc-rx-si6" firstAttribute="trailing" secondItem="S0J-0i-85a" secondAttribute="trailing" constant="21" id="DRG-vF-q1x"/>
                             <constraint firstItem="SY1-Fn-J2I" firstAttribute="leading" secondItem="HIc-rx-si6" secondAttribute="leading" constant="16" id="HBw-wx-L9t"/>
                             <constraint firstItem="HIc-rx-si6" firstAttribute="trailing" secondItem="SY1-Fn-J2I" secondAttribute="trailing" constant="16" id="MBk-c0-D8z"/>
-                            <constraint firstItem="iA8-Ko-ckZ" firstAttribute="top" secondItem="HIc-rx-si6" secondAttribute="top" constant="21" id="f5H-cf-X44"/>
+                            <constraint firstItem="1jn-xa-qAX" firstAttribute="trailing" secondItem="HIc-rx-si6" secondAttribute="trailing" id="UKI-KJ-vd2"/>
+                            <constraint firstItem="1jn-xa-qAX" firstAttribute="leading" secondItem="HIc-rx-si6" secondAttribute="leading" id="WLt-zG-CfL"/>
+                            <constraint firstItem="iA8-Ko-ckZ" firstAttribute="top" secondItem="HIc-rx-si6" secondAttribute="top" constant="-10" id="f5H-cf-X44"/>
                             <constraint firstItem="HIc-rx-si6" firstAttribute="bottom" secondItem="S0J-0i-85a" secondAttribute="bottom" constant="21" id="kq6-oz-jVS"/>
                             <constraint firstItem="SY1-Fn-J2I" firstAttribute="top" secondItem="iA8-Ko-ckZ" secondAttribute="bottom" constant="12" id="uDf-eY-w00"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chats" image="bubble.left.and.bubble.right" catalog="system" selectedImage="bubble.left.and.bubble.right.fill" id="Y1L-hP-pTY"/>
+                    <navigationItem key="navigationItem" id="ZNA-jj-KLp">
+                        <barButtonItem key="backBarButtonItem" title="Chats" id="3Le-3c-tpl"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="addChatBtn" destination="S0J-0i-85a" id="RgR-Ga-Bb0"/>
                         <outlet property="bannerBgView" destination="SY1-Fn-J2I" id="HET-S8-rkh"/>
                         <outlet property="bannerImage" destination="DPr-yT-aly" id="UdK-34-iD1"/>
+                        <outlet property="chatView" destination="1jn-xa-qAX" id="mR1-6C-fCM"/>
                         <outlet property="inviteBtn" destination="pc7-6W-5f2" id="Iv5-fF-vB9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ex-bS-clI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1017.3913043478261" y="579.24107142857144"/>
+            <point key="canvasLocation" x="1927.5362318840582" y="579.24107142857144"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="Wve-p7-Ol1">
@@ -470,29 +481,29 @@
                     </tabBar>
                     <connections>
                         <segue destination="FFa-df-FJe" kind="relationship" relationship="viewControllers" id="efL-Hs-XtV"/>
-                        <segue destination="61s-vG-aG6" kind="relationship" relationship="viewControllers" id="Lpc-yS-gaw"/>
-                        <segue destination="rTB-tb-s0Z" kind="relationship" relationship="viewControllers" id="2Nk-l6-Mtd"/>
+                        <segue destination="kXN-YT-dtV" kind="relationship" relationship="viewControllers" id="Lpc-yS-gaw"/>
+                        <segue destination="Dqb-hx-E2l" kind="relationship" relationship="viewControllers" id="2Nk-l6-Mtd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wra-ZO-tfD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="649" y="-410"/>
         </scene>
-        <!--Profile-->
+        <!--Profile View Controller-->
         <scene sceneID="Ule-QM-gXG">
             <objects>
-                <viewController id="rTB-tb-s0Z" customClass="ProfileViewController" customModule="FleekSpaces" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="xferImage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rTB-tb-s0Z" customClass="ProfileViewController" customModule="FleekSpaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p5h-3Z-ZsX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sZT-oV-Ima">
-                                <rect key="frame" x="0.0" y="65" width="414" height="220"/>
+                                <rect key="frame" x="0.0" y="109" width="414" height="220"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3qT-JR-zF8">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Iok-JB-hY5">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Iok-JB-hY5">
                                                 <rect key="frame" x="24" y="0.5" width="60" height="59"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -641,7 +652,7 @@
                             <constraint firstItem="sZT-oV-Ima" firstAttribute="top" secondItem="aCA-Tq-Yth" secondAttribute="top" constant="21" id="OaT-h7-xnW"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person.fill" id="bRv-aS-Rca"/>
+                    <navigationItem key="navigationItem" id="c47-q3-xYE"/>
                     <connections>
                         <outlet property="changeProfile" destination="IJ2-Ma-V7g" id="OkR-Br-NGk"/>
                         <outlet property="profileImage" destination="Iok-JB-hY5" id="G4t-zg-plN"/>
@@ -651,7 +662,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jGL-Nb-XjL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3815.9420289855075" y="579.24107142857144"/>
+            <point key="canvasLocation" x="5636.231884057971" y="579.24107142857144"/>
         </scene>
         <!--Home-->
         <scene sceneID="Geg-9f-jaJ">
@@ -674,6 +685,49 @@
             </objects>
             <point key="canvasLocation" x="-817.39130434782612" y="570.53571428571422"/>
         </scene>
+        <!--Chats-->
+        <scene sceneID="G0l-L1-kD6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kXN-YT-dtV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Chats" image="bubble.left.and.bubble.right" catalog="system" selectedImage="bubble.left.and.bubble.right.fill" id="Y1L-hP-pTY"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="sG8-ez-R5l">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ggL-UF-wKC">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="61s-vG-aG6" kind="relationship" relationship="rootViewController" id="QEh-bt-Vc6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q6O-o2-ihr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1017.3913043478261" y="579.24107142857144"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="XWo-sb-E0y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dqb-hx-E2l" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person.fill" id="bRv-aS-Rca"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="0e9-bp-WZa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rTB-tb-s0Z" kind="relationship" relationship="rootViewController" id="guO-kn-AIx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="97x-fo-D4b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4726.0869565217399" y="579.24107142857144"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Chats" width="325" height="88"/>
@@ -685,7 +739,7 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
-        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="tv-2 1" width="480" height="480"/>

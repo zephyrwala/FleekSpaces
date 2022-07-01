@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigationControllerDelegate {
     
@@ -16,6 +17,8 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     func userDidEnterInformation(info: String) {
         userNameLabel.text = "\(info)"
     }
+    
+    
     
     
     
@@ -32,7 +35,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     override func viewDidLoad() {
         super.viewDidLoad()
         profileImage.makeItGolGol()
-        
+        validateAuth()
         
 //        segmentTabsSelection.removeBorder()
 ////        segmentTabsSelection.addUnderlineForSelectedSegment()
@@ -49,17 +52,173 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
 //        setupUserName()
         changeProfile.setTitle("", for: .normal)
 //        presentModal()
-        showSignUp()
+//       showSignUp()
         print(names)
+        getuserData()
+    }
+    
+    
+    //MARK: - Apply username and profile pic
+    
+    func getuserData() {
+        
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+            return
+        }
+        
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+        let fileName = safeEmail + "_profile_picture.png"
+        
+        let path = "image/"+fileName
+        StorageManager.shared.downloadURL(for: path) { [weak self] results in
+            switch results {
+                
+            case .success(let url):
+                self?.downloadImage(imageView: (self?.profileImage)!, url: url)
+            case .failure(let error):
+                self?.displayUIAlert(yourMessage: "Couldnt get profile pic")
+                print("Failed to get download url: \(error)")
+                
+            }
+        }
+       
+        
+    }
+    
+    
+    //MARK: - Download Image
+    
+    func downloadImage(imageView: UIImageView, url: URL) {
+        
+        URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+            guard let data = data, error == nil else {
+                print("No Image data")
+                return
+            }
+            DispatchQueue.main.async {
+                print(data)
+                print("image found")
+                let image = UIImage(data: data)
+                self.profileImage.image = image
+            }
+        }).resume()
+            
+          
+        }
+
+    
+    //MARK: - Login Prompt
+    
+    func loginPrompt() {
+        
+        let actionSheet = UIAlertController(title: "Authentication Status", message: "Hey Bro! You must login to view this section!", preferredStyle: .alert)
+        
+        //3 buttons - cancel , take ,choose
+        
+//        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {  [weak self] _ in
+//
+//            self?.dismiss(animated: true)
+//
+//
+//
+//        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Log In", style: .default, handler: { [weak self] _ in
+            
+           
+            
+            let controller = LoginEmailViewController()
+                
+              
+            self?.navigationController?.pushViewController(controller, animated: true)
+//            self?.present(controller, animated: true)
+            
+          
+            
+        }))
+        
+    
+        
+        present(actionSheet, animated: true)
+        
+        
+    }
+    
+    
+    func signOutPrompt(user: String) {
+        
+        let actionSheet = UIAlertController(title: "Authentication Status", message: "Hey Bro! \(user) You are signed in.", preferredStyle: .alert)
+        
+        //3 buttons - cancel , take ,choose
+        
+        actionSheet.addAction(UIAlertAction(title: "Continue", style: .cancel, handler: {  [weak self] _ in
+
+            self?.navigationController?.popViewController(animated: true)
+
+
+
+        }))
+        
+        
+        
+        actionSheet.addAction(UIAlertAction(title: "Sign Out", style: .default, handler: { [weak self] _ in
+            
+           
+            let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
+          
+          
+          
+            let controller = LoginEmailViewController()
+           
+            self?.navigationController?.pushViewController(controller, animated: true)
+            
+        }))
+        
+//        let controller = LoginEmailViewController()
+//
+//        self.navigationController?.pushViewController(controller, animated: true)
+//
+        
+    
+        
+        present(actionSheet, animated: true)
+        
+        
+    }
+    
+    //MARK: - validate login
+    
+    private func validateAuth() {
+        
+        if FirebaseAuth.Auth.auth().currentUser == nil {
+            
+            
+            loginPrompt()
+        } else {
+            
+            if let username = FirebaseAuth.Auth.auth().currentUser?.email {
+                
+//                self.displayUIAlert(yourMessage: "\(username) is logged in")
+                
+                
+                signOutPrompt(user: "\(username)")
+                self.userNameLabel.text = "Hey Bro, \(username)"
+            }
+           
+        }
     }
     
     func showSignUp() {
         
         let controller = LoginEmailViewController()
 //        self.navigationController?.pushViewController(controller, animated: true)
-        controller.modalPresentationStyle = .fullScreen
-        self.present(controller, animated: true)
-        
+//        controller.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(controller, animated: true)
         
     }
     

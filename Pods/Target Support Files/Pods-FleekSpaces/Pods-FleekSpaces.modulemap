@@ -1,0 +1,6 @@
+framework module Pods_FleekSpaces {
+  umbrella header "Pods-FleekSpaces-umbrella.h"
+
+  export *
+  module * { export * }
+}

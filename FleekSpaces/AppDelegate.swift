@@ -7,6 +7,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Firebase
 
 
 @main
@@ -17,13 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        FirebaseApp.configure()
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableDebugging = true
         IQKeyboardManager.shared.overrideKeyboardAppearance = true
-        IQKeyboardManager.shared.enableAutoToolbar = false
+        IQKeyboardManager.shared.enableAutoToolbar = true
         IQKeyboardManager.shared.keyboardAppearance = .dark
-        IQKeyboardManager.shared.keyboardDistanceFromTextField = 90.0
+        IQKeyboardManager.shared.keyboardDistanceFromTextField = 60.0
+//
+//        IQKeyboardManager.shared.toolb
+        
+//        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatLayoutViewController.self)
+//
+//        IQKeyboardManager.shared.disabledToolbarClasses.append(ChatLayoutViewController.self)
         IQKeyboardManager.shared.toolbarTintColor = UIColor(named: "BtnGreenColor")
         // Override point for customization after application launch.
         return true
