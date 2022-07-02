@@ -8,10 +8,39 @@
 import UIKit
 import JGProgressHUD
 
+struct Conversation {
+    
+    let id: String
+    let name: String
+    let otherUserEmail: String
+    let latestMessage: LatestMessage
+    
+}
+
+struct DemoConversation {
+    
+    let id: String
+    let name: String
+    let otherUserEmail: String
+   
+    
+}
+
+struct LatestMessage {
+    
+    let date: String
+    let text: String
+    let isRead: Bool
+}
+
 class ChatViewController: UIViewController {
     
    
 
+    private var conversations = [Conversation]()
+    let demoChat = [DemoConversation(id: "1", name: "mohan", otherUserEmail: " Mohan lal is sick"),
+    DemoConversation(id: "2", name: "Baban", otherUserEmail: "Baban is happy with his life")
+    ]
     @IBOutlet weak var chatView: UIView!
     private let spinner = JGProgressHUD(style: .dark)
   
@@ -26,6 +55,8 @@ class ChatViewController: UIViewController {
         let table = UITableView()
         table.isHidden = true
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(UINib(nibName: "ConversationsTableViewCell", bundle: nil),            forCellReuseIdentifier: "chatCell")
+        
         return table
     }()
     
@@ -44,10 +75,40 @@ class ChatViewController: UIViewController {
         setupTableView()
         fetchConversations()
         btnSetup()
+        startListeningForConversation()
       
 //        presentModal()
         // Do any additional setup after loading the view.
     }
+    
+    private func startListeningForConversation() {
+        
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {return}
+        
+        print("Startig conversation fetch...")
+        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
+        DatabaseManager.shared.getAllConversations(for: safeEmail) { [weak self] results in
+            
+            switch results {
+                
+            case .success(let loadedConversations):
+                print("Succesfulyl got conversation")
+                guard !loadedConversations.isEmpty else {
+                    return
+                }
+                self?.conversations = loadedConversations
+                DispatchQueue.main.async {
+                    print("reloading table view")
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                print("failed to get convos : \(error)")
+                
+            }
+        }
+        
+    }
+    
     
     @IBAction func chatBtnTap(_ sender: Any) {
         
@@ -144,13 +205,21 @@ class ChatViewController: UIViewController {
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return conversations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Babu Rao"
-        cell.textLabel?.textColor = .white
+        let model = conversations[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ConversationsTableViewCell
+//        cell.textLabel?.text = "Babu Rao"
+//        cell.userName.text = "Babu Rao"
+//        cell.userConversation.text = "This is my chat conversations"
+       
+        cell.configure(with: model)
+//        cell.userName.text = demoChat[indexPath.item].name
+//        cell.userConversation.text = demoChat[indexPath.item].otherUserEmail
+        cell.userName.text = model.name
+        cell.userConversation.text = model.latestMessage.text
         cell.backgroundColor = UIColor(named: "BGColor")
         cell.selectionStyle = .gray
      
@@ -166,10 +235,11 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
        
-        var selectedController = ChatLayoutViewController(with: "fake email")
+        let model = conversations[indexPath.row]
+        var selectedController = ChatLayoutViewController(with: model.otherUserEmail)
 //        navigationController?.pushViewController(selectedController, animated: true)
 //        self.present(selectedController, animated: true)
-        selectedController.title = "Babu Rao"
+        selectedController.title = model.name
         selectedController.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(selectedController, animated: true)
     }

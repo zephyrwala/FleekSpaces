@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell" rowHeight="86" id="KGk-i7-Jjw" customClass="ConversationsTableViewCell" customModule="FleekSpaces" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="383" height="86"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="383" height="86"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bene" translatesAutoresizingMaskIntoConstraints="NO" id="7aW-vJ-zWv">
+                        <rect key="frame" x="20" y="11" width="64" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="64" id="tnb-Mw-tpG"/>
+                            <constraint firstAttribute="height" constant="64" id="xuz-VN-CxN"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sbP-jx-T5z">
+                        <rect key="frame" x="102" y="11" width="256" height="64"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJl-bM-esz">
+                                <rect key="frame" x="0.0" y="0.0" width="256" height="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text conversation comes over here and so does the chat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOV-GY-3do">
+                                <rect key="frame" x="0.0" y="32" width="256" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" name="CoinMessageColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="7aW-vJ-zWv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="55L-Bn-AfM"/>
+                    <constraint firstItem="sbP-jx-T5z" firstAttribute="leading" secondItem="7aW-vJ-zWv" secondAttribute="trailing" constant="18" id="7Vt-DK-txq"/>
+                    <constraint firstItem="7aW-vJ-zWv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="B9Q-jU-U2m"/>
+                    <constraint firstAttribute="bottom" secondItem="sbP-jx-T5z" secondAttribute="bottom" constant="11" id="Z7l-5k-ln0"/>
+                    <constraint firstAttribute="trailing" secondItem="sbP-jx-T5z" secondAttribute="trailing" constant="25" id="kdt-k2-Omf"/>
+                    <constraint firstItem="sbP-jx-T5z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="vqL-uu-s48"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="userConversation" destination="cOV-GY-3do" id="ehU-dM-YrA"/>
+                <outlet property="userImage" destination="7aW-vJ-zWv" id="5T3-2c-OCU"/>
+                <outlet property="userName" destination="MJl-bM-esz" id="sI0-Ow-gIx"/>
+            </connections>
+            <point key="canvasLocation" x="183.33333333333334" y="104.46428571428571"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bene" width="500" height="750"/>
+        <namedColor name="CoinMessageColor">
+            <color red="0.85900002717971802" green="0.91399997472763062" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

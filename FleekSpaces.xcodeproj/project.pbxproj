@@ -108,6 +108,8 @@
 		695EBBFB2863294D00557D69 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695EBBFA2863294D00557D69 /* ProfileViewController.swift */; };
 		695EBBFF2864502200557D69 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695EBBFD2864502200557D69 /* SignInViewController.swift */; };
 		695EBC002864502200557D69 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 695EBBFE2864502200557D69 /* SignInViewController.xib */; };
+		69643BFB28706913007128C0 /* ConversationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69643BF928706913007128C0 /* ConversationsTableViewCell.swift */; };
+		69643BFC28706913007128C0 /* ConversationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69643BFA28706913007128C0 /* ConversationsTableViewCell.xib */; };
 		69C4996E28698012000F4394 /* EmailSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C4996C28698012000F4394 /* EmailSignInViewController.swift */; };
 		69C4996F28698012000F4394 /* EmailSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69C4996D28698012000F4394 /* EmailSignInViewController.xib */; };
 		69C4997428699410000F4394 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 69C4997328699410000F4394 /* IQKeyboardManagerSwift */; };
@@ -217,6 +219,8 @@
 		695EBBFD2864502200557D69 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		695EBBFE2864502200557D69 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		695EBC012864506D00557D69 /* FleekSpaces.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FleekSpaces.entitlements; sourceTree = "<group>"; };
+		69643BF928706913007128C0 /* ConversationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsTableViewCell.swift; sourceTree = "<group>"; };
+		69643BFA28706913007128C0 /* ConversationsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationsTableViewCell.xib; sourceTree = "<group>"; };
 		69C4996C28698012000F4394 /* EmailSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInViewController.swift; sourceTree = "<group>"; };
 		69C4996D28698012000F4394 /* EmailSignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmailSignInViewController.xib; sourceTree = "<group>"; };
 		69C499762869BDB4000F4394 /* LoginEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 		692600C0284E1F6C00B6D801 /* Chats */ = {
 			isa = PBXGroup;
 			children = (
+				69643BF8287068EA007128C0 /* ConversationCell */,
 				690182FE286CBC8100DF046E /* NewConversation */,
 				690182FB286C77FF00DF046E /* ChatLayout */,
 				692600C1284E1F8500B6D801 /* ChatViewController.swift */,
@@ -682,6 +687,15 @@
 			path = SignIn;
 			sourceTree = "<group>";
 		};
+		69643BF8287068EA007128C0 /* ConversationCell */ = {
+			isa = PBXGroup;
+			children = (
+				69643BF928706913007128C0 /* ConversationsTableViewCell.swift */,
+				69643BFA28706913007128C0 /* ConversationsTableViewCell.xib */,
+			);
+			path = ConversationCell;
+			sourceTree = "<group>";
+		};
 		69C4996B28697FE0000F4394 /* EmailSignIn */ = {
 			isa = PBXGroup;
 			children = (
@@ -822,6 +836,7 @@
 				692600B8284DE24500B6D801 /* AddSubCollectionViewCell.xib in Resources */,
 				6930D554285360880080528D /* MovieCastCRV.xib in Resources */,
 				695EBBED2861B31800557D69 /* EpisodeCell.xib in Resources */,
+				69643BFC28706913007128C0 /* ConversationsTableViewCell.xib in Resources */,
 				6930D56D2858544B0080528D /* ActorDetailViewController.xib in Resources */,
 				69394672284628D500FE7574 /* Assets.xcassets in Resources */,
 				693946BD2848B22F00FE7574 /* SearchCollectionCell.xib in Resources */,
@@ -908,6 +923,7 @@
 				6930D5332851B53D0080528D /* TrendingWorldCollectionViewCell.swift in Sources */,
 				692600C5284E203100B6D801 /* ChatCVCell.swift in Sources */,
 				693946892847545900FE7574 /* Section1CollectionViewCell.swift in Sources */,
+				69643BFB28706913007128C0 /* ConversationsTableViewCell.swift in Sources */,
 				69394669284628D100FE7574 /* AppDelegate.swift in Sources */,
 				69C4996E28698012000F4394 /* EmailSignInViewController.swift in Sources */,
 				6930D54F285346A60080528D /* MovieCastCell.swift in Sources */,
