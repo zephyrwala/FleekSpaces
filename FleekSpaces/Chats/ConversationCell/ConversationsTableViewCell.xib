@@ -18,23 +18,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bene" translatesAutoresizingMaskIntoConstraints="NO" id="7aW-vJ-zWv">
-                        <rect key="frame" x="20" y="11" width="64" height="64"/>
+                        <rect key="frame" x="20" y="15.5" width="55" height="55"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="64" id="tnb-Mw-tpG"/>
-                            <constraint firstAttribute="height" constant="64" id="xuz-VN-CxN"/>
+                            <constraint firstAttribute="width" constant="55" id="tnb-Mw-tpG"/>
+                            <constraint firstAttribute="height" constant="55" id="xuz-VN-CxN"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sbP-jx-T5z">
-                        <rect key="frame" x="102" y="11" width="256" height="64"/>
+                        <rect key="frame" x="93" y="11" width="265" height="64"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJl-bM-esz">
-                                <rect key="frame" x="0.0" y="0.0" width="256" height="32"/>
+                                <rect key="frame" x="0.0" y="0.0" width="265" height="32"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text conversation comes over here and so does the chat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOV-GY-3do">
-                                <rect key="frame" x="0.0" y="32" width="256" height="32"/>
+                                <rect key="frame" x="0.0" y="32" width="265" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" name="CoinMessageColor"/>
                                 <nil key="highlightedColor"/>

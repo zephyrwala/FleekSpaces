@@ -17,6 +17,8 @@ class ConversationsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         userImage.makeItGolGol()
+        userImage.layer.borderColor = UIColor.black.cgColor
+        userImage.layer.borderWidth = 1
         // Initialization code
     }
 
@@ -26,25 +28,6 @@ class ConversationsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(with model: Conversation) {
-        self.userConversation.text = model.latestMessage.text
-        self.userName.text = model.name
-        
-        let path = "image/\(model.otherUserEmail)_profile_picture.png"
-        StorageManager.shared.downloadURL(for: path) {[weak self] results in
-            
-            switch results {
-                
-            case .success(let url):
-                DispatchQueue.main.async {
-                    self?.userImage.sd_setImage(with: url)
-                }
-               
-            case .failure(let error):
-                print("failed to get an image url: \(error)")
-            }
-        }
-        
-    }
+   
     
 }

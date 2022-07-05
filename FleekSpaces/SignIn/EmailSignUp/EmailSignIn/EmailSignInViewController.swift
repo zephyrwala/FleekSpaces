@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+//import FirebaseAuth
 import JGProgressHUD
 
 class EmailSignInViewController: UIViewController, UINavigationControllerDelegate {
@@ -42,7 +42,7 @@ class EmailSignInViewController: UIViewController, UINavigationControllerDelegat
         
     validateFields()
         spinner.show(in: view)
-        registerUser()
+     
         spinner.dismiss(animated: true)
        
         
@@ -129,91 +129,7 @@ class EmailSignInViewController: UIViewController, UINavigationControllerDelegat
     
     
     //MARK: - register user on firebase
-    func registerUser() {
-        
-        emailAddressField.resignFirstResponder()
-        passwordField.resignFirstResponder()
-        firstNameField.resignFirstResponder()
-        lastNameField.resignFirstResponder()
-        
-    
-        
-        guard let email = emailAddressField.text else {return}
-        guard let password = passwordField.text else {return}
-        
 
-        DatabaseManager.shared.userExists(with: email) { exists in
-            
-            //user doesnt exist - return
-            guard !exists else {
-                self.displayUIAlert(yourMessage: "User already exists!")
-                return
-            }
-            
-            //user is created here
-            FirebaseAuth.Auth.auth().createUser(withEmail: "\(email)", password: password) { authResult, errors in
-                
-                guard let result = authResult,errors == nil else {
-                    print("error creating user")
-                    
-                    if let localError = errors {
-                        
-                        self.displayUIAlert(yourMessage: "Ooops! \(localError.localizedDescription)")
-
-                    }
-                    return
-                }
-                
-                let user = result.user
-    //            self.displayUIAlert(yourMessage: "Created user is - \(user)")
-                let firstName = self.firstNameField.text ?? ""
-                let lastName = self.lastNameField.text ?? ""
-                let emailID = self.emailAddressField.text ?? ""
-                
-                let chatUser = ChatAppUser(firstname: firstName, lastName: lastName, emailAddress: emailID)
-                //user is inserted here
-                DatabaseManager.shared.insertUser(with: chatUser) { success in
-                    if success {
-                        
-                        //TODO: - upload image here
-                        guard let profileImage = self.profilePic.image, let data = profileImage.pngData()  else {
-                            return
-                            
-                        }
-                        
-                        let filename = chatUser.profilePictureFileName
-                        StorageManager.shared.uploadProfilePicture(with: data, filename: filename) { results in
-                            
-                            switch results {
-                                
-                            case .success(let downloadUrl):
-                                UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
-                                print(downloadUrl)
-                                
-                            case .failure(let error):
-                                print("storage manager error \(error)")
-                                
-                                
-                            default:
-                                print("Defaults")
-                            }
-                        }
-                    }
-                    
-                  
-                    
-                }
-                
-                self.loginPrompt()
-               
-            }
-        }
-     
-        
-//        self.dismiss(animated: true)
-        
-        
-    }
     
     func alertUserLoginError() {
         
