@@ -285,8 +285,8 @@ struct ChatLogView: View {
 
             } label: {
                 Image(systemName: "chevron.forward.square.fill")
-                    .font(.system(size: 30))
-                    .foregroundColor(.teal)
+                    .font(.system(size: 27))
+                    .foregroundColor(Color(.darkGray))
             }
             .padding(.horizontal)
             .padding(.vertical, 8)
