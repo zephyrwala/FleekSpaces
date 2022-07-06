@@ -34,7 +34,11 @@ class CreateNewMessageViewModel: ObservableObject {
                 documentsSnapshot?.documents.forEach({ snapshot in
                     
                     let data = snapshot.data()
-                    self.users.append(.init(data: data))
+                    let user = ChatUser(data: data)
+                    if user.uid != FirebaseManager.shared.auth.currentUser?.uid {
+                        self.users.append(.init(data: data))
+                    }
+                   
                     
                 })
             }
@@ -44,6 +48,8 @@ class CreateNewMessageViewModel: ObservableObject {
 }
 
 struct CreateNewMessageView: View {
+    
+    let didSelectnewUser: (ChatUser) -> ()
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -62,24 +68,37 @@ struct CreateNewMessageView: View {
                 
                 
                 ForEach(vm.users) { user in
-                    HStack {
-                        WebImage(url: URL(string: user.profileImageUrl))
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 50, height: 50)
-                            .clipped()
-                            .cornerRadius(50)
-                            .overlay(RoundedRectangle(cornerRadius: 50)
-                                .stroke(Color(.label),
-                                       lineWidth: 1)
-                            )
-                            
-                       
-                        Text(user.email)
-                        Spacer()
-                    }.padding(.horizontal)
+                    
+                    Button{
+                        presentationMode.wrappedValue.dismiss()
+                        didSelectnewUser(user)
+                        
+                    } label: {
+                        
+                        
+                        HStack(spacing: 16) {
+                            WebImage(url: URL(string: user.profileImageUrl))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 50, height: 50)
+                                .clipped()
+                                .cornerRadius(50)
+                                .overlay(RoundedRectangle(cornerRadius: 50)
+                                    .stroke(Color(.label),
+                                           lineWidth: 1)
+                                )
+                                
+                           
+                            Text(user.email)
+                            Spacer()
+                        }.padding(.horizontal)
+     
+                        
+                    }
                     Divider()
                         .padding(.vertical, 6)
+                    
+               
                 }
             }.navigationTitle("New Message")
                 .toolbar {

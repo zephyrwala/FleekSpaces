@@ -73,16 +73,22 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+       
         overrideUserInterfaceStyle = .dark
-        chatView.addSubview(tableView)
-//        setupTableView()
-      
+//        chatView.addSubview(tableView)
+////        setupTableView()
+//
+        self.navigationController?.navigationItem.hidesBackButton = true
+        
         btnSetup()
 //        startListeningForConversation()
         let controllers = UIHostingController(rootView: MainMessagesView())
 //        controllers.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(controllers, animated: true)
-//     present(controllers, animated: true)
+        self.navigationItem.leftBarButtonItem = nil;
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+//        self.navigationController?.pushViewController(controllers, animated: true)
+        controllers.modalPresentationStyle = .overCurrentContext
+     present(controllers, animated: true)
       
 //        presentModal()
         // Do any additional setup after loading the view.
