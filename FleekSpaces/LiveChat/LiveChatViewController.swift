@@ -13,7 +13,9 @@ class LiveChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let controllers = UIHostingController(rootView: LoginView())
+        let controllers = UIHostingController(rootView: LoginView{
+            
+        })
      present(controllers, animated: true)
         // Do any additional setup after loading the view.
     }

@@ -10,18 +10,20 @@ import SwiftUI
 
 struct LoginView: View {
 
-    init() {
-           //Use this if NavigationBarTitle is with Large Font
-           UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+//    init() {
+//           //Use this if NavigationBarTitle is with Large Font
+//           UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+//
+//           //Use this if NavigationBarTitle is with displayMode = .inline
+//           UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+//       }
+    let didCompleteLoginProcess: () -> ()
 
-           //Use this if NavigationBarTitle is with displayMode = .inline
-           UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
-       }
-    @State var isLoginMode = false
-    @State var email = ""
-    @State var password = ""
-    @State var shouldShowImagePicker = false
-    @State var image: UIImage?
+    @State private var isLoginMode = false
+    @State private var email = ""
+    @State private var password = ""
+    @State private var shouldShowImagePicker = false
+    @State private var image: UIImage?
 
     var body: some View {
        
@@ -120,6 +122,8 @@ struct LoginView: View {
             print("Successfully logged in as user: \(result?.user.uid ?? "")")
 
             self.loginStatusMessage = "Successfully logged in as user: \(result?.user.uid ?? "")"
+            
+            self.didCompleteLoginProcess()
         }
     }
 
@@ -127,7 +131,10 @@ struct LoginView: View {
 
     private func createNewAccount() {
         
-        
+       if self.image == nil {
+            self.loginStatusMessage = "Hey bro? Please select some avatar image"
+            return
+        }
         FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { result, err in
             if let err = err {
                 print("Failed to create user:", err)
@@ -198,6 +205,8 @@ struct LoginView: View {
             }
 
             print("Sucess")
+        
+                self.didCompleteLoginProcess()
         }
 
     }

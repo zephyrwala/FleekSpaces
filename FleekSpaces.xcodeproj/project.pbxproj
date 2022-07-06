@@ -92,6 +92,8 @@
 		694393B528744CA300CEC3C4 /* MainMessengerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393B428744CA300CEC3C4 /* MainMessengerView.swift */; };
 		694393B82874566500CEC3C4 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393B72874566500CEC3C4 /* FirebaseManager.swift */; };
 		694393BB2874694E00CEC3C4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 694393BA2874694E00CEC3C4 /* SDWebImageSwiftUI */; };
+		694393BE2875571600CEC3C4 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393BD2875571600CEC3C4 /* ChatUser.swift */; };
+		694393C12875609900CEC3C4 /* CreateNewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393C02875609900CEC3C4 /* CreateNewMessageView.swift */; };
 		695EBBD2285B22E900557D69 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695EBBD1285B22E900557D69 /* OnboardingViewController.swift */; };
 		695EBBD4285B36FB00557D69 /* OnboardingCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695EBBD3285B36FB00557D69 /* OnboardingCVC.swift */; };
 		695EBBD82860839900557D69 /* TVDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695EBBD62860839900557D69 /* TVDetailViewController.swift */; };
@@ -207,6 +209,8 @@
 		694393B228740E9700CEC3C4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		694393B428744CA300CEC3C4 /* MainMessengerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessengerView.swift; sourceTree = "<group>"; };
 		694393B72874566500CEC3C4 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		694393BD2875571600CEC3C4 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
+		694393C02875609900CEC3C4 /* CreateNewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewMessageView.swift; sourceTree = "<group>"; };
 		695EBBD1285B22E900557D69 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		695EBBD3285B36FB00557D69 /* OnboardingCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCVC.swift; sourceTree = "<group>"; };
 		695EBBD62860839900557D69 /* TVDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVDetailViewController.swift; sourceTree = "<group>"; };
@@ -625,6 +629,22 @@
 			path = FirebaseManager;
 			sourceTree = "<group>";
 		};
+		694393BC287556F300CEC3C4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				694393BD2875571600CEC3C4 /* ChatUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		694393BF2875606C00CEC3C4 /* NewMessage */ = {
+			isa = PBXGroup;
+			children = (
+				694393C02875609900CEC3C4 /* CreateNewMessageView.swift */,
+			);
+			path = NewMessage;
+			sourceTree = "<group>";
+		};
 		695EBBD0285B22CB00557D69 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -734,6 +754,8 @@
 		69643C002872BD62007128C0 /* SwiftUIViews */ = {
 			isa = PBXGroup;
 			children = (
+				694393BF2875606C00CEC3C4 /* NewMessage */,
+				694393BC287556F300CEC3C4 /* Model */,
 				694393B62874563D00CEC3C4 /* FirebaseManager */,
 				694393B128740E8300CEC3C4 /* Components */,
 				69643C012872BDD8007128C0 /* ContentView.swift */,
@@ -969,8 +991,10 @@
 				692600BE284E09A200B6D801 /* Section2HeadersCRV.swift in Sources */,
 				690182F4286C166400DF046E /* DatabaseManager.swift in Sources */,
 				69643C102872D4D5007128C0 /* LoginView.swift in Sources */,
+				694393C12875609900CEC3C4 /* CreateNewMessageView.swift in Sources */,
 				6939468D2847546C00FE7574 /* Section2CollectionViewCell.swift in Sources */,
 				6930D5332851B53D0080528D /* TrendingWorldCollectionViewCell.swift in Sources */,
+				694393BE2875571600CEC3C4 /* ChatUser.swift in Sources */,
 				692600C5284E203100B6D801 /* ChatCVCell.swift in Sources */,
 				693946892847545900FE7574 /* Section1CollectionViewCell.swift in Sources */,
 				69643BFB28706913007128C0 /* ConversationsTableViewCell.swift in Sources */,

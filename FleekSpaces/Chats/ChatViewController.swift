@@ -79,7 +79,7 @@ class ChatViewController: UIViewController {
       
         btnSetup()
 //        startListeningForConversation()
-        let controllers = UIHostingController(rootView: LoginView())
+        let controllers = UIHostingController(rootView: MainMessagesView())
 //        controllers.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(controllers, animated: true)
 //     present(controllers, animated: true)

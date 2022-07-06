@@ -8,25 +8,28 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct ChatUser {
-    
-    let uid, email, profileImageUrl: String
-    
-}
+
 
 class MainMessageViewModel: ObservableObject {
     
     @Published var errorMessage = ""
     @Published var chatUser: ChatUser?
+    @Published var isCurrentlyLoggedOut = false
+   
     
     
     
     init() {
+
+        
+        DispatchQueue.main.async {
+            self.isCurrentlyLoggedOut = FirebaseManager.shared.auth.currentUser?.uid == nil
+        }
         fetchCurrentUser()
     }
     
     
-    private func fetchCurrentUser() {
+    func fetchCurrentUser() {
         
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
             print("could not find firebase uid")
@@ -43,10 +46,9 @@ class MainMessageViewModel: ObservableObject {
             
             guard let data = snapshot?.data() else {return}
             print(data)
-            let uid = data["uid"] as? String ?? ""
-            let email = data["email"] as? String ?? ""
-            let profileImageUrl = data["profileImageUrl"] as? String ?? ""
-            self.chatUser = ChatUser(uid: uid, email: email, profileImageUrl: profileImageUrl)
+          
+            
+            self.chatUser = .init(data: data)
             
             
             
@@ -54,9 +56,20 @@ class MainMessageViewModel: ObservableObject {
         }
     }
     
+   
+    func handleSignOut() {
+        isCurrentlyLoggedOut.toggle()
+        try? FirebaseManager.shared.auth.signOut()
+       
+        
+    }
+    
 }
+
+
 struct MainMessagesView: View {
 
+    @State var shouldShowNewMessageScreen = false
     @State var shouldShowLogOutOptions = false
 
     @ObservedObject private var vm = MainMessageViewModel()
@@ -105,10 +118,17 @@ struct MainMessagesView: View {
             .init(title: Text("Settings"), message: Text("What do you want to do?"), buttons: [
                 .destructive(Text("Sign Out"), action: {
                     print("handle sign out")
+                    vm.handleSignOut()
                 }),
                     .cancel()
             ])
         }
+        .fullScreenCover(isPresented:
+                            $vm.isCurrentlyLoggedOut, onDismiss: nil) {
+            LoginView {
+                self.vm.isCurrentlyLoggedOut = false
+                self.vm.fetchCurrentUser()
+            }       }
     }
 
     var body: some View {
@@ -160,20 +180,27 @@ struct MainMessagesView: View {
     private var newMessageButton: some View {
         Button {
 
+            shouldShowNewMessageScreen.toggle()
+            
         } label: {
             HStack {
                 Spacer()
-                Text("+ New")
+                Text(" + New Chat ")
                     .font(.system(size: 16, weight: .bold))
                 Spacer()
             }
             .foregroundColor(.white)
             .padding(.vertical)
-                .background(Color.blue)
-                .frame(width: 50, height: 50, alignment: .trailing)
+                .background(Color.teal)
+                .frame(width: 150, height: 50, alignment: .trailing)
                 .cornerRadius(32)
                 .padding(.horizontal)
+                .padding(.vertical)
                 .shadow(radius: 15)
+        }
+        .fullScreenCover(isPresented: $shouldShowNewMessageScreen) {
+            
+            CreateNewMessageView()
         }
     }
 }
