@@ -54,7 +54,12 @@ class ChatLogViewModel: ObservableObject {
         
         guard let toId = chatUser?.uid else {return}
         
-        FirebaseManager.shared.firestore.collection("messages").document(fromId).collection(toId).addSnapshotListener { querySnapshot, err in
+        FirebaseManager.shared.firestore
+            .collection("messages")
+            .document(fromId)
+            .collection(toId)
+            .order(by: "timeStamp")
+            .addSnapshotListener { querySnapshot, err in
             if let error = err {
                 self.errorMessage = "Failed to listen for messages"
                 print("Snapshot Error is here : \(error)")
@@ -70,17 +75,9 @@ class ChatLogViewModel: ObservableObject {
                 
             })
             
-            //this was appending repeating messages
+      
             
-            
-//            querySnapshot?.documents.forEach({ queryDocumentSnapshot in
-//
-//                let data = queryDocumentSnapshot.data()
-//                let docId = queryDocumentSnapshot.documentID
-//                let chatMessage = ChatMessage(documentId: docId, data: data)
-//                self.chatMessages.append(chatMessage)
-//
-//            })
+
         }
     }
     
@@ -159,18 +156,44 @@ struct ChatLogView: View {
             
             ForEach(vm.chatMessages) { message in
 
-                HStack {
-                    Spacer()
-                    HStack {
-                        Text(message.text)
-                            .foregroundColor(.white)
+                VStack {
+                    
+                    if message.fromId == FirebaseManager.shared.auth.currentUser?.uid {
+                        
+                        HStack {
+                            Spacer()
+                            HStack {
+                                Text(message.text)
+                                    .foregroundColor(.white)
+                            }
+                            .padding()
+                            .background(Color.teal)
+                            .cornerRadius(45)
+                        }
+                       
+                        
+                    } else {
+                        
+                        HStack {
+                           
+                            HStack {
+                                Text(message.text)
+                                    .foregroundColor(.black)
+                            }
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(45)
+                            Spacer()
+                        }
+                      
+                        
                     }
-                    .padding()
-                    .background(Color.teal)
-                    .cornerRadius(45)
-                }
-                .padding(.horizontal)
-                .padding(.top, 8)
+                    
+                }  .padding(.horizontal)
+                    .padding(.top, 8)
+                    
+                
+              
             }
 
             HStack{ Spacer() }
