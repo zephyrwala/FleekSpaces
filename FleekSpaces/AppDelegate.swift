@@ -23,15 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableDebugging = true
         IQKeyboardManager.shared.overrideKeyboardAppearance = true
-        IQKeyboardManager.shared.enableAutoToolbar = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.keyboardAppearance = .dark
-        IQKeyboardManager.shared.keyboardDistanceFromTextField = 60.0
+        IQKeyboardManager.shared.keyboardDistanceFromTextField = 10.0
 //
 //        IQKeyboardManager.shared.toolb
         
-//        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatLayoutViewController.self)
+        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatViewController.self)
 //
-//        IQKeyboardManager.shared.disabledToolbarClasses.append(ChatLayoutViewController.self)
+        IQKeyboardManager.shared.disabledToolbarClasses.append(ChatViewController.self)
         IQKeyboardManager.shared.toolbarTintColor = UIColor(named: "BtnGreenColor")
         // Override point for customization after application launch.
         return true
