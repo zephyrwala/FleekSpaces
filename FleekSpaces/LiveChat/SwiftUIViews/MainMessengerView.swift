@@ -75,10 +75,10 @@ class MainMessageViewModel: ObservableObject {
                 
                 querySnapshot?.documentChanges.forEach({ change in
                     
-//                    if change.type == .added {
+                    if change.type == .added {
                         let docId = change.document.documentID
                         self.recentMessages.append(.init(documentId: docId, data: change.document.data()))
-//                    }
+                    }
                 })
             }
         
