@@ -7,8 +7,33 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import Firebase
 
 
+struct RecentMessage: Identifiable {
+    
+    var id: String {
+        
+        documentId
+    }
+    
+    let documentId: String
+    let text, email: String
+    let fromId, toId: String
+    let profileImageUrl: String
+    let timestamp: Timestamp
+    
+    
+    init(documentId: String, data: [String: Any]) {
+        self.documentId = documentId
+        self.text = data["text"] as? String ?? ""
+        self.email = data["email"] as? String ?? ""
+        self.fromId = data["fromId"] as? String ?? ""
+        self.toId = data["toId"] as? String ?? ""
+        self.profileImageUrl = data["profileImageUrl"] as? String ?? ""
+        self.timestamp = data["timestamp"] as? Timestamp ?? Timestamp(date: Date())
+    }
+}
 
 class MainMessageViewModel: ObservableObject {
     
@@ -26,9 +51,40 @@ class MainMessageViewModel: ObservableObject {
             self.isCurrentlyLoggedOut = FirebaseManager.shared.auth.currentUser?.uid == nil
         }
         fetchCurrentUser()
+        fetchRecentMessages()
     }
     
+    @Published var recentMessages = [RecentMessage]()
+    //MARK: - Fetch recent Messages
+    private func fetchRecentMessages() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
+            return
+        }
+        
+        FirebaseManager.shared.firestore
+            .collection("recent_messages")
+            .document(uid)
+            .collection("messages")
+            .addSnapshotListener { querySnapshot, error in
+                
+                if let error = error {
+                    print("failed to listen to recent messages \(error)")
+                    self.errorMessage = "failed to listen to recent messages \(error)"
+                    return
+                }
+                
+                querySnapshot?.documentChanges.forEach({ change in
+                    
+//                    if change.type == .added {
+                        let docId = change.document.documentID
+                        self.recentMessages.append(.init(documentId: docId, data: change.document.data()))
+//                    }
+                })
+            }
+        
+    }
     
+    //MARK: - Fetch Current user
     func fetchCurrentUser() {
         
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
@@ -152,7 +208,7 @@ struct MainMessagesView: View {
     private var messagesView: some View {
         
         ScrollView {
-            ForEach(0..<10, id: \.self) { num in
+            ForEach(vm.recentMessages) { recentMessage in
                 VStack {
                     NavigationLink {
                         Text("Destination")
@@ -166,10 +222,10 @@ struct MainMessagesView: View {
                                 )
 
 
-                            VStack(alignment: .leading) {
-                                Text("Username")
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text(recentMessage.email)
                                     .font(.system(size: 16, weight: .bold))
-                                Text("Message sent to user")
+                                Text(recentMessage.text)
                                     .font(.system(size: 14))
                                     .foregroundColor(Color(.lightGray))
                             }

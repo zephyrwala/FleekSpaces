@@ -12,6 +12,9 @@ struct FirebaseConstants {
     static let fromId = "fromId"
     static let toId = "toId"
     static let text = "text"
+    static let timestamp = "timestamp"
+    static let profileImageUrl = "profileImageUrl"
+    static let email = "email"
 }
 
 struct ChatMessage: Identifiable {
@@ -102,6 +105,9 @@ class ChatLogViewModel: ObservableObject {
             }
             
             print("Sucess saved current user sending message")
+            
+            self.persistRecentMessage()
+            //clear chat text
             self.chatText = ""
             //message auto scroll
             self.count += 1
@@ -119,6 +125,45 @@ class ChatLogViewModel: ObservableObject {
             print("Sucess saved recipient user receiving message")
 
             
+        }
+    }
+    
+    //MARK: - Persist Recent Messages
+    private func persistRecentMessage() {
+        
+        guard let chatUser = chatUser else {
+            return
+        }
+
+        
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        
+        guard let toId = self.chatUser?.uid else {return}
+
+        
+        let document = FirebaseManager.shared.firestore
+            .collection("recent_messages")
+            .document(uid).collection("messages")
+            .document(toId)
+        
+        
+        let data = [
+        
+            FirebaseConstants.timestamp: Timestamp(),
+            FirebaseConstants.text: self.chatText,
+            FirebaseConstants.fromId: uid,
+            FirebaseConstants.toId: toId,
+            FirebaseConstants.profileImageUrl: chatUser.profileImageUrl,
+            FirebaseConstants.email: chatUser.email
+        ] as [String : Any]
+        
+        //TODO: - need to save similar dictionary for the recipeient.
+
+        document.setData(data) { err in
+            if let error = err {
+                print("Failed to save recent message: \(error)")
+                return
+            }
         }
     }
     
@@ -151,6 +196,8 @@ struct ChatLogView: View {
                   
             }
         }
+        
+        
         //chat user name comes over here
         //TODO: - Add chat user name here
         .navigationTitle(chatUser?.email ?? "")
