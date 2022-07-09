@@ -28,11 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.keyboardDistanceFromTextField = 10.0
 //
 //        IQKeyboardManager.shared.toolb
-        
-        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatViewController.self)
-//
-        IQKeyboardManager.shared.disabledToolbarClasses.append(ChatViewController.self)
+
+//        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatViewController.self)
+////
+//        IQKeyboardManager.shared.disabledToolbarClasses.append(ChatViewController.self)
         IQKeyboardManager.shared.toolbarTintColor = UIColor(named: "BtnGreenColor")
+        
+     
         // Override point for customization after application launch.
         return true
     }

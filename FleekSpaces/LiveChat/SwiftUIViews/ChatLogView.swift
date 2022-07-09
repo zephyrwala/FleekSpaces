@@ -7,6 +7,8 @@
 
 import SwiftUI
 import Firebase
+import FirebaseFirestoreSwift
+import FirebaseFirestore
 
 struct FirebaseConstants {
     static let fromId = "fromId"

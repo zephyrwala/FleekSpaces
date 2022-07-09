@@ -8,31 +8,21 @@
 import SwiftUI
 import SDWebImageSwiftUI
 import Firebase
+import FirebaseFirestoreSwift
 
 
-struct RecentMessage: Identifiable {
+
+
+struct RecentMessage: Codable, Identifiable {
     
-    var id: String {
-        
-        documentId
-    }
-    
-    let documentId: String
+    @DocumentID var id: String?
+//    let documentId: String
     let text, email: String
     let fromId, toId: String
     let profileImageUrl: String
-    let timestamp: Timestamp
+    let timestamp: Date
     
     
-    init(documentId: String, data: [String: Any]) {
-        self.documentId = documentId
-        self.text = data["text"] as? String ?? ""
-        self.email = data["email"] as? String ?? ""
-        self.fromId = data["fromId"] as? String ?? ""
-        self.toId = data["toId"] as? String ?? ""
-        self.profileImageUrl = data["profileImageUrl"] as? String ?? ""
-        self.timestamp = data["timestamp"] as? Timestamp ?? Timestamp(date: Date())
-    }
 }
 
 class MainMessageViewModel: ObservableObject {
@@ -65,6 +55,7 @@ class MainMessageViewModel: ObservableObject {
             .collection("recent_messages")
             .document(uid)
             .collection("messages")
+            .order(by: "timestamp")
             .addSnapshotListener { querySnapshot, error in
                 
                 if let error = error {
@@ -75,10 +66,30 @@ class MainMessageViewModel: ObservableObject {
                 
                 querySnapshot?.documentChanges.forEach({ change in
                     
-                    if change.type == .added {
+
                         let docId = change.document.documentID
-                        self.recentMessages.append(.init(documentId: docId, data: change.document.data()))
+                    if let index = self.recentMessages.firstIndex(where: { rm in
+                        
+                        return rm.id == docId
+                    })
+                    {
+                        self.recentMessages.remove(at: index)
                     }
+                   
+                    
+                    do {
+                        
+                        let rm = try change.document.data(as: RecentMessage.self)
+                        self.recentMessages.insert(rm, at: 0)
+                        
+                    } catch {
+                        
+                        print(error)
+                    }
+                    
+               
+//                    self.recentMessages.insert(.init(documentId: docId, data: change.document.data()), at: 0)
+//                        self.recentMessages.append(.init(documentId: docId, data: change.document.data()))
                 })
             }
         
@@ -214,24 +225,31 @@ struct MainMessagesView: View {
                         Text("Destination")
                     } label: {
                         HStack(spacing: 16) {
-                            Image(systemName: "person.fill")
-                                .font(.system(size: 32))
-                                .padding(8)
-                                .overlay(RoundedRectangle(cornerRadius: 44)
-                                            .stroke(Color(.label), lineWidth: 1)
-                                )
+                            WebImage(url: URL(string: recentMessage.profileImageUrl))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 64, height: 64)
+                                .clipped()
+                                .cornerRadius(64)
+                                .overlay(RoundedRectangle(cornerRadius: 64).stroke(Color.black, lineWidth: 1))
+                                .shadow(radius: 6)
+                            
+                            
+                            
 
 
                             VStack(alignment: .leading, spacing: 8) {
                                 Text(recentMessage.email)
                                     .font(.system(size: 16, weight: .bold))
+                                    .multilineTextAlignment(.leading)
                                 Text(recentMessage.text)
                                     .font(.system(size: 14))
                                     .foregroundColor(Color(.lightGray))
+                                    .multilineTextAlignment(.leading)
                             }
                             Spacer()
 
-                            Text("22d")
+                            Text(recentMessage.timestamp.description)
                                 .font(.system(size: 14, weight: .semibold))
                         }
                     }
