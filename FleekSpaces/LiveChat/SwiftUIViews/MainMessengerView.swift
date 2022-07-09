@@ -14,16 +14,23 @@ import FirebaseFirestoreSwift
 
 
 struct RecentMessage: Codable, Identifiable {
-    
     @DocumentID var id: String?
-//    let documentId: String
     let text, email: String
     let fromId, toId: String
     let profileImageUrl: String
     let timestamp: Date
     
+    var username: String {
+        email.components(separatedBy: "@").first ?? email
+    }
     
+    var timeAgo: String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .abbreviated
+        return formatter.localizedString(for: timestamp, relativeTo: Date())
+    }
 }
+
 
 class MainMessageViewModel: ObservableObject {
     
@@ -45,13 +52,16 @@ class MainMessageViewModel: ObservableObject {
     }
     
     @Published var recentMessages = [RecentMessage]()
+    private var firestoreListener: ListenerRegistration?
     //MARK: - Fetch recent Messages
-    private func fetchRecentMessages() {
+     func fetchRecentMessages() {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
             return
         }
+         firestoreListener?.remove()
+         self.recentMessages.removeAll()
         
-        FirebaseManager.shared.firestore
+       firestoreListener = FirebaseManager.shared.firestore
             .collection("recent_messages")
             .document(uid)
             .collection("messages")
@@ -97,32 +107,22 @@ class MainMessageViewModel: ObservableObject {
     
     //MARK: - Fetch Current user
     func fetchCurrentUser() {
-        
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
-            print("could not find firebase uid")
+            self.errorMessage = "Could not find firebase uid"
             return
         }
         
-        
-        FirebaseManager.shared.firestore.collection("users").document(uid).getDocument { snapshot, err in
-            if let error = err {
-                
-                print("failed to fetch current user:", error)
+        FirebaseManager.shared.firestore.collection("users").document(uid).getDocument { snapshot, error in
+            if let error = error {
+                self.errorMessage = "Failed to fetch current user: \(error)"
+                print("Failed to fetch current user:", error)
                 return
             }
             
-            guard let data = snapshot?.data() else {return}
-            print(data)
-          
-            
-            self.chatUser = .init(data: data)
-            
-            
-            
-          
+            self.chatUser = try? snapshot?.data(as: ChatUser.self)
+            FirebaseManager.shared.currentUser = self.chatUser
         }
     }
-    
    
     func handleSignOut() {
         isCurrentlyLoggedOut.toggle()
@@ -138,8 +138,27 @@ struct MainMessagesView: View {
 
     @State var shouldShowNewMessageScreen = false
     @State var shouldShowLogOutOptions = false
+  
 
     @ObservedObject private var vm = MainMessageViewModel()
+    private var chatLogViewModel = ChatLogViewModel(chatUser: nil)
+    
+    var body: some View {
+        NavigationView {
+
+            VStack {
+                customNavBar
+                messagesView
+                NavigationLink("", isActive: $shouldNavigateToChatLogView) {
+
+                    ChatLogView(vm: chatLogViewModel)
+                }
+            }
+            .overlay(
+                newMessageButton, alignment: .bottom)
+            .navigationBarHidden(true)
+        }
+    }
     
     private var customNavBar: some View {
         HStack(spacing: 16) {
@@ -157,8 +176,9 @@ struct MainMessagesView: View {
 
 
             VStack(alignment: .leading, spacing: 4) {
-                Text("\(vm.chatUser?.email ?? "")")
-                    .font(.system(size: 24, weight: .bold))
+                let email = vm.chatUser?.email.components(separatedBy: "@").first ?? "loading..."
+                Text(email)
+                    .font(.system(size: 21, weight: .bold))
 
                 HStack {
                     Circle()
@@ -186,6 +206,7 @@ struct MainMessagesView: View {
                 .destructive(Text("Sign Out"), action: {
                     print("handle sign out")
                     vm.handleSignOut()
+                    
                 }),
                     .cancel()
             ])
@@ -195,34 +216,26 @@ struct MainMessagesView: View {
             LoginView {
                 self.vm.isCurrentlyLoggedOut = false
                 self.vm.fetchCurrentUser()
+                self.vm.fetchRecentMessages()
             }       }
     }
     
     @State var shouldNavigateToChatLogView = false
+   
 
-    var body: some View {
-        NavigationView {
-
-            VStack {
-                customNavBar
-                messagesView
-                NavigationLink("", isActive: $shouldNavigateToChatLogView) {
-                    ChatLogView(chatUser: self.chatUser)
-                }
-            }
-            .overlay(
-                newMessageButton, alignment: .bottom)
-            .navigationBarHidden(true)
-        }
-    }
 
     private var messagesView: some View {
-        
         ScrollView {
             ForEach(vm.recentMessages) { recentMessage in
                 VStack {
-                    NavigationLink {
-                        Text("Destination")
+                    Button {
+                        let uid = FirebaseManager.shared.auth.currentUser?.uid == recentMessage.fromId ? recentMessage.toId : recentMessage.fromId
+                        
+                        self.chatUser = .init(id: uid, uid: uid, email: recentMessage.email, profileImageUrl: recentMessage.profileImageUrl)
+                        
+                        self.chatLogViewModel.chatUser = self.chatUser
+                        self.chatLogViewModel.fetchMessages()
+                        self.shouldNavigateToChatLogView.toggle()
                     } label: {
                         HStack(spacing: 16) {
                             WebImage(url: URL(string: recentMessage.profileImageUrl))
@@ -231,33 +244,35 @@ struct MainMessagesView: View {
                                 .frame(width: 64, height: 64)
                                 .clipped()
                                 .cornerRadius(64)
-                                .overlay(RoundedRectangle(cornerRadius: 64).stroke(Color.black, lineWidth: 1))
-                                .shadow(radius: 6)
+                                .overlay(RoundedRectangle(cornerRadius: 64)
+                                            .stroke(Color.black, lineWidth: 1))
+                                .shadow(radius: 5)
                             
                             
-                            
-
-
                             VStack(alignment: .leading, spacing: 8) {
-                                Text(recentMessage.email)
+                                Text(recentMessage.username)
                                     .font(.system(size: 16, weight: .bold))
+                                    .foregroundColor(Color(.label))
                                     .multilineTextAlignment(.leading)
                                 Text(recentMessage.text)
                                     .font(.system(size: 14))
-                                    .foregroundColor(Color(.lightGray))
+                                    .foregroundColor(Color(.darkGray))
                                     .multilineTextAlignment(.leading)
                             }
                             Spacer()
-
-                            Text(recentMessage.timestamp.description)
+                            
+                            Text(recentMessage.timeAgo)
                                 .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(Color(.label))
                         }
                     }
-                  
+
+
+                    
                     Divider()
                         .padding(.vertical, 8)
                 }.padding(.horizontal)
-
+                
             }.padding(.bottom, 50)
         }
     }
@@ -290,6 +305,8 @@ struct MainMessagesView: View {
                 self.shouldNavigateToChatLogView.toggle()
                 print(user.email)
                 self.chatUser = user
+                self.chatLogViewModel.chatUser = user
+                self.chatLogViewModel.fetchMessages()
                 
                 
             })
