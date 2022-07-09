@@ -216,6 +216,7 @@ struct ChatLogView: View {
         }
         .navigationTitle(vm.chatUser?.email ?? "")
         .navigationBarTitleDisplayMode(.inline)
+        .preferredColorScheme(.dark)
         .onDisappear {
             vm.firestoreListener?.remove()
         }
@@ -252,9 +253,9 @@ struct ChatLogView: View {
                 
                
             }
-            .background(Color(.init(white: 0.95, alpha: 1)))
+            .background(Color(.init("BGColor")))
             .safeAreaInset(edge: .bottom) {
-                chatBottomBar.background(Color(.systemBackground))
+                chatBottomBar.background(Color(.init("BGColor")))
                     .ignoresSafeArea()
         }
         }
@@ -269,7 +270,7 @@ struct ChatLogView: View {
             ZStack {
                 DescriptionPlaceholder()
                 TextEditor(text: $vm.chatText)
-                    .opacity(vm.chatText.isEmpty ? 0.5 : 1)
+                    .opacity(vm.chatText.isEmpty ? 0.3 : 1)
             }
             .frame(height: 40)
             .cornerRadius(12)
@@ -290,7 +291,8 @@ struct ChatLogView: View {
         }
         .padding(.horizontal)
         .padding(.vertical, 8)
-        .background(.ultraThinMaterial)
+//        .background(.ultraThinMaterial)
+        .colorScheme(.dark)
         
     }
 }
@@ -312,7 +314,7 @@ struct MessageView: View {
                             .foregroundColor(.white)
                     }
                     .padding()
-                    .background(Color.teal)
+                    .background(Color(.init("BtnGreenColor")))
                     .cornerRadius(15)
                 }
                
@@ -323,10 +325,11 @@ struct MessageView: View {
                    
                     HStack {
                         Text(message.text)
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                     }
                     .padding()
-                    .background(Color.white)
+                    //BorderColor
+                    .background(Color(.init("BorderColor")))
                     .cornerRadius(15)
                     Spacer()
                 }
@@ -349,7 +352,7 @@ private struct DescriptionPlaceholder: View {
                 .padding(.top, -4)
             Spacer()
         }.cornerRadius(12)
-        .background(.ultraThinMaterial)
+            .background(Color(.init("BGColor")))
            
     }
 }

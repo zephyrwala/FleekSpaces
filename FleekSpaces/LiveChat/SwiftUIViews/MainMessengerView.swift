@@ -157,6 +157,8 @@ struct MainMessagesView: View {
             .overlay(
                 newMessageButton, alignment: .bottom)
             .navigationBarHidden(true)
+            .background(Color(.init("BGColor")))
+            //BtnGreenColor
         }
     }
     
@@ -169,7 +171,7 @@ struct MainMessagesView: View {
                 .clipped()
                 .cornerRadius(50)
                 .overlay(RoundedRectangle(cornerRadius: 44)
-                            .stroke(Color(.label), lineWidth: 1)
+                            .stroke(Color(.gray), lineWidth: 1)
                 )
                 .shadow(radius: 5)
         
@@ -179,6 +181,7 @@ struct MainMessagesView: View {
                 let email = vm.chatUser?.email.components(separatedBy: "@").first ?? "loading..."
                 Text(email)
                     .font(.system(size: 21, weight: .bold))
+                    .foregroundColor(.white)
 
                 HStack {
                     Circle()
@@ -197,7 +200,7 @@ struct MainMessagesView: View {
             } label: {
                 Image(systemName: "gear")
                     .font(.system(size: 24, weight: .bold))
-                    .foregroundColor(Color(.label))
+                    .foregroundColor(Color(.darkGray))
             }
         }
         .padding()
@@ -245,25 +248,26 @@ struct MainMessagesView: View {
                                 .clipped()
                                 .cornerRadius(64)
                                 .overlay(RoundedRectangle(cornerRadius: 64)
-                                            .stroke(Color.black, lineWidth: 1))
+                                            .stroke(Color.gray, lineWidth: 1))
                                 .shadow(radius: 5)
                             
                             
                             VStack(alignment: .leading, spacing: 8) {
                                 Text(recentMessage.username)
                                     .font(.system(size: 16, weight: .bold))
-                                    .foregroundColor(Color(.label))
+                                    .foregroundColor(Color(.white))
                                     .multilineTextAlignment(.leading)
                                 Text(recentMessage.text)
                                     .font(.system(size: 14))
-                                    .foregroundColor(Color(.darkGray))
+                                    .foregroundColor(Color(.lightGray))
                                     .multilineTextAlignment(.leading)
                             }
                             Spacer()
                             
                             Text(recentMessage.timeAgo)
                                 .font(.system(size: 14, weight: .semibold))
-                                .foregroundColor(Color(.label))
+                                .foregroundColor(Color(.init("BtnGreenColor")))
+                               
                         }
                     }
 
@@ -272,8 +276,10 @@ struct MainMessagesView: View {
                     Divider()
                         .padding(.vertical, 8)
                 }.padding(.horizontal)
+                    .background(Color(.init("BGColor")))
                 
             }.padding(.bottom, 50)
+                .background(Color(.init("BGColor")))
         }
     }
 
@@ -291,12 +297,12 @@ struct MainMessagesView: View {
             }
             .foregroundColor(.white)
             .padding(.vertical)
-                .background(Color.teal)
-                .frame(width: 150, height: 50, alignment: .trailing)
-                .cornerRadius(32)
-                .padding(.horizontal)
-                .padding(.vertical)
-                .shadow(radius: 15)
+            .background(Color(.init("BtnGreenColor")))
+            .frame(width: 150, height: 50, alignment: .trailing)
+            .cornerRadius(32)
+            .padding(.horizontal)
+            .padding(.vertical)
+            .shadow(radius: 15)
         }
         .fullScreenCover(isPresented: $shouldShowNewMessageScreen) {
             
