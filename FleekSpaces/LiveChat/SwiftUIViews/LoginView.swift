@@ -64,13 +64,17 @@ struct LoginView: View {
                     
 
                     Group {
-                        TextField("Email", text: $email)
+                        TextField("Email", text: $email, prompt: Text("Enter your email"))
+                           
                             .keyboardType(.emailAddress)
+                            .foregroundColor(.black)
                             .autocapitalization(.none)
-                        SecureField("Password", text: $password)
+                            SecureField("Password", text: $password)
+                            .foregroundColor(.black)
                     }
                     .padding(12)
                     .background(Color.white)
+                    .cornerRadius(10)
                    
                   
 

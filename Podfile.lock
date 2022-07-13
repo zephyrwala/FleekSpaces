@@ -610,6 +610,9 @@ PODS:
   - Firebase/Firestore (9.0.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 9.0.0)
+  - Firebase/Messaging (9.0.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 9.0.0)
   - Firebase/Storage (9.0.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 9.0.0)
@@ -649,6 +652,20 @@ PODS:
     - nanopb (~> 2.30908.0)
   - FirebaseFirestoreSwift (9.2.0):
     - FirebaseFirestore (~> 9.0)
+  - FirebaseInstallations (9.2.0):
+    - FirebaseCore (~> 9.0)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/UserDefaults (~> 7.7)
+    - PromisesObjC (~> 2.1)
+  - FirebaseMessaging (9.0.0):
+    - FirebaseCore (~> 9.0)
+    - FirebaseInstallations (~> 9.0)
+    - GoogleDataTransport (~> 9.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/Reachability (~> 7.7)
+    - GoogleUtilities/UserDefaults (~> 7.7)
+    - nanopb (~> 2.30908.0)
   - FirebaseStorage (9.0.0):
     - FirebaseAppCheckInterop (~> 9.0)
     - FirebaseAuthInterop (~> 9.0)
@@ -676,6 +693,8 @@ PODS:
     - GoogleUtilities/Reachability
   - "GoogleUtilities/NSData+zlib (7.7.0)"
   - GoogleUtilities/Reachability (7.7.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (7.7.0):
     - GoogleUtilities/Logger
   - "gRPC-C++ (1.44.0)":
     - "gRPC-C++/Implementation (= 1.44.0)"
@@ -746,6 +765,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
+  - Firebase/Messaging
   - Firebase/Storage
   - FirebaseFirestoreSwift
 
@@ -763,6 +783,8 @@ SPEC REPOS:
     - FirebaseCoreInternal
     - FirebaseFirestore
     - FirebaseFirestoreSwift
+    - FirebaseInstallations
+    - FirebaseMessaging
     - FirebaseStorage
     - FirebaseStorageInternal
     - GoogleDataTransport
@@ -788,6 +810,8 @@ SPEC CHECKSUMS:
   FirebaseCoreInternal: cb966328b6985dbd6f535e1461291063e1c4a00f
   FirebaseFirestore: 3ff0784d61f9a0faa3d67c5a8b1e4fb0b828c6b1
   FirebaseFirestoreSwift: d7e3e7b587a7b8118b97ddb038852750026ee861
+  FirebaseInstallations: 21186f0ca7849f90f4a3219fa31a5eca2e30f113
+  FirebaseMessaging: 411a61cde991cbd00b5b11c7a25e0c8f28c44990
   FirebaseStorage: 7b70fce0c7a751017b2f749d161e4f4855f431d9
   FirebaseStorageInternal: 153685c8d9f67ee3007fed0414351c43487983c2
   GoogleDataTransport: 5fffe35792f8b96ec8d6775f5eccd83c998d5a3b
@@ -800,6 +824,6 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
 
-PODFILE CHECKSUM: 00ea6e6e9863e65c6a8116d345f1d100512e103f
+PODFILE CHECKSUM: 5b6e50ad4a7a49e3a84baec7e526bdbe7613e6c8
 
 COCOAPODS: 1.11.3

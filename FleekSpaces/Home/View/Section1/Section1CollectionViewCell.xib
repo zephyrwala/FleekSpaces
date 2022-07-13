@@ -20,8 +20,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIG-Be-AdK">
                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="K2G-Tg-zff">
-                                <rect key="frame" x="0.0" y="2" width="75" height="71"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="K2G-Tg-zff">
+                                <rect key="frame" x="0.0" y="0.5" width="75" height="74"/>
                                 <color key="tintColor" name="cellBorderColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="K2G-Tg-zff" secondAttribute="height" multiplier="1:1" id="DTb-eB-5ie"/>
@@ -52,7 +52,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="photo.circle" catalog="system" width="128" height="121"/>
         <namedColor name="cellBorderColor">
             <color red="0.68599998950958252" green="0.68599998950958252" blue="0.68599998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

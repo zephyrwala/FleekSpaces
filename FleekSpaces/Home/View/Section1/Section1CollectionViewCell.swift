@@ -16,6 +16,22 @@ class Section1CollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
+   
+    //MARK: - Setup cell with new api data
+    func setupStreamCells(fromData: StreamingElement) {
+        
+        if let imageURL = fromData.iconURL {
+            
+            self.selectedSub.sd_setImage(with: URL(string: imageURL))
+            
+        }
+       
+//        selectedSub.makeItGolGol()
+        selectedSub.layer.cornerRadius = selectedSub.frame.size.width / 2
+        selectedSub.clipsToBounds = true
+       
+        
+    }
   
     
     func setupCell(fromData: Results){

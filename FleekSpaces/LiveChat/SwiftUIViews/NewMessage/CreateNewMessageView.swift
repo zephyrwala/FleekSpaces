@@ -56,12 +56,27 @@ struct CreateNewMessageView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                HStack {
-                    Text(vm.errorMessage)
-                        .font(.system(size: 9))
-                        .padding(.horizontal)
-                    Spacer()
-                }
+//                HStack {
+//                    Text(vm.errorMessage)
+//                        .font(.system(size: 9))
+//                        .padding(.horizontal)
+//                    Spacer()
+//                }.padding()
+                VStack(alignment: .leading, spacing: 9) {
+                    
+                    Text("Invite friends and start chatting!")
+                        .font(.system(size: 15))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color(.init("BtnGreenColor")))
+                    
+                    Text("Geek out about your favourite Movies and TV Shows only on Feek Spaces")
+                        .font(.system(size: 12))
+                        .foregroundColor(.gray)
+                        .padding(.trailing)
+//                        .fontWeight(.light)
+//                        .foregroundColor(.lightGray)
+                }.padding()
+                    .padding(.bottom)
                 
                 
                 ForEach(vm.users) { user in
@@ -81,12 +96,13 @@ struct CreateNewMessageView: View {
                                 .clipped()
                                 .cornerRadius(50)
                                 .overlay(RoundedRectangle(cornerRadius: 50)
-                                    .stroke(Color(.label),
+                                    .stroke(Color(.gray),
                                            lineWidth: 1)
                                 )
                                 
                            
                             Text(user.email)
+                                .foregroundColor(Color(.init("CoinMessageColor")))
                             Spacer()
                         }.padding(.horizontal)
      
@@ -98,13 +114,14 @@ struct CreateNewMessageView: View {
                
                 }
             }.navigationTitle("New Message")
+                .background(Color(.init("BGColor")))
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarLeading) {
                         Button {
                             presentationMode.wrappedValue.dismiss()
                         } label: {
                             Text("Cancel")
-                                .foregroundColor(.blue)
+                                .foregroundColor(Color(.init("BtnGreenColor")))
                         }
                     }
                 }
@@ -115,6 +132,11 @@ struct CreateNewMessageView: View {
 
 //struct CreateNewMessageView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        CreateNewMessageView()
+//        CreateNewMessageView(didSelectnewUser: {
+//
+//            _ in
+//
+//            print("wow")
+//        })
 //    }
 //}

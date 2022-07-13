@@ -20,10 +20,57 @@ class MyMovieDataModel: NSObject {
     static var tvshow: TVshow?
     static var upcoming: Upcoming?
     static var tvEpisodes: Episodes?
+    static var streamingPlatform: [StreamingElement]?
    
+    
     
 }
 
+
+
+
+// MARK: - StreamingElement
+class StreamingElement: Codable {
+    let updatedAt, createdAt: String?
+    let iconURL: String?
+    let slug, clearName, id, technicalName: String?
+    let justwatchID: Int?
+    let monetizationTypes: [MonetizationType]?
+
+    enum CodingKeys: String, CodingKey {
+        case updatedAt = "updated_at"
+        case createdAt = "created_at"
+        case iconURL = "icon_url"
+        case slug
+        case clearName = "clear_name"
+        case id
+        case technicalName = "technical_name"
+        case justwatchID = "justwatch_id"
+        case monetizationTypes = "monetization_types"
+    }
+
+    init(updatedAt: String?, createdAt: String?, iconURL: String?, slug: String?, clearName: String?, id: String?, technicalName: String?, justwatchID: Int?, monetizationTypes: [MonetizationType]?) {
+        self.updatedAt = updatedAt
+        self.createdAt = createdAt
+        self.iconURL = iconURL
+        self.slug = slug
+        self.clearName = clearName
+        self.id = id
+        self.technicalName = technicalName
+        self.justwatchID = justwatchID
+        self.monetizationTypes = monetizationTypes
+    }
+}
+
+enum MonetizationType: String, Codable {
+    case ads = "ads"
+    case buy = "buy"
+    case flatrate = "flatrate"
+    case free = "free"
+    case rent = "rent"
+}
+
+typealias Streaming = [StreamingElement]
 
 
 

@@ -74,6 +74,7 @@ class MainMessageViewModel: ObservableObject {
                     return
                 }
                 
+                
                 querySnapshot?.documentChanges.forEach({ change in
                     
 
@@ -96,17 +97,21 @@ class MainMessageViewModel: ObservableObject {
                         
                         print(error)
                     }
+                  
+                    
+                    
+                    
                     
                
-//                    self.recentMessages.insert(.init(documentId: docId, data: change.document.data()), at: 0)
-//                        self.recentMessages.append(.init(documentId: docId, data: change.document.data()))
                 })
             }
         
     }
+   
     
     //MARK: - Fetch Current user
     func fetchCurrentUser() {
+        
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
             self.errorMessage = "Could not find firebase uid"
             return
@@ -159,7 +164,7 @@ struct MainMessagesView: View {
             .navigationBarHidden(true)
             .background(Color(.init("BGColor")))
             //BtnGreenColor
-        }
+        }.accentColor(Color(.init("BtnGreenColor")))
     }
     
     private var customNavBar: some View {
@@ -171,7 +176,7 @@ struct MainMessagesView: View {
                 .clipped()
                 .cornerRadius(50)
                 .overlay(RoundedRectangle(cornerRadius: 44)
-                            .stroke(Color(.gray), lineWidth: 1)
+                    .stroke(Color(.init("CoinMessageColor")), lineWidth: 1.2)
                 )
                 .shadow(radius: 5)
         
@@ -181,12 +186,13 @@ struct MainMessagesView: View {
                 let email = vm.chatUser?.email.components(separatedBy: "@").first ?? "loading..."
                 Text(email)
                     .font(.system(size: 21, weight: .bold))
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(.init("BtnGreenColor")))
+
 
                 HStack {
                     Circle()
                         .foregroundColor(.green)
-                        .frame(width: 14, height: 14)
+                        .frame(width: 9, height: 9)
                     Text("online")
                         .font(.system(size: 12))
                         .foregroundColor(Color(.lightGray))
@@ -248,14 +254,14 @@ struct MainMessagesView: View {
                                 .clipped()
                                 .cornerRadius(64)
                                 .overlay(RoundedRectangle(cornerRadius: 64)
-                                            .stroke(Color.gray, lineWidth: 1))
+                                            .stroke(Color(.init("CoinMessageColor")), lineWidth: 1))
                                 .shadow(radius: 5)
                             
                             
                             VStack(alignment: .leading, spacing: 8) {
                                 Text(recentMessage.username)
                                     .font(.system(size: 16, weight: .bold))
-                                    .foregroundColor(Color(.white))
+                                    .foregroundColor(Color(.init("CoinMessageColor")))
                                     .multilineTextAlignment(.leading)
                                 Text(recentMessage.text)
                                     .font(.system(size: 14))

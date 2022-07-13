@@ -95,6 +95,8 @@
 		694393BE2875571600CEC3C4 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393BD2875571600CEC3C4 /* ChatUser.swift */; };
 		694393C12875609900CEC3C4 /* CreateNewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393C02875609900CEC3C4 /* CreateNewMessageView.swift */; };
 		694393C32876B2A400CEC3C4 /* ChatLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393C22876B2A300CEC3C4 /* ChatLogView.swift */; };
+		694393C6287D5EF600CEC3C4 /* SignInEmbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393C4287D5EF600CEC3C4 /* SignInEmbedViewController.swift */; };
+		694393C7287D5EF700CEC3C4 /* SignInEmbedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 694393C5287D5EF600CEC3C4 /* SignInEmbedViewController.xib */; };
 		695EBBD2285B22E900557D69 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695EBBD1285B22E900557D69 /* OnboardingViewController.swift */; };
 		695EBBD4285B36FB00557D69 /* OnboardingCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695EBBD3285B36FB00557D69 /* OnboardingCVC.swift */; };
 		695EBBD82860839900557D69 /* TVDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695EBBD62860839900557D69 /* TVDetailViewController.swift */; };
@@ -213,6 +215,8 @@
 		694393BD2875571600CEC3C4 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
 		694393C02875609900CEC3C4 /* CreateNewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewMessageView.swift; sourceTree = "<group>"; };
 		694393C22876B2A300CEC3C4 /* ChatLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogView.swift; sourceTree = "<group>"; };
+		694393C4287D5EF600CEC3C4 /* SignInEmbedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmbedViewController.swift; sourceTree = "<group>"; };
+		694393C5287D5EF600CEC3C4 /* SignInEmbedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInEmbedViewController.xib; sourceTree = "<group>"; };
 		695EBBD1285B22E900557D69 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		695EBBD3285B36FB00557D69 /* OnboardingCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCVC.swift; sourceTree = "<group>"; };
 		695EBBD62860839900557D69 /* TVDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVDetailViewController.swift; sourceTree = "<group>"; };
@@ -720,6 +724,8 @@
 			isa = PBXGroup;
 			children = (
 				695EBBFA2863294D00557D69 /* ProfileViewController.swift */,
+				694393C4287D5EF600CEC3C4 /* SignInEmbedViewController.swift */,
+				694393C5287D5EF600CEC3C4 /* SignInEmbedViewController.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -922,6 +928,7 @@
 				6930D5592856FBD40080528D /* MoreLikeThisCollectionViewCell.xib in Resources */,
 				6930D550285346A60080528D /* MovieCastCell.xib in Resources */,
 				693946A1284757EA00FE7574 /* Section3CRV.xib in Resources */,
+				694393C7287D5EF700CEC3C4 /* SignInEmbedViewController.xib in Resources */,
 				6930D54B285330BE0080528D /* YourHeaderCRV2.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1011,6 +1018,7 @@
 				69643BFF2872B437007128C0 /* LiveChatViewController.swift in Sources */,
 				695EBBEC2861B31800557D69 /* EpisodeCell.swift in Sources */,
 				693946B1284896DF00FE7574 /* ChooseSubsViewController.swift in Sources */,
+				694393C6287D5EF600CEC3C4 /* SignInEmbedViewController.swift in Sources */,
 				693946912847548500FE7574 /* Section3CollectionViewCell.swift in Sources */,
 				6930D56128570A270080528D /* SearchViewController.swift in Sources */,
 				693946A728477E0800FE7574 /* ExtensionsFile.swift in Sources */,
@@ -1188,7 +1196,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;
@@ -1224,7 +1232,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;

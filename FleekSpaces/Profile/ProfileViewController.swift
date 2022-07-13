@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 //import FirebaseAuth
 
 class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigationControllerDelegate {
@@ -23,7 +24,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     
     
     
-    
+    var chatUser: ChatUser?
     @IBAction func changeProfileBtn(_ sender: Any) {
        presentPhotoActionSheet()
     }
@@ -34,9 +35,11 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     var names = "My Name"
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkSignIn()
+       
         profileImage.makeItGolGol()
      
-        
+      
 //        segmentTabsSelection.removeBorder()
 ////        segmentTabsSelection.addUnderlineForSelectedSegment()
 //        segmentTabsSelection.removeBorder()
@@ -53,10 +56,51 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
         changeProfile.setTitle("", for: .normal)
 //        presentModal()
 //       showSignUp()
-        print(names)
-        getuserData()
+       
+            if let imageUrl = self.chatUser?.profileImageUrl {
+                
+                self.self.profileImage.sd_setImage(with: URL(string: imageUrl))
+            }
+            
+            self.self.userNameLabel.text = self.chatUser?.email
+        
+        print("Output is:")
+        print(chatUser?.email)
+        print(chatUser?.profileImageUrl)
+//        getuserData()
     }
     
+    
+    //MARK: - Fetch Current user
+    func fetchCurrentUser() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
+            self.displayUIAlert(yourMessage: "You need to login to access your profile!")
+            print("COuld not find firebase uid")
+            return
+        }
+        
+        FirebaseManager.shared.firestore.collection("users").document(uid).getDocument { snapshot, error in
+            if let error = error {
+                self.displayUIAlert(yourMessage: "Failed to fetch current user: \(error)")
+                
+                print("Failed to fetch current user:", error)
+                return
+            }
+            
+            self.chatUser = try? snapshot?.data(as: ChatUser.self)
+            print("chat user data is \(self.chatUser)")
+            FirebaseManager.shared.currentUser = self.chatUser
+            print("chat user singleton data is \(self.chatUser)")
+            
+            guard let imageURL = self.chatUser?.profileImageUrl else {return}
+            guard let userName = self.chatUser?.email else {return}
+            
+            DispatchQueue.main.async {
+                self.userNameLabel.text = userName
+                self.profileImage.sd_setImage(with: URL(string: imageURL))
+            }
+        }
+    }
     
     //MARK: - Apply username and profile pic
     
@@ -127,7 +171,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             
            
             
-            let controller = LoginEmailViewController()
+            let controller = SignInEmbedViewController()
                 
               
             self?.navigationController?.pushViewController(controller, animated: true)
@@ -173,7 +217,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     
     @IBAction func segmentTap(_ sender: Any) {
         
-        presentModal()
+//        presentModal()
     }
     
     private func presentModal() {
@@ -239,6 +283,18 @@ extension ProfileViewController: UIImagePickerControllerDelegate {
         
         
     }
+    
+    //MARK: - Sign In Check
+    func checkSignIn() {
+        
+        if  FirebaseManager.shared.auth.currentUser == nil {
+           loginPrompt()
+        } else {
+            self.displayUIAlert(yourMessage: "Welcome back bro!")
+            fetchCurrentUser()
+        }
+    }
+    
     
     //MARK: - show camera
     

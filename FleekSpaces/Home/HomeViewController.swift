@@ -61,6 +61,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         self.collectionHt.constant = 250
         self.subsCollectionHts.constant = 110
         self.testView.layoutIfNeeded()
+        fetchNewStreaming()
 //        fetchNowPlaying()
         fetchTopRated()
         fetchTVshows()
@@ -158,6 +159,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         navigationController?.pushViewController(controller, animated: true)
     }
     
+    
     //MARK: - Subs Collectionview cell
     
     func setupSubsCollectionView() {
@@ -240,6 +242,40 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
             
     }
     
+    
+    //MARK: - Fetch streaming service call
+    
+    func fetchNewStreaming() {
+        
+        let network = NetworkURL()
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_all_streaming_services/")
+        
+        
+        network.theBestNetworkCall([StreamingElement].self, url: url) { myResult, yourMessage in
+            
+            switch myResult {
+                
+            case .success(let streams):
+                print("This is streams \(streams)")
+                DispatchQueue.main.async {
+                    MyMovieDataModel.streamingPlatform = streams
+                    self.subsCollectionView.reloadData()
+                }
+                
+                for eachstream in streams {
+                    print("\(eachstream.clearName)")
+                }
+                
+                
+            case .failure(let err):
+                print("This is failure \(err)")
+                
+            }
+            
+            
+        }
+        
+    }
     
     //MARK: - Top Rated is fetched here
     
@@ -706,7 +742,7 @@ extension HomeViewController: UICollectionViewDataSource {
      
         if collectionView == subsCollectionView {
             
-            return myLogos.count
+            return MyMovieDataModel.streamingPlatform?.count ?? 1
         } else {
             
             switch section {
@@ -749,8 +785,12 @@ extension HomeViewController: UICollectionViewDataSource {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sec1", for: indexPath) as! Section1CollectionViewCell
 
 
-                
-                cell.setupLogos(fromData: myLogos[indexPath.item])
+                if let movieData = MyMovieDataModel.streamingPlatform?[indexPath.item] {
+                    
+                    cell.setupStreamCells(fromData: movieData)
+                }
+              
+//                cell.setupLogos(fromData: myLogos[indexPath.item])
                 
                 return cell
                 
@@ -835,7 +875,7 @@ extension HomeViewController: UICollectionViewDataSource {
             
         case subsCollectionView:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sec2Header", for: indexPath) as! Section2CRV
-            header.headerText.text = "Streaming Platforms"
+            header.headerText.text = "OTT Platforms"
            
             return header
             

@@ -217,6 +217,7 @@ struct ChatLogView: View {
         .navigationTitle(vm.chatUser?.email ?? "")
         .navigationBarTitleDisplayMode(.inline)
         .preferredColorScheme(.dark)
+        .accentColor(Color(.init("BtnGreenColor")))
         .onDisappear {
             vm.firestoreListener?.remove()
         }
