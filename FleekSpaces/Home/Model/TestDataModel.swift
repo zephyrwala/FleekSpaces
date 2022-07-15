@@ -21,6 +21,7 @@ class MyMovieDataModel: NSObject {
     static var upcoming: Upcoming?
     static var tvEpisodes: Episodes?
     static var streamingPlatform: [StreamingElement]?
+    static var recentChat: [RecentMessage]?
    
     
     

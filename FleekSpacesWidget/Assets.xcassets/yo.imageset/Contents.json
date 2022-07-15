@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "guru.jpeg",
+      "filename" : "viko.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "guru-1.jpeg",
+      "filename" : "viko-1.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "guru-2.jpeg",
+      "filename" : "viko-2.jpeg",
       "idiom" : "universal",
       "scale" : "3x"
     }
