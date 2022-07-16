@@ -16,13 +16,13 @@ class ChooseSubsViewController: UIViewController, UICollectionViewDelegate {
     var sec0 = "YourSubs"
     @IBOutlet weak var chooseSubsCollectionView: UICollectionView!
     
-    var myLogos = [Logos(posterImage: UIImage(named: "hbomax")!),
-                   Logos(posterImage: UIImage(named: "netflix")!),
-                   Logos(posterImage: UIImage(named: "hotstar")!),
-                   Logos(posterImage: UIImage(named: "hbomax")!),
-                   Logos(posterImage: UIImage(named: "zee5")!),
-                   Logos(posterImage: UIImage(named: "hotstar")!)
-    ]
+//    var myLogos = [Logos(posterImage: UIImage(named: "hbomax")!),
+//                   Logos(posterImage: UIImage(named: "netflix")!),
+//                   Logos(posterImage: UIImage(named: "hotstar")!),
+//                   Logos(posterImage: UIImage(named: "hbomax")!),
+//                   Logos(posterImage: UIImage(named: "zee5")!),
+//                   Logos(posterImage: UIImage(named: "hotstar")!)
+//    ]
     
     var optionsLogos = [
     
@@ -229,7 +229,7 @@ extension ChooseSubsViewController: UICollectionViewDataSource {
             return 1
             
         case 1:
-            return myLogos.count
+            return 3
             
         
         case 2:
@@ -255,7 +255,7 @@ extension ChooseSubsViewController: UICollectionViewDataSource {
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subSelected", for: indexPath) as! SelectedSubCollectionViewCell
             
-            cell.setupCell(fromData: myLogos[indexPath.item])
+//            cell.setupCell(fromData: myLogos[indexPath.item])
             
             return cell
             

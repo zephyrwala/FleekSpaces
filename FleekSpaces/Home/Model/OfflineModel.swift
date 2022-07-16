@@ -10,6 +10,8 @@ import UIKit
 
 struct Logos {
     let posterImage : UIImage
+    let bookName: String
+    let author: String
 }
 
 struct TextLogos {

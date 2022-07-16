@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookPreviewUIViewViewController" customModule="FleekSpaces" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Aq-uO-HYZ">
+                    <rect key="frame" x="20" y="45" width="374" height="827"/>
+                    <mutableString key="text">It was a Thursday, but it felt like a Monday to John. And John loved Mondays. He thrived at work. He dismissed the old cliché of dreading Monday mornings and refused to engage in water-cooler complaints about “the grind” and empty conversations that included the familiar parry “How was your weekend?” “Too short!”. Yes, John liked his work and was unashamed.
+
+I should probably get another latte. I’ve just been sitting here with this empty cup. But then I’ll start to get jittery. I’ll get a decaf. No, that’s stupid, it feels stupid to pay for a decaf. I can’t justify that.
+
+John was always impatient on the weekends; he missed the formal structure of the business week. When he was younger he used to stay late after school on Fridays and come in early on Mondays, a pattern his mother referred to with equal parts admiration and disdain as “studying overtime.”
+
+Jesus, I’ve written another loser.
+
+Now, John spent his weekends doing yard work at the Tudor house Rebecca left him after their divorce. Rebecca, with her almond eyes—both in shape and in color—could never be his enemy.
+
+That barista keeps looking at me. She’ll probably ask me to leave if I don’t buy something. She’s kind of attractive. Not her hair—her hair seems stringy—but her face is nice. I should really buy something.
+
+Their divorce was remarkably amicable. In fact, John would often tell his parents, “Rebecca and I are better friends now than when we were married!” In fact, John looked forward to the days when he and Rebecca, with their new partners, would reminisce about their marriage, seeing it in a positive light, like two mature adults.
+
+Maybe I’ll just get a pumpkin-spice loaf. That way I can still sit here without going through a whole production of buying a coffee and giving my name and feeling like an asshole while it gets made.
+
+</mutableString>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="Background"/>
+            <constraints>
+                <constraint firstItem="5Aq-uO-HYZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="45" id="2WD-Py-mgA"/>
+                <constraint firstItem="5Aq-uO-HYZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="RNL-j8-gbG"/>
+                <constraint firstItem="5Aq-uO-HYZ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="10" id="ja7-U9-SFd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5Aq-uO-HYZ" secondAttribute="trailing" constant="20" id="vn6-pL-8Mo"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="131.8840579710145" y="71.651785714285708"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Background">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -31,29 +31,25 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
     let sec2 = "sec2ID"
     let sec3 = "sec3ID"
     let sec0 = "sec0ID"
+    let sec4 = "sec4ID"
     let newTOpID = "Top"
     var myLogos = [
 //        Logos(posterImage: UIImage(systemName: "plus.circle.fill")!),
-                   Logos(posterImage: UIImage(named: "hbomax")!),
-                   Logos(posterImage: UIImage(named: "netflix")!),
-                   Logos(posterImage: UIImage(named: "hotstar")!),
-                   Logos(posterImage: UIImage(named: "tv")!),
-                    Logos(posterImage: UIImage(named: "zee5")!),
-                   Logos(posterImage: UIImage(named: "prime video")!),
-                   Logos(posterImage: UIImage(named: "hbomax")!)
+        Logos(posterImage:  UIImage(named: "bo1")!, bookName: "VOGUE", author: "Vogue India"),
+        Logos(posterImage:  UIImage(named: "bo22")!, bookName: "Outlook", author: "Outlook India"),
+        Logos(posterImage:  UIImage(named: "bo2")!, bookName: "GQ", author: "GQ India"),
+        Logos(posterImage:  UIImage(named: "bo3")!, bookName: "FEMINA", author: "Femina India"),
+        Logos(posterImage:  UIImage(named: "bo4")!, bookName: "FILMFARE", author: "Filmfare India"),
+        Logos(posterImage:  UIImage(named: "bo6")!, bookName: "AUTOCAR", author: "Autocar India"),
+        Logos(posterImage:  UIImage(named: "bo7")!, bookName: "GRAZIA", author: "Grazia India")
+                  
+                 
                    
                 
                    
                    
     ]
-    var moreLogos = [Logos(posterImage: UIImage(named: "hbomax")!),
-                   Logos(posterImage: UIImage(named: "netflix")!),
-                   Logos(posterImage: UIImage(named: "hotstar")!),
-                   Logos(posterImage: UIImage(named: "prime video")!),
-                   
-                   
-                   
-    ]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -187,12 +183,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         homeCollectionViews.register(UINib(nibName: "Section2CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "sec2")
         homeCollectionViews.register(UINib(nibName: "Section3CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "sec3")
         homeCollectionViews.register(UINib(nibName: "TrendingWorldCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "trendCell")
+        homeCollectionViews.register(UINib(nibName: "BookCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "books")
         
         //register the header
         homeCollectionViews.register(UINib(nibName: "Section1HeaderCRV", bundle: nil), forSupplementaryViewOfKind: self.sec1, withReuseIdentifier: "sec1Header")
         homeCollectionViews.register(UINib(nibName: "Section2CRV", bundle: nil), forSupplementaryViewOfKind: self.sec2, withReuseIdentifier: "sec2Header")
         homeCollectionViews.register(UINib(nibName: "Section3CRV", bundle: nil), forSupplementaryViewOfKind: self.sec3, withReuseIdentifier: "sec3Header")
         homeCollectionViews.register(UINib(nibName: "TrendingtCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: self.sec0, withReuseIdentifier: "worldTrend")
+        homeCollectionViews.register(UINib(nibName: "BooksHeaderCRV", bundle: nil), forSupplementaryViewOfKind: self.sec4, withReuseIdentifier: "booksHead")
         
      
         
@@ -404,7 +402,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
     }
     }
 
-    //MARK: - Setup Collectionview Layout
+    //MARK: - OTT Platform Layout
     func subLayoutCells() -> UICollectionViewCompositionalLayout {
      
         let layout = UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection? in
@@ -468,7 +466,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         return layout
     }
    
-    //MARK: - Setup Collectionview Layout
+    //MARK: - Main Section Layout
     func layoutCells() -> UICollectionViewCompositionalLayout {
      
         let layout = UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection? in
@@ -549,6 +547,34 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
                 
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec0, alignment: .top)
+               
+//                header.pinToVisibleBounds = true
+
+                section.boundarySupplementaryItems = [header]
+                
+                return section
+                
+                
+                
+            case 3:
+                //item size
+                let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                
+                myItem.contentInsets.trailing = 10
+                myItem.contentInsets.bottom = 10
+                myItem.contentInsets.leading = 10
+                myItem.contentInsets.top = 10
+                
+                //group size
+                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(220)), subitems: [myItem])
+                
+                //section size
+                
+                let section = NSCollectionLayoutSection(group: myGroup)
+                
+                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec4, alignment: .top)
                
 //                header.pinToVisibleBounds = true
 
@@ -673,6 +699,18 @@ extension HomeViewController: UICollectionViewDataSource {
                     
                 navigationController?.pushViewController(selectedController, animated: true)
                 
+                
+            case 3:
+                
+                var selectedController = BooksDetailViewController()
+               
+
+                    selectedController.passedData = myLogos[indexPath.item]
+
+                
+                    
+                navigationController?.pushViewController(selectedController, animated: true)
+                
               
             default:
                 print("something tapped")
@@ -715,7 +753,7 @@ extension HomeViewController: UICollectionViewDataSource {
          
             return 1
         case homeCollectionViews:
-            return 3
+            return 4
             
         default:
             return 1
@@ -756,7 +794,8 @@ extension HomeViewController: UICollectionViewDataSource {
             case 2:
                 return MyMovieDataModel.upcoming?.results?.count ?? 3
                 
-          
+            case 3:
+                return myLogos.count
             
             default:
                 return 1
@@ -846,6 +885,13 @@ extension HomeViewController: UICollectionViewDataSource {
                 return cell
                 
         
+            
+            case 3:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "books", for: indexPath) as! BookCollectionViewCell
+                
+                cell.setupCell(fromData: myLogos[indexPath.item])
+                
+                return cell
                 
             
                 
@@ -853,6 +899,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 
             default:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sec1", for: indexPath) as! Section1CollectionViewCell
+                
                 
                 return cell
                 
@@ -902,6 +949,15 @@ extension HomeViewController: UICollectionViewDataSource {
             } else if indexPath.section == 2 {
                 
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "worldTrend", for: indexPath) as! TrendingtCollectionReusableView
+               
+               
+                return header
+             
+                
+                
+            } else if indexPath.section == 3 {
+                
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "booksHead", for: indexPath) as! BooksHeaderCRV
                
                
                 return header
