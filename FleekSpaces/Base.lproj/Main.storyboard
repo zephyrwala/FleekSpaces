@@ -463,6 +463,77 @@
             </objects>
             <point key="canvasLocation" x="-624.63768115942037" y="-409.15178571428572"/>
         </scene>
+        <!--Spaces View Controller-->
+        <scene sceneID="4mH-Ty-a3a">
+            <objects>
+                <viewController id="KaZ-U7-f9H" customClass="SpacesViewController" customModule="FleekSpaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JLq-4p-sVM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fr2-Rs-7ux">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67D-TJ-PGa">
+                                        <rect key="frame" x="24" y="53" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="Bdz-PR-ieD"/>
+                                            <constraint firstAttribute="width" constant="45" id="Eto-oy-acp"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="67D-TJ-PGa" firstAttribute="top" secondItem="Fr2-Rs-7ux" secondAttribute="top" constant="53" id="Chu-Cr-cMX"/>
+                                    <constraint firstItem="67D-TJ-PGa" firstAttribute="leading" secondItem="Fr2-Rs-7ux" secondAttribute="leading" constant="24" id="XJ5-mt-a7N"/>
+                                    <constraint firstAttribute="height" constant="112" id="yVb-bH-2ct"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oYg-Ae-9EM">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y2X-lR-upi">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dXJ-aE-zac">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FAk-uS-S3L">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Uwo-Rn-Tpq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oYg-Ae-9EM" firstAttribute="bottom" secondItem="Uwo-Rn-Tpq" secondAttribute="bottom" id="04a-9c-qVU"/>
+                            <constraint firstItem="Fr2-Rs-7ux" firstAttribute="leading" secondItem="Uwo-Rn-Tpq" secondAttribute="leading" id="LMt-nD-8pg"/>
+                            <constraint firstItem="oYg-Ae-9EM" firstAttribute="top" secondItem="JLq-4p-sVM" secondAttribute="top" id="Vu5-FC-dTt"/>
+                            <constraint firstItem="Fr2-Rs-7ux" firstAttribute="trailing" secondItem="Uwo-Rn-Tpq" secondAttribute="trailing" id="mSD-EU-PzW"/>
+                            <constraint firstItem="oYg-Ae-9EM" firstAttribute="trailing" secondItem="Uwo-Rn-Tpq" secondAttribute="trailing" id="tBY-zP-wzF"/>
+                            <constraint firstItem="oYg-Ae-9EM" firstAttribute="leading" secondItem="Uwo-Rn-Tpq" secondAttribute="leading" id="tq7-zA-hbk"/>
+                            <constraint firstItem="Fr2-Rs-7ux" firstAttribute="top" secondItem="JLq-4p-sVM" secondAttribute="top" id="xYD-Nf-p8w"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Pfc-XE-wj2"/>
+                    <connections>
+                        <outlet property="spacesCollectinView" destination="oYg-Ae-9EM" id="Qsm-Br-Cyx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TVT-zO-l10" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1495.6521739130435" y="-1118.3035714285713"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gaq-fK-ffl">
             <objects>
@@ -484,7 +555,7 @@
                         <segue destination="FFa-df-FJe" kind="relationship" relationship="viewControllers" id="efL-Hs-XtV"/>
                         <segue destination="kXN-YT-dtV" kind="relationship" relationship="viewControllers" id="Lpc-yS-gaw"/>
                         <segue destination="Dqb-hx-E2l" kind="relationship" relationship="viewControllers" id="2Nk-l6-Mtd"/>
-                        <segue destination="G9X-7b-Adr" kind="relationship" relationship="viewControllers" id="Ki6-Ye-7YY"/>
+                        <segue destination="Gr1-iu-cKX" kind="relationship" relationship="viewControllers" id="W6c-jt-rN1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wra-ZO-tfD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -857,6 +928,25 @@
             </objects>
             <point key="canvasLocation" x="1792.753623188406" y="-410.49107142857139"/>
         </scene>
+        <!--Spaces-->
+        <scene sceneID="Xaq-Fo-cX7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gr1-iu-cKX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Spaces" image="square.on.square" catalog="system" selectedImage="square.on.square.fill" id="USp-Wr-QKC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jh5-Dn-4Pn">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KaZ-U7-f9H" kind="relationship" relationship="rootViewController" id="QYL-rj-1aO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GQQ-Rf-4Q3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="585.50724637681162" y="-1118.3035714285713"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Chats" width="325" height="88"/>
@@ -864,6 +954,7 @@
         <image name="banner_bg" width="1308" height="636"/>
         <image name="bubble.left.and.bubble.right" catalog="system" width="128" height="96"/>
         <image name="bubble.left.and.bubble.right.fill" catalog="system" width="128" height="97"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
@@ -872,6 +963,8 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+        <image name="square.on.square" catalog="system" width="128" height="113"/>
+        <image name="square.on.square.fill" catalog="system" width="128" height="113"/>
         <image name="star.bubble" catalog="system" width="128" height="110"/>
         <image name="star.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="tv-2 1" width="480" height="480"/>
