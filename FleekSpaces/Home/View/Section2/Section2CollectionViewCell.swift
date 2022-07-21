@@ -16,12 +16,17 @@ class Section2CollectionViewCell: UICollectionViewCell {
         posterImage.layer.cornerRadius = 16
     }
     
-    func setupCell(fromData: UResult){
+    func setupCell(fromData: Worldwide){
         
-        let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(fromData.posterPath!)")
-        self.posterImage.sd_setImage(with: newURL)
+        if let posterUrl = fromData.posterURL {
+            
+            let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(posterUrl)")
+            self.posterImage.sd_setImage(with: newURL)
+            
+            posterImage.layer.cornerRadius = 16
+        }
         
-        posterImage.layer.cornerRadius = 16
+      
 
         
     }

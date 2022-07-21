@@ -246,7 +246,7 @@ extension DetailEpisodeViewController: UICollectionViewDataSource {
         case 1:
             return 3
         case 2:
-            return 6
+          return 6
         case 3:
             return 6
             
@@ -349,7 +349,7 @@ extension DetailEpisodeViewController: UICollectionViewDataSource {
             
             if let myMovieDataStuff = tvPassedData?.guestStars {
                 
-                cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
+//                cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
                 
             }
             

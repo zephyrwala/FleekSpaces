@@ -14,29 +14,35 @@ class Section1CollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+       
     }
 
    
     //MARK: - Setup cell with new api data
     func setupStreamCells(fromData: StreamingElement) {
         
-        if let imageURL = fromData.iconURL {
+        if let imageURL = fromData.logoPath {
             
-            self.selectedSub.sd_setImage(with: URL(string: imageURL))
+            self.selectedSub.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/original\(imageURL)"))
             
         }
        
 //        selectedSub.makeItGolGol()
+     
         selectedSub.layer.cornerRadius = selectedSub.frame.size.width / 2
         selectedSub.clipsToBounds = true
-       
+
+        selectedSub.layer.borderWidth = 1
+        selectedSub.layer.borderColor = UIColor(named: "BtnGreenColor")?.cgColor
+        
         
     }
   
     
     func setupCell(fromData: Results){
         
-        let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(fromData.posterPath!)")
+        //https://image.tmdb.org/t/p/original/
+        let newURL = URL(string: "https://image.tmdb.org/t/p/original/\(fromData.posterPath!)")
         self.selectedSub.sd_setImage(with: newURL)
         
 //        selectedSub.layer.cornerRadius = 10

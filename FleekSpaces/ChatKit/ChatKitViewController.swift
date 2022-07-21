@@ -254,10 +254,22 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
 extension ChatKitViewController: UICollectionViewDataSource {
     
     
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controllers = ChatsViewController()
+//        controllers.modalPresentationStyle = .fullScreen
+       
+        controllers.title = "Chato"
+        navigationController?.pushViewController(controllers, animated: true)
+//        controllers.modalPresentationStyle = .overCurrentContext
+//     present(controllers, animated: true)
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {

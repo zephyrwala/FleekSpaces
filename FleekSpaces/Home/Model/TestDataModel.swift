@@ -32,34 +32,24 @@ class MyMovieDataModel: NSObject {
 
 // MARK: - StreamingElement
 class StreamingElement: Codable {
-    let updatedAt, createdAt: String?
-    let iconURL: String?
-    let slug, clearName, id, technicalName: String?
-    let justwatchID: Int?
-    let monetizationTypes: [MonetizationType]?
+    let updatedAt: String?
+    let providerID: Int?
+    let createdAt, providerName, logoPath: String?
 
     enum CodingKeys: String, CodingKey {
         case updatedAt = "updated_at"
+        case providerID = "provider_id"
         case createdAt = "created_at"
-        case iconURL = "icon_url"
-        case slug
-        case clearName = "clear_name"
-        case id
-        case technicalName = "technical_name"
-        case justwatchID = "justwatch_id"
-        case monetizationTypes = "monetization_types"
+        case providerName = "provider_name"
+        case logoPath = "logo_path"
     }
 
-    init(updatedAt: String?, createdAt: String?, iconURL: String?, slug: String?, clearName: String?, id: String?, technicalName: String?, justwatchID: Int?, monetizationTypes: [MonetizationType]?) {
+    init(updatedAt: String?, providerID: Int?, createdAt: String?, providerName: String?, logoPath: String?) {
         self.updatedAt = updatedAt
+        self.providerID = providerID
         self.createdAt = createdAt
-        self.iconURL = iconURL
-        self.slug = slug
-        self.clearName = clearName
-        self.id = id
-        self.technicalName = technicalName
-        self.justwatchID = justwatchID
-        self.monetizationTypes = monetizationTypes
+        self.providerName = providerName
+        self.logoPath = logoPath
     }
 }
 

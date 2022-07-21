@@ -12,6 +12,8 @@
 		690182F4286C166400DF046E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690182F3286C166400DF046E /* DatabaseManager.swift */; };
 		690182F7286C72BD00DF046E /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 690182F6286C72BD00DF046E /* JGProgressHUD */; };
 		69018300286CBCF400DF046E /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690182FF286CBCF400DF046E /* NewConversationViewController.swift */; };
+		6922ECC928869C3100865540 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6922ECC828869C3100865540 /* ChatsViewController.swift */; };
+		6922ECCB2887FEE400865540 /* FinalDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6922ECCA2887FEE300865540 /* FinalDataModel.swift */; };
 		692600B7284DE24500B6D801 /* AddSubCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692600B5284DE24500B6D801 /* AddSubCollectionViewCell.swift */; };
 		692600B8284DE24500B6D801 /* AddSubCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 692600B6284DE24500B6D801 /* AddSubCollectionViewCell.xib */; };
 		692600BB284DE5DB00B6D801 /* CheckmarkCollectionViewCell in Frameworks */ = {isa = PBXBuildFile; productRef = 692600BA284DE5DB00B6D801 /* CheckmarkCollectionViewCell */; };
@@ -175,6 +177,8 @@
 		690182F0286B081D00DF046E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		690182F3286C166400DF046E /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		690182FF286CBCF400DF046E /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
+		6922ECC828869C3100865540 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
+		6922ECCA2887FEE300865540 /* FinalDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalDataModel.swift; sourceTree = "<group>"; };
 		692600B5284DE24500B6D801 /* AddSubCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubCollectionViewCell.swift; sourceTree = "<group>"; };
 		692600B6284DE24500B6D801 /* AddSubCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSubCollectionViewCell.xib; sourceTree = "<group>"; };
 		692600BC284E09A200B6D801 /* Section2HeadersCRV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section2HeadersCRV.swift; sourceTree = "<group>"; };
@@ -370,6 +374,14 @@
 			path = NewConversation;
 			sourceTree = "<group>";
 		};
+		6922ECC528869B6900865540 /* MainChatView */ = {
+			isa = PBXGroup;
+			children = (
+				6922ECC828869C3100865540 /* ChatsViewController.swift */,
+			);
+			path = MainChatView;
+			sourceTree = "<group>";
+		};
 		692600C0284E1F6C00B6D801 /* Chats */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,6 +524,7 @@
 		6938498E2881373000EC5C61 /* ChatKit */ = {
 			isa = PBXGroup;
 			children = (
+				6922ECC528869B6900865540 /* MainChatView */,
 				693849912881468D00EC5C61 /* RecentChatViewCell */,
 				6938498F2881375F00EC5C61 /* ChatKitViewController.swift */,
 			);
@@ -689,6 +702,7 @@
 			children = (
 				693946A328477D6900FE7574 /* TestDataModel.swift */,
 				693946AB28487D9500FE7574 /* OfflineModel.swift */,
+				6922ECCA2887FEE300865540 /* FinalDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1033,7 +1047,6 @@
 				692600B9284DE5DB00B6D801 /* XCRemoteSwiftPackageReference "CheckmarkCollectionViewCell" */,
 				69C4997228699410000F4394 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				690182F5286C72BC00DF046E /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
-				690182F8286C733A00DF046E /* XCRemoteSwiftPackageReference "MessageKit" */,
 				694393B92874694D00CEC3C4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 69394666284628D100FE7574 /* Products */;
@@ -1216,6 +1229,7 @@
 				6939466B284628D100FE7574 /* SceneDelegate.swift in Sources */,
 				694393B82874566500CEC3C4 /* FirebaseManager.swift in Sources */,
 				6930D55C285700B70080528D /* MoreLikeThisCRV.swift in Sources */,
+				6922ECC928869C3100865540 /* ChatsViewController.swift in Sources */,
 				693849902881375F00EC5C61 /* ChatKitViewController.swift in Sources */,
 				6930D5582856FBD40080528D /* MoreLikeThisCollectionViewCell.swift in Sources */,
 				6930D57B2859DB4B0080528D /* GenreBottomViewController.swift in Sources */,
@@ -1237,6 +1251,7 @@
 				693946AC28487D9500FE7574 /* OfflineModel.swift in Sources */,
 				6930D5372851B55B0080528D /* TrendingtCollectionReusableView.swift in Sources */,
 				6930D5762858AA850080528D /* filmographyHeader.swift in Sources */,
+				6922ECCB2887FEE400865540 /* FinalDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1559,14 +1574,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
-			};
-		};
-		690182F8286C733A00DF046E /* XCRemoteSwiftPackageReference "MessageKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MessageKit/MessageKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
 			};
 		};
 		692600B9284DE5DB00B6D801 /* XCRemoteSwiftPackageReference "CheckmarkCollectionViewCell" */ = {

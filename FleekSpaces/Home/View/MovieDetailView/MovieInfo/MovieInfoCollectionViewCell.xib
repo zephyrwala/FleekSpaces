@@ -118,13 +118,13 @@
                                             <constraint firstAttribute="bottom" secondItem="d6M-FL-WIR" secondAttribute="bottom" constant="15" id="hab-7V-RQE"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubb-XB-ZPT">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ubb-XB-ZPT">
                                         <rect key="frame" x="0.0" y="144" width="370" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="f4S-do-Xgb"/>
                                         </constraints>
                                         <string key="text">Armed with a clear vision and a brazen, 78-page plan, Richard Williams is determined to write his two daughters, Venus and Serena, into history. more</string>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>

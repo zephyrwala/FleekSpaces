@@ -36,14 +36,14 @@ class MovieInfoCollectionViewCell: UICollectionViewCell {
     }
     
     
-    func setupCell(fromData: UResult) {
+    func setupCell(fromData: MovieDetail) {
         
         self.movieTitle.text = fromData.title
-        self.moviePlot.text = fromData.overview
+        self.moviePlot.text = fromData.synopsies
         self.movieLanguage.text = "Language: \(fromData.originalLanguage!)"
-        let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(fromData.backdropPath!)")
+        let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(fromData.posterURL!)")
         self.movieBackdrop.sd_setImage(with: newURL)
-        self.movieRating.text = "\(fromData.voteAverage!)/10"
+        self.movieRating.text = "\(fromData.tmdbRating!)/10"
         self.movieReleaseYear.text = "Year: \(fromData.releaseDate!)"
 //        self.movieDirector.text = fromData
         self.genreView.isHidden = true

@@ -59,8 +59,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         self.testView.layoutIfNeeded()
         fetchNewStreaming()
 //        fetchNowPlaying()
-        fetchTopRated()
+//        fetchTopRated()
         fetchTVshows()
+        fetchWorldWideTrending()
         setupBtn()
         setupCollectionView()
         setupSubsCollectionView()
@@ -260,10 +261,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                     self.subsCollectionView.reloadData()
                 }
                 
-                for eachstream in streams {
-                    print("\(eachstream.clearName)")
+                for eachStreams in streams {
+                    print("\(eachStreams.providerName)")
                 }
-                
                 
             case .failure(let err):
                 print("This is failure \(err)")
@@ -275,6 +275,41 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         
     }
     
+    //MARK: - Worldwide Trending
+    
+    func fetchWorldWideTrending() {
+        
+        let network = NetworkURL()
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_universal_trending/")
+        
+        network.theBestNetworkCall([Worldwide].self, url: url) { myResult, yourMessage in
+            
+            DispatchQueue.main.async {
+                switch myResult {
+                    
+                case .success(let movieData):
+                    print("Movie is here \(movieData)")
+                    FinalDataModel.worldWide = movieData
+                    self.homeCollectionViews.reloadData()
+    //                self.displayUIAlert(yourMessage: "Movie data \(movieData)")
+                    for eachMovie in movieData {
+                        
+                        print("Moviesa : \(eachMovie.title)")
+                        
+                    }
+                    
+                case .failure(let err):
+                    print("Failure in movie fetch")
+    //                self.displayUIAlert(yourMessage: "Error \(err)")
+                    
+                }
+            }
+      
+            
+        }
+        
+        
+    }
     //MARK: - Top Rated is fetched here
     
     
@@ -414,10 +449,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 //item size
                 let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 
-                myItem.contentInsets.trailing = 10
-                myItem.contentInsets.bottom = 10
-                myItem.contentInsets.leading = 10
-                myItem.contentInsets.top = 10
+                myItem.contentInsets.trailing = 6
+                myItem.contentInsets.bottom = 6
+                myItem.contentInsets.leading = 6
+                myItem.contentInsets.top = 6
                 
                 //group size
                 let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(88), heightDimension: .absolute(88)), subitems: [myItem])
@@ -666,11 +701,19 @@ extension HomeViewController: UICollectionViewDataSource {
                 
                 
                 var selectedController = MovieDetailViewController()
-                if let jsonData = MyMovieDataModel.upcoming?.results {
-                    
-                    selectedController.passedData = jsonData[indexPath.item]
-                    
+                
+                //pass the movie ID
+                if let movieDataId = FinalDataModel.worldWide?[indexPath.item].movieID {
+                    selectedController.movieId = movieDataId
+                    selectedController.fetchMovieDetails(movieID: movieDataId)
                 }
+               
+                //pass movie data
+//                if let jsonData = MyMovieDataModel.upcoming?.results {
+//
+//                    selectedController.passedData = jsonData[indexPath.item]
+//
+//                }
                     
                 navigationController?.pushViewController(selectedController, animated: true)
                 
@@ -785,15 +828,27 @@ extension HomeViewController: UICollectionViewDataSource {
             
             switch section {
                 
+                //change this
             case 0:
-                return MyMovieDataModel.upcoming?.results?.count ?? 3
+               
+                if FinalDataModel.worldWide?.count ?? 3 >= 15 {
+                    return 15
+                } else {
+                    return 9
+                }
                 
             case 1:
                 return MyMovieDataModel.tvshow?.results?.count ?? 3
                 
+                //worldwide trending
             case 2:
-                return MyMovieDataModel.upcoming?.results?.count ?? 3
-                
+                if FinalDataModel.worldWide?.count ?? 3 >= 15 {
+                    return 15
+                } else {
+                    return 9
+                }
+            
+                //books
             case 3:
                 return myLogos.count
             
@@ -816,7 +871,7 @@ extension HomeViewController: UICollectionViewDataSource {
      
         switch collectionView {
           
-        //case 1
+        //streaming golas are here
         case subsCollectionView:
             switch indexPath.section {
                 
@@ -829,6 +884,7 @@ extension HomeViewController: UICollectionViewDataSource {
                     cell.setupStreamCells(fromData: movieData)
                 }
               
+                cell.selectedSub.makeItGolGol()
 //                cell.setupLogos(fromData: myLogos[indexPath.item])
                 
                 return cell
@@ -854,7 +910,7 @@ extension HomeViewController: UICollectionViewDataSource {
             case 0:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sec2", for: indexPath) as! Section2CollectionViewCell
                 
-                if let myMovieDataStuff = MyMovieDataModel.upcoming?.results {
+                if let myMovieDataStuff = FinalDataModel.worldWide {
                     
                     cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
                     
@@ -877,9 +933,10 @@ extension HomeViewController: UICollectionViewDataSource {
             case 2:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "trendCell", for: indexPath) as! TrendingWorldCollectionViewCell
                 
-                if let myTopRatedMovieStuff = MyMovieDataModel.upcoming?.results {
+                if let myMovieDataStuff = FinalDataModel.worldWide {
                     
-                    cell.setupCell(fromData: myTopRatedMovieStuff[indexPath.item])
+                    cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
+                    
                 }
                 
                 return cell

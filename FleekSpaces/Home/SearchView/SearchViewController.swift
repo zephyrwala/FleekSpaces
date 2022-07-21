@@ -394,7 +394,7 @@ extension SearchViewController: UICollectionViewDataSource {
         case recentSearchCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sec2", for: indexPath) as! Section2CollectionViewCell
             
-            if let myMovieDataStuff = MyMovieDataModel.upcoming?.results {
+            if let myMovieDataStuff = FinalDataModel.worldWide {
                 
                 cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
                 
@@ -419,7 +419,7 @@ extension SearchViewController: UICollectionViewDataSource {
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sec2", for: indexPath) as! Section2CollectionViewCell
             
-            if let myMovieDataStuff = MyMovieDataModel.upcoming?.results {
+            if let myMovieDataStuff = FinalDataModel.worldWide {
                 
                 cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
                 

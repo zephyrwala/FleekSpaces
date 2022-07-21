@@ -23,14 +23,21 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
     
     ]
 
+    var movieId: String?
     var passedData: UResult?
+    var movieDetailData: MovieDetail?
     var tvPassedData: TVResult?
     @IBOutlet weak var movieDetailCollectionView: UICollectionView!
     @IBOutlet weak var backBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        fetchMovieDetails(movieID: movieId)
+        print("This is movie id: \(movieId)")
+        fetchMovieDetails(movieID: movieId!)
         setupCollectionView()
+       
+       
         // Do any additional setup after loading the view.
     }
 
@@ -39,6 +46,48 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
         
         navigationController?.popViewController(animated: true)
     }
+    
+    //MARK: - Fetch Movie Detail
+    func fetchMovieDetails(movieID: String) {
+        
+        guard let finalMovieId = movieId else {
+            return
+        }
+
+      
+        let network = NetworkURL()
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_movie_details/?movie_id=\(movieID)")
+        
+        
+        network.theBestNetworkCall(MovieDetail.self, url: url) { myMovieResult, yourMessage in
+            
+          
+            switch myMovieResult {
+                
+            
+            case .success(let movieData):
+                print("Movie Data is here \(movieData) and \(movieData.title)")
+                DispatchQueue.main.async {
+                FinalDataModel.movieDetails = movieData
+                print("passed data is \(movieData.title)")
+                
+                
+              
+                self.movieDetailCollectionView.reloadData()
+                
+            }
+                print("Movie data is \(FinalDataModel.movieDetails?.title)")
+            case .failure(let err):
+                print("Failed to fetch data")
+                
+            }
+            
+        }
+        
+        
+    
+    }
+    
     
     //MARK: - Setup Collection
     
@@ -248,7 +297,9 @@ extension MovieDetailViewController: UICollectionViewDataSource {
         case 1:
             return 3
         case 2:
-            return 6
+            if FinalDataModel.movieDetails?.castAndCrew?.count ?? 12 >= 12 {
+                return 12
+            } else {return 6}
         case 3:
             return 6
             
@@ -321,10 +372,15 @@ extension MovieDetailViewController: UICollectionViewDataSource {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieInfo", for: indexPath) as! MovieInfoCollectionViewCell
            
-            if let movieData = passedData {
+            if let movieData = FinalDataModel.movieDetails {
+                print("movie data is here")
                 cell.setupCell(fromData: movieData)
                
             }
+           
+            
+           
+            cell.moviePlot.text = FinalDataModel.movieDetails?.synopsies
             
             return cell
             
@@ -336,7 +392,15 @@ extension MovieDetailViewController: UICollectionViewDataSource {
             
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movCast", for: indexPath) as! MovieCastCell
-//            cell.setupCell(fromData: optionsLogos[indexPath.item])
+            
+            if let castDetails = FinalDataModel.movieDetails {
+                
+                if let cast = castDetails.castAndCrew {
+                    cell.setupCell(fromData: cast[indexPath.item])
+                }
+               
+            }
+           
             
             return cell
             

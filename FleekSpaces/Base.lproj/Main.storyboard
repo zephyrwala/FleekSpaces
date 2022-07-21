@@ -491,12 +491,12 @@
             </objects>
             <point key="canvasLocation" x="649" y="-410"/>
         </scene>
-        <!--Chat Kit View Controller-->
+        <!--Chat-->
         <scene sceneID="dhs-0N-CyS">
             <objects>
-                <viewController id="Ppb-iH-IIp" customClass="ChatKitViewController" customModule="FleekSpaces" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overCurrentContext" id="Ppb-iH-IIp" customClass="ChatKitViewController" customModule="FleekSpaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fji-TC-SqN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIn-ww-8ZC">
@@ -556,7 +556,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SEP-cU-feM">
-                                <rect key="frame" x="0.0" y="153" width="414" height="743"/>
+                                <rect key="frame" x="0.0" y="153" width="414" height="572"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AfW-w9-bqR">
                                     <size key="itemSize" width="128" height="128"/>
@@ -588,7 +588,10 @@
                             <constraint firstItem="AIn-ww-8ZC" firstAttribute="trailing" secondItem="yG0-aV-Y29" secondAttribute="trailing" id="tQ1-xO-4QV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="NXI-wz-iIV"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Chat" id="NXI-wz-iIV">
+                        <barButtonItem key="backBarButtonItem" title="back" id="5oT-Xo-4Tx"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="currentUserImage" destination="yps-mT-vSU" id="Kyh-5a-ul1"/>
                         <outlet property="currentUserName" destination="8hG-Rg-0qb" id="f9z-nN-xMH"/>
@@ -841,14 +844,31 @@
         <!--Item-->
         <scene sceneID="xY7-hb-8Oa">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" hidesBarsOnSwipe="YES" hidesBarsOnTap="YES" hidesBarsWhenKeyboardAppears="YES" hidesBarsWhenVerticallyCompact="YES" id="G9X-7b-Adr" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="dark" id="G9X-7b-Adr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" image="star.bubble" catalog="system" selectedImage="star.bubble.fill" id="boT-ie-Qf3"/>
                     <toolbarItems/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZMp-yt-IUa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="ZMp-yt-IUa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="BtnGreenColor"/>
+                        <color key="barTintColor" name="BtnGreenColor"/>
+                        <navigationBarAppearance key="standardAppearance">
+                            <barButtonItemAppearance key="backButtonAppearance">
+                                <barButtonItemStateAppearance key="normal">
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" name="BtnGreenColor"/>
+                                    </textAttributes>
+                                </barButtonItemStateAppearance>
+                                <barButtonItemStateAppearance key="highlighted"/>
+                                <barButtonItemStateAppearance key="disabled"/>
+                                <barButtonItemStateAppearance key="focused"/>
+                            </barButtonItemAppearance>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wiQ-3b-lcm">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="Ppb-iH-IIp" kind="relationship" relationship="rootViewController" id="yky-fv-XnS"/>
                     </connections>

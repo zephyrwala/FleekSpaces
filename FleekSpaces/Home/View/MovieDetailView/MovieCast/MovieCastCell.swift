@@ -22,11 +22,11 @@ class MovieCastCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setupCell(fromData: Crew) {
+    func setupCell(fromData: CastAndCrew) {
         
         if let pathWay = fromData.profilePath {
             
-            let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(pathWay)")
+            let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(pathWay)")
             self.actorImage.sd_setImage(with: newURL)
         }
       
