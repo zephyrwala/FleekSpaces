@@ -76,7 +76,7 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
                 self.movieDetailCollectionView.reloadData()
                 
             }
-                print("Movie data is \(FinalDataModel.movieDetails?.title)")
+               
             case .failure(let err):
                 print("Failed to fetch data")
                 
@@ -342,12 +342,18 @@ extension MovieDetailViewController: UICollectionViewDataSource {
       
     }
    
-    //need to copy this
+    //MARK: - Did select
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
             
         case 2:
             var selectedController = ActorDetailViewController()
+            
+            if let actorDataId = FinalDataModel.movieDetails?.castAndCrew?[indexPath.item].id {
+                selectedController.actorId = "\(actorDataId)"
+                selectedController.fetchActorDetail(actor: "\(actorDataId)")            }
+           
+            
             navigationController?.pushViewController(selectedController, animated: true)
             
             

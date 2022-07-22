@@ -9,12 +9,14 @@ import UIKit
 
 class ActorDetailViewController: UIViewController, UICollectionViewDelegate {
     
+    var actorId: String?
     var passedData: Crew?
     var sec1 = "sec1"
 
     @IBOutlet weak var actorCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchActorDetail(actor: "\(actorId)")
         setupCollectionView()
         // Do any additional setup after loading the view.
     }
@@ -23,6 +25,50 @@ class ActorDetailViewController: UIViewController, UICollectionViewDelegate {
         navigationController?.popViewController(animated: true)
     }
     
+    
+    //MARK: - Fetch Movie Detail
+    func fetchActorDetail(actor: String) {
+        
+        guard let finalMovieId = actorId
+        else {
+            return
+        }
+
+      
+        let network = NetworkURL()
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_cast_details/?people_id=\(actor)")
+        
+        
+        network.theBestNetworkCall(ActorDetails.self, url: url) { myMovieResult, yourMessage in
+            
+          
+            switch myMovieResult {
+                
+            
+            case .success(let actorData):
+                print("Actor Data is here \(actorData) and \(actorData.fullName)")
+                DispatchQueue.main.async {
+                FinalDataModel.actorDetails = actorData
+                    print("passed actor is \(actorData.bio)")
+                
+                    DispatchQueue.main.async {
+                        self.actorCollectionView.reloadData()
+                    }
+              
+                self.actorCollectionView.reloadData()
+                
+            }
+               
+            case .failure(let err):
+                print("Failed to fetch data")
+                
+            }
+            
+        }
+        
+        
+    
+    }
     
     //MARK: - setup collectionview
     func setupCollectionView() {
@@ -65,7 +111,7 @@ class ActorDetailViewController: UIViewController, UICollectionViewDelegate {
                
                
                //group size
-               let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(300)), subitems: [myItem])
+               let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(400)), subitems: [myItem])
                
                //section size
                
@@ -236,13 +282,16 @@ extension ActorDetailViewController: UICollectionViewDataSource {
      
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "actorBio", for: indexPath) as! ActorBioCVC
             
-            if let myMovieDataStuff = passedData {
+           
     
-                print("Passed Data : \(passedData)")
-                cell.setupTVEpisodeCell(fromData: myMovieDataStuff)
+             
+                if let actorData = FinalDataModel.actorDetails {
+                    cell.setupActorCell(fromData: actorData)
+                }
+               
     
-            }
-            print("no data")
+            
+           
             return cell
             
         case 1:

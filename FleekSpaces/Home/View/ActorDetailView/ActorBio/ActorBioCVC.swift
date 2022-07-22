@@ -25,11 +25,27 @@ class ActorBioCVC: UICollectionViewCell {
         
         self.celebName.text = fromData.name
         if let backdropURL = fromData.profilePath {
-            let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(backdropURL)")
+            let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(backdropURL)")
             self.celebImage.sd_setImage(with: newURL)
            
         }
         
+    }
+    
+    
+    func setupActorCell(fromData: ActorDetails){
+        
+        self.celebName.text = fromData.fullName
+        self.celebBio.text = fromData.bio
+        self.celebBirthday.text = fromData.birthDay
+        self.celebBirthplace.text = fromData.placeOfBirth
+        if let backdropURL = fromData.posterUrls?[0] {
+            let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(backdropURL)")
+            print("poster is \(newURL)")
+            self.celebImage.sd_setImage(with: newURL)
+            
+           
+        }
     }
 
 }

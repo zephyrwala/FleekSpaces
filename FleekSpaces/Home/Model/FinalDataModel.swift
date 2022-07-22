@@ -13,12 +13,45 @@ class FinalDataModel: NSObject {
     
     static var worldWide: [Worldwide]?
    
-   
     static var movieDetails: MovieDetail?
+    
+    static var actorDetails: ActorDetails?
     
 }
 
 
+// MARK: - MovieDetails
+class ActorDetails: Codable {
+    let updatedAt, createdAt, bio: String?
+    let posterUrls: [String]?
+    let placeOfBirth, fullName, birthDay: String?
+    let peopleID: Int?
+    let knownForDepartment: String?
+
+    enum CodingKeys: String, CodingKey {
+        case updatedAt = "updated_at"
+        case createdAt = "created_at"
+        case bio
+        case posterUrls = "poster_urls"
+        case placeOfBirth = "place_of_birth"
+        case fullName = "full_name"
+        case birthDay = "birth_day"
+        case peopleID = "people_id"
+        case knownForDepartment = "known_for_department"
+    }
+
+    init(updatedAt: String?, createdAt: String?, bio: String?, posterUrls: [String]?, placeOfBirth: String?, fullName: String?, birthDay: String?, peopleID: Int?, knownForDepartment: String?) {
+        self.updatedAt = updatedAt
+        self.createdAt = createdAt
+        self.bio = bio
+        self.posterUrls = posterUrls
+        self.placeOfBirth = placeOfBirth
+        self.fullName = fullName
+        self.birthDay = birthDay
+        self.peopleID = peopleID
+        self.knownForDepartment = knownForDepartment
+    }
+}
 
 
 // MARK: - MovieDetail
@@ -37,7 +70,8 @@ class MovieDetail: Codable {
     let castAndCrew: [CastAndCrew]?
     let releaseDate: String?
     let revenue: Int?
-    let providerOffers, tagline: String?
+    let providerOffers: ProviderOffers?
+    let tagline: String?
     let images: [MovieImage]?
     let trailerUrls: [TrailerURL]?
 
@@ -62,7 +96,7 @@ class MovieDetail: Codable {
         case trailerUrls = "trailer_urls"
     }
 
-    init(movieID: String?, tmdbID: Int?, createdAt: String?, posterURL: String?, tmdbRating: Int?, imdbID: String?, updatedAt: String?, originalLanguage: String?, releaseYear: Int?, genres: [MovieGenre]?, title: String?, type: String?, productionCountries: [ProductionCountry]?, synopsies: String?, runtime: Int?, budget: Int?, castAndCrew: [CastAndCrew]?, releaseDate: String?, revenue: Int?, providerOffers: String?, tagline: String?, images: [MovieImage]?, trailerUrls: [TrailerURL]?) {
+    init(movieID: String?, tmdbID: Int?, createdAt: String?, posterURL: String?, tmdbRating: Int?, imdbID: String?, updatedAt: String?, originalLanguage: String?, releaseYear: Int?, genres: [MovieGenre]?, title: String?, type: String?, productionCountries: [ProductionCountry]?, synopsies: String?, runtime: Int?, budget: Int?, castAndCrew: [CastAndCrew]?, releaseDate: String?, revenue: Int?, providerOffers: ProviderOffers?, tagline: String?, images: [MovieImage]?, trailerUrls: [TrailerURL]?) {
         self.movieID = movieID
         self.tmdbID = tmdbID
         self.createdAt = createdAt
@@ -89,6 +123,68 @@ class MovieDetail: Codable {
     }
 }
 
+// MARK: - ProviderOffers
+class ProviderOffers: Codable {
+    let providerOffersIN: In?
+    let us: Us?
+
+    enum CodingKeys: String, CodingKey {
+        case providerOffersIN = "IN"
+        case us = "US"
+    }
+
+    init(providerOffersIN: In?, us: Us?) {
+        self.providerOffersIN = providerOffersIN
+        self.us = us
+    }
+}
+
+// MARK: - In
+class In: Codable {
+    let link: String?
+    let flatrate: [Flatrate]?
+
+    init(link: String?, flatrate: [Flatrate]?) {
+        self.link = link
+        self.flatrate = flatrate
+    }
+}
+
+// MARK: - Flatrate
+class Flatrate: Codable {
+    let displayPriority: Int?
+    let logoPath: String?
+    let providerID: Int?
+    let providerName: String?
+
+    enum CodingKeys: String, CodingKey {
+        case displayPriority = "display_priority"
+        case logoPath = "logo_path"
+        case providerID = "provider_id"
+        case providerName = "provider_name"
+    }
+
+    init(displayPriority: Int?, logoPath: String?, providerID: Int?, providerName: String?) {
+        self.displayPriority = displayPriority
+        self.logoPath = logoPath
+        self.providerID = providerID
+        self.providerName = providerName
+    }
+}
+
+// MARK: - Us
+class Us: Codable {
+    let link: String?
+    let rent, flatrate, buy, ads: [Flatrate]?
+
+    init(link: String?, rent: [Flatrate]?, flatrate: [Flatrate]?, buy: [Flatrate]?, ads: [Flatrate]?) {
+        self.link = link
+        self.rent = rent
+        self.flatrate = flatrate
+        self.buy = buy
+        self.ads = ads
+    }
+}
 // MARK: - CastAndCrew
 class CastAndCrew: Codable {
     let castID: Int?
