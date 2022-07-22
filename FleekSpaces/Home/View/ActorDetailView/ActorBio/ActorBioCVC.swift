@@ -37,8 +37,13 @@ class ActorBioCVC: UICollectionViewCell {
         
         self.celebName.text = fromData.fullName
         self.celebBio.text = fromData.bio
-        self.celebBirthday.text = fromData.birthDay
-        self.celebBirthplace.text = fromData.placeOfBirth
+        if let birthday = fromData.birthDay {
+            self.celebBirthday.text = "Date of Birth: \(birthday)"
+        }
+        if let birthplace = fromData.placeOfBirth {
+            self.celebBirthplace.text = "Place of Birth: \(birthplace)"
+        }
+       
         if let backdropURL = fromData.posterUrls?[0] {
             let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(backdropURL)")
             print("poster is \(newURL)")
