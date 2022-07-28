@@ -31,5 +31,11 @@ class TrendingWorldCollectionViewCell: UICollectionViewCell {
 
         
     }
+    
+    
+    func setupTVshow() {
+        
+        
+    }
 
 }

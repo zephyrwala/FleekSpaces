@@ -17,7 +17,204 @@ class FinalDataModel: NSObject {
     
     static var actorDetails: ActorDetails?
     
+    static var tvShow: [TVshowElement]?
+    
+    static var showDetails: TVshowDetail?
+    
 }
+
+
+// MARK: - TVshowDetail
+class TVshowDetail: Codable {
+    let tmdbID: Int?
+    let createdAt, showID, posterURL: String?
+    let createdBy: [CreatedBy]?
+    let tmdbRating: Int?
+    let updatedAt, originalLanguage: String?
+    let releaseYear: Int?
+    let genres: [Genre]?
+    let title, type: String?
+//    let productionCountries: [JSONAny]?
+    let originalTitle, synopsies: String?
+    let episodeRuntime: [Int]?
+    let lastAirDate: String?
+    let castAndCrew: [CastAndCrew]?
+    let languages: [String]?
+    let providerOffers, tagline: String?
+    let images: [MovieImage]?
+    let seasons: [Season]?
+//    let trailerUrls: [JSONAny]?
+    let firstAirDate: String?
+
+    enum CodingKeys: String, CodingKey {
+        case tmdbID = "tmdb_id"
+        case createdAt = "created_at"
+        case showID = "show_id"
+        case posterURL = "poster_url"
+        case createdBy = "created_by"
+        case tmdbRating = "tmdb_rating"
+        case updatedAt = "updated_at"
+        case originalLanguage = "original_language"
+        case releaseYear = "release_year"
+        case genres, title, type
+//        case productionCountries = "production_countries"
+        case originalTitle = "original_title"
+        case synopsies
+        case episodeRuntime = "episode_runtime"
+        case lastAirDate = "last_air_date"
+        case castAndCrew = "cast_and_crew"
+        case languages
+        case providerOffers = "provider_offers"
+        case tagline, images, seasons
+//        case trailerUrls = "trailer_urls"
+        case firstAirDate = "first_air_date"
+    }
+
+    init(tmdbID: Int?, createdAt: String?, showID: String?, posterURL: String?, createdBy: [CreatedBy]?, tmdbRating: Int?, updatedAt: String?, originalLanguage: String?, releaseYear: Int?, genres: [Genre]?, title: String?, type: String?, originalTitle: String?, synopsies: String?, episodeRuntime: [Int]?, lastAirDate: String?, castAndCrew: [CastAndCrew]?, languages: [String]?, providerOffers: String?, tagline: String?, images: [MovieImage]?, seasons: [Season]?, firstAirDate: String?) {
+        self.tmdbID = tmdbID
+        self.createdAt = createdAt
+        self.showID = showID
+        self.posterURL = posterURL
+        self.createdBy = createdBy
+        self.tmdbRating = tmdbRating
+        self.updatedAt = updatedAt
+        self.originalLanguage = originalLanguage
+        self.releaseYear = releaseYear
+        self.genres = genres
+        self.title = title
+        self.type = type
+//        self.productionCountries = productionCountries
+        self.originalTitle = originalTitle
+        self.synopsies = synopsies
+        self.episodeRuntime = episodeRuntime
+        self.lastAirDate = lastAirDate
+        self.castAndCrew = castAndCrew
+        self.languages = languages
+        self.providerOffers = providerOffers
+        self.tagline = tagline
+        self.images = images
+        self.seasons = seasons
+//        self.trailerUrls = trailerUrls
+        self.firstAirDate = firstAirDate
+    }
+}
+
+
+
+
+
+// MARK: - Season
+class Season: Codable {
+    let name: String?
+    let seasonNumber, id: Int?
+    let posterPath: String?
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case seasonNumber = "season_number"
+        case id
+        case posterPath = "poster_path"
+    }
+
+    init(name: String?, seasonNumber: Int?, id: Int?, posterPath: String?) {
+        self.name = name
+        self.seasonNumber = seasonNumber
+        self.id = id
+        self.posterPath = posterPath
+    }
+}
+
+
+
+// MARK: - TVshowElement
+class TVshowElement: Codable {
+    let tmdbID: Int?
+    let createdAt, showID, posterURL: String?
+    let createdBy: [CreatedBy]?
+    let tmdbRating: Int?
+    let updatedAt: String?
+    let originalLanguage: TVOriginalLanguage?
+    let releaseYear: Int?
+    let genres: [TVGenre]?
+    let title: String?
+    let type: TypeEnum?
+
+    enum CodingKeys: String, CodingKey {
+        case tmdbID = "tmdb_id"
+        case createdAt = "created_at"
+        case showID = "show_id"
+        case posterURL = "poster_url"
+        case createdBy = "created_by"
+        case tmdbRating = "tmdb_rating"
+        case updatedAt = "updated_at"
+        case originalLanguage = "original_language"
+        case releaseYear = "release_year"
+        case genres, title, type
+    }
+
+    init(tmdbID: Int?, createdAt: String?, showID: String?, posterURL: String?, createdBy: [CreatedBy]?, tmdbRating: Int?, updatedAt: String?, originalLanguage: TVOriginalLanguage?, releaseYear: Int?, genres: [TVGenre]?, title: String?, type: TypeEnum?) {
+        self.tmdbID = tmdbID
+        self.createdAt = createdAt
+        self.showID = showID
+        self.posterURL = posterURL
+        self.createdBy = createdBy
+        self.tmdbRating = tmdbRating
+        self.updatedAt = updatedAt
+        self.originalLanguage = originalLanguage
+        self.releaseYear = releaseYear
+        self.genres = genres
+        self.title = title
+        self.type = type
+    }
+}
+
+// MARK: - CreatedBy
+class CreatedBy: Codable {
+    let name: String?
+    let profilePath: String?
+    let id, gender: Int?
+    let creditID: String?
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case profilePath = "profile_path"
+        case id, gender
+        case creditID = "credit_id"
+    }
+
+    init(name: String?, profilePath: String?, id: Int?, gender: Int?, creditID: String?) {
+        self.name = name
+        self.profilePath = profilePath
+        self.id = id
+        self.gender = gender
+        self.creditID = creditID
+    }
+}
+
+// MARK: - Genre
+class TVGenre: Codable {
+    let name: String?
+    let id: Int?
+
+    init(name: String?, id: Int?) {
+        self.name = name
+        self.id = id
+    }
+}
+
+enum TVOriginalLanguage: String, Codable {
+    case de = "de"
+    case en = "en"
+    case es = "es"
+    case hi = "hi"
+    case it = "it"
+}
+
+enum TypeEnum: String, Codable {
+    case tvShows = "TV Shows"
+}
+
+
 
 
 // MARK: - MovieDetails
@@ -321,6 +518,7 @@ class TrailerURL: Codable {
 // MARK: - WorldwideElement
 class Worldwide: Codable {
     let movieID: String?
+    let showID: String?
     let tmdbID: Int?
     let createdAt, posterURL: String?
     let tmdbRating: Int?
@@ -331,6 +529,7 @@ class Worldwide: Codable {
 
     enum CodingKeys: String, CodingKey {
         case movieID = "movie_id"
+        case showID = "show_id"
         case tmdbID = "tmdb_id"
         case createdAt = "created_at"
         case posterURL = "poster_url"
@@ -342,8 +541,9 @@ class Worldwide: Codable {
         case genres, title, type
     }
 
-    init(movieID: String?, tmdbID: Int?, createdAt: String?, posterURL: String?, tmdbRating: Int?, imdbID: String?, updatedAt: String?, originalLanguage: String?, releaseYear: Int?, genres: [Genre]?, title: String?, type: String?) {
+    init(movieID: String?, showID: String?, tmdbID: Int?, createdAt: String?, posterURL: String?, tmdbRating: Int?, imdbID: String?, updatedAt: String?, originalLanguage: String?, releaseYear: Int?, genres: [Genre]?, title: String?, type: String?) {
         self.movieID = movieID
+        self.showID = showID
         self.tmdbID = tmdbID
         self.createdAt = createdAt
         self.posterURL = posterURL

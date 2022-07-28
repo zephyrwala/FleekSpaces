@@ -14,6 +14,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
     }
     
 
+    var showId: String?
     let sec1 = "sec1ID"
     let sec2 = "sec2ID"
     let sec3 = "sec3ID"
@@ -33,6 +34,8 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("This is show id: \(showId)")
+        fetchMovieDetails(movieID: showId!)
         setupCollectionView()
         // Do any additional setup after loading the view.
     }
@@ -41,6 +44,54 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
         
         navigationController?.popToRootViewController(animated: true)
     }
+    
+    
+    //MARK: - Call TV Show function
+    
+    //MARK: - Fetch Movie Detail
+    func fetchMovieDetails(movieID: String) {
+        
+        guard let finalMovieId = showId else {
+            return
+        }
+
+      
+        let network = NetworkURL()
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_tv_show_details?TVshow_id=\(movieID)")
+        
+        
+        network.theBestNetworkCall(TVshowDetail.self, url: url) { myMovieResult, yourMessage in
+            
+          
+            switch myMovieResult {
+                
+            
+            case .success(let movieData):
+                print("TV Show Data is here \(movieData) and \(movieData.title)")
+                DispatchQueue.main.async {
+                FinalDataModel.showDetails = movieData
+                print("passed data is \(movieData.title)")
+                
+                
+              
+                self.tvCollectionView.reloadData()
+                
+            }
+               
+            case .failure(let err):
+                print("Failed to fetch data")
+                
+            }
+            
+        }
+        
+        
+    
+    }
+    
+    
+    //MARK: - Setup Collectionview
+    
     
     func setupCollectionView() {
         
@@ -317,11 +368,16 @@ extension TVDetailViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieInfo", for: indexPath) as! MovieInfoCollectionViewCell
            
             cell.episodeDelegate = self
-            if let movieData = tvPassedData {
-                cell.setupTVCell(fromData: movieData)
-               
-            }
+//            if let movieData = tvPassedData {
+//                cell.setupTVCell(fromData: movieData)
+//
+//            }
             
+            if let showData =  FinalDataModel.showDetails {
+                
+                cell.setupTVShowDetail(fromData: showData)
+                
+            }
             
             
             return cell
@@ -335,6 +391,12 @@ extension TVDetailViewController: UICollectionViewDataSource {
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movCast", for: indexPath) as! MovieCastCell
 //            cell.setupCell(fromData: optionsLogos[indexPath.item])
+            
+            if let showData =  FinalDataModel.showDetails?.castAndCrew {
+                
+                cell.setupCell(fromData: showData[indexPath.item])
+                
+            }
             
             return cell
             

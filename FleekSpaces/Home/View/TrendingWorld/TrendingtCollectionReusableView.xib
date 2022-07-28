@@ -3,30 +3,61 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="worldTrend" reuseIdentifier="worldTrend" id="U6b-Vx-4bR" customClass="TrendingtCollectionReusableView" customModule="FleekSpaces" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="380" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leY-QZ-Pse">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <rect key="frame" x="0.0" y="0.0" width="380" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Worldwide Trending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qms-uV-WBg">
-                            <rect key="frame" x="10" y="10" width="300" height="30"/>
+                            <rect key="frame" x="10" y="10" width="360" height="30"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X4S-RW-pRJ">
+                            <rect key="frame" x="270" y="9" width="85" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="85" id="52I-Sd-Ofr"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <color key="tintColor" name="BtnGreenColor"/>
+                            <menu key="menu" title="M" id="6N8-Ra-00e">
+                                <children>
+                                    <command title="Item 1" id="85V-CB-sh5"/>
+                                    <command title="Item 2" id="dX8-0S-lUI"/>
+                                </children>
+                            </menu>
+                            <state key="normal" title="Movies"/>
+                        </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HXB-bM-iP8">
+                            <rect key="frame" x="356" y="19" width="15" height="12.5"/>
+                            <color key="tintColor" name="CoinMessageColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22" id="N1m-ox-ZEn"/>
+                                <constraint firstAttribute="width" constant="15" id="myX-2S-6iO"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <constraints>
                         <constraint firstItem="Qms-uV-WBg" firstAttribute="leading" secondItem="leY-QZ-Pse" secondAttribute="leading" constant="10" id="0MM-0w-97B"/>
+                        <constraint firstItem="HXB-bM-iP8" firstAttribute="centerY" secondItem="leY-QZ-Pse" secondAttribute="centerY" id="6tp-gQ-S2N"/>
                         <constraint firstAttribute="trailing" secondItem="Qms-uV-WBg" secondAttribute="trailing" constant="10" id="B8R-4R-wfi"/>
+                        <constraint firstAttribute="bottom" secondItem="X4S-RW-pRJ" secondAttribute="bottom" constant="9" id="Gbb-Ix-iPa"/>
+                        <constraint firstItem="X4S-RW-pRJ" firstAttribute="top" secondItem="leY-QZ-Pse" secondAttribute="top" constant="9" id="NLS-cF-Z2W"/>
+                        <constraint firstAttribute="trailing" secondItem="X4S-RW-pRJ" secondAttribute="trailing" constant="25" id="NYh-oH-e15"/>
                         <constraint firstAttribute="bottom" secondItem="Qms-uV-WBg" secondAttribute="bottom" constant="10" id="ciK-Hg-ZGi"/>
+                        <constraint firstItem="HXB-bM-iP8" firstAttribute="leading" secondItem="X4S-RW-pRJ" secondAttribute="trailing" constant="1" id="gIG-1b-J8a"/>
+                        <constraint firstItem="HXB-bM-iP8" firstAttribute="centerY" secondItem="leY-QZ-Pse" secondAttribute="centerY" id="oKD-Ve-o2l"/>
                         <constraint firstItem="Qms-uV-WBg" firstAttribute="top" secondItem="leY-QZ-Pse" secondAttribute="top" constant="10" id="r7g-5O-Dp6"/>
                     </constraints>
                 </view>
@@ -38,7 +69,19 @@
                 <constraint firstAttribute="trailing" secondItem="leY-QZ-Pse" secondAttribute="trailing" id="oNy-SF-02o"/>
                 <constraint firstItem="leY-QZ-Pse" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="uYD-xW-L3W"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="95"/>
+            <connections>
+                <outlet property="myButton" destination="X4S-RW-pRJ" id="dkb-vU-FD4"/>
+            </connections>
+            <point key="canvasLocation" x="181.15942028985509" y="94.419642857142847"/>
         </collectionReusableView>
     </objects>
+    <resources>
+        <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <namedColor name="BtnGreenColor">
+            <color red="0.0" green="0.67500001192092896" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CoinMessageColor">
+            <color red="0.85900002717971802" green="0.91399997472763062" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

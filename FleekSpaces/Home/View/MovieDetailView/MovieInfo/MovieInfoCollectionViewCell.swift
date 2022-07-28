@@ -41,14 +41,47 @@ class MovieInfoCollectionViewCell: UICollectionViewCell {
         self.movieTitle.text = fromData.title
         self.moviePlot.text = fromData.synopsies
         self.movieLanguage.text = "Language: \(fromData.originalLanguage!)"
-        let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(fromData.posterURL!)")
-        self.movieBackdrop.sd_setImage(with: newURL)
+        if let images = fromData.images![1].backdrops {
+            let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(images[0].filePath!)")
+            self.movieBackdrop.sd_setImage(with: newURL)
+            print("Picture url: \(newURL)\(images[0].filePath!)")
+        }
+        
+       
+       
         self.movieRating.text = "\(fromData.tmdbRating!)/10"
         self.movieReleaseYear.text = "Year: \(fromData.releaseDate!)"
 //        self.movieDirector.text = fromData
         self.genreView.isHidden = true
         self.episodeBtn.isHidden = true
         
+    }
+    
+    func setupTVShowDetail(fromData: TVshowDetail) {
+        
+        self.movieTitle.text = fromData.title
+        self.moviePlot.text = fromData.synopsies
+        self.movieLanguage.text = "Language: \(fromData.originalLanguage!)"
+        if fromData.images?[1].backdrops?.count == 0 {
+            let backdropURL = fromData.posterURL
+            let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(backdropURL!)")
+            self.movieBackdrop.sd_setImage(with: newURL)
+            self.episodeBtn.isHidden = false
+        } else {
+            
+            if let backdropURL = fromData.images?[1].backdrops?[0].filePath {
+                let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(backdropURL)")
+                self.movieBackdrop.sd_setImage(with: newURL)
+                self.episodeBtn.isHidden = false
+            }
+        }
+     
+       
+        self.genreView.isHidden = true
+        self.movieRating.text = "\(fromData.tmdbRating)/10"
+        self.movieReleaseYear.text = "Year: \(fromData.firstAirDate!)"
+//        self.movieDirector.text = fromData
+       
     }
     
     func setupTVCell(fromData: TVResult) {

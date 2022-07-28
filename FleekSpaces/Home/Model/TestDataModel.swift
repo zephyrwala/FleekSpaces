@@ -31,37 +31,37 @@ class MyMovieDataModel: NSObject {
 
 
 // MARK: - StreamingElement
+
 class StreamingElement: Codable {
-    let updatedAt: String?
-    let providerID: Int?
-    let createdAt, providerName, logoPath: String?
+    let serviceID, streamingServiceName: String?
+//    let orderOfDisplay: JSONNull?
+    let isActive: Bool?
+    let iconURL: String?
+    let tmdbID: Int?
+    let createdAt, updatedAt: String?
 
     enum CodingKeys: String, CodingKey {
-        case updatedAt = "updated_at"
-        case providerID = "provider_id"
+        case serviceID = "service_id"
+        case streamingServiceName = "streaming_service_name"
+//        case orderOfDisplay = "order_of_display"
+        case isActive = "is_active"
+        case iconURL = "icon_url"
+        case tmdbID = "tmdb_id"
         case createdAt = "created_at"
-        case providerName = "provider_name"
-        case logoPath = "logo_path"
+        case updatedAt = "updated_at"
     }
 
-    init(updatedAt: String?, providerID: Int?, createdAt: String?, providerName: String?, logoPath: String?) {
-        self.updatedAt = updatedAt
-        self.providerID = providerID
+    init(serviceID: String?, streamingServiceName: String?, isActive: Bool?, iconURL: String?, tmdbID: Int?, createdAt: String?, updatedAt: String?) {
+        self.serviceID = serviceID
+        self.streamingServiceName = streamingServiceName
+        
+        self.isActive = isActive
+        self.iconURL = iconURL
+        self.tmdbID = tmdbID
         self.createdAt = createdAt
-        self.providerName = providerName
-        self.logoPath = logoPath
+        self.updatedAt = updatedAt
     }
 }
-
-enum MonetizationType: String, Codable {
-    case ads = "ads"
-    case buy = "buy"
-    case flatrate = "flatrate"
-    case free = "free"
-    case rent = "rent"
-}
-
-typealias Streaming = [StreamingElement]
 
 
 

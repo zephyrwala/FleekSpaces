@@ -13,7 +13,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
     @IBOutlet weak var subsCollectionHts: NSLayoutConstraint!
 
     var scrollSize = 0.0
-   
+    var isMovieSelected = true
+    
     @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var visualBlurHt: NSLayoutConstraint!
     @IBOutlet weak var visualBlurLayer: UIVisualEffectView!
@@ -247,7 +248,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
     func fetchNewStreaming() {
         
         let network = NetworkURL()
-        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_all_streaming_services/")
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_available_streaming_services/")
         
         
         network.theBestNetworkCall([StreamingElement].self, url: url) { myResult, yourMessage in
@@ -262,7 +263,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 }
                 
                 for eachStreams in streams {
-                    print("\(eachStreams.providerName)")
+                    print("\(eachStreams.streamingServiceName)")
                 }
                 
             case .failure(let err):
@@ -277,10 +278,47 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
     
     //MARK: - Worldwide Trending
     
+    func fetchWorldWideTVTrending() {
+        
+        let network = NetworkURL()
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_universal_trending/?type=tv_series")
+        
+        network.theBestNetworkCall([Worldwide].self, url: url) { myResult, yourMessage in
+            
+            DispatchQueue.main.async {
+                switch myResult {
+                    
+                case .success(let movieData):
+                    print("Movie is here \(movieData)")
+                    FinalDataModel.worldWide = movieData
+                    self.homeCollectionViews.reloadData()
+    //                self.displayUIAlert(yourMessage: "Movie data \(movieData)")
+                    for eachMovie in movieData {
+                        
+                        print("TV SHows : \(eachMovie.title)")
+                        
+                    }
+                    
+                case .failure(let err):
+                    print("Failure in TV show fetch")
+    //                self.displayUIAlert(yourMessage: "Error \(err)")
+                    
+                }
+            }
+      
+            
+        }
+        
+        
+    }
+    
+    
+    //MARK: - Worldwide Trending
+    
     func fetchWorldWideTrending() {
         
         let network = NetworkURL()
-        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_universal_trending/")
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_universal_trending/?type=movie")
         
         network.theBestNetworkCall([Worldwide].self, url: url) { myResult, yourMessage in
             
@@ -733,14 +771,49 @@ extension HomeViewController: UICollectionViewDataSource {
           
             case 2:
                 
-                var selectedController = MovieDetailViewController()
-                if let jsonData = MyMovieDataModel.upcoming?.results {
+                if isMovieSelected == true {
                     
-                    selectedController.passedData = jsonData[indexPath.item]
+                    var selectedController = MovieDetailViewController()
+                    
+                    //pass the movie ID
+                    if let movieDataId = FinalDataModel.worldWide?[indexPath.item].movieID {
+                        selectedController.movieId = movieDataId
+                        selectedController.fetchMovieDetails(movieID: movieDataId)
+                    }
+                   
+                    //pass movie data
+    //                if let jsonData = MyMovieDataModel.upcoming?.results {
+    //
+    //                    selectedController.passedData = jsonData[indexPath.item]
+    //
+    //                }
+                        
+                    navigationController?.pushViewController(selectedController, animated: true)
+                    
+                    
+                } else {
+                    
+                    var selectedController = TVDetailViewController()
+                    
+                    //pass the movie ID
+                    if let movieDataId = FinalDataModel.worldWide?[indexPath.item].showID {
+                        selectedController.showId = movieDataId
+                        selectedController.fetchMovieDetails(movieID: movieDataId)
+                    }
+                   
+                   
+                    //pass movie data
+    //                if let jsonData = MyMovieDataModel.upcoming?.results {
+    //
+    //                    selectedController.passedData = jsonData[indexPath.item]
+    //
+    //                }
+                        
+                    navigationController?.pushViewController(selectedController, animated: true)
                     
                 }
-                    
-                navigationController?.pushViewController(selectedController, animated: true)
+                
+        
                 
                 
             case 3:
@@ -1007,7 +1080,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "worldTrend", for: indexPath) as! TrendingtCollectionReusableView
                
-               
+                header.movieDelegate = self
                 return header
              
                 
@@ -1053,6 +1126,24 @@ extension HomeViewController: seeAllTapped {
         let addSubController = ChooseSubsViewController()
         navigationController?.pushViewController(addSubController, animated: true)
     }
+    
+    
+}
+
+extension HomeViewController: TVshowTap {
+    func movieSelected() {
+        //TODO: - Cal movie function here
+        self.isMovieSelected = true
+        fetchWorldWideTrending()
+    }
+    
+    func tvShowSelected() {
+        //TODO: - Call tv show function here
+        self.isMovieSelected = false
+        fetchWorldWideTVTrending()
+    }
+    
+    
     
     
 }

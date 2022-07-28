@@ -21,7 +21,7 @@ class Section1CollectionViewCell: UICollectionViewCell {
     //MARK: - Setup cell with new api data
     func setupStreamCells(fromData: StreamingElement) {
         
-        if let imageURL = fromData.logoPath {
+        if let imageURL = fromData.iconURL {
             
             self.selectedSub.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/original\(imageURL)"))
             
