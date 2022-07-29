@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SeasonsViewController" customModule="FleekSpaces" customModuleProvider="target">
             <connections>
                 <outlet property="seasonCollectionView" destination="ZUL-pR-oFK" id="xFb-dd-YEd"/>
+                <outlet property="seasonLabel" destination="Frj-7p-YQJ" id="ylz-J9-egt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -67,7 +68,7 @@
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZUL-pR-oFK">
                     <rect key="frame" x="0.0" y="100" width="414" height="796"/>
-                    <color key="backgroundColor" name="BGColor"/>
+                    <color key="backgroundColor" name="Background"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bsv-28-tG5">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -95,6 +96,9 @@
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <namedColor name="BGColor">
             <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Background">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

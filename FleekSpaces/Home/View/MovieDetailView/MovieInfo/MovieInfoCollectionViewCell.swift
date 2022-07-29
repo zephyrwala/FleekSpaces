@@ -41,11 +41,26 @@ class MovieInfoCollectionViewCell: UICollectionViewCell {
         self.movieTitle.text = fromData.title
         self.moviePlot.text = fromData.synopsies
         self.movieLanguage.text = "Language: \(fromData.originalLanguage!)"
-        if let images = fromData.images![1].backdrops {
-            let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(images[0].filePath!)")
+        
+        if fromData.images?[1].backdrops?.count == 0 {
+            let backdropURL = fromData.posterURL
+            let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(backdropURL!)")
             self.movieBackdrop.sd_setImage(with: newURL)
-            print("Picture url: \(newURL)\(images[0].filePath!)")
+        } else {
+            
+            if let backdropURL = fromData.images?[1].backdrops?[0].filePath {
+                let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(backdropURL)")
+                self.movieBackdrop.sd_setImage(with: newURL)
+                self.episodeBtn.isHidden = false
+            }
         }
+        
+//        if let images = fromData.images![1].backdrops {
+//            let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(images[0].filePath!)")
+//            self.movieBackdrop.sd_setImage(with: newURL)
+//            print("Picture url: \(newURL)\(images[0].filePath!)")
+    
+        
         
        
        
@@ -59,6 +74,11 @@ class MovieInfoCollectionViewCell: UICollectionViewCell {
     
     func setupTVShowDetail(fromData: TVshowDetail) {
         
+        if let seasonCount = FinalDataModel.showDetails?.seasons?.count {
+            self.episodeBtn.setTitle("Episode Guide (\(seasonCount) Seasons)", for: .normal)
+           
+        }
+       
         self.movieTitle.text = fromData.title
         self.moviePlot.text = fromData.synopsies
         self.movieLanguage.text = "Language: \(fromData.originalLanguage!)"
@@ -78,7 +98,11 @@ class MovieInfoCollectionViewCell: UICollectionViewCell {
      
        
         self.genreView.isHidden = true
-        self.movieRating.text = "\(fromData.tmdbRating)/10"
+        if let movieRating = fromData.tmdbRating {
+            
+            self.movieRating.text = "\(movieRating)/10"
+        }
+       
         self.movieReleaseYear.text = "Year: \(fromData.firstAirDate!)"
 //        self.movieDirector.text = fromData
        

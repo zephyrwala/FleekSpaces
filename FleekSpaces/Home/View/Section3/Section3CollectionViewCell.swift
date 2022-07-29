@@ -19,9 +19,9 @@ class Section3CollectionViewCell: UICollectionViewCell {
     }
 
     
-    func setupCell(fromData: TVResult){
+    func setupCell(fromData: OTTshow){
         
-        if let mainPosterPath = fromData.posterPath {
+        if let mainPosterPath = fromData.posterURL {
             
             let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(mainPosterPath)")
             self.posterImage.sd_setImage(with: newURL)
@@ -32,6 +32,9 @@ class Section3CollectionViewCell: UICollectionViewCell {
 
         
     }
+    
+    
+    
     
     
 }

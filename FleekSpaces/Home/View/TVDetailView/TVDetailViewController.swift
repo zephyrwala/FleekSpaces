@@ -79,7 +79,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
             }
                
             case .failure(let err):
-                print("Failed to fetch data")
+                print("Failed to show fetch data \(err)")
                 
             }
             
@@ -394,7 +394,7 @@ extension TVDetailViewController: UICollectionViewDataSource {
             
             if let showData =  FinalDataModel.showDetails?.castAndCrew {
                 
-                cell.setupCell(fromData: showData[indexPath.item])
+                cell.setupTVShowCell(fromData: showData[indexPath.item])
                 
             }
             

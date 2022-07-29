@@ -10,6 +10,7 @@ import UIKit
 class SeasonsViewController: UIViewController, UICollectionViewDelegate {
     
     
+    @IBOutlet weak var seasonLabel: UILabel!
     let sec1 = "sec1ID"
     let sec2 = "sec2ID"
     let sec3 = "sec3ID"
@@ -19,6 +20,10 @@ class SeasonsViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        if let seasonCount = FinalDataModel.showDetails?.seasons?.count {
+            self.seasonLabel.text = "Seasons \(seasonCount)"
+        }
+       
         loadJson(filename: "tvshow")
         self.seasonCollectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .left)
         // Do any additional setup after loading the view.
@@ -56,13 +61,13 @@ class SeasonsViewController: UIViewController, UICollectionViewDelegate {
         
         seasonCollectionView.delegate = self
         seasonCollectionView.dataSource = self
-        seasonCollectionView.collectionViewLayout = layoutCells()
+        seasonCollectionView.collectionViewLayout = recentLayoutCells()
         seasonCollectionView.allowsMultipleSelection = false
         
         //register cells
         
-        seasonCollectionView.register(UINib(nibName: "SeasonCell", bundle: nil), forCellWithReuseIdentifier: "seasonCell")
-        seasonCollectionView.register(UINib(nibName: "EpisodeCell", bundle: nil), forCellWithReuseIdentifier: "episodeCell")
+        seasonCollectionView.register(UINib(nibName: "SeasonCardCVC", bundle: nil), forCellWithReuseIdentifier: "seas")
+       
         
     }
     
@@ -172,6 +177,73 @@ class SeasonsViewController: UIViewController, UICollectionViewDelegate {
         
         
     }
+    
+    func recentLayoutCells() -> UICollectionViewCompositionalLayout {
+        
+        let layout = UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection? in
+            
+            switch sectionNumber {
+                
+            case 0:
+               
+                //item size
+                let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1)))
+                
+                myItem.contentInsets.trailing = 10
+                myItem.contentInsets.bottom = 10
+                myItem.contentInsets.leading = 10
+                myItem.contentInsets.top = 10
+                
+                //group size
+                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(280)), subitems: [myItem])
+                
+                //section size
+                
+                let section = NSCollectionLayoutSection(group: myGroup)
+                
+//                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec2, alignment: .top)
+//                header.pinToVisibleBounds = true
+                section.boundarySupplementaryItems = [header]
+                
+                return section
+                
+                
+            default:
+                
+                //item size
+                let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                
+                myItem.contentInsets.trailing = 10
+                myItem.contentInsets.bottom = 10
+                myItem.contentInsets.leading = 10
+                myItem.contentInsets.top = 10
+                
+                //group size
+                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.7), heightDimension: .absolute(300)), subitems: [myItem])
+                
+                //section size
+                
+                let section = NSCollectionLayoutSection(group: myGroup)
+                
+                return section
+                
+            }
+            //switch ends here
+            
+            
+        }
+        //layout ends here
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 10
+        layout.configuration = config
+        
+        return layout
+        
+        
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -206,17 +278,16 @@ extension SeasonsViewController: UICollectionViewDataSource {
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        2
+        1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
             
         case 0:
-            return SeasonNumbers.slideCollection.count ?? 5
+            return FinalDataModel.showDetails?.seasons?.count ?? 2
             
-        case 1:
-            return MyMovieDataModel.tvEpisodes?.episodes?.count ?? 6
+       
             
         default:
             return 5
@@ -228,39 +299,18 @@ extension SeasonsViewController: UICollectionViewDataSource {
             
         case 0:
             
-            if indexPath.item == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "seas", for: indexPath) as! SeasonCardCVC
+//            cell.setupSelectedCell()
+            
+            if let seasonData = FinalDataModel.showDetails?.seasons {
                 
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "seasonCell", for: indexPath) as! SeasonCell
-                cell.setupSelectedCell()
-                
-                return cell
-                
-            } else {
-                
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "seasonCell", for: indexPath) as! SeasonCell
-
-
-                cell.setupCell(fromData: SeasonNumbers.slideCollection[indexPath.item])
-                
-    //            cell.setupLogos(fromData: myLogos[indexPath.item])
-                
-                return cell
-                
+                cell.setupSeasonCell(fromData: seasonData[indexPath.item])
             }
+           
+            return cell
             
           
-            
-        case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "episodeCell", for: indexPath) as! EpisodeCell
 
-            if let jsonData = MyMovieDataModel.tvEpisodes?.episodes {
-                cell.setupCell(fromData: jsonData[indexPath.item])
-            }
-
-       
-//            cell.setupLogos(fromData: myLogos[indexPath.item])
-            
-            return cell
             
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "episodeCell", for: indexPath) as! EpisodeCell

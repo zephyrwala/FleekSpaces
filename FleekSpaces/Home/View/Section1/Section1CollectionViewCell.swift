@@ -17,6 +17,20 @@ class Section1CollectionViewCell: UICollectionViewCell {
        
     }
 
+    override var isSelected: Bool {
+          willSet {
+              if newValue {
+                  self.layer.cornerRadius = selectedSub.frame.size.width / 2
+                  self.layer.borderWidth = 3
+                  self.layer.borderColor = UIColor(named: "BtnGreenColor")?.cgColor
+              } else {
+                   self.layer.borderWidth = 0
+                  self.layer.borderColor = UIColor(.gray).cgColor
+                
+              }
+          }
+      }
+      
    
     //MARK: - Setup cell with new api data
     func setupStreamCells(fromData: StreamingElement) {

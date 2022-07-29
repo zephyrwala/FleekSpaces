@@ -61,6 +61,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         fetchNewStreaming()
 //        fetchNowPlaying()
 //        fetchTopRated()
+        fetchOTTtvShow(ottName: "Netflix")
+        fetchOTTmovie(ottName: "Netflix")
         fetchTVshows()
         fetchWorldWideTrending()
         setupBtn()
@@ -167,6 +169,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         subsCollectionView.collectionViewLayout = subLayoutCells()
         subsCollectionView.register(UINib(nibName: "Section1CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "sec1")
         subsCollectionView.register(UINib(nibName: "Section2CRV", bundle: nil), forSupplementaryViewOfKind: self.sec1, withReuseIdentifier: "sec2Header")
+        subsCollectionView.allowsMultipleSelection = false
         
     }
     
@@ -198,6 +201,114 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         
     }
     
+    //MARK: - Fetch OTT Movie Url
+    
+    func fetchOTTmovie(ottName: String) {
+        
+        let network = NetworkURL()
+//        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_ott_trending")
+        
+        
+        var components = URLComponents()
+            components.scheme = "https"
+            components.host = "api-space-dev.getfleek.app"
+            components.path = "/shows/get_ott_trending"
+            components.queryItems = [
+                URLQueryItem(name: "ott_name", value: ottName),
+                URLQueryItem(name: "type", value: "movie")
+            ]
+
+            // Getting a URL from our components is as simple as
+            // accessing the 'url' property.
+            let url = components.url
+        
+       
+        print("FINAL URL \(url)")
+        
+        network.theBestNetworkCall([OTTmovie].self, url: url) { myResult, yourMessage in
+            
+            DispatchQueue.main.async {
+                switch myResult {
+                    
+                case .success(let movieData):
+                    print("Movie is here \(movieData)")
+                    FinalDataModel.ottMovie = movieData
+                    self.homeCollectionViews.reloadData()
+    //                self.displayUIAlert(yourMessage: "Movie data \(movieData)")
+                    for eachMovie in movieData {
+                        
+                        print("OTT Movie : \(eachMovie.title)")
+                        
+                    }
+                    
+                case .failure(let err):
+                    print("Failure in Movie fetch")
+    //                self.displayUIAlert(yourMessage: "Error \(err)")
+                    
+                }
+            }
+      
+            
+        }
+        
+      
+        
+    }
+    
+    //MARK: - Fetch TV Show Url
+    
+    func fetchOTTtvShow(ottName: String) {
+        
+        let network = NetworkURL()
+//        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_ott_trending")
+        
+        
+        var components = URLComponents()
+            components.scheme = "https"
+            components.host = "api-space-dev.getfleek.app"
+            components.path = "/shows/get_ott_trending"
+            components.queryItems = [
+                URLQueryItem(name: "ott_name", value: ottName),
+                URLQueryItem(name: "type", value: "tv_series")
+            ]
+
+            // Getting a URL from our components is as simple as
+            // accessing the 'url' property.
+            let url = components.url
+        
+       
+        print("FINAL URL \(url)")
+        
+        network.theBestNetworkCall([OTTshow].self, url: url) { myResult, yourMessage in
+            
+            DispatchQueue.main.async {
+                switch myResult {
+                    
+                case .success(let movieData):
+                    print("Movie is here \(movieData)")
+                    FinalDataModel.ottShow = movieData
+                    self.homeCollectionViews.reloadData()
+    //                self.displayUIAlert(yourMessage: "Movie data \(movieData)")
+                    for eachMovie in movieData {
+                        
+                        print("OTT TV SHows : \(eachMovie.title)")
+                        
+                    }
+                    
+                case .failure(let err):
+                    print("Failure in OTT TV show fetch")
+    //                self.displayUIAlert(yourMessage: "Error \(err)")
+                    
+                }
+            }
+      
+            
+        }
+        
+      
+        
+    }
+    
     //MARK: - Fetch top tv shows
     
     func fetchTVshows() {
@@ -217,7 +328,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
           guard let url = urlComponents.url else {
             return
           }
-            
+            print("This is another url \(url)")
             network.theBestNetworkCall(TVshow.self, url: url) { myResult, yourMessage in
                 
                 DispatchQueue.main.async {
@@ -712,19 +823,21 @@ extension HomeViewController: UICollectionViewDataSource {
             //top collectionview
         case subsCollectionView:
             
-            switch indexPath.section {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sec1", for: indexPath) as! Section1CollectionViewCell
+            
+            cell.isSelected = true
+
+            print("hi")
+            if let movieData = MyMovieDataModel.streamingPlatform?[indexPath.item] {
                 
-            case 0:
-                if indexPath.item == 0 {
-                    
-                    var selectedController = ChooseSubsViewController()
-                    navigationController?.pushViewController(selectedController, animated: true)
-                    
-                    
+                print("Selected Service \(movieData.streamingServiceName)")
+                
+                if let selectedOTT = movieData.streamingServiceName {
+                    fetchOTTtvShow(ottName: "\(selectedOTT)")
+                    fetchOTTmovie(ottName: "\(selectedOTT)")
+                    homeCollectionViews.reloadData()
                 }
-              
-            default:
-                print("something tapped")
+                
                 
             }
 
@@ -741,7 +854,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 var selectedController = MovieDetailViewController()
                 
                 //pass the movie ID
-                if let movieDataId = FinalDataModel.worldWide?[indexPath.item].movieID {
+                if let movieDataId = FinalDataModel.ottMovie?[indexPath.item].movieID {
                     selectedController.movieId = movieDataId
                     selectedController.fetchMovieDetails(movieID: movieDataId)
                 }
@@ -755,18 +868,20 @@ extension HomeViewController: UICollectionViewDataSource {
                     
                 navigationController?.pushViewController(selectedController, animated: true)
                 
+                
                 //change case1 to tv show for displaying TV shows
             case 1:
                 var selectedController = TVDetailViewController()
-                if let jsonData = MyMovieDataModel.tvshow?.results {
-
-                    selectedController.tvPassedData = jsonData[indexPath.item]
-
+                
+                //pass the movie ID
+                if let movieDataId = FinalDataModel.ottShow?[indexPath.item].showID {
+                    selectedController.showId = movieDataId
+                    selectedController.fetchMovieDetails(movieID: movieDataId)
                 }
+               
+               
                     
                 navigationController?.pushViewController(selectedController, animated: true)
-                
-                
                 
           
             case 2:
@@ -904,14 +1019,18 @@ extension HomeViewController: UICollectionViewDataSource {
                 //change this
             case 0:
                
-                if FinalDataModel.worldWide?.count ?? 3 >= 15 {
+                if FinalDataModel.ottMovie?.count ?? 3 >= 15 {
                     return 15
                 } else {
                     return 9
                 }
                 
             case 1:
-                return MyMovieDataModel.tvshow?.results?.count ?? 3
+                if FinalDataModel.ottShow?.count ?? 3 >= 15 {
+                    return 15
+                } else {
+                    return 9
+                }
                 
                 //worldwide trending
             case 2:
@@ -983,9 +1102,9 @@ extension HomeViewController: UICollectionViewDataSource {
             case 0:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sec2", for: indexPath) as! Section2CollectionViewCell
                 
-                if let myMovieDataStuff = FinalDataModel.worldWide {
+                if let myMovieDataStuff = FinalDataModel.ottMovie {
                     
-                    cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
+                    cell.setupOTTmovie(fromData: myMovieDataStuff[indexPath.item])
                     
                 }
                 
@@ -995,7 +1114,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sec3", for: indexPath) as! Section3CollectionViewCell
                 
-                if let myTopRatedMovieStuff = MyMovieDataModel.tvshow?.results {
+                if let myTopRatedMovieStuff =   FinalDataModel.ottShow {
                     
                     cell.setupCell(fromData: myTopRatedMovieStuff[indexPath.item])
                 }
