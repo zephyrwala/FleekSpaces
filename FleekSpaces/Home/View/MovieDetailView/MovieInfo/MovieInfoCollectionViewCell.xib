@@ -26,6 +26,14 @@
                                     <constraint firstAttribute="height" constant="200" id="WT3-aP-tDL"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Fjo-lj-Isi">
+                                <rect key="frame" x="188" y="90" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="b6y-nK-zhJ"/>
+                                    <constraint firstAttribute="width" constant="24" id="wEk-Rs-Q1B"/>
+                                </constraints>
+                                <color key="color" name="Background"/>
+                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ogc-Of-iwZ">
                                 <rect key="frame" x="15" y="203" width="370" height="339"/>
                                 <subviews>
@@ -195,18 +203,30 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gta-W8-sn0" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="203"/>
+                                <color key="backgroundColor" name="Background"/>
+                                <color key="tintColor" name="Background"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="BGColor"/>
                         <constraints>
+                            <constraint firstItem="Gta-W8-sn0" firstAttribute="top" secondItem="96N-ph-7ty" secondAttribute="top" id="13R-lf-3ug"/>
                             <constraint firstAttribute="trailing" secondItem="ogc-Of-iwZ" secondAttribute="trailing" constant="15" id="1Eg-0a-uT6"/>
+                            <constraint firstItem="Fjo-lj-Isi" firstAttribute="centerX" secondItem="96N-ph-7ty" secondAttribute="centerX" id="65p-UR-hAh"/>
                             <constraint firstItem="ogc-Of-iwZ" firstAttribute="leading" secondItem="96N-ph-7ty" secondAttribute="leading" constant="15" id="9ZN-ey-h5Y"/>
                             <constraint firstAttribute="trailing" secondItem="3Ey-Km-17V" secondAttribute="trailing" constant="15" id="Iqj-cP-fwh"/>
+                            <constraint firstItem="Fjo-lj-Isi" firstAttribute="centerX" secondItem="96N-ph-7ty" secondAttribute="centerX" id="K2P-Pg-Xv6"/>
                             <constraint firstItem="XHW-Vc-mLO" firstAttribute="top" secondItem="96N-ph-7ty" secondAttribute="top" id="KBd-XP-HdH"/>
+                            <constraint firstItem="Gta-W8-sn0" firstAttribute="leading" secondItem="96N-ph-7ty" secondAttribute="leading" id="OGf-6N-KAt"/>
                             <constraint firstItem="3Ey-Km-17V" firstAttribute="top" secondItem="ogc-Of-iwZ" secondAttribute="bottom" constant="15" id="Xjg-fE-3LT"/>
+                            <constraint firstItem="Fjo-lj-Isi" firstAttribute="top" secondItem="96N-ph-7ty" secondAttribute="top" constant="90" id="gFH-ou-Mfg"/>
                             <constraint firstItem="XHW-Vc-mLO" firstAttribute="leading" secondItem="96N-ph-7ty" secondAttribute="leading" id="hSC-30-2eu"/>
                             <constraint firstAttribute="trailing" secondItem="XHW-Vc-mLO" secondAttribute="trailing" id="nUI-fa-fy9"/>
+                            <constraint firstAttribute="trailing" secondItem="Gta-W8-sn0" secondAttribute="trailing" id="oo7-fd-UnE"/>
                             <constraint firstItem="3Ey-Km-17V" firstAttribute="leading" secondItem="96N-ph-7ty" secondAttribute="leading" constant="15" id="pNc-tZ-Ojv"/>
                             <constraint firstAttribute="bottom" secondItem="3Ey-Km-17V" secondAttribute="bottom" constant="10" id="qa9-VH-yYk"/>
+                            <constraint firstItem="ogc-Of-iwZ" firstAttribute="top" secondItem="Gta-W8-sn0" secondAttribute="bottom" id="rN2-fh-X9H"/>
                             <constraint firstItem="ogc-Of-iwZ" firstAttribute="top" secondItem="XHW-Vc-mLO" secondAttribute="bottom" constant="3" id="uNc-2f-yVB"/>
                         </constraints>
                     </view>
@@ -223,6 +243,7 @@
             <connections>
                 <outlet property="episodeBtn" destination="VuM-SV-RvL" id="ddl-yn-9Ns"/>
                 <outlet property="genreView" destination="Rd1-SF-ME3" id="VNA-xv-CmA"/>
+                <outlet property="loader" destination="Fjo-lj-Isi" id="Tvo-Ts-eBE"/>
                 <outlet property="movieBackdrop" destination="XHW-Vc-mLO" id="zRt-QF-qsg"/>
                 <outlet property="movieDirector" destination="s8s-vR-cwV" id="WbP-2K-dFw"/>
                 <outlet property="movieDuration" destination="ta1-HH-kSU" id="Yan-ZQ-PCf"/>
@@ -231,6 +252,7 @@
                 <outlet property="movieRating" destination="inm-Ba-Nke" id="Fy2-KO-Q43"/>
                 <outlet property="movieReleaseYear" destination="2R2-wB-0ef" id="TFy-Rl-r8P"/>
                 <outlet property="movieTitle" destination="96q-IS-UsW" id="nMQ-Vj-9a1"/>
+                <outlet property="utubePlayer" destination="Gta-W8-sn0" id="r5q-as-KTu"/>
             </connections>
             <point key="canvasLocation" x="391.304347826087" y="297.32142857142856"/>
         </collectionViewCell>
@@ -243,6 +265,9 @@
         <image name="qp" width="7680" height="4320"/>
         <namedColor name="BGColor">
             <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Background">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

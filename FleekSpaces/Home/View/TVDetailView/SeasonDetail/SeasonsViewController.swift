@@ -262,13 +262,13 @@ extension SeasonsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
             
-        case 1:
-            var selectedController = DetailEpisodeViewController()
-            if let jsonData = MyMovieDataModel.tvEpisodes?.episodes {
-                
-                selectedController.tvPassedData = jsonData[indexPath.item]
-                
-            }
+        case 0:
+            var selectedController = EpisodeCardsViewController()
+//            if let jsonData = MyMovieDataModel.tvEpisodes?.episodes {
+//
+//                selectedController.tvPassedData = jsonData[indexPath.item]
+//
+//            }
             navigationController?.pushViewController(selectedController, animated: true)
             
         default:

@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import YouTubeiOSPlayerHelper
+import JGProgressHUD
 
 protocol episodeBtnTap: class {
     func didTapEpisodeBtn(sender: UIButton)
 }
 
-class MovieInfoCollectionViewCell: UICollectionViewCell {
+class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
 
+    @IBOutlet weak var loader: UIActivityIndicatorView!
+    var progress = JGProgressHUD()
+    @IBOutlet weak var utubePlayer: YTPlayerView!
     @IBOutlet weak var genreView: UIView!
     var episodeDelegate: episodeBtnTap?
     @IBOutlet weak var episodeBtn: UIButton!
@@ -29,15 +34,36 @@ class MovieInfoCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        utubePlayer.delegate = self
+        utubePlayer.isHidden = true
     }
 
     @IBAction func episodeBtnTap(_ sender: UIButton) {
         episodeDelegate?.didTapEpisodeBtn(sender: sender)
     }
     
-    
+    func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
+        utubePlayer.playVideo()
+    }
     func setupCell(fromData: MovieDetail) {
         
+        loader.startAnimating()
+        if let trailerUrl = fromData.trailerUrls {
+            
+            if let trailerID = trailerUrl[0].key {
+                self.utubePlayer.load(withVideoId: trailerID)
+            }
+           
+           
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+              
+                self.loader.stopAnimating()
+                self.utubePlayer.isHidden = false
+            })
+            
+        }
+       
         self.movieTitle.text = fromData.title
         self.moviePlot.text = fromData.synopsies
         self.movieLanguage.text = "Language: \(fromData.originalLanguage!)"
@@ -73,6 +99,18 @@ class MovieInfoCollectionViewCell: UICollectionViewCell {
     }
     
     func setupTVShowDetail(fromData: TVshowDetail) {
+        
+        if let trailerUrl = fromData.trailerUrls {
+            if let trailerID = trailerUrl[0].key {
+                self.utubePlayer.load(withVideoId: trailerID)
+            }
+           
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+            self.progress.dismiss(animated: true)
+            self.utubePlayer.isHidden = false
+        })
         
         if let seasonCount = FinalDataModel.showDetails?.seasons?.count {
             self.episodeBtn.setTitle("Episode Guide (\(seasonCount) Seasons)", for: .normal)

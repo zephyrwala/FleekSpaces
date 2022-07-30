@@ -58,6 +58,9 @@
 		6930D5842859DEB00080528D /* GenreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6930D5822859DEB00080528D /* GenreCollectionViewCell.xib */; };
 		693357D82893F66700C49506 /* SeasonCardCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693357D62893F66700C49506 /* SeasonCardCVC.swift */; };
 		693357D92893F66700C49506 /* SeasonCardCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 693357D72893F66700C49506 /* SeasonCardCVC.xib */; };
+		693357DD2894088000C49506 /* EpisodeCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693357DB2894088000C49506 /* EpisodeCardsViewController.swift */; };
+		693357DE2894088000C49506 /* EpisodeCardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 693357DC2894088000C49506 /* EpisodeCardsViewController.xib */; };
+		693357E12895619000C49506 /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 693357E02895619000C49506 /* YouTubeiOSPlayerHelper */; };
 		693849902881375F00EC5C61 /* ChatKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6938498F2881375F00EC5C61 /* ChatKitViewController.swift */; };
 		69384994288146BC00EC5C61 /* RecentChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69384992288146BC00EC5C61 /* RecentChatViewCell.swift */; };
 		69384995288146BC00EC5C61 /* RecentChatViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69384993288146BC00EC5C61 /* RecentChatViewCell.xib */; };
@@ -224,6 +227,8 @@
 		6930D5822859DEB00080528D /* GenreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCollectionViewCell.xib; sourceTree = "<group>"; };
 		693357D62893F66700C49506 /* SeasonCardCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonCardCVC.swift; sourceTree = "<group>"; };
 		693357D72893F66700C49506 /* SeasonCardCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonCardCVC.xib; sourceTree = "<group>"; };
+		693357DB2894088000C49506 /* EpisodeCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCardsViewController.swift; sourceTree = "<group>"; };
+		693357DC2894088000C49506 /* EpisodeCardsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCardsViewController.xib; sourceTree = "<group>"; };
 		6938498F2881375F00EC5C61 /* ChatKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatKitViewController.swift; sourceTree = "<group>"; };
 		69384992288146BC00EC5C61 /* RecentChatViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChatViewCell.swift; sourceTree = "<group>"; };
 		69384993288146BC00EC5C61 /* RecentChatViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentChatViewCell.xib; sourceTree = "<group>"; };
@@ -325,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				694393BB2874694E00CEC3C4 /* SDWebImageSwiftUI in Frameworks */,
+				693357E12895619000C49506 /* YouTubeiOSPlayerHelper in Frameworks */,
 				693946AA2847842200FE7574 /* SDWebImage in Frameworks */,
 				692600BB284DE5DB00B6D801 /* CheckmarkCollectionViewCell in Frameworks */,
 				69C4997428699410000F4394 /* IQKeyboardManagerSwift in Frameworks */,
@@ -532,6 +538,15 @@
 				693357D72893F66700C49506 /* SeasonCardCVC.xib */,
 			);
 			path = SeasonCards;
+			sourceTree = "<group>";
+		};
+		693357DA2894085700C49506 /* EpisodeCards */ = {
+			isa = PBXGroup;
+			children = (
+				693357DB2894088000C49506 /* EpisodeCardsViewController.swift */,
+				693357DC2894088000C49506 /* EpisodeCardsViewController.xib */,
+			);
+			path = EpisodeCards;
 			sourceTree = "<group>";
 		};
 		6938498E2881373000EC5C61 /* ChatKit */ = {
@@ -854,6 +869,7 @@
 		695EBBDD2861A94A00557D69 /* SeasonDetail */ = {
 			isa = PBXGroup;
 			children = (
+				693357DA2894085700C49506 /* EpisodeCards */,
 				693357D52893F63600C49506 /* SeasonCards */,
 				695EBBEE2862DEF400557D69 /* DetailEpisodeView */,
 				695EBBE52861B2C000557D69 /* EpisodeView */,
@@ -1007,6 +1023,7 @@
 				69C4997328699410000F4394 /* IQKeyboardManagerSwift */,
 				690182F6286C72BD00DF046E /* JGProgressHUD */,
 				694393BA2874694E00CEC3C4 /* SDWebImageSwiftUI */,
+				693357E02895619000C49506 /* YouTubeiOSPlayerHelper */,
 			);
 			productName = FleekSpaces;
 			productReference = 69394665284628D100FE7574 /* FleekSpaces.app */;
@@ -1062,6 +1079,7 @@
 				69C4997228699410000F4394 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				690182F5286C72BC00DF046E /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				694393B92874694D00CEC3C4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				693357DF2895618F00C49506 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
 			);
 			productRefGroup = 69394666284628D100FE7574 /* Products */;
 			projectDirPath = "";
@@ -1080,6 +1098,7 @@
 			files = (
 				695EBBE32861AAD400557D69 /* SeasonsViewController.xib in Resources */,
 				6938499E2881B31300EC5C61 /* BooksHeaderCRV.xib in Resources */,
+				693357DE2894088000C49506 /* EpisodeCardsViewController.xib in Resources */,
 				695EBBD92860839900557D69 /* TVDetailViewController.xib in Resources */,
 				690182F1286B081D00DF046E /* GoogleService-Info.plist in Resources */,
 				69384995288146BC00EC5C61 /* RecentChatViewCell.xib in Resources */,
@@ -1193,6 +1212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				693946852847518C00FE7574 /* NavCollectionViewCell.swift in Sources */,
+				693357DD2894088000C49506 /* EpisodeCardsViewController.swift in Sources */,
 				695EBBE22861AAD400557D69 /* SeasonsViewController.swift in Sources */,
 				695EBBD4285B36FB00557D69 /* OnboardingCVC.swift in Sources */,
 				693946A428477D6900FE7574 /* TestDataModel.swift in Sources */,
@@ -1600,6 +1620,14 @@
 				version = 1.0.5;
 			};
 		};
+		693357DF2895618F00C49506 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/youtube/youtube-ios-player-helper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		693946A82847842200FE7574 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
@@ -1636,6 +1664,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 692600B9284DE5DB00B6D801 /* XCRemoteSwiftPackageReference "CheckmarkCollectionViewCell" */;
 			productName = CheckmarkCollectionViewCell;
+		};
+		693357E02895619000C49506 /* YouTubeiOSPlayerHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 693357DF2895618F00C49506 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
+			productName = YouTubeiOSPlayerHelper;
 		};
 		693946A92847842200FE7574 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
