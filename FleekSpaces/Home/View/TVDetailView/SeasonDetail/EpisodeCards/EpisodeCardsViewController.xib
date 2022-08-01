@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EpisodeCardsViewController" customModule="FleekSpaces" customModuleProvider="target">
             <connections>
                 <outlet property="episodeCollectionView" destination="fYc-6f-JC0" id="1de-DY-byA"/>
+                <outlet property="episodeCount" destination="GQY-52-bRX" id="dys-BB-qdT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -37,6 +38,9 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title=""/>
+                            <connections>
+                                <action selector="backBtnTapped:" destination="-1" eventType="touchUpInside" id="HRS-zL-d1W"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episodes (6)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQY-52-bRX">
                             <rect key="frame" x="21" y="21" width="372" height="79"/>
@@ -65,7 +69,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fYc-6f-JC0">
-                    <rect key="frame" x="0.0" y="100" width="414" height="796"/>
+                    <rect key="frame" x="0.0" y="106" width="414" height="790"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gG4-Su-C5z">
                         <size key="itemSize" width="128" height="128"/>
@@ -80,7 +84,7 @@
             <constraints>
                 <constraint firstItem="fYc-6f-JC0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0fJ-dx-qXc"/>
                 <constraint firstAttribute="bottom" secondItem="fYc-6f-JC0" secondAttribute="bottom" id="6Z9-Xm-Cda"/>
-                <constraint firstItem="fYc-6f-JC0" firstAttribute="top" secondItem="BPp-u7-a7M" secondAttribute="bottom" id="6aX-Z9-oR5"/>
+                <constraint firstItem="fYc-6f-JC0" firstAttribute="top" secondItem="BPp-u7-a7M" secondAttribute="bottom" constant="6" id="6aX-Z9-oR5"/>
                 <constraint firstItem="BPp-u7-a7M" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="9By-KV-P4v"/>
                 <constraint firstItem="BPp-u7-a7M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="R9H-2a-hGE"/>
                 <constraint firstItem="BPp-u7-a7M" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bph-MV-h9E"/>

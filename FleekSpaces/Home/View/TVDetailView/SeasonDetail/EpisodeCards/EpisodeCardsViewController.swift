@@ -9,14 +9,32 @@ import UIKit
 
 class EpisodeCardsViewController: UIViewController, UICollectionViewDelegate {
 
+    @IBOutlet weak var episodeCount: UILabel!
+    var getSeasonID : String?
     @IBOutlet weak var episodeCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("This is the season ID - \(getSeasonID)")
+        if let finalShowId = getSeasonID {
+            fetchEpisodeDetails(seasonID: finalShowId)
+        }
+        if let episodeNumber = FinalDataModel.episodesList?.episodes?.count {
+            
+            self.episodeCount.text = "Episodes \(episodeNumber)"
+        }
+       
         setupEpisodeCollectionView()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func backBtnTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 
+    //MARK: - Setup Collection View
+    
     func setupEpisodeCollectionView() {
         
         episodeCollectionView.delegate = self
@@ -32,6 +50,48 @@ class EpisodeCardsViewController: UIViewController, UICollectionViewDelegate {
     }
     
     
+ //MARK: - Get episode data
+    
+    //MARK: - Fetch Movie Detail
+    func fetchEpisodeDetails(seasonID: String) {
+        
+        guard let finalMovieId = getSeasonID else {
+            return
+        }
+
+      
+        let network = NetworkURL()
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_season_details?id=\(seasonID)")
+        
+        
+        network.theBestNetworkCall(EpisodesList.self, url: url) { myMovieResult, yourMessage in
+            
+          
+            switch myMovieResult {
+                
+            
+            case .success(let movieData):
+                print("Episode Data is here \(movieData) and \(movieData.name)")
+                DispatchQueue.main.async {
+                FinalDataModel.episodesList = movieData
+                    print("episode data is \(movieData.synopsies)")
+                
+                
+              
+                self.episodeCollectionView.reloadData()
+                
+            }
+               
+            case .failure(let err):
+                print("Failed to show fetch data \(err)")
+                
+            }
+            
+        }
+    
+    }
+    
+    //MARK: - Compositional layout
     func layoutCells() -> UICollectionViewCompositionalLayout {
         
         
@@ -153,7 +213,7 @@ class EpisodeCardsViewController: UIViewController, UICollectionViewDelegate {
 
 extension EpisodeCardsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        8
+        return FinalDataModel.episodesList?.episodes?.count ?? 3
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -162,6 +222,12 @@ extension EpisodeCardsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "episodeCell", for: indexPath) as! EpisodeCell
+        
+        if let episodeData = FinalDataModel.episodesList?.episodes {
+           
+            cell.setupCell(fromData: episodeData[indexPath.item])
+        }
+       
         
         return cell
     }

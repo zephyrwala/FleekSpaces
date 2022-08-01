@@ -24,7 +24,97 @@ class FinalDataModel: NSObject {
     
     static var ottMovie: [OTTmovie]?
     
+    static var episodesList: EpisodesList?
+    
 }
+
+// MARK: - EpisodesList
+class EpisodesList: Codable {
+    let updatedAt: String?
+    let tmdbID: Int?
+    let synopsies, airDate, createdAt: String?
+    let episodes: [MyEpisode]?
+    let showID: String?
+   
+   
+    let name: String?
+    let seasonNumber: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case updatedAt = "updated_at"
+        case tmdbID = "tmdb_id"
+        case synopsies
+        case airDate = "air_date"
+        case createdAt = "created_at"
+        case episodes
+        case showID = "show_id"
+      
+       
+        case name
+        case seasonNumber = "season_number"
+    }
+
+    init(updatedAt: String?, tmdbID: Int?, synopsies: String?, airDate: String?, createdAt: String?, episodes: [MyEpisode]?, showID: String?, name: String?, seasonNumber: Int?) {
+        self.updatedAt = updatedAt
+        self.tmdbID = tmdbID
+        self.synopsies = synopsies
+        self.airDate = airDate
+        self.createdAt = createdAt
+        self.episodes = episodes
+        self.showID = showID
+      
+      
+        self.name = name
+        self.seasonNumber = seasonNumber
+    }
+}
+
+// MARK: - Episode
+class MyEpisode: Codable {
+    let backdropPath, airDate: String?
+    let episodeNumber: Int?
+    let name: String?
+    let runtime, id: Int?
+    let synopsies: String?
+
+    enum CodingKeys: String, CodingKey {
+        case backdropPath = "backdrop_path"
+        case airDate = "air_date"
+        case episodeNumber = "episode_number"
+        case name, runtime, id, synopsies
+    }
+
+    init(backdropPath: String?, airDate: String?, episodeNumber: Int?, name: String?, runtime: Int?, id: Int?, synopsies: String?) {
+        self.backdropPath = backdropPath
+        self.airDate = airDate
+        self.episodeNumber = episodeNumber
+        self.name = name
+        self.runtime = runtime
+        self.id = id
+        self.synopsies = synopsies
+    }
+}
+
+
+// MARK: - Poster
+class Poster: Codable {
+    let width: Int?
+    let filePath: String?
+    let height: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case width
+        case filePath = "file_path"
+        case height
+    }
+
+    init(width: Int?, filePath: String?, height: Int?) {
+        self.width = width
+        self.filePath = filePath
+        self.height = height
+    }
+}
+
 
 
 // MARK: - OTTmovieElement

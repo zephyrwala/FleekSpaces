@@ -43,7 +43,7 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
     }
     
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
-        utubePlayer.playVideo()
+//        utubePlayer.playVideo()
     }
     func setupCell(fromData: MovieDetail) {
         
@@ -100,17 +100,22 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
     
     func setupTVShowDetail(fromData: TVshowDetail) {
         
-        if let trailerUrl = fromData.trailerUrls {
-            if let trailerID = trailerUrl[0].key {
-                self.utubePlayer.load(withVideoId: trailerID)
+        if fromData.trailerUrls?.count != 0 {
+            if let trailerUrl = fromData.trailerUrls {
+                if let trailerID = trailerUrl[0].key {
+                    self.utubePlayer.load(withVideoId: trailerID)
+                }
+               
             }
-           
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                self.progress.dismiss(animated: true)
+                self.utubePlayer.isHidden = false
+            })
         }
+     
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-            self.progress.dismiss(animated: true)
-            self.utubePlayer.isHidden = false
-        })
+     
         
         if let seasonCount = FinalDataModel.showDetails?.seasons?.count {
             self.episodeBtn.setTitle("Episode Guide (\(seasonCount) Seasons)", for: .normal)
