@@ -280,7 +280,7 @@ extension DetailEpisodeViewController: UICollectionViewDataSource {
         case 0:
             return 1
         case 1:
-            return 3
+          return FinalDataModel.episodeDetailData?.watchProviders?.watchProvidersIN?.flatrate?.count ?? 1
         case 2:
           return 6
         case 3:
@@ -379,7 +379,11 @@ extension DetailEpisodeViewController: UICollectionViewDataSource {
             
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moviePDF", for: indexPath) as! MoviePlayCollectionViewCell
-            cell.setupCell(fromData: optionsLogos[indexPath.item])
+            if let streamingData = FinalDataModel.episodeDetailData?.watchProviders?.watchProvidersIN?.flatrate?[indexPath.item] {
+                cell.setupStreaming(fromData: streamingData)
+            }
+           
+//            cell.setupCell(fromData: optionsLogos[indexPath.item])
             
             return cell
             
