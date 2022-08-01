@@ -26,7 +26,137 @@ class FinalDataModel: NSObject {
     
     static var episodesList: EpisodesList?
     
+    static var episodeDetailData: EpisodeDetailData?
+    
 }
+
+// MARK: - EpisodeDetailData
+class EpisodeDetailData: Codable {
+    let airDate: String?
+    let episodeNumber: Int?
+    let name, overview: String?
+    let id: Int?
+    let productionCode: String?
+    let runtime, seasonNumber: Int?
+    let stillPath: String?
+    let voteAverage: Double?
+    let voteCount: Int?
+   
+    let images: [EpisodeImage]?
+    let watchProviders: EpisodeWatchProviders?
+
+    enum CodingKeys: String, CodingKey {
+        case airDate = "air_date"
+        case episodeNumber = "episode_number"
+        case name, overview, id
+        case productionCode = "production_code"
+        case runtime
+        case seasonNumber = "season_number"
+        case stillPath = "still_path"
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
+        case images
+        case watchProviders = "watch/providers"
+    }
+
+    init(airDate: String?, episodeNumber: Int?, name: String?, overview: String?, id: Int?, productionCode: String?, runtime: Int?, seasonNumber: Int?, stillPath: String?, voteAverage: Double?, voteCount: Int?, images: [EpisodeImage]?, watchProviders: EpisodeWatchProviders?) {
+        self.airDate = airDate
+        self.episodeNumber = episodeNumber
+        self.name = name
+        self.overview = overview
+        self.id = id
+        self.productionCode = productionCode
+        self.runtime = runtime
+        self.seasonNumber = seasonNumber
+        self.stillPath = stillPath
+        self.voteAverage = voteAverage
+        self.voteCount = voteCount
+       
+        self.images = images
+        self.watchProviders = watchProviders
+    }
+}
+
+// MARK: - Image
+class EpisodeImage: Codable {
+    let aspectRatio: Double?
+    let height: Int?
+    let iso639_1: String?
+    let filePath: String?
+    let voteAverage: Double?
+    let voteCount, width: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case aspectRatio = "aspect_ratio"
+        case height
+        case iso639_1 = "iso_639_1"
+        case filePath = "file_path"
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
+        case width
+    }
+
+    init(aspectRatio: Double?, height: Int?, iso639_1: String?, filePath: String?, voteAverage: Double?, voteCount: Int?, width: Int?) {
+        self.aspectRatio = aspectRatio
+        self.height = height
+        self.iso639_1 = iso639_1
+        self.filePath = filePath
+        self.voteAverage = voteAverage
+        self.voteCount = voteCount
+        self.width = width
+    }
+}
+
+// MARK: - WatchProviders
+class EpisodeWatchProviders: Codable {
+    let watchProvidersIN, us: EpisodeIn?
+
+    enum CodingKeys: String, CodingKey {
+        case watchProvidersIN = "IN"
+        case us = "US"
+    }
+
+    init(watchProvidersIN: EpisodeIn?, us: EpisodeIn?) {
+        self.watchProvidersIN = watchProvidersIN
+        self.us = us
+    }
+}
+
+// MARK: - In
+class EpisodeIn: Codable {
+    let link: String?
+    let flatrate: [EpisodeFlatrate]?
+
+    init(link: String?, flatrate: [EpisodeFlatrate]?) {
+        self.link = link
+        self.flatrate = flatrate
+    }
+}
+
+// MARK: - Flatrate
+class EpisodeFlatrate: Codable {
+    let displayPriority: Int?
+    let logoPath: String?
+    let providerID: Int?
+    let providerName: String?
+
+    enum CodingKeys: String, CodingKey {
+        case displayPriority = "display_priority"
+        case logoPath = "logo_path"
+        case providerID = "provider_id"
+        case providerName = "provider_name"
+    }
+
+    init(displayPriority: Int?, logoPath: String?, providerID: Int?, providerName: String?) {
+        self.displayPriority = displayPriority
+        self.logoPath = logoPath
+        self.providerID = providerID
+        self.providerName = providerName
+    }
+}
+
+
+
 
 // MARK: - EpisodesList
 class EpisodesList: Codable {
@@ -215,32 +345,30 @@ class OTTshow: Codable {
 
 
 
-
-// MARK: - TVshowDetail
+// MARK: - TVShowDetails
 class TVshowDetail: Codable {
     let tmdbID: Int?
-    let createdAt, showID, posterURL: String?
+    let synopsies, createdAt, showID, posterURL: String?
     let createdBy: [TVCreatedBy]?
     let tmdbRating: Int?
     let updatedAt, originalLanguage: String?
     let releaseYear: Int?
-    let genres: [TVDetailGenre]?
-    let title, type: String?
-    let productionCountries: [TVProductionCountry]?
-    let synopsies: String?
-    let episodeRuntime: [Int]?
-    let lastAirDate: String?
-    let castAndCrew: [TVCastAndCrew]?
-    let languages: [String]?
-    let providerOffers: TVProviderOffers?
-    let tagline: String?
-    let images: [TVImage]?
-    let seasons: [TVSeason]?
-    let trailerUrls: [TVTrailerURL]?
     let firstAirDate: String?
+    let genres: [TVGenres]?
+    let title, type, lastAirDate: String?
+    let images: [TVImage]?
+    let trailerUrls: [TVTrailerURL]?
+    let productionCountries: [TVProductionCountry]?
+    let providerOffers: TVProviderOffers?
+    let episodeRuntime: [Int]?
+    let castAndCrew: [TVCastAndCrew]?
+    let tagline: String?
+    let languages: [String]?
+    let seasons: [TVSeason]?
 
     enum CodingKeys: String, CodingKey {
         case tmdbID = "tmdb_id"
+        case synopsies
         case createdAt = "created_at"
         case showID = "show_id"
         case posterURL = "poster_url"
@@ -249,21 +377,21 @@ class TVshowDetail: Codable {
         case updatedAt = "updated_at"
         case originalLanguage = "original_language"
         case releaseYear = "release_year"
-        case genres, title, type
-        case productionCountries = "production_countries"
-        case synopsies
-        case episodeRuntime = "episode_runtime"
-        case lastAirDate = "last_air_date"
-        case castAndCrew = "cast_and_crew"
-        case languages
-        case providerOffers = "provider_offers"
-        case tagline, images, seasons
-        case trailerUrls = "trailer_urls"
         case firstAirDate = "first_air_date"
+        case genres, title, type
+        case lastAirDate = "last_air_date"
+        case images
+        case trailerUrls = "trailer_urls"
+        case productionCountries = "production_countries"
+        case providerOffers = "provider_offers"
+        case episodeRuntime = "episode_runtime"
+        case castAndCrew = "cast_and_crew"
+        case tagline, languages, seasons
     }
 
-    init(tmdbID: Int?, createdAt: String?, showID: String?, posterURL: String?, createdBy: [TVCreatedBy]?, tmdbRating: Int?, updatedAt: String?, originalLanguage: String?, releaseYear: Int?, genres: [TVDetailGenre]?, title: String?, type: String?, productionCountries: [TVProductionCountry]?, synopsies: String?, episodeRuntime: [Int]?, lastAirDate: String?, castAndCrew: [TVCastAndCrew]?, languages: [String]?, providerOffers: TVProviderOffers?, tagline: String?, images: [TVImage]?, seasons: [TVSeason]?, trailerUrls: [TVTrailerURL]?, firstAirDate: String?) {
+    init(tmdbID: Int?, synopsies: String?, createdAt: String?, showID: String?, posterURL: String?, createdBy: [TVCreatedBy]?, tmdbRating: Int?, updatedAt: String?, originalLanguage: String?, releaseYear: Int?, firstAirDate: String?, genres: [TVGenres]?, title: String?, type: String?, lastAirDate: String?, images: [TVImage]?, trailerUrls: [TVTrailerURL]?, productionCountries: [TVProductionCountry]?, providerOffers: TVProviderOffers?, episodeRuntime: [Int]?, castAndCrew: [TVCastAndCrew]?, tagline: String?, languages: [String]?, seasons: [TVSeason]?) {
         self.tmdbID = tmdbID
+        self.synopsies = synopsies
         self.createdAt = createdAt
         self.showID = showID
         self.posterURL = posterURL
@@ -272,63 +400,59 @@ class TVshowDetail: Codable {
         self.updatedAt = updatedAt
         self.originalLanguage = originalLanguage
         self.releaseYear = releaseYear
+        self.firstAirDate = firstAirDate
         self.genres = genres
         self.title = title
         self.type = type
-        self.productionCountries = productionCountries
-        self.synopsies = synopsies
-        self.episodeRuntime = episodeRuntime
         self.lastAirDate = lastAirDate
-        self.castAndCrew = castAndCrew
-        self.languages = languages
-        self.providerOffers = providerOffers
-        self.tagline = tagline
         self.images = images
-        self.seasons = seasons
         self.trailerUrls = trailerUrls
-        self.firstAirDate = firstAirDate
+        self.productionCountries = productionCountries
+        self.providerOffers = providerOffers
+        self.episodeRuntime = episodeRuntime
+        self.castAndCrew = castAndCrew
+        self.tagline = tagline
+        self.languages = languages
+        self.seasons = seasons
     }
 }
 
 // MARK: - CastAndCrew
 class TVCastAndCrew: Codable {
-    let character: String?
-    let gender: Int?
-    let creditID: String?
-    let knownForDepartment: String?
-    let originalName: String?
-    let popularity: Int?
-    let name, profilePath: String?
-    let id: Int?
     let adult: Bool?
+    let gender, id: Int?
+    let knownForDepartment, name, originalName: String?
+    let popularity: Double?
+    let profilePath: String?
+    let character, creditID: String?
     let order: Int?
 
     enum CodingKeys: String, CodingKey {
-        case character, gender
-        case creditID = "credit_id"
+        case adult, gender, id
         case knownForDepartment = "known_for_department"
+        case name
         case originalName = "original_name"
-        case popularity, name
+        case popularity
         case profilePath = "profile_path"
-        case id, adult, order
+        case character
+        case creditID = "credit_id"
+        case order
     }
 
-    init(character: String?, gender: Int?, creditID: String?, knownForDepartment: String?, originalName: String?, popularity: Int?, name: String?, profilePath: String?, id: Int?, adult: Bool?, order: Int?) {
-        self.character = character
+    init(adult: Bool?, gender: Int?, id: Int?, knownForDepartment: String?, name: String?, originalName: String?, popularity: Double?, profilePath: String?, character: String?, creditID: String?, order: Int?) {
+        self.adult = adult
         self.gender = gender
-        self.creditID = creditID
+        self.id = id
         self.knownForDepartment = knownForDepartment
+        self.name = name
         self.originalName = originalName
         self.popularity = popularity
-        self.name = name
         self.profilePath = profilePath
-        self.id = id
-        self.adult = adult
+        self.character = character
+        self.creditID = creditID
         self.order = order
     }
 }
-
-
 
 // MARK: - CreatedBy
 class TVCreatedBy: Codable {
@@ -353,7 +477,7 @@ class TVCreatedBy: Codable {
 }
 
 // MARK: - Genre
-class TVDetailGenre: Codable {
+class TVGenres: Codable {
     let name: String?
     let id: Int?
 
@@ -375,20 +499,20 @@ class TVImage: Codable {
 
 // MARK: - Backdrop
 class TVBackdrop: Codable {
-    let width: Int?
     let filePath: String?
-    let height: Int?
+    let width, height, voteCount: Int?
 
     enum CodingKeys: String, CodingKey {
-        case width
         case filePath = "file_path"
-        case height
+        case width, height
+        case voteCount = "vote_count"
     }
 
-    init(width: Int?, filePath: String?, height: Int?) {
-        self.width = width
+    init(filePath: String?, width: Int?, height: Int?, voteCount: Int?) {
         self.filePath = filePath
+        self.width = width
         self.height = height
+        self.voteCount = voteCount
     }
 }
 
@@ -409,15 +533,14 @@ class TVProductionCountry: Codable {
 
 // MARK: - ProviderOffers
 class TVProviderOffers: Codable {
-    let providerOffersIN: TVIn?
-    let us: TVUs?
+    let providerOffersIN, us: TVIn?
 
     enum CodingKeys: String, CodingKey {
         case providerOffersIN = "IN"
         case us = "US"
     }
 
-    init(providerOffersIN: TVIn?, us: TVUs?) {
+    init(providerOffersIN: TVIn?, us: TVIn?) {
         self.providerOffersIN = providerOffersIN
         self.us = us
     }
@@ -456,71 +579,56 @@ class TVFlatrate: Codable {
     }
 }
 
-// MARK: - Us
-class TVUs: Codable {
-    let link: String?
-    let flatrate, buy: [Flatrate]?
-
-    init(link: String?, flatrate: [Flatrate]?, buy: [Flatrate]?) {
-        self.link = link
-        self.flatrate = flatrate
-        self.buy = buy
-    }
-}
-
 // MARK: - Season
 class TVSeason: Codable {
-    let name: String?
+    let name, posterPath: String?
     let seasonNumber, id: Int?
-    let posterPath: String?
 
     enum CodingKeys: String, CodingKey {
         case name
+        case posterPath = "poster_path"
         case seasonNumber = "season_number"
         case id
-        case posterPath = "poster_path"
     }
 
-    init(name: String?, seasonNumber: Int?, id: Int?, posterPath: String?) {
+    init(name: String?, posterPath: String?, seasonNumber: Int?, id: Int?) {
         self.name = name
+        self.posterPath = posterPath
         self.seasonNumber = seasonNumber
         self.id = id
-        self.posterPath = posterPath
     }
 }
 
 // MARK: - TrailerURL
 class TVTrailerURL: Codable {
+    let iso639_1, iso3166_1, name, key: String?
     let site: String?
     let size: Int?
-    let iso3166_1, name: String?
+    let type: String?
     let official: Bool?
-    let id, type, publishedAt, iso639_1: String?
-    let key: String?
+    let publishedAt, id: String?
 
     enum CodingKeys: String, CodingKey {
-        case site, size
-        case iso3166_1 = "iso_3166_1"
-        case name, official, id, type
-        case publishedAt = "published_at"
         case iso639_1 = "iso_639_1"
-        case key
+        case iso3166_1 = "iso_3166_1"
+        case name, key, site, size, type, official
+        case publishedAt = "published_at"
+        case id
     }
 
-    init(site: String?, size: Int?, iso3166_1: String?, name: String?, official: Bool?, id: String?, type: String?, publishedAt: String?, iso639_1: String?, key: String?) {
-        self.site = site
-        self.size = size
+    init(iso639_1: String?, iso3166_1: String?, name: String?, key: String?, site: String?, size: Int?, type: String?, official: Bool?, publishedAt: String?, id: String?) {
+        self.iso639_1 = iso639_1
         self.iso3166_1 = iso3166_1
         self.name = name
-        self.official = official
-        self.id = id
-        self.type = type
-        self.publishedAt = publishedAt
-        self.iso639_1 = iso639_1
         self.key = key
+        self.site = site
+        self.size = size
+        self.type = type
+        self.official = official
+        self.publishedAt = publishedAt
+        self.id = id
     }
 }
-
 
 // MARK: - TVshowElement
 class TVshowElement: Codable {

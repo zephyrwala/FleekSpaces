@@ -11,13 +11,18 @@ class EpisodeCardsViewController: UIViewController, UICollectionViewDelegate {
 
     @IBOutlet weak var episodeCount: UILabel!
     var getSeasonID : String?
+    var getSeasonNo: String?
     @IBOutlet weak var episodeCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("This is the season ID - \(getSeasonID)")
+        print("This is the show ID - \(getSeasonID)")
+        print("This is the season ID - \(getSeasonNo)")
         if let finalShowId = getSeasonID {
-            fetchEpisodeDetails(seasonID: finalShowId)
+            if let seasonNums = getSeasonNo {
+                fetchEpisodeDetails(showId: finalShowId, seasonNo: seasonNums)
+            }
+           
         }
         if let episodeNumber = FinalDataModel.episodesList?.episodes?.count {
             
@@ -53,15 +58,14 @@ class EpisodeCardsViewController: UIViewController, UICollectionViewDelegate {
  //MARK: - Get episode data
     
     //MARK: - Fetch Movie Detail
-    func fetchEpisodeDetails(seasonID: String) {
+    func fetchEpisodeDetails(showId: String, seasonNo: String) {
         
         guard let finalMovieId = getSeasonID else {
             return
         }
 
-      
         let network = NetworkURL()
-        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_season_details?id=\(seasonID)")
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_season_details?show_id=\(showId)&season_number=\(seasonNo)")
         
         
         network.theBestNetworkCall(EpisodesList.self, url: url) { myMovieResult, yourMessage in
@@ -218,6 +222,17 @@ extension EpisodeCardsViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var selectedController = DetailEpisodeViewController()
+        
+        guard let showID = FinalDataModel.episodesList?.showID else {return}
+        guard let seasonNumber = FinalDataModel.episodesList?.seasonNumber else {return}
+        guard let episodeNumber = FinalDataModel.episodesList?.episodes?[indexPath.item].episodeNumber else {return}
+        selectedController.getEpisodeData(showId: showID, seasonNo: "\(seasonNumber)", episodeNo: "\(episodeNumber)")
+        navigationController?.pushViewController(selectedController, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

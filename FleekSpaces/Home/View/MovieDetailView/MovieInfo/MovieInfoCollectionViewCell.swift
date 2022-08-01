@@ -170,7 +170,7 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
         
     }
     
-    func setupEpisodeCell(fromData: Episode) {
+    func setupEpisodeCell(fromData: EpisodeDetailData) {
         
         self.movieTitle.text = fromData.name
         self.moviePlot.text = fromData.overview

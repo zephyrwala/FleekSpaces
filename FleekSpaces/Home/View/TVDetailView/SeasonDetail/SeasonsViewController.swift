@@ -269,9 +269,14 @@ extension SeasonsViewController: UICollectionViewDataSource {
 //                selectedController.tvPassedData = jsonData[indexPath.item]
 //
 //            }
-            if let seasonID = FinalDataModel.showDetails?.seasons?[indexPath.item].id {
-                selectedController.getSeasonID = "\(seasonID)"
-                selectedController.fetchEpisodeDetails(seasonID: "\(seasonID)")
+            if let showID = FinalDataModel.showDetails?.showID {
+                selectedController.getSeasonID = "\(showID)"
+                
+                if let seasonNum = FinalDataModel.showDetails?.seasons?[indexPath.item].seasonNumber {
+                    selectedController.getSeasonNo = "\(seasonNum)"
+                    selectedController.fetchEpisodeDetails(showId: "\(showID)", seasonNo: "\(seasonNum)")
+                }
+               
             }
             
            

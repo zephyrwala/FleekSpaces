@@ -64,6 +64,42 @@ class DetailEpisodeViewController: UIViewController, UICollectionViewDelegate {
  
     }
     
+    func getEpisodeData(showId: String, seasonNo: String, episodeNo: String) {
+        
+        //https://api-space-dev.getfleek.app/shows/get_episode_details?show_id=89ca137c-1034-4a22-b92d-48ad2d1399bc&season_number=1&episode_number=1
+        
+        
+        let network = NetworkURL()
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_episode_details?show_id=\(showId)&season_number=\(seasonNo)&episode_number=\(episodeNo)")
+        
+        network.theBestNetworkCall(EpisodeDetailData.self, url: url) { myMovieResult, yourMessage in
+            
+          
+            switch myMovieResult {
+                
+            
+            case .success(let movieData):
+                print("Episode detail Data is here \(movieData) and \(movieData.name)")
+                DispatchQueue.main.async {
+                FinalDataModel.episodeDetailData = movieData
+                    print("episode detail data is \(movieData.overview)")
+                
+                
+              
+                self.episodeDetailCollectionView.reloadData()
+                
+            }
+               
+            case .failure(let err):
+                print("Failed to show fetch data \(err)")
+                
+            }
+            
+        }
+        
+        
+    }
+    
     //MARK: - Setup Layout
     
     func layoutCells() -> UICollectionViewCompositionalLayout {
@@ -328,9 +364,13 @@ extension DetailEpisodeViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieInfo", for: indexPath) as! MovieInfoCollectionViewCell
            
 //            cell.episodeDelegate = self
-            if let movieData = tvPassedData {
-                cell.setupEpisodeCell(fromData: movieData)
-               
+//            if let movieData = tvPassedData {
+//                cell.setupEpisodeCell(fromData: movieData)
+//
+//            }
+            
+            if let episodeData = FinalDataModel.episodeDetailData {
+                cell.setupEpisodeCell(fromData: episodeData)
             }
             
             
