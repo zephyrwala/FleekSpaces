@@ -295,7 +295,7 @@ extension MovieDetailViewController: UICollectionViewDataSource {
         case 0:
             return 1
         case 1:
-            return 3
+            return FinalDataModel.movieDetails?.providerOffers?.providerOffersIN?.flatrate?.count ?? 1
         case 2:
             if FinalDataModel.movieDetails?.castAndCrew?.count ?? 12 >= 12 {
                 return 12
@@ -392,8 +392,11 @@ extension MovieDetailViewController: UICollectionViewDataSource {
             
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moviePDF", for: indexPath) as! MoviePlayCollectionViewCell
-            cell.setupCell(fromData: optionsLogos[indexPath.item])
-            
+//            cell.setupCell(fromData: optionsLogos[indexPath.item])
+            if let movieStreaming = FinalDataModel.movieDetails?.providerOffers?.providerOffersIN?.flatrate?[indexPath.item] {
+                
+                cell.setupMovieStreaming(fromData: movieStreaming)
+            }
             return cell
             
         case 2:

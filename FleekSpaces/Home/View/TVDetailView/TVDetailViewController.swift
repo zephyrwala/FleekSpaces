@@ -316,7 +316,7 @@ extension TVDetailViewController: UICollectionViewDataSource {
         case 0:
             return 1
         case 1:
-            return 3
+            return FinalDataModel.showDetails?.providerOffers?.providerOffersIN?.flatrate?.count ?? 1
         case 2:
             return 6
         case 3:
@@ -384,7 +384,12 @@ extension TVDetailViewController: UICollectionViewDataSource {
             
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moviePDF", for: indexPath) as! MoviePlayCollectionViewCell
-            cell.setupCell(fromData: optionsLogos[indexPath.item])
+//            cell.setupCell(fromData: optionsLogos[indexPath.item])
+            if let streamData = FinalDataModel.showDetails?.providerOffers?.providerOffersIN?.flatrate?[indexPath.item] {
+                
+                cell.setupTVStreaming(fromData: streamData)
+            }
+          
             
             return cell
             

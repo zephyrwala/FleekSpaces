@@ -48,21 +48,25 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
     func setupCell(fromData: MovieDetail) {
         
         loader.startAnimating()
-        if let trailerUrl = fromData.trailerUrls {
-            
-            if let trailerID = trailerUrl[0].key {
-                self.utubePlayer.load(withVideoId: trailerID)
+        
+        if fromData.trailerUrls?.count != 0 {
+            if let trailerUrl = fromData.trailerUrls {
+                if let trailerID = trailerUrl[0].key {
+                    self.utubePlayer.load(withVideoId: trailerID)
+                }
+               
             }
-           
-           
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-              
-                self.loader.stopAnimating()
+                self.progress.dismiss(animated: true)
                 self.utubePlayer.isHidden = false
             })
-            
+        } else {
+            self.utubePlayer.isHidden = true
+            loader.stopAnimating()
         }
+     
+    
        
         self.movieTitle.text = fromData.title
         self.moviePlot.text = fromData.synopsies
@@ -124,7 +128,10 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
        
         self.movieTitle.text = fromData.title
         self.moviePlot.text = fromData.synopsies
-        self.movieLanguage.text = "Language: \(fromData.originalLanguage!)"
+        if let language = fromData.originalLanguage {
+            self.movieLanguage.text = "Language: \(language)"
+        }
+       
         if fromData.images?[1].backdrops?.count == 0 {
             let backdropURL = fromData.posterURL
             let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(backdropURL!)")
