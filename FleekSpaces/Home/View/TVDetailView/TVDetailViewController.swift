@@ -248,13 +248,13 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
                 myItem.contentInsets.top = 10
                 
                 //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.6), heightDimension: .absolute(350)), subitems: [myItem])
+                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(220)), subitems: [myItem])
                 
                 //section size
                 
                 let section = NSCollectionLayoutSection(group: myGroup)
                 
-                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                section.orthogonalScrollingBehavior = .continuous
                 
                 //TODO: - Setup header after the cell is generated.
                 

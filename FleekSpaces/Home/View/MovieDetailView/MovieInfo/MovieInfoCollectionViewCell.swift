@@ -155,8 +155,10 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
             
             self.movieRating.text = "\(movieRating)/10"
         }
+        if let airDate = fromData.firstAirDate {
+            self.movieReleaseYear.text = "Year: \(airDate)"
+        }
        
-        self.movieReleaseYear.text = "Year: \(fromData.firstAirDate!)"
 //        self.movieDirector.text = fromData
        
     }
