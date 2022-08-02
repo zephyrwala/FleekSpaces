@@ -133,9 +133,12 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
         }
        
         if fromData.images?[1].backdrops?.count == 0 {
-            let backdropURL = fromData.posterURL
-            let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(backdropURL!)")
-            self.movieBackdrop.sd_setImage(with: newURL)
+            if let backdropURL = fromData.posterURL {
+                let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(backdropURL)")
+                self.movieBackdrop.sd_setImage(with: newURL)
+            }
+           
+           
             self.episodeBtn.isHidden = false
         } else {
             

@@ -14,6 +14,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
     }
     
 
+    var tmdbID: String?
     var showId: String?
     let sec1 = "sec1ID"
     let sec2 = "sec2ID"
@@ -35,7 +36,9 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
         super.viewDidLoad()
 
         print("This is show id: \(showId)")
+        print("This is tmdb tv id: \(tmdbID)")
         fetchMovieDetails(movieID: showId!)
+        fetchMoreTVLikeThis(tmdbID: tmdbID!)
         setupCollectionView()
         // Do any additional setup after loading the view.
     }
@@ -110,6 +113,41 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
         tvCollectionView.register(UINib(nibName: "MoreLikeThisCRV", bundle: nil), forSupplementaryViewOfKind: self.sec3, withReuseIdentifier: "moreH")
         
  
+    }
+
+    
+ 
+    
+    //MARK: - Fetch More Like This
+    
+    func fetchMoreTVLikeThis(tmdbID: String){
+        
+        let network = NetworkURL()
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_similar_tv_shows?tmdb_id=\(tmdbID)")
+        
+        network.theBestNetworkCall(SimilarTV.self, url: url) { mySimilarMovieResult, yourMessage in
+            
+            
+            switch mySimilarMovieResult {
+                
+                
+            case .success(let movieData):
+                
+                DispatchQueue.main.async {
+                    
+                    FinalDataModel.similarTV = movieData
+                    self.tvCollectionView.reloadData()
+                    print("Similar TV Data is here \(movieData) and \(movieData.results?[0].posterPath)")
+                }
+                
+            case .failure(let err):
+                print("Failed to fetch similar movie data : \(err)")
+                
+            }
+            
+            
+        }
+        
     }
 
     
@@ -318,7 +356,7 @@ extension TVDetailViewController: UICollectionViewDataSource {
         case 1:
             return FinalDataModel.showDetails?.providerOffers?.providerOffersIN?.flatrate?.count ?? 1
         case 2:
-            return 6
+            return FinalDataModel.showDetails?.castAndCrew?.count ?? 1
         case 3:
             return 6
             
@@ -408,9 +446,9 @@ extension TVDetailViewController: UICollectionViewDataSource {
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moreLike", for: indexPath) as! MoreLikeThisCollectionViewCell
             
-            if let myMovieDataStuff = MyMovieDataModel.upcoming?.results {
+            if let myMovieDataStuff = FinalDataModel.similarTV?.results {
                 
-                cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
+                cell.setupTVMoreLikeThis(fromData: myMovieDataStuff[indexPath.item])
                 
             }
             

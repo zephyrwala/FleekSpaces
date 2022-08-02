@@ -858,6 +858,10 @@ extension HomeViewController: UICollectionViewDataSource {
                     selectedController.movieId = movieDataId
                     selectedController.fetchMovieDetails(movieID: movieDataId)
                 }
+                
+                if let tmdbDataID = FinalDataModel.ottMovie?[indexPath.item].tmdbID {
+                    selectedController.fetchMoreLikeThis(tmdbID: "\(tmdbDataID)")
+                }
                
                 //pass movie data
 //                if let jsonData = MyMovieDataModel.upcoming?.results {
@@ -878,7 +882,11 @@ extension HomeViewController: UICollectionViewDataSource {
                     selectedController.showId = movieDataId
                     selectedController.fetchMovieDetails(movieID: movieDataId)
                 }
-               
+               //pass tmdb ID
+                if let tmdbDataID = FinalDataModel.ottShow?[indexPath.item].tmdbID {
+                    selectedController.tmdbID = "\(tmdbDataID)"
+                    selectedController.fetchMoreTVLikeThis(tmdbID: "\(tmdbDataID)")
+                }
                
                     
                 navigationController?.pushViewController(selectedController, animated: true)

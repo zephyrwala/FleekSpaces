@@ -28,7 +28,151 @@ class FinalDataModel: NSObject {
     
     static var episodeDetailData: EpisodeDetailData?
     
+    static var similarMovies: SimilarMovies?
+    
+    static var similarTV: SimilarTV?
 }
+
+
+// MARK: - SimilarTV
+class SimilarTV: Codable {
+    let page: Int?
+    let results: [SimTVResult]?
+    let totalPages, totalResults: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case page, results
+        case totalPages = "total_pages"
+        case totalResults = "total_results"
+    }
+
+    init(page: Int?, results: [SimTVResult]?, totalPages: Int?, totalResults: Int?) {
+        self.page = page
+        self.results = results
+        self.totalPages = totalPages
+        self.totalResults = totalResults
+    }
+}
+
+// MARK: - Result
+class SimTVResult: Codable {
+    let adult: Bool?
+    let backdropPath: String?
+    let genreIDS: [Int]?
+    let id: Int?
+   
+    let originalTitle, overview: String?
+    let popularity: Double?
+    let posterPath, releaseDate, title: String?
+    let video: Bool?
+    let voteAverage: Double?
+    let voteCount: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case adult
+        case backdropPath = "backdrop_path"
+        case genreIDS = "genre_ids"
+        case id
+       
+        case originalTitle = "original_title"
+        case overview, popularity
+        case posterPath = "poster_path"
+        case releaseDate = "release_date"
+        case title, video
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
+    }
+
+    init(adult: Bool?, backdropPath: String?, genreIDS: [Int]?, id: Int?, originalTitle: String?, overview: String?, popularity: Double?, posterPath: String?, releaseDate: String?, title: String?, video: Bool?, voteAverage: Double?, voteCount: Int?) {
+        self.adult = adult
+        self.backdropPath = backdropPath
+        self.genreIDS = genreIDS
+        self.id = id
+       
+        self.originalTitle = originalTitle
+        self.overview = overview
+        self.popularity = popularity
+        self.posterPath = posterPath
+        self.releaseDate = releaseDate
+        self.title = title
+        self.video = video
+        self.voteAverage = voteAverage
+        self.voteCount = voteCount
+    }
+}
+
+
+
+
+// MARK: - SimilarMovies
+class SimilarMovies: Codable {
+    let page: Int?
+    let results: [SimResult]?
+    let totalPages, totalResults: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case page, results
+        case totalPages = "total_pages"
+        case totalResults = "total_results"
+    }
+
+    init(page: Int?, results: [SimResult]?, totalPages: Int?, totalResults: Int?) {
+        self.page = page
+        self.results = results
+        self.totalPages = totalPages
+        self.totalResults = totalResults
+    }
+}
+
+// MARK: - Result
+class SimResult: Codable {
+    let adult: Bool?
+    let backdropPath: String?
+    let genreIDS: [Int]?
+    let id: Int?
+  
+    let overview: String?
+    let popularity: Double?
+    let posterPath, releaseDate, title: String?
+    let video: Bool?
+    let voteAverage: Double?
+    let voteCount: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case adult
+        case backdropPath = "backdrop_path"
+        case genreIDS = "genre_ids"
+        case id
+       
+      
+        case overview, popularity
+        case posterPath = "poster_path"
+        case releaseDate = "release_date"
+        case title, video
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
+    }
+
+    init(adult: Bool?, backdropPath: String?, genreIDS: [Int]?, id: Int?, originalTitle: String?, overview: String?, popularity: Double?, posterPath: String?, releaseDate: String?, title: String?, video: Bool?, voteAverage: Double?, voteCount: Int?) {
+        self.adult = adult
+        self.backdropPath = backdropPath
+        self.genreIDS = genreIDS
+        self.id = id
+        
+       
+        self.overview = overview
+        self.popularity = popularity
+        self.posterPath = posterPath
+        self.releaseDate = releaseDate
+        self.title = title
+        self.video = video
+        self.voteAverage = voteAverage
+        self.voteCount = voteCount
+    }
+}
+
+
+
 
 // MARK: - EpisodeDetailData
 class EpisodeDetailData: Codable {
@@ -44,6 +188,8 @@ class EpisodeDetailData: Codable {
    
     let images: [EpisodeImage]?
     let watchProviders: EpisodeWatchProviders?
+    
+    let casts: [EpisodeCast]?
 
     enum CodingKeys: String, CodingKey {
         case airDate = "air_date"
@@ -57,9 +203,10 @@ class EpisodeDetailData: Codable {
         case voteCount = "vote_count"
         case images
         case watchProviders = "watch/providers"
+        case casts
     }
 
-    init(airDate: String?, episodeNumber: Int?, name: String?, overview: String?, id: Int?, productionCode: String?, runtime: Int?, seasonNumber: Int?, stillPath: String?, voteAverage: Double?, voteCount: Int?, images: [EpisodeImage]?, watchProviders: EpisodeWatchProviders?) {
+    init(airDate: String?, episodeNumber: Int?, name: String?, overview: String?, id: Int?, productionCode: String?, runtime: Int?, seasonNumber: Int?, stillPath: String?, voteAverage: Double?, voteCount: Int?, images: [EpisodeImage]?, watchProviders: EpisodeWatchProviders?, casts: [EpisodeCast]?) {
         self.airDate = airDate
         self.episodeNumber = episodeNumber
         self.name = name
@@ -74,9 +221,45 @@ class EpisodeDetailData: Codable {
        
         self.images = images
         self.watchProviders = watchProviders
+        self.casts = casts
     }
 }
 
+class EpisodeCast: Codable {
+    let adult: Bool?
+    let gender, id: Int?
+    let knownForDepartment, name, originalName: String?
+    let popularity: Double?
+    let profilePath: String?
+    let character, creditID: String?
+    let order: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case adult, gender, id
+        case knownForDepartment = "known_for_department"
+        case name
+        case originalName = "original_name"
+        case popularity
+        case profilePath = "profile_path"
+        case character
+        case creditID = "credit_id"
+        case order
+    }
+
+    init(adult: Bool?, gender: Int?, id: Int?, knownForDepartment: String?, name: String?, originalName: String?, popularity: Double?, profilePath: String?, character: String?, creditID: String?, order: Int?) {
+        self.adult = adult
+        self.gender = gender
+        self.id = id
+        self.knownForDepartment = knownForDepartment
+        self.name = name
+        self.originalName = originalName
+        self.popularity = popularity
+        self.profilePath = profilePath
+        self.character = character
+        self.creditID = creditID
+        self.order = order
+    }
+}
 // MARK: - Image
 class EpisodeImage: Codable {
     let aspectRatio: Double?

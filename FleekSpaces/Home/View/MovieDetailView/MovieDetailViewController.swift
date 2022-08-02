@@ -23,6 +23,7 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
     
     ]
 
+    var tmdbID: String?
     var movieId: String?
     var passedData: UResult?
     var movieDetailData: MovieDetail?
@@ -34,7 +35,11 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
 
 //        fetchMovieDetails(movieID: movieId)
         print("This is movie id: \(movieId)")
-        fetchMovieDetails(movieID: movieId!)
+        if let myMovieID = movieId {
+            fetchMovieDetails(movieID: myMovieID)
+        }
+       
+        print("This is tmdb id: \(tmdbID)")
         setupCollectionView()
        
        
@@ -45,6 +50,38 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
     @IBAction func backBtnTap(_ sender: Any) {
         
         navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK: - Fetch More Like This
+    
+    func fetchMoreLikeThis(tmdbID: String){
+        
+        let network = NetworkURL()
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_similar_movies?tmdb_id=\(tmdbID)")
+        
+        network.theBestNetworkCall(SimilarMovies.self, url: url) { mySimilarMovieResult, yourMessage in
+            
+            
+            switch mySimilarMovieResult {
+                
+                
+            case .success(let movieData):
+                
+                DispatchQueue.main.async {
+                    
+                    FinalDataModel.similarMovies = movieData
+                    self.movieDetailCollectionView.reloadData()
+                    print("Similar Data is here \(movieData) and \(movieData.results?[0].posterPath)")
+                }
+                
+            case .failure(let err):
+                print("Failed to fetch similar movie data : \(err)")
+                
+            }
+            
+            
+        }
+        
     }
     
     //MARK: - Fetch Movie Detail
@@ -246,7 +283,7 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
                 
                 let section = NSCollectionLayoutSection(group: myGroup)
                 
-                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                section.orthogonalScrollingBehavior = .continuous
              
                 
                 
@@ -301,7 +338,7 @@ extension MovieDetailViewController: UICollectionViewDataSource {
                 return 12
             } else {return 6}
         case 3:
-            return 6
+            return FinalDataModel.similarMovies?.results?.count ?? 1
             
             
         default:
@@ -416,9 +453,9 @@ extension MovieDetailViewController: UICollectionViewDataSource {
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moreLike", for: indexPath) as! MoreLikeThisCollectionViewCell
             
-            if let myMovieDataStuff = MyMovieDataModel.upcoming?.results {
+            if let myMovieDataStuff = FinalDataModel.similarMovies?.results {
                 
-                cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
+                cell.setupMoviesMoreLikeThis(fromData: myMovieDataStuff[indexPath.item])
                 
             }
             

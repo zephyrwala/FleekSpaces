@@ -28,4 +28,25 @@ class MoreLikeThisCollectionViewCell: UICollectionViewCell {
         
     }
 
+    func setupMoviesMoreLikeThis(fromData: SimResult) {
+        
+        let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(fromData.posterPath!)")
+        self.posterImage.sd_setImage(with: newURL)
+        
+        posterImage.layer.cornerRadius = 16
+        
+        
+    }
+    
+    func setupTVMoreLikeThis(fromData: SimTVResult) {
+        
+        let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(fromData.posterPath!)")
+        self.posterImage.sd_setImage(with: newURL)
+        
+        posterImage.layer.cornerRadius = 16
+        
+        
+    }
+    
+    
 }
