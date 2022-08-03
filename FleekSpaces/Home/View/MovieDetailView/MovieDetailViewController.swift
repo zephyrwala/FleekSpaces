@@ -84,6 +84,50 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
         
     }
     
+    
+    
+    //MARK: - Fetch Movie Detail with TMDB id
+    func fetchMovieDetailswithTMDBid(tmdbID: String) {
+        
+//        guard let finalMovieId = movieId else {
+//            return
+//        }
+
+        //https://api-space-dev.getfleek.app/shows/get_movie_details/?tmdb_id=1396
+      
+        let network = NetworkURL()
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_movie_details/?tmdb_id=\(tmdbID)")
+        
+        
+        network.theBestNetworkCall(MovieDetail.self, url: url) { myMovieResult, yourMessage in
+            
+          
+            switch myMovieResult {
+                
+            
+            case .success(let movieData):
+                print("Movie tmdb Data is here \(movieData) and \(movieData.title)")
+                DispatchQueue.main.async {
+                FinalDataModel.movieDetails = movieData
+                print("tmdb passed data is \(movieData.title)")
+                
+                
+              
+                self.movieDetailCollectionView.reloadData()
+                
+            }
+               
+            case .failure(let err):
+                print("Failed to fetch data")
+                
+            }
+            
+        }
+        
+        
+    
+    }
+    
     //MARK: - Fetch Movie Detail
     func fetchMovieDetails(movieID: String) {
         
@@ -396,17 +440,29 @@ extension MovieDetailViewController: UICollectionViewDataSource {
             
         case 3:
             var selectedController = MovieDetailViewController()
-            if let jsonData = MyMovieDataModel.upcoming?.results {
-    
-                selectedController.passedData = jsonData[indexPath.item]
-    
+            
+            //TODO: - More Like This
+            //pass tmdbID to a new function to fetch movies
+            //same data model
+            //pass tmdbid to fetch more like this
+            
+            if let tmdbDataID = FinalDataModel.similarMovies?.results?[indexPath.item].id {
+                selectedController.fetchMovieDetailswithTMDBid(tmdbID: "\(tmdbDataID)")
+                print("TMDB wala id is \(tmdbDataID)")
             }
+            
+//            if let jsonData = MyMovieDataModel.upcoming?.results {
+//
+//                selectedController.passedData = jsonData[indexPath.item]
+//
+//            }
             navigationController?.pushViewController(selectedController, animated: true)
             
         default:
          print("defaul tap")
         }
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         

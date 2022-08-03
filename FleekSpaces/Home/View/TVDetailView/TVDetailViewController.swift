@@ -37,7 +37,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
 
         print("This is show id: \(showId)")
         print("This is tmdb tv id: \(tmdbID)")
-        fetchMovieDetails(movieID: showId!)
+//        fetchMovieDetails(movieID: showId!)
         fetchMoreTVLikeThis(tmdbID: tmdbID!)
         setupCollectionView()
         // Do any additional setup after loading the view.
@@ -49,7 +49,47 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
     }
     
     
-    //MARK: - Call TV Show function
+  //MARK: - Fetch tv show with tmdb id
+    
+    func fetchTVDetailswithTMDBid(tmdbID: String) {
+        
+//        guard let finalMovieId = showId else {
+//            return
+//        }
+
+      
+        let network = NetworkURL()
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_tv_show_details?tmdb_id=\(tmdbID)")
+        
+        
+        network.theBestNetworkCall(TVshowDetail.self, url: url) { myMovieResult, yourMessage in
+            
+          
+            switch myMovieResult {
+                
+            
+            case .success(let movieData):
+                print("TV tmdb Show Data is here \(movieData) and \(movieData.title)")
+                DispatchQueue.main.async {
+                FinalDataModel.showDetails = movieData
+                print("tmdb passed data is \(movieData.title)")
+                
+                
+              
+                self.tvCollectionView.reloadData()
+                
+            }
+               
+            case .failure(let err):
+                print("Failed to show fetch tmdb data \(err)")
+                
+            }
+            
+        }
+        
+        
+    
+    }
     
     //MARK: - Fetch Movie Detail
     func fetchMovieDetails(movieID: String) {
@@ -333,11 +373,19 @@ extension TVDetailViewController: UICollectionViewDataSource {
             navigationController?.pushViewController(selectedController, animated: true)
             
         case 3:
-            var selectedController = MovieDetailViewController()
-            if let jsonData = MyMovieDataModel.upcoming?.results {
-    
-                selectedController.passedData = jsonData[indexPath.item]
-    
+            var selectedController = TVDetailViewController()
+//            if let jsonData = MyMovieDataModel.upcoming?.results {
+//
+//                selectedController.passedData = jsonData[indexPath.item]
+//
+//            }
+            
+            //pass data to more like this tc
+            
+            if let tmdbDataID = FinalDataModel.similarTV?.results?[indexPath.item].id {
+                selectedController.fetchTVDetailswithTMDBid(tmdbID: "\(tmdbDataID)")
+                selectedController.tmdbID = "\(tmdbDataID)"
+                print("TMDB wala id is \(tmdbDataID)")
             }
             navigationController?.pushViewController(selectedController, animated: true)
         
@@ -358,7 +406,7 @@ extension TVDetailViewController: UICollectionViewDataSource {
         case 2:
             return FinalDataModel.showDetails?.castAndCrew?.count ?? 1
         case 3:
-            return 6
+            return FinalDataModel.similarTV?.results?.count ?? 1
             
             
         default:
