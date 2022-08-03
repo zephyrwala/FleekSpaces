@@ -29,27 +29,27 @@ class ActorDetailViewController: UIViewController, UICollectionViewDelegate {
     //MARK: - Fetch Movie Detail
     func fetchActorDetail(actor: String) {
         
-        guard let finalMovieId = actorId
-        else {
-            return
-        }
+//        guard let finalMovieId = actorId
+//        else {
+//            return
+//        }
 
       
         let network = NetworkURL()
         let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_cast_details/?people_id=\(actor)")
         
         
-        network.theBestNetworkCall(ActorDetails.self, url: url) { myMovieResult, yourMessage in
+        network.theBestNetworkCall(ActorMovieDetail.self, url: url) { myMovieResult, yourMessage in
             
           
             switch myMovieResult {
                 
             
             case .success(let actorData):
-                print("Actor Data is here \(actorData) and \(actorData.fullName)")
+                print("Actor Data is here \(actorData) and \(actorData.name)")
                 DispatchQueue.main.async {
-                FinalDataModel.actorDetails = actorData
-                    print("passed actor is \(actorData.bio)")
+                FinalDataModel.actorMovie = actorData
+                    print("passed actor is \(actorData.biography)")
                 
                     DispatchQueue.main.async {
                         self.actorCollectionView.reloadData()
@@ -285,7 +285,7 @@ extension ActorDetailViewController: UICollectionViewDataSource {
            
     
              
-                if let actorData = FinalDataModel.actorDetails {
+                if let actorData = FinalDataModel.actorMovie {
                     cell.setupActorCell(fromData: actorData)
                 }
                

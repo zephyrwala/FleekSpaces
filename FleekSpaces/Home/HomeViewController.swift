@@ -903,13 +903,11 @@ extension HomeViewController: UICollectionViewDataSource {
                         selectedController.movieId = movieDataId
                         selectedController.fetchMovieDetails(movieID: movieDataId)
                     }
+                    
+                    if let tmdbDataID = FinalDataModel.worldWide?[indexPath.item].tmdbID {
+                        selectedController.fetchMoreLikeThis(tmdbID: "\(tmdbDataID)")
+                    }
                    
-                    //pass movie data
-    //                if let jsonData = MyMovieDataModel.upcoming?.results {
-    //
-    //                    selectedController.passedData = jsonData[indexPath.item]
-    //
-    //                }
                         
                     navigationController?.pushViewController(selectedController, animated: true)
                     
@@ -923,14 +921,13 @@ extension HomeViewController: UICollectionViewDataSource {
                         selectedController.showId = movieDataId
                         selectedController.fetchMovieDetails(movieID: movieDataId)
                     }
+                   //pass tmdb ID
+                    if let tmdbDataID = FinalDataModel.worldWide?[indexPath.item].tmdbID {
+                        selectedController.tmdbID = "\(tmdbDataID)"
+                        selectedController.fetchMoreTVLikeThis(tmdbID: "\(tmdbDataID)")
+                    }
                    
-                   
-                    //pass movie data
-    //                if let jsonData = MyMovieDataModel.upcoming?.results {
-    //
-    //                    selectedController.passedData = jsonData[indexPath.item]
-    //
-    //                }
+ 
                         
                     navigationController?.pushViewController(selectedController, animated: true)
                     
@@ -992,7 +989,7 @@ extension HomeViewController: UICollectionViewDataSource {
          
             return 1
         case homeCollectionViews:
-            return 4
+            return 3
             
         default:
             return 1

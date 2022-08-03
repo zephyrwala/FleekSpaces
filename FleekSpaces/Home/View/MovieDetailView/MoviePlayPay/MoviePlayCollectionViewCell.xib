@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,14 +20,15 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIA-q3-Jnn">
                         <rect key="frame" x="0.0" y="0.0" width="395" height="75"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Leg-C3-vw5">
-                                <rect key="frame" x="8" y="7.5" width="60" height="60"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Leg-C3-vw5">
+                                <rect key="frame" x="8" y="8.5" width="60" height="57.5"/>
+                                <color key="tintColor" name="BtnDisableColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="MLA-C7-VFw"/>
                                     <constraint firstAttribute="height" constant="60" id="oIz-Ic-0zi"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sony Live Subscription" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTg-3m-nP8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTg-3m-nP8">
                                 <rect key="frame" x="80" y="22.5" width="188" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="uln-xs-9MG"/>
@@ -86,6 +88,10 @@
     </objects>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
+        <image name="photo" catalog="system" width="128" height="93"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
+        <namedColor name="BtnDisableColor">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

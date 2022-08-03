@@ -42,7 +42,9 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
         print("This is tmdb id: \(tmdbID)")
         setupCollectionView()
        
-       
+        if let myTmdbID = tmdbID {
+            fetchMoreLikeThis(tmdbID: myTmdbID)
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -448,6 +450,7 @@ extension MovieDetailViewController: UICollectionViewDataSource {
             
             if let tmdbDataID = FinalDataModel.similarMovies?.results?[indexPath.item].id {
                 selectedController.fetchMovieDetailswithTMDBid(tmdbID: "\(tmdbDataID)")
+                selectedController.tmdbID = "\(tmdbDataID)"
                 print("TMDB wala id is \(tmdbDataID)")
             }
             

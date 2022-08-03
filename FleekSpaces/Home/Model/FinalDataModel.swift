@@ -31,6 +31,235 @@ class FinalDataModel: NSObject {
     static var similarMovies: SimilarMovies?
     
     static var similarTV: SimilarTV?
+    
+    static var actorMovie: ActorMovieDetail?
+}
+
+
+// MARK: - ActorMovieDetail
+class ActorMovieDetail: Codable {
+    let adult: Bool?
+    let alsoKnownAs: [String]?
+    let biography, gender: String?
+    let homepage: String?
+    let id: Int?
+    let knownForDepartment, name, placeOfBirth: String?
+    let popularity: Double?
+    let profilePath: String?
+    let externalIDS: ExternalIDS?
+    let images: [String]?
+    let filmography: Filmography?
+    let birthDay: String?
+//    let deathDay: JSONNull?
+
+    enum CodingKeys: String, CodingKey {
+        case adult
+        case alsoKnownAs = "also_known_as"
+        case biography, gender, homepage, id
+        case knownForDepartment = "known_for_department"
+        case name
+        case placeOfBirth = "place_of_birth"
+        case popularity
+        case profilePath = "profile_path"
+        case externalIDS = "external_ids"
+        case images, filmography
+        case birthDay = "birth_day"
+//        case deathDay = "death_day"
+    }
+
+    init(adult: Bool?, alsoKnownAs: [String]?, biography: String?, gender: String?, homepage: String?, id: Int?, knownForDepartment: String?, name: String?, placeOfBirth: String?, popularity: Double?, profilePath: String?, externalIDS: ExternalIDS?, images: [String]?, filmography: Filmography?, birthDay: String?) {
+        self.adult = adult
+        self.alsoKnownAs = alsoKnownAs
+        self.biography = biography
+        self.gender = gender
+        self.homepage = homepage
+        self.id = id
+        self.knownForDepartment = knownForDepartment
+        self.name = name
+        self.placeOfBirth = placeOfBirth
+        self.popularity = popularity
+        self.profilePath = profilePath
+        self.externalIDS = externalIDS
+        self.images = images
+        self.filmography = filmography
+        self.birthDay = birthDay
+//        self.deathDay = deathDay
+    }
+}
+
+// MARK: - ExternalIDS
+class ExternalIDS: Codable {
+    let freebaseMid, freebaseID, imdbID: String?
+    let tvrageID: Int?
+    let facebookID, instagramID, twitterID: String?
+
+    enum CodingKeys: String, CodingKey {
+        case freebaseMid = "freebase_mid"
+        case freebaseID = "freebase_id"
+        case imdbID = "imdb_id"
+        case tvrageID = "tvrage_id"
+        case facebookID = "facebook_id"
+        case instagramID = "instagram_id"
+        case twitterID = "twitter_id"
+    }
+
+    init(freebaseMid: String?, freebaseID: String?, imdbID: String?, tvrageID: Int?, facebookID: String?, instagramID: String?, twitterID: String?) {
+        self.freebaseMid = freebaseMid
+        self.freebaseID = freebaseID
+        self.imdbID = imdbID
+        self.tvrageID = tvrageID
+        self.facebookID = facebookID
+        self.instagramID = instagramID
+        self.twitterID = twitterID
+    }
+}
+
+// MARK: - Filmography
+class Filmography: Codable {
+    let cast: [MovCast]?
+    let crew: [MovCrew]?
+
+    init(cast: [MovCast]?, crew: [MovCrew]?) {
+        self.cast = cast
+        self.crew = crew
+    }
+}
+
+// MARK: - Cast
+class MovCast: Codable {
+    let adult: Bool?
+    let backdropPath: String?
+    let genreIDS: [Int]?
+    let id: Int?
+//    let originalLanguage: OriginalLanguage?
+    let originalTitle, overview: String?
+    let popularity: Double?
+    let posterPath: String?
+    let releaseDate, title: String?
+    let video: Bool?
+    let voteAverage: Double?
+    let voteCount: Int?
+    let character, creditID: String?
+    let order: Int?
+//    let mediaType: MediaType?
+    let originCountry: [MovOriginCountry]?
+    let originalName, firstAirDate, name: String?
+    let episodeCount: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case adult
+        case backdropPath = "backdrop_path"
+        case genreIDS = "genre_ids"
+        case id
+//        case originalLanguage = "original_language"
+        case originalTitle = "original_title"
+        case overview, popularity
+        case posterPath = "poster_path"
+        case releaseDate = "release_date"
+        case title, video
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
+        case character
+        case creditID = "credit_id"
+        case order
+//        case mediaType = "media_type"
+        case originCountry = "origin_country"
+        case originalName = "original_name"
+        case firstAirDate = "first_air_date"
+        case name
+        case episodeCount = "episode_count"
+    }
+
+    init(adult: Bool?, backdropPath: String?, genreIDS: [Int]?, id: Int?, originalTitle: String?, overview: String?, popularity: Double?, posterPath: String?, releaseDate: String?, title: String?, video: Bool?, voteAverage: Double?, voteCount: Int?, character: String?, creditID: String?, order: Int?, originCountry: [MovOriginCountry]?, originalName: String?, firstAirDate: String?, name: String?, episodeCount: Int?) {
+        self.adult = adult
+        self.backdropPath = backdropPath
+        self.genreIDS = genreIDS
+        self.id = id
+//        self.originalLanguage = originalLanguage
+        self.originalTitle = originalTitle
+        self.overview = overview
+        self.popularity = popularity
+        self.posterPath = posterPath
+        self.releaseDate = releaseDate
+        self.title = title
+        self.video = video
+        self.voteAverage = voteAverage
+        self.voteCount = voteCount
+        self.character = character
+        self.creditID = creditID
+        self.order = order
+//        self.mediaType = mediaType
+        self.originCountry = originCountry
+        self.originalName = originalName
+        self.firstAirDate = firstAirDate
+        self.name = name
+        self.episodeCount = episodeCount
+    }
+}
+
+
+
+enum MovOriginCountry: String, Codable {
+    case us = "US"
+}
+
+
+
+// MARK: - Crew
+class MovCrew: Codable {
+    let adult: Bool?
+    let backdropPath: String?
+    let genreIDS: [Int]?
+    let id: Int?
+    let originalLanguage: OriginalLanguage?
+    let originalTitle, overview: String?
+    let popularity: Double?
+    let posterPath: String?
+    let releaseDate, title: String?
+    let video: Bool?
+    let voteAverage: Double?
+    let voteCount: Int?
+    let creditID, department, job: String?
+    let mediaType: MediaType?
+
+    enum CodingKeys: String, CodingKey {
+        case adult
+        case backdropPath = "backdrop_path"
+        case genreIDS = "genre_ids"
+        case id
+        case originalLanguage = "original_language"
+        case originalTitle = "original_title"
+        case overview, popularity
+        case posterPath = "poster_path"
+        case releaseDate = "release_date"
+        case title, video
+        case voteAverage = "vote_average"
+        case voteCount = "vote_count"
+        case creditID = "credit_id"
+        case department, job
+        case mediaType = "media_type"
+    }
+
+    init(adult: Bool?, backdropPath: String?, genreIDS: [Int]?, id: Int?, originalLanguage: OriginalLanguage?, originalTitle: String?, overview: String?, popularity: Double?, posterPath: String?, releaseDate: String?, title: String?, video: Bool?, voteAverage: Double?, voteCount: Int?, creditID: String?, department: String?, job: String?, mediaType: MediaType?) {
+        self.adult = adult
+        self.backdropPath = backdropPath
+        self.genreIDS = genreIDS
+        self.id = id
+        self.originalLanguage = originalLanguage
+        self.originalTitle = originalTitle
+        self.overview = overview
+        self.popularity = popularity
+        self.posterPath = posterPath
+        self.releaseDate = releaseDate
+        self.title = title
+        self.video = video
+        self.voteAverage = voteAverage
+        self.voteCount = voteCount
+        self.creditID = creditID
+        self.department = department
+        self.job = job
+        self.mediaType = mediaType
+    }
 }
 
 

@@ -33,10 +33,10 @@ class ActorBioCVC: UICollectionViewCell {
     }
     
     
-    func setupActorCell(fromData: ActorDetails){
+    func setupActorCell(fromData: ActorMovieDetail){
         
-        self.celebName.text = fromData.fullName
-        self.celebBio.text = fromData.bio
+        self.celebName.text = fromData.name
+        self.celebBio.text = fromData.biography
         if let birthday = fromData.birthDay {
             self.celebBirthday.text = "Date of Birth: \(birthday)"
         }
@@ -44,7 +44,7 @@ class ActorBioCVC: UICollectionViewCell {
             self.celebBirthplace.text = "Place of Birth: \(birthplace)"
         }
        
-        if let backdropURL = fromData.posterUrls?[0] {
+        if let backdropURL = fromData.profilePath {
             let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(backdropURL)")
             print("poster is \(newURL)")
             self.celebImage.sd_setImage(with: newURL)
