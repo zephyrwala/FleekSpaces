@@ -412,7 +412,8 @@ extension SearchViewController: UICollectionViewDataSource {
     //
     //        }
             
-            cell.setupCell(fromData: filteredData[indexPath.item])
+            //TODO: - Undo this
+//            cell.setupCell(fromData: filteredData[indexPath.item])
             
             return cell
             

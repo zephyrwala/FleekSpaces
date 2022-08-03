@@ -16,7 +16,7 @@ class ActorDetailViewController: UIViewController, UICollectionViewDelegate {
     @IBOutlet weak var actorCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchActorDetail(actor: "\(actorId)")
+//        fetchActorDetail(actor: "\(actorId)")
         setupCollectionView()
         // Do any additional setup after loading the view.
     }
@@ -51,11 +51,11 @@ class ActorDetailViewController: UIViewController, UICollectionViewDelegate {
                 FinalDataModel.actorMovie = actorData
                     print("passed actor is \(actorData.biography)")
                 
-                    DispatchQueue.main.async {
+                   
                         self.actorCollectionView.reloadData()
-                    }
+                    
               
-                self.actorCollectionView.reloadData()
+              
                 
             }
                
@@ -215,7 +215,8 @@ extension ActorDetailViewController: UICollectionViewDataSource {
         case 0:
             return 1
         case 1:
-            return 5
+            
+            return FinalDataModel.actorMovie?.filmography?.cast?.count ?? 3
         
         default:
             return 5
@@ -297,7 +298,7 @@ extension ActorDetailViewController: UICollectionViewDataSource {
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchResults", for: indexPath) as! SearchResultCVC
             
-            if let myMovieDataStuff = MyMovieDataModel.upcoming?.results {
+            if let myMovieDataStuff = FinalDataModel.actorMovie?.filmography?.cast {
     
                 cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
     

@@ -434,9 +434,14 @@ extension MovieDetailViewController: UICollectionViewDataSource {
             
             if let actorDataId = FinalDataModel.movieDetails?.castAndCrew?[indexPath.item].id {
                 selectedController.actorId = "\(actorDataId)"
-                selectedController.fetchActorDetail(actor: "\(actorDataId)")            }
+                selectedController.fetchActorDetail(actor: "\(actorDataId)")
+                
+                print("This is the actor ID here: \(actorDataId)")
+                
+                
+            }
            
-            
+           
             navigationController?.pushViewController(selectedController, animated: true)
             
             

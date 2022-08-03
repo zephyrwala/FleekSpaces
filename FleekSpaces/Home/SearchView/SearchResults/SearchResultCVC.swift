@@ -22,15 +22,22 @@ class SearchResultCVC: UICollectionViewCell {
         // Initialization code
     }
     
-    func setupCell(fromData: UResult) {
+    func setupCell(fromData: ActCast) {
         
         self.movieTitle.text = fromData.title
         self.movieBio.text = fromData.overview
  
-        let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(fromData.posterPath!)")
-        self.posterImage.sd_setImage(with: newURL)
+        if let myposter = fromData.posterPath {
+            
+            let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(myposter)")
+            self.posterImage.sd_setImage(with: newURL)
+        }
+       
         self.movieRating.text = "\(fromData.voteAverage!)/10"
-        self.movieReleaseDate.text = "Year: \(fromData.releaseDate!)"
+        if let releaseDate = fromData.releaseDate {
+            self.movieReleaseDate.text = "Year: \(releaseDate)"
+        }
+       
         posterImage.layer.cornerRadius = 4
         posterBg.layer.cornerRadius = 5
 //        self.movieDirector.text = fromData

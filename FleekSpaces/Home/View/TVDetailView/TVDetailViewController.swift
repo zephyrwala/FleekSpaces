@@ -370,6 +370,17 @@ extension TVDetailViewController: UICollectionViewDataSource {
         case 2:
        
             var selectedController = ActorDetailViewController()
+            
+            
+            if let actorDataId = FinalDataModel.showDetails?.castAndCrew?[indexPath.item].id {
+                selectedController.actorId = "\(actorDataId)"
+                selectedController.fetchActorDetail(actor: "\(actorDataId)")
+                
+                print("This is the TV actor ID here: \(actorDataId)")
+                
+                
+            }
+            
             navigationController?.pushViewController(selectedController, animated: true)
             
         case 3:
