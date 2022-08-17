@@ -16,13 +16,43 @@ class SearchResultCVC: UICollectionViewCell {
     @IBOutlet weak var movieRating: UILabel!
     @IBOutlet weak var movieReleaseDate: UILabel!
     @IBOutlet weak var movieBio: UILabel!
+   
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
-    func setupCell(fromData: ActCast) {
+    func setupCell(fromData: SearchResultElement) {
+        
+        self.movieTitle.text = fromData.title
+        self.movieBio.text = fromData.synopsies
+ 
+        if fromData.type == "movie" {
+            self.movieGenres.text = "🍿 Movie"
+        } else {
+            self.movieGenres.text = "📺 TV Show"
+        }
+       
+        if let myposter = fromData.posterPath {
+            
+            let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(myposter)")
+            self.posterImage.sd_setImage(with: newURL)
+        }
+       
+        self.movieRating.text = "\(fromData.tmdbRating!)/10"
+        if let releaseDate = fromData.releaseYear {
+            self.movieReleaseDate.text = "Year: \(releaseDate)"
+        }
+       
+        posterImage.layer.cornerRadius = 4
+        posterBg.layer.cornerRadius = 5
+//        self.movieDirector.text = fromData
+       
+        
+    }
+    
+    func setupActCell(fromData: ActCast) {
         
         self.movieTitle.text = fromData.title
         self.movieBio.text = fromData.overview

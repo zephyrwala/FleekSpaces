@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdc-2s-65Q">
                         <rect key="frame" x="0.0" y="0.0" width="158" height="229"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="bo1" translatesAutoresizingMaskIntoConstraints="NO" id="jm1-Ir-w7e">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="show homepage view" translatesAutoresizingMaskIntoConstraints="NO" id="jm1-Ir-w7e">
                                 <rect key="frame" x="9" y="9" width="140" height="188"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xw-hY-F8H">
@@ -62,7 +62,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="bo1" width="799" height="1036"/>
+        <image name="show homepage view" width="148" height="212"/>
         <namedColor name="CoinMessageColor">
             <color red="0.85900002717971802" green="0.91399997472763062" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

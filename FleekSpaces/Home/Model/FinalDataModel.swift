@@ -33,7 +33,52 @@ class FinalDataModel: NSObject {
     static var similarTV: SimilarTV?
     
     static var actorMovie: ActorMovieDetail?
+    
+    static var searchResult: [SearchResultElement]?
 }
+
+
+// MARK: - SearchResultElement
+class SearchResultElement: Codable {
+   
+    let type: String?
+    let tmdbID: Int?
+    let title: String?
+    let tmdbRating: Double?
+    let posterPath: String?
+    let releaseYear: String?
+    let genres: [String]?
+    let synopsies: String?
+
+    enum CodingKeys: String, CodingKey {
+        
+        case type
+        case tmdbID = "tmdb_id"
+        case title
+        case tmdbRating = "tmdb_rating"
+        case posterPath = "poster_path"
+        case releaseYear = "release_year"
+        case genres, synopsies
+    }
+
+    init(type: String?,tmdbID: Int?, title: String?, tmdbRating: Double?, posterPath: String?, releaseYear: String?, genres: [String]?, synopsies: String?) {
+        
+        self.type = type
+        self.tmdbID = tmdbID
+        self.title = title
+        self.tmdbRating = tmdbRating
+        self.posterPath = posterPath
+        self.releaseYear = releaseYear
+        self.genres = genres
+        self.synopsies = synopsies
+    }
+}
+
+
+
+
+
+typealias SearchResult = [SearchResultElement]
 
 
 // MARK: - ActorMovieDetail

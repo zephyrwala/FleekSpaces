@@ -67,6 +67,11 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
         }
      
     
+        if let safeRuntime = fromData.runtime {
+            
+            self.movieDuration.text = "Runtime: \(safeRuntime) mins"
+        }
+       
        
         self.movieTitle.text = fromData.title
         self.moviePlot.text = fromData.synopsies
@@ -99,11 +104,19 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
 //        self.movieDirector.text = fromData
         self.genreView.isHidden = true
         self.episodeBtn.isHidden = true
+        if let safeTagline = fromData.tagline {
+            self.movieDirector.text = "Tagline: \(safeTagline)"
+        }
+        
         
     }
     
     func setupTVShowDetail(fromData: TVshowDetail) {
         
+        if let episodeRuntime = fromData.episodeRuntime?[0] {
+            self.movieDuration.text = "Episode Runtime: \(episodeRuntime) mins"
+        }
+       
         if fromData.trailerUrls?.count != 0 {
             if let trailerUrl = fromData.trailerUrls {
                 if let trailerID = trailerUrl[0].key {
@@ -125,7 +138,9 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
             self.episodeBtn.setTitle("Episode Guide (\(seasonCount) Seasons)", for: .normal)
            
         }
-       
+        if let safeTagline = fromData.tagline {
+            self.movieDirector.text = "Tagline: \(safeTagline)"
+        }
         self.movieTitle.text = fromData.title
         self.moviePlot.text = fromData.synopsies
         if let language = fromData.originalLanguage {
@@ -174,6 +189,7 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
             self.episodeBtn.isHidden = false
         }
        
+      
         self.genreView.isHidden = true
         self.movieRating.text = "\(fromData.voteAverage!)/10"
         self.movieReleaseYear.text = "Year: \(fromData.firstAirDate!)"
@@ -184,6 +200,10 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
     
     func setupEpisodeCell(fromData: EpisodeDetailData) {
         
+        if let safeRuntime = fromData.runtime {
+            
+            self.movieDuration.text = "Runtime: \(safeRuntime) mins"
+        }
         self.movieTitle.text = fromData.name
         self.moviePlot.text = fromData.overview
 //        self.movieLanguage.text = "Language: \(fromData.!)"
@@ -193,13 +213,15 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
             self.episodeBtn.isHidden = false
         }
        
+        self.movieDirector.isHidden = true
         self.episodeBtn.isHidden = true
         self.movieRating.text = "\(fromData.voteAverage!)/10"
         self.movieReleaseYear.text = "Year: \(fromData.airDate!)"
 //        self.movieDirector.text = fromData
         
+        self.movieDuration.isHidden = false
         self.genreView.isHidden = false
-        self.movieDuration.isHidden = true
+//        self.movieDuration.isHidden = true
         self.movieLanguage.isHidden = true
         self.movieDirector.isHidden = true
         self.movieReleaseYear.isHidden = true

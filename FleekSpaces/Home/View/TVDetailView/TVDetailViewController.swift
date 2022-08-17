@@ -22,23 +22,26 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
     let sec0 = "sec0ID"
     var passedData: UResult?
     var tvPassedData: TVResult?
-    var optionsLogos = [
-    
-        TextLogos(posterImage: UIImage(named: "hbomax")!, postername: "HBOmax"),
-        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
-        TextLogos(posterImage: UIImage(named: "hotstar")!, postername: "Hotstar"),
-        TextLogos(posterImage: UIImage(named: "zee5")!, postername: "Zee5"),
-        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
-    
-    ]
+//    var optionsLogos = [
+//    
+//        TextLogos(posterImage: UIImage(named: "hbomax")!, postername: "HBOmax"),
+//        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
+//        TextLogos(posterImage: UIImage(named: "hotstar")!, postername: "Hotstar"),
+//        TextLogos(posterImage: UIImage(named: "zee5")!, postername: "Zee5"),
+//        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
+//    
+//    ]
     @IBOutlet weak var tvCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let safeTMDBId = tmdbID {
+            fetchMoreTVLikeThis(tmdbID: safeTMDBId)
+        }
         print("This is show id: \(showId)")
         print("This is tmdb tv id: \(tmdbID)")
 //        fetchMovieDetails(movieID: showId!)
-        fetchMoreTVLikeThis(tmdbID: tmdbID!)
+       
         setupCollectionView()
         // Do any additional setup after loading the view.
     }

@@ -35,6 +35,20 @@ class MovieCastCell: UICollectionViewCell {
         
     }
     
+    
+    func episodeCasts(fromData: EpisodeCast) {
+        
+        if let pathWay = fromData.profilePath {
+            
+            let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(pathWay)")
+            self.actorImage.sd_setImage(with: newURL)
+        }
+      
+        self.characterName.text = fromData.character
+        self.actorName.text = fromData.name
+        
+    }
+    
     func setupEpisodeCastCell(fromData: CastAndCrew) {
         
         if let pathWay = fromData.profilePath {

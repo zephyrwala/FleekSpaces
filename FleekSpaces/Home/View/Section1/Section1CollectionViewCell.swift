@@ -20,8 +20,13 @@ class Section1CollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
           willSet {
               if newValue {
+                  
+                  guard let mainCOlor = UIColor(named: "BtnGreenColor") else {
+                      return
+                  }
                   self.layer.cornerRadius = selectedSub.frame.size.width / 2
                   self.layer.borderWidth = 3
+//                  self.layer.animateBorderColor(from: UIColor.systemTeal, to: mainCOlor, withDuration: 2.1)
                   self.layer.borderColor = UIColor(named: "BtnGreenColor")?.cgColor
               } else {
                    self.layer.borderWidth = 0
@@ -37,7 +42,9 @@ class Section1CollectionViewCell: UICollectionViewCell {
         
         if let imageURL = fromData.iconURL {
             
-            self.selectedSub.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/original\(imageURL)"))
+//            self.selectedSub.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/original\(imageURL)"))
+            
+            self.selectedSub.sd_setImage(with: URL(string: "\(imageURL)"))
             
         }
        
@@ -89,3 +96,6 @@ class Section1CollectionViewCell: UICollectionViewCell {
   }
     
 }
+
+
+

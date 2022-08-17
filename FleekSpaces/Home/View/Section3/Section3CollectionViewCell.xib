@@ -19,7 +19,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="99S-yo-X3Z">
                         <rect key="frame" x="0.0" y="0.0" width="155" height="220"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QdH-DO-Dz3">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="show 3" translatesAutoresizingMaskIntoConstraints="NO" id="QdH-DO-Dz3">
                                 <rect key="frame" x="0.0" y="0.0" width="155" height="220"/>
                             </imageView>
                         </subviews>
@@ -47,4 +47,7 @@
             <point key="canvasLocation" x="213.768115942029" y="150.66964285714286"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="show 3" width="624" height="880"/>
+    </resources>
 </document>

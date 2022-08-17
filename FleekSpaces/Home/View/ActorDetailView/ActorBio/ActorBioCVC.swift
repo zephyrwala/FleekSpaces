@@ -35,8 +35,9 @@ class ActorBioCVC: UICollectionViewCell {
     
     func setupActorCell(fromData: ActorMovieDetail){
         
+        self.celebProfession.text = fromData.knownForDepartment
         self.celebName.text = fromData.name
-        self.celebBio.text = fromData.biography
+        self.celebBio.text = fromData.biography?.shorted(to: 360)
         if let birthday = fromData.birthDay {
             self.celebBirthday.text = "Date of Birth: \(birthday)"
         }
@@ -51,6 +52,17 @@ class ActorBioCVC: UICollectionViewCell {
             
            
         }
+        
     }
 
+}
+
+
+extension String {
+    func shorted(to symbols: Int) -> String {
+        guard self.count > symbols else {
+            return self
+        }
+        return self.prefix(symbols) + " ..."
+    }
 }

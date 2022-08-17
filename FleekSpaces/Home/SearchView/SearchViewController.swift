@@ -23,10 +23,38 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
 //        if let mainData = MyMovieDataModel.upcoming?.results {
 //            filteredData = mainData
 //        }
-       
-        setupRecentSearchCollectionView()
-        setupCollectionView()
+        recentSearchView.isHidden = true
+        
+//        setupRecentSearchCollectionView()
+//        setupCollectionView()
         // Do any additional setup after loading the view.
+    }
+    
+    func fetchResults(searchWord: String) {
+        
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/shows/search_movies_and_shows?search_query=\(searchWord)") else {return}
+        let network = NetworkURL()
+        network.theBestNetworkCall([SearchResultElement].self, url: myUrl) { myResult, yourMessage in
+            
+            switch myResult {
+                
+            case .success(let searchData):
+                FinalDataModel.searchResult =  searchData
+                
+                DispatchQueue.main.async {
+                    self.searchCollectionView.reloadData()
+                }
+              
+                
+            case .failure(let err):
+                print("failure to fetch")
+                
+            }
+           
+            
+            
+        }
+        
     }
 
     @IBAction func backBtnTap(_ sender: Any) {
@@ -231,6 +259,16 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
         
     }
     
+    
+ 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("\(searchBar.text) is entered tap")
+        if let safeText = searchBar.text {
+            
+            setupCollectionView()
+            fetchResults(searchWord: safeText)
+        }
+    }
     //MARK: - Searchbar stuff
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -315,17 +353,42 @@ extension SearchViewController: UICollectionViewDataSource {
         
         switch collectionView {
         case searchCollectionView:
-            var selectedController = MovieDetailViewController()
-    //        if let jsonData = MyMovieDataModel.upcoming?.results {
-    //
-    //            selectedController.passedData = jsonData[indexPath.item]
-    //
-    //        }
             
-            selectedController.passedData = filteredData[indexPath.item]
+            guard let contentType = FinalDataModel.searchResult?[indexPath.item].type else {return}
             
+            if contentType == "movie" {
                 
-            navigationController?.pushViewController(selectedController, animated: true)
+                var selectedController = MovieDetailViewController()
+                if let jsonData = FinalDataModel.searchResult {
+        
+                    guard let thisTmdbId = jsonData[indexPath.item].tmdbID else {return}
+        
+                    selectedController.tmdbID = "\(thisTmdbId)"
+                    selectedController.fetchMovieDetailswithTMDBid(tmdbID: "\(thisTmdbId)")            }
+                
+               
+                
+                    
+                navigationController?.pushViewController(selectedController, animated: true)
+            } else {
+                var selectedController = TVDetailViewController()
+                if let jsonData = FinalDataModel.searchResult {
+        
+                    guard let thisTmdbId = jsonData[indexPath.item].tmdbID else {return}
+        
+                    selectedController.tmdbID = "\(thisTmdbId)"
+                    selectedController.fetchTVDetailswithTMDBid(tmdbID: "\(thisTmdbId)")
+                    
+                    
+                }
+                
+               
+                
+                    
+                navigationController?.pushViewController(selectedController, animated: true)
+                
+            }
+           
             
         
         
@@ -368,7 +431,7 @@ extension SearchViewController: UICollectionViewDataSource {
             return MyMovieDataModel.upcoming?.results?.count ?? 3
             
         case searchCollectionView:
-            return filteredData.count
+            return FinalDataModel.searchResult?.count ?? 4
             
         default:
             return 2
@@ -406,11 +469,11 @@ extension SearchViewController: UICollectionViewDataSource {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchResults", for: indexPath) as! SearchResultCVC
             
-    //        if let myMovieDataStuff = MyMovieDataModel.upcoming?.results {
-    //
-    //            cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
-    //
-    //        }
+            if let myMovieDataStuff = FinalDataModel.searchResult {
+    
+                cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
+    
+            }
             
             //TODO: - Undo this
 //            cell.setupCell(fromData: filteredData[indexPath.item])

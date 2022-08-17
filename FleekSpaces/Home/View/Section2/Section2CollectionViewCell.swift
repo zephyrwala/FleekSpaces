@@ -26,7 +26,7 @@ class Section2CollectionViewCell: UICollectionViewCell {
             posterImage.layer.cornerRadius = 16
         }
         
-      
+        
 
         
     }

@@ -125,7 +125,7 @@ struct LoginView: View {
 
             print("Successfully logged in as user: \(result?.user.uid ?? "")")
 
-            self.loginStatusMessage = "Successfully logged in as user: \(result?.user.uid ?? "")"
+            self.loginStatusMessage = "Login Successful"
             
             self.didCompleteLoginProcess()
         }
@@ -136,7 +136,7 @@ struct LoginView: View {
     private func createNewAccount() {
         
        if self.image == nil {
-            self.loginStatusMessage = "Hey bro? Please select some avatar image"
+            self.loginStatusMessage = "Hey Buddy! Please select some avatar image to proceed."
             return
         }
         FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { result, err in
@@ -148,7 +148,7 @@ struct LoginView: View {
 
             print("Successfully created user: \(result?.user.uid ?? "")")
 
-            self.loginStatusMessage = "Successfully created user: \(result?.user.uid ?? "")"
+            self.loginStatusMessage = "User Successfully Created"
             
             self.persistImageToStorage()
             
@@ -175,7 +175,7 @@ struct LoginView: View {
                     return
                 }
                 
-                self.loginStatusMessage = "Succesfully stored image with url: \(url?.absoluteString ?? "")"
+                self.loginStatusMessage = "Image Stored"
                 
                 guard let url = url else { return }
                 storeUserInformation(imageProfileUrl: url)

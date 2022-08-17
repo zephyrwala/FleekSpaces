@@ -10,12 +10,15 @@ import SDWebImageSwiftUI
 
 class CreateNewMessageViewModel: ObservableObject {
     
+    //published var for users array
     @Published var users = [ChatUser]()
     @Published var errorMessage = ""
+    //this fetches the users from Firebase
     init() {
         fetchAllUsers()
     }
     
+    //users fetch
     private func fetchAllUsers() {
         
         FirebaseManager.shared.firestore.collection("users")
@@ -47,9 +50,16 @@ class CreateNewMessageViewModel: ObservableObject {
 struct CreateNewMessageView: View {
     
     let didSelectnewUser: (ChatUser) -> ()
-    
+    //define colums grid item size
+    let columns = [
+          GridItem(.fixed(170)),
+          GridItem(.fixed(170)),
+//          GridItem(.fixed(120))
+         
+      ]
     @Environment(\.presentationMode) var presentationMode
     
+    //observed object for the new message view model
     @ObservedObject var vm = CreateNewMessageViewModel()
     
     
@@ -77,8 +87,10 @@ struct CreateNewMessageView: View {
 //                        .foregroundColor(.lightGray)
                 }.padding()
                     .padding(.bottom)
+                //lazy grid setup
                 
-                
+                LazyVGrid(columns: columns, spacing: 18) {
+                    //over here vm.users will fetch the users dynamically via the
                 ForEach(vm.users) { user in
                     
                     Button{
@@ -88,11 +100,11 @@ struct CreateNewMessageView: View {
                     } label: {
                         
                         
-                        HStack(spacing: 16) {
+                        VStack(spacing: 20) {
                             WebImage(url: URL(string: user.profileImageUrl))
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 50, height: 50)
+                                .frame(width: 66, height: 66)
                                 .clipped()
                                 .cornerRadius(50)
                                 .overlay(RoundedRectangle(cornerRadius: 50)
@@ -101,18 +113,24 @@ struct CreateNewMessageView: View {
                                 )
                                 
                            
-                            Text(user.email)
+                            Text(user.email.components(separatedBy: "@").first ?? "loading...")
+                            //vm.chatUser?.email.components(separatedBy: "@").first ?? "loading..."
+                                .font(.system(size: 15))
+                                .fontWeight(.semibold)
                                 .foregroundColor(Color(.init("CoinMessageColor")))
                             Spacer()
                         }.padding(.horizontal)
      
                         
                     }
-                    Divider()
-                        .padding(.vertical, 6)
+//                    Divider()
+//                        .padding(.vertical, 6)
                     
                
                 }
+                .frame(height: 120)
+                }
+                //ends here
             }.navigationTitle("New Message")
                 .background(Color(.init("BGColor")))
                 .toolbar {

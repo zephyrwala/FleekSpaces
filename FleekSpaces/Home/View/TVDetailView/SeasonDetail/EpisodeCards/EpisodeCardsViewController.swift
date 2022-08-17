@@ -231,6 +231,7 @@ extension EpisodeCardsViewController: UICollectionViewDataSource {
         guard let showID = FinalDataModel.episodesList?.showID else {return}
         guard let seasonNumber = FinalDataModel.episodesList?.seasonNumber else {return}
         guard let episodeNumber = FinalDataModel.episodesList?.episodes?[indexPath.item].episodeNumber else {return}
+      
         selectedController.getEpisodeData(showId: showID, seasonNo: "\(seasonNumber)", episodeNo: "\(episodeNumber)")
         navigationController?.pushViewController(selectedController, animated: true)
     }

@@ -215,12 +215,43 @@ extension ActorDetailViewController: UICollectionViewDataSource {
         case 0:
             return 1
         case 1:
-            
-            return FinalDataModel.actorMovie?.filmography?.cast?.count ?? 3
+            if let movieCount = FinalDataModel.actorMovie?.filmography?.cast?.count {
+               
+                switch movieCount {
+                    
+                case 3:
+                    return 3
+                    
+                case 4:
+                    return 4
+                    
+                case 5:
+                    return 5
+                    
+                case 6:
+                    return 6
+                    
+                case 7:
+                    return 7
+                    
+                case 8:
+                    return 8
+                    
+                case 9:
+                    return 9
+                    
+                default:
+                    return 3
+                    
+                }
+            }
+           
         
         default:
             return 5
         }
+        
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -228,10 +259,16 @@ extension ActorDetailViewController: UICollectionViewDataSource {
       
         case 1:
             var selectedController = MovieDetailViewController()
-            if let jsonData = MyMovieDataModel.upcoming?.results {
-    
-                selectedController.passedData = jsonData[indexPath.item]
-    
+//            if let jsonData = MyMovieDataModel.upcoming?.results {
+//
+//                selectedController.passedData = jsonData[indexPath.item]
+//
+//            }
+            
+            if let tmdbID = FinalDataModel.actorMovie?.filmography?.cast?[indexPath.item].id {
+                
+                selectedController.fetchMovieDetailswithTMDBid(tmdbID: "\(tmdbID)")
+                selectedController.fetchMoreLikeThis(tmdbID: "\(tmdbID)")
             }
             
 //            selectedController.passedData = filteredData[indexPath.item]
@@ -260,10 +297,15 @@ extension ActorDetailViewController: UICollectionViewDataSource {
         case 1:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "filmoH", for: indexPath) as! filmographyHeader
           
-            if let actorName = passedData?.name {
+            
+            if let nameOfActor = FinalDataModel.actorMovie?.name {
                 
-                header.actorTitlehead.text = "\(actorName)'s Filmography"
+                header.actorTitlehead.text = "\(nameOfActor)'s Filmography"
             }
+//            if let actorName = passedData?.name {
+//
+//
+//            }
            
             return header
             
@@ -300,7 +342,7 @@ extension ActorDetailViewController: UICollectionViewDataSource {
             
             if let myMovieDataStuff = FinalDataModel.actorMovie?.filmography?.cast {
     
-                cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
+                cell.setupActCell(fromData: myMovieDataStuff[indexPath.item])
     
             }
             return cell
@@ -319,3 +361,4 @@ extension ActorDetailViewController: UICollectionViewDataSource {
     
     
 }
+

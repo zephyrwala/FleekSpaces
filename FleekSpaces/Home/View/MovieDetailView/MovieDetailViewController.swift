@@ -13,15 +13,15 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
     let sec2 = "sec2ID"
     let sec3 = "sec3ID"
     let sec0 = "sec0ID"
-    var optionsLogos = [
-    
-        TextLogos(posterImage: UIImage(named: "hbomax")!, postername: "HBOmax"),
-        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
-        TextLogos(posterImage: UIImage(named: "hotstar")!, postername: "Hotstar"),
-        TextLogos(posterImage: UIImage(named: "zee5")!, postername: "Zee5"),
-        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
-    
-    ]
+//    var optionsLogos = [
+//
+//        TextLogos(posterImage: UIImage(named: "hbomax")!, postername: "HBOmax"),
+//        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
+//        TextLogos(posterImage: UIImage(named: "hotstar")!, postername: "Hotstar"),
+//        TextLogos(posterImage: UIImage(named: "zee5")!, postername: "Zee5"),
+//        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
+//
+//    ]
 
     var tmdbID: String?
     var movieId: String?
@@ -505,9 +505,14 @@ extension MovieDetailViewController: UICollectionViewDataSource {
             
             if let castDetails = FinalDataModel.movieDetails {
                 
-                if let cast = castDetails.castAndCrew {
-                    cell.setupCell(fromData: cast[indexPath.item])
+                if castDetails.castAndCrew?.count != 0 {
+                    
+                    if let cast = castDetails.castAndCrew {
+                        cell.setupCell(fromData: cast[indexPath.item])
+                    }
                 }
+               
+               
                
             }
            

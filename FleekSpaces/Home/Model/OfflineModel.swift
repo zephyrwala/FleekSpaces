@@ -52,9 +52,9 @@ struct Slide {
     
     static let slideCollection: [Slide] = [
     
-        Slide(imageName: "a1", title: "Trending Movies & Trending TV Shows", description: "This is the detailed view of all the things on the top and many other thigns to come. This is the detailed view of all the things on the top and many other thigns to come."),
-        Slide(imageName: "a2", title: "Customise Your Feed", description: "This is the detailed view of all the things on the top and many other thigns to come. This is the detailed view of all the things on the top and many other thigns to come."),
-        Slide(imageName: "a3", title: "Get The Latest Movie Details", description: "This is the detailed view of all the things on the top and many other thigns to come. This is the detailed view of all the things on the top and many other thigns to come.")
+        Slide(imageName: "a1", title: "Trending Movies & TV Shows", description: "Discover the latest and greatest of Movies and TV shows on the streaming platforms."),
+        Slide(imageName: "a2", title: "Find New Content", description: "Find out new and interesting content on all the OTT platforms."),
+        Slide(imageName: "a3", title: "Stay in touch", description: "Stay in touch with all the happening content on your favourite streaming platform.")
         
     
     

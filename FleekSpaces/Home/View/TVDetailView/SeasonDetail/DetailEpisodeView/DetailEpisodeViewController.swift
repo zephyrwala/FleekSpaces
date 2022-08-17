@@ -19,15 +19,15 @@ class DetailEpisodeViewController: UIViewController, UICollectionViewDelegate {
     let sec0 = "sec0ID"
     var passedData: Episode?
     var tvPassedData: Episode?
-    var optionsLogos = [
-    
-        TextLogos(posterImage: UIImage(named: "hbomax")!, postername: "HBOmax"),
-        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
-        TextLogos(posterImage: UIImage(named: "hotstar")!, postername: "Hotstar"),
-        TextLogos(posterImage: UIImage(named: "zee5")!, postername: "Zee5"),
-        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
-    
-    ]
+//    var optionsLogos = [
+//    
+//        TextLogos(posterImage: UIImage(named: "hbomax")!, postername: "HBOmax"),
+//        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
+//        TextLogos(posterImage: UIImage(named: "hotstar")!, postername: "Hotstar"),
+//        TextLogos(posterImage: UIImage(named: "zee5")!, postername: "Zee5"),
+//        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
+//    
+//    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +63,8 @@ class DetailEpisodeViewController: UIViewController, UICollectionViewDelegate {
         
  
     }
+    
+ 
     
     func getEpisodeData(showId: String, seasonNo: String, episodeNo: String) {
         
@@ -272,7 +274,7 @@ class DetailEpisodeViewController: UIViewController, UICollectionViewDelegate {
 extension DetailEpisodeViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        4
+        3
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -282,7 +284,7 @@ extension DetailEpisodeViewController: UICollectionViewDataSource {
         case 1:
           return FinalDataModel.episodeDetailData?.watchProviders?.watchProvidersIN?.flatrate?.count ?? 1
         case 2:
-          return 6
+            return FinalDataModel.episodeDetailData?.casts?.count ?? 3
         case 3:
             return 6
             
@@ -331,12 +333,27 @@ extension DetailEpisodeViewController: UICollectionViewDataSource {
             
         case 2:
             var selectedController = ActorDetailViewController()
-            if let jsonData = tvPassedData?.guestStars {
+//            if let jsonData = tvPassedData?.guestStars {
+//
+//                selectedController.passedData = jsonData[indexPath.item]
+//                print("THis is json data: \(jsonData)")
+//
+//            }
+//
+//
+            
+            //TODO: - Check above
+            
+            
+            if let actorDataId = FinalDataModel.episodeDetailData?.casts?[indexPath.item].id {
                 
-                selectedController.passedData = jsonData[indexPath.item]
-                print("THis is json data: \(jsonData)")
+                selectedController.actorId = "\(actorDataId)"
+                selectedController.fetchActorDetail(actor: "\(actorDataId)")
+                
                 
             }
+            
+            
                 print("No json data")
             navigationController?.pushViewController(selectedController, animated: true)
             
@@ -391,10 +408,15 @@ extension DetailEpisodeViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movCast", for: indexPath) as! MovieCastCell
 //            cell.setupCell(fromData: optionsLogos[indexPath.item])
             
-            if let myMovieDataStuff = tvPassedData?.guestStars {
-                
-//                cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
-                
+            //TODO: - Cross check this
+//            if let myMovieDataStuff = tvPassedData?.guestStars {
+//
+////                cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
+//
+//            }
+            
+            if let streamingData = FinalDataModel.episodeDetailData?.casts?[indexPath.item] {
+                cell.episodeCasts(fromData: streamingData)
             }
             
             return cell
