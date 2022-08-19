@@ -217,6 +217,14 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     
     @IBAction func segmentTap(_ sender: Any) {
         
+      
+        let loginState = LoginVC()
+         
+        if let sheet = loginState.sheetPresentationController {
+            sheet.detents = [ .large() ]
+        }
+         
+        present(loginState, animated: true)
 //        presentModal()
     }
     

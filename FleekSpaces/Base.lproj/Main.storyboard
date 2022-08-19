@@ -292,11 +292,11 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jn-xa-qAX">
-                                <rect key="frame" x="0.0" y="273" width="414" height="540"/>
+                                <rect key="frame" x="0.0" y="273" width="414" height="589"/>
                                 <color key="backgroundColor" name="BGColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0J-0i-85a">
-                                <rect key="frame" x="327" y="726" width="66" height="66"/>
+                                <rect key="frame" x="327" y="775" width="66" height="66"/>
                                 <color key="backgroundColor" name="BtnGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="66" id="7Zx-7B-vss"/>
@@ -478,7 +478,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="FFa-df-FJe" kind="relationship" relationship="viewControllers" id="efL-Hs-XtV"/>
-                        <segue destination="kXN-YT-dtV" kind="relationship" relationship="viewControllers" id="Lpc-yS-gaw"/>
+                        <segue destination="G9X-7b-Adr" kind="relationship" relationship="viewControllers" id="Pt4-fz-ZL2"/>
                         <segue destination="Dqb-hx-E2l" kind="relationship" relationship="viewControllers" id="2Nk-l6-Mtd"/>
                     </connections>
                 </tabBarController>
@@ -491,7 +491,7 @@
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overCurrentContext" id="Ppb-iH-IIp" customClass="ChatKitViewController" customModule="FleekSpaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fji-TC-SqN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIn-ww-8ZC">
@@ -551,7 +551,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SEP-cU-feM">
-                                <rect key="frame" x="0.0" y="153" width="414" height="655"/>
+                                <rect key="frame" x="0.0" y="153" width="414" height="572"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AfW-w9-bqR">
                                     <size key="itemSize" width="128" height="128"/>
@@ -836,11 +836,11 @@
             </objects>
             <point key="canvasLocation" x="4726.0869565217399" y="579.24107142857144"/>
         </scene>
-        <!--Item-->
+        <!--Chat-->
         <scene sceneID="xY7-hb-8Oa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="dark" id="G9X-7b-Adr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="star.bubble" catalog="system" selectedImage="star.bubble.fill" id="boT-ie-Qf3"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="bubble.left.and.bubble.right" catalog="system" selectedImage="bubble.left.and.bubble.right.fill" id="boT-ie-Qf3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="ZMp-yt-IUa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -887,8 +887,6 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
-        <image name="star.bubble" catalog="system" width="128" height="110"/>
-        <image name="star.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="tv-2 1" width="480" height="480"/>
         <namedColor name="BGColor">
             <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
