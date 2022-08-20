@@ -15,6 +15,8 @@
 		6922ECCB2887FEE400865540 /* FinalDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6922ECCA2887FEE300865540 /* FinalDataModel.swift */; };
 		6924001B28AF99B000DFB033 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6924001928AF99B000DFB033 /* LoginVC.swift */; };
 		6924001C28AF99B000DFB033 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6924001A28AF99B000DFB033 /* LoginVC.xib */; };
+		6924001F28AFB6F200DFB033 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6924001D28AFB6F100DFB033 /* RegisterVC.swift */; };
+		6924002028AFB6F200DFB033 /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6924001E28AFB6F200DFB033 /* RegisterVC.xib */; };
 		692600B7284DE24500B6D801 /* AddSubCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692600B5284DE24500B6D801 /* AddSubCollectionViewCell.swift */; };
 		692600B8284DE24500B6D801 /* AddSubCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 692600B6284DE24500B6D801 /* AddSubCollectionViewCell.xib */; };
 		692600BB284DE5DB00B6D801 /* CheckmarkCollectionViewCell in Frameworks */ = {isa = PBXBuildFile; productRef = 692600BA284DE5DB00B6D801 /* CheckmarkCollectionViewCell */; };
@@ -185,6 +187,8 @@
 		6922ECCA2887FEE300865540 /* FinalDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalDataModel.swift; sourceTree = "<group>"; };
 		6924001928AF99B000DFB033 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		6924001A28AF99B000DFB033 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		6924001D28AFB6F100DFB033 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		6924001E28AFB6F200DFB033 /* RegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
 		692600B5284DE24500B6D801 /* AddSubCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubCollectionViewCell.swift; sourceTree = "<group>"; };
 		692600B6284DE24500B6D801 /* AddSubCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSubCollectionViewCell.xib; sourceTree = "<group>"; };
 		692600BC284E09A200B6D801 /* Section2HeadersCRV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section2HeadersCRV.swift; sourceTree = "<group>"; };
@@ -388,6 +392,8 @@
 			children = (
 				6924001928AF99B000DFB033 /* LoginVC.swift */,
 				6924001A28AF99B000DFB033 /* LoginVC.xib */,
+				6924001D28AFB6F100DFB033 /* RegisterVC.swift */,
+				6924001E28AFB6F200DFB033 /* RegisterVC.xib */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -1105,6 +1111,7 @@
 				6930D53D2851D3A60080528D /* MovieDetailViewController.xib in Resources */,
 				695EBBDC28619DEF00557D69 /* tvshow.json in Resources */,
 				695EBC002864502200557D69 /* SignInViewController.xib in Resources */,
+				6924002028AFB6F200DFB033 /* RegisterVC.xib in Resources */,
 				693946962847577D00FE7574 /* Section1HeaderCRV.xib in Resources */,
 				693946B2284896DF00FE7574 /* ChooseSubsViewController.xib in Resources */,
 				6930D57C2859DB4B0080528D /* GenreBottomViewController.xib in Resources */,
@@ -1216,6 +1223,7 @@
 				693357DD2894088000C49506 /* EpisodeCardsViewController.swift in Sources */,
 				695EBBE22861AAD400557D69 /* SeasonsViewController.swift in Sources */,
 				695EBBD4285B36FB00557D69 /* OnboardingCVC.swift in Sources */,
+				6924001F28AFB6F200DFB033 /* RegisterVC.swift in Sources */,
 				693946A428477D6900FE7574 /* TestDataModel.swift in Sources */,
 				6930D553285360880080528D /* MovieCastCRV.swift in Sources */,
 				693849A7288270DD00EC5C61 /* BookSectionCollectionViewCell.swift in Sources */,
