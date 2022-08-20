@@ -97,6 +97,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="172" height="50"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain"/>
+                                            <connections>
+                                                <action selector="registerBtnTap:" destination="-1" eventType="touchUpInside" id="sG8-Wy-QxO"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

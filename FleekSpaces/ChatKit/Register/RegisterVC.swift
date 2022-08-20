@@ -7,11 +7,19 @@
 
 import UIKit
 
-class RegisterVC: UIViewController {
+class RegisterVC: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var registerBtn: UIButton!
+    @IBOutlet weak var numberTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        nameTextField.delegate = self
+        nameTextField.becomeFirstResponder()
+        registerBtn.layer.cornerRadius = 12
+        
         // Do any additional setup after loading the view.
     }
 
