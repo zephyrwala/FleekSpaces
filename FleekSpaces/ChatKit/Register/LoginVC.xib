@@ -10,7 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="FleekSpaces" customModuleProvider="target">
             <connections>
+                <outlet property="alertMessageText" destination="LUr-xt-T2G" id="xXv-AJ-tld"/>
                 <outlet property="bgView" destination="wId-Lc-xYy" id="yvD-og-iWi"/>
+                <outlet property="didntReceive" destination="JSm-18-Opo" id="1WF-xN-ykC"/>
                 <outlet property="dismissBtn" destination="aa3-Iq-sLO" id="dSA-V6-wZt"/>
                 <outlet property="loginBtn" destination="Z6K-5h-Hew" id="qrY-t2-k8T"/>
                 <outlet property="otp1" destination="v84-6w-Y3L" id="qI9-Fi-DAo"/>
@@ -19,6 +21,7 @@
                 <outlet property="otp4" destination="Spo-z5-3Z3" id="fdq-Z9-wln"/>
                 <outlet property="otpView" destination="kxr-gb-EhZ" id="YrS-Rp-J46"/>
                 <outlet property="phoneNumber" destination="Te8-XB-rPr" id="0CL-Nr-cLj"/>
+                <outlet property="resendOTPs" destination="8C5-gM-EIE" id="ePZ-jm-PKx"/>
                 <outlet property="verifyBtn" destination="aEM-Rs-kK2" id="flS-AV-Z97"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewTapDismiss" destination="RAF-Y5-VJt" id="Wq3-oT-9be"/>

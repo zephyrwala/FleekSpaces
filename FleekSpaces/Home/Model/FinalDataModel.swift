@@ -37,6 +37,16 @@ class FinalDataModel: NSObject {
     static var searchResult: [SearchResultElement]?
 }
 
+//MARK: - Login
+class LoginMessage: Codable {
+    let message: String?
+    let error: String?
+
+    init(message: String?, error: String?) {
+        self.message = message
+        self.error = error
+    }
+}
 
 // MARK: - SearchResultElement
 class SearchResultElement: Codable {

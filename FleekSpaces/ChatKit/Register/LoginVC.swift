@@ -7,8 +7,13 @@
 
 import UIKit
 
+
 class LoginVC: UIViewController, UITextFieldDelegate {
 
+   
+    @IBOutlet weak var resendOTPs: UILabel!
+    @IBOutlet weak var didntReceive: UILabel!
+    @IBOutlet weak var alertMessageText: UILabel!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var phoneNumber: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
@@ -44,7 +49,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 //            loginState.dismiss(animated: true)
 //        }
 //
-        
+       
         weak var pvc = self.presentingViewController
 
         self.dismiss(animated: true, completion: {
@@ -53,7 +58,60 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         })
     }
     
+    //MARK: - Login Flow
     
+    func loginFlow() {
+        
+        let network = NetworkURL()
+        
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/users/login?phone=9820420420") else {return}
+        
+                network.loginCalls(LoginMessage.self, url: myUrl) { myResult, yourMessage in
+                    
+                
+                  
+                        switch myResult {
+                        
+                            
+                        case .success(let myMessage):
+                            
+                            if myMessage.message != nil {
+                                if let safeMessage = myMessage.message {
+                                    print("Message is \(safeMessage)")
+                                    DispatchQueue.main.async {
+                                        self.alertMessageText.text = "\(safeMessage)"
+                                        
+                                        self.didntReceive.text = "Didn't recieve the code"
+                                        self.resendOTPs.text = "Resend OTP"
+                                    }
+                                }
+                            } else {
+                                
+                                if let safeMessage = myMessage.error {
+                                    print("Message is \(safeMessage)")
+                                    DispatchQueue.main.async {
+                                        self.alertMessageText.text = "\(safeMessage)"
+                                    }
+                                }
+                                
+                            }
+                            
+                           
+                            
+                            
+                        case .failure(let errs):
+                         print("Error login is \(errs)")
+                            
+                        }
+                    
+                  
+                    
+                    
+                }
+        
+    }
+    
+    //MARK: - OTP layout
     func setupOTPBorder() {
         
         otp1.layer.borderWidth = 1.0
@@ -80,7 +138,9 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginBtnTap(_ sender: Any) {
+       
         otpView.isHidden = false
+        loginFlow()
     }
     /*
     // MARK: - Navigation

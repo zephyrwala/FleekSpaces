@@ -29,6 +29,7 @@ class NetworkURL {
         let dataTask = URLSession.shared.dataTask(with: myURL) { myData, myResponse, myError in
             
             //decoder
+            print("Messagers")
             print(String(data: myData!, encoding: .utf8))
             let decoder = JSONDecoder()
             
@@ -60,7 +61,55 @@ class NetworkURL {
     
     
     
+    
+    func loginCalls<T: Codable>(_ type: T.Type, url: URL?, completion: @escaping(Result<T, Error>, _ yourMessage: String) -> (Void)) {
+        
+        //url
+        guard let myURL = url else {return}
+        
+        var request = URLRequest(url: myURL)
+            request.httpMethod = "POST"
+
+     
+        //make data task
+        let dataTask = URLSession.shared.dataTask(with: request) { myData, myResponse, myError in
+            
+            //decoder
+            print("Login calls")
+            print(String(data: myData!, encoding: .utf8))
+            let decoder = JSONDecoder()
+            
+            //do-try-catch - decode the data
+            
+            do {
+                
+                let decodedData = try decoder.decode(T.self, from: myData!)
+                completion(.success(decodedData), "🎉 Data has been passed Successfully")
+                
+            } catch {
+                
+                print("decoding error")
+               print(myError)
+                completion(.failure(APIerror.jsonDecodeError), "💩 Shit the bed")
+                
+            }
+            
+            
+            
+        }
+        
+        //task.resume
+        dataTask.resume()
+        
+  
+        
+    }
+    
+    
 
     
     
 }
+
+
+
