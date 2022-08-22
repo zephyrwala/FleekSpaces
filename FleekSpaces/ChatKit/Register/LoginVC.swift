@@ -36,10 +36,23 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func registerBtnTap(_ sender: Any) {
-        let regView = RegisterVC()
+       
+//        let regView = RegisterVC()
+//
+//        self.present(regView, animated: true) {
+//            let loginState = LoginVC()
+//            loginState.dismiss(animated: true)
+//        }
+//
         
-        self.present(regView, animated: true)
+        weak var pvc = self.presentingViewController
+
+        self.dismiss(animated: true, completion: {
+            let vc = RegisterVC()
+            pvc?.present(vc, animated: true, completion: nil)
+        })
     }
+    
     
     func setupOTPBorder() {
         

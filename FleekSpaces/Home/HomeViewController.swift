@@ -1031,11 +1031,14 @@ extension HomeViewController: UICollectionViewDataSource {
                 }
                 
             case 1:
-                if FinalDataModel.ottShow?.count ?? 3 >= 15 {
-                    return 15
-                } else {
-                    return 9
-                }
+                
+                return FinalDataModel.ottShow?.count ?? 3 
+                
+//                if FinalDataModel.ottShow?.count ?? 3 >= 15 {
+//                    return 15
+//                } else {
+//                    return 9
+//                }
                 
                 //worldwide trending
             case 2:
