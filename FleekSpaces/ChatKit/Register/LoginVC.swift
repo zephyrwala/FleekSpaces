@@ -39,6 +39,29 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         setupOTPBorder()
         
     }
+    
+    
+    @objc func changeCharacter(myTextField: UITextField){
+        
+        if myTextField.text?.utf8.count == 1{
+            
+            switch myTextField {
+            case otp1:
+                otp2.becomeFirstResponder()
+            case otp2:
+                otp3.becomeFirstResponder()
+            case otp3:
+                otp4.becomeFirstResponder()
+            case otp4:
+                print("OTP IS \(otp1.text)\(otp2.text)\(otp3.text)\(otp4.text)")
+                
+            default:
+                break
+            }
+        }
+        
+        
+    }
 
     @IBAction func registerBtnTap(_ sender: Any) {
        
@@ -111,6 +134,86 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         
     }
     
+    
+    @IBAction func verifyBtnTap(_ sender: Any) {
+        
+        verifyOTP()
+    }
+    
+    
+    //MARK: - Login Btn tap action
+    
+    @IBAction func loginBtnTap(_ sender: Any) {
+        
+       //empty
+        if let safeNumber = phoneNumber.text {
+            
+            
+            switch safeNumber.count {
+            case 0:
+                DispatchQueue.main.async {
+                    self.alertMessageText.text = "Enter your phone number"
+                }
+                
+            case 10:
+                otpView.isHidden = false
+                loginFlow()
+                
+           
+                
+            default:
+                DispatchQueue.main.async {
+                    self.alertMessageText.text = "Please enter a valid 10 digit phone number"
+                }
+            }
+            
+            //
+            if !safeNumber.isEmpty {
+                
+                if safeNumber.count > 10 {
+                    DispatchQueue.main.async {
+                        self.alertMessageText.text = "Please enter a valid 10 digit phone number"
+                    }
+                }
+             
+                
+            } else {
+                
+                DispatchQueue.main.async {
+                    self.alertMessageText.text = "Please enter your phone Number"
+                }
+                //show empty state
+            }
+        }
+        //more than 10 numbers
+        
+    }
+    
+    //MARK: - Verify OTP
+    
+    func verifyOTP() {
+        
+        let network = NetworkURL()
+        
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/users/verify_otp?phone=9820420420&otp=1234") else {return}
+        
+        network.loginCalls(VerifyOTP.self, url: myUrl) { myResult, yourMessage in
+            
+            switch myResult {
+                
+            case .success(let otpMessage):
+                print("The user details is \(otpMessage.name) \(otpMessage.phoneNumber)")
+            
+            case .failure(let errs):
+                print("OTP Failure \(errs) \(yourMessage)")
+                
+            }
+            
+            
+        }
+        
+    }
+    
     //MARK: - OTP layout
     func setupOTPBorder() {
         
@@ -128,6 +231,10 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         otp3.layer.cornerRadius = 15
         otp4.layer.cornerRadius = 15
         
+        self.otp1.addTarget(self, action: #selector(self.changeCharacter(myTextField:)), for: .editingChanged)
+        self.otp2.addTarget(self, action: #selector(self.changeCharacter(myTextField:)), for: .editingChanged)
+        self.otp3.addTarget(self, action: #selector(self.changeCharacter(myTextField:)), for: .editingChanged)
+        self.otp4.addTarget(self, action: #selector(self.changeCharacter(myTextField:)), for: .editingChanged)
     }
 
     @IBOutlet weak var viewTapDismiss: UIView!
@@ -137,11 +244,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         self.dismiss(animated: true)
     }
     
-    @IBAction func loginBtnTap(_ sender: Any) {
-       
-        otpView.isHidden = false
-        loginFlow()
-    }
+ 
     /*
     // MARK: - Navigation
 
@@ -152,4 +255,15 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     */
 
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let safePhoneNumber = phoneNumber.text {
+            if safePhoneNumber.count > 10 {
+                
+            }
+        }
+      
+    }
 }
+
+

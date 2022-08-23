@@ -35,6 +35,43 @@ class FinalDataModel: NSObject {
     static var actorMovie: ActorMovieDetail?
     
     static var searchResult: [SearchResultElement]?
+    
+    static var verfiyOTP: VerifyOTP?
+}
+
+// MARK: - VerifyOTP
+class VerifyOTP: Codable {
+    let userID, name, phoneNumber: String?
+
+    let avatarURL: String?
+    let loginStatus: Bool?
+    let fcmToken, firebasePassword, firebaseUid, accessToken: String?
+
+    enum CodingKeys: String, CodingKey {
+        case userID = "user_id"
+        case name
+        case phoneNumber = "phone_number"
+
+        case avatarURL = "avatar_url"
+        case loginStatus = "login_status"
+        case fcmToken = "fcm_token"
+        case firebasePassword = "firebase_password"
+        case firebaseUid = "firebase_uid"
+        case accessToken = "access_token"
+    }
+
+    init(userID: String?, name: String?, phoneNumber: String?, avatarURL: String?, loginStatus: Bool?, fcmToken: String?, firebasePassword: String?, firebaseUid: String?, accessToken: String?) {
+        self.userID = userID
+        self.name = name
+        self.phoneNumber = phoneNumber
+       
+        self.avatarURL = avatarURL
+        self.loginStatus = loginStatus
+        self.fcmToken = fcmToken
+        self.firebasePassword = firebasePassword
+        self.firebaseUid = firebaseUid
+        self.accessToken = accessToken
+    }
 }
 
 //MARK: - Login
