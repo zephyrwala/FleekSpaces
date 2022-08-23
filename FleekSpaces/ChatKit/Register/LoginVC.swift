@@ -23,6 +23,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var otp2: UITextField!
     @IBOutlet weak var otp3: UITextField!
     @IBOutlet weak var otp4: UITextField!
+    var register = false
+    
     
     @IBOutlet weak var verifyBtn: UIButton!
     override func viewDidLoad() {
@@ -83,12 +85,13 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     //MARK: - Login Flow
     
-    func loginFlow() {
+    func loginFlow(phoneNumber: String) {
         
         let network = NetworkURL()
         
-        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/users/login?phone=9820420420") else {return}
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/users/login?phone=\(phoneNumber)") else {return}
         
+        print("myURL is \(myUrl)")
                 network.loginCalls(LoginMessage.self, url: myUrl) { myResult, yourMessage in
                     
                 
@@ -98,14 +101,20 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                             
                         case .success(let myMessage):
                             
+                           
+                            
                             if myMessage.message != nil {
                                 if let safeMessage = myMessage.message {
                                     print("Message is \(safeMessage)")
                                     DispatchQueue.main.async {
+                                        self.alertMessageText.textColor = UIColor(named: "CoinMessageColor")
                                         self.alertMessageText.text = "\(safeMessage)"
                                         
                                         self.didntReceive.text = "Didn't recieve the code"
                                         self.resendOTPs.text = "Resend OTP"
+                                        
+                                        self.otpView.isHidden = false
+                                        self.otp1.becomeFirstResponder()
                                     }
                                 }
                             } else {
@@ -113,9 +122,17 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                                 if let safeMessage = myMessage.error {
                                     print("Message is \(safeMessage)")
                                     DispatchQueue.main.async {
-                                        self.alertMessageText.text = "\(safeMessage)"
+                                        self.alertMessageText.textColor = UIColor(named: "BtnGreenColor")
+                                        self.alertMessageText.text = "Oops! \(safeMessage)."
+                                        
+                                        self.otpView.isHidden = true
+                                        self.loginBtn.setTitle("REGISTER", for: .normal)
+                                        self.didntReceive.text = ""
+                                        self.resendOTPs.text = ""
                                     }
                                 }
+                                
+                               
                                 
                             }
                             
@@ -142,7 +159,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     
     //MARK: - Login Btn tap action
-    
+    //9820420420
     @IBAction func loginBtnTap(_ sender: Any) {
         
        //empty
@@ -156,9 +173,10 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 }
                 
             case 10:
-                otpView.isHidden = false
-                loginFlow()
-                
+//                otpView.isHidden = false
+               
+                loginFlow(phoneNumber: "\(safeNumber)")
+                print("Phone number text is \(safeNumber)")
            
                 
             default:
