@@ -30,14 +30,15 @@ class NetworkURL {
             
             //decoder
             print("Messagers")
-            print(String(data: myData!, encoding: .utf8))
+//            print(String(data: myData!, encoding: .utf8))
             let decoder = JSONDecoder()
-            
+            //TODO: - safe data for no data fix
+            guard let safeData = myData else {return}
             //do-try-catch - decode the data
             
             do {
                 
-                let decodedData = try decoder.decode(T.self, from: myData!)
+                let decodedData = try decoder.decode(T.self, from: safeData)
                 completion(.success(decodedData), "🎉 Data has been passed Successfully")
                 
             } catch {
@@ -76,14 +77,16 @@ class NetworkURL {
             
             //decoder
             print("Login calls")
-            print(String(data: myData!, encoding: .utf8))
+            guard let safeData = myData else {return}
+            
+            print(String(data: safeData, encoding: .utf8))
             let decoder = JSONDecoder()
             
             //do-try-catch - decode the data
             
             do {
                 
-                let decodedData = try decoder.decode(T.self, from: myData!)
+                let decodedData = try decoder.decode(T.self, from: safeData)
                 completion(.success(decodedData), "🎉 Data has been passed Successfully")
                 
             } catch {

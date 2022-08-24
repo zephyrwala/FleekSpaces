@@ -123,9 +123,10 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                                     print("Message is \(safeMessage)")
                                     DispatchQueue.main.async {
                                         self.alertMessageText.textColor = UIColor(named: "BtnGreenColor")
-                                        self.alertMessageText.text = "Oops! \(safeMessage)."
+                                        self.alertMessageText.text = "Oops! 🥸 \(safeMessage)."
                                         
                                         self.otpView.isHidden = true
+                                        self.register = true
                                         self.loginBtn.setTitle("REGISTER", for: .normal)
                                         self.didntReceive.text = ""
                                         self.resendOTPs.text = ""
@@ -169,39 +170,38 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             switch safeNumber.count {
             case 0:
                 DispatchQueue.main.async {
-                    self.alertMessageText.text = "Enter your phone number"
+                    self.alertMessageText.textColor = UIColor(named: "CoinMessageColor")
+                    self.alertMessageText.text = "Hey Bro! 🤔 You didn't enter your phone number?"
                 }
                 
             case 10:
 //                otpView.isHidden = false
+                if self.register == false {
+                    
+                    loginFlow(phoneNumber: "\(safeNumber)")
+                    print("Phone number text is \(safeNumber)")
+                    
+                } else if self.register == true {
+                    
+                    weak var pvc = self.presentingViewController
+
+                    self.dismiss(animated: true, completion: {
+                        let vc = RegisterVC()
+                        pvc?.present(vc, animated: true, completion: nil)
+                    })
+                }
                
-                loginFlow(phoneNumber: "\(safeNumber)")
-                print("Phone number text is \(safeNumber)")
+               
            
                 
             default:
                 DispatchQueue.main.async {
-                    self.alertMessageText.text = "Please enter a valid 10 digit phone number"
+                    self.alertMessageText.textColor = UIColor(named: "CoinMessageColor")
+                    self.alertMessageText.text = "Bro? 🧐 Please enter a valid 10 digit phone number!"
                 }
             }
             
-            //
-            if !safeNumber.isEmpty {
-                
-                if safeNumber.count > 10 {
-                    DispatchQueue.main.async {
-                        self.alertMessageText.text = "Please enter a valid 10 digit phone number"
-                    }
-                }
-             
-                
-            } else {
-                
-                DispatchQueue.main.async {
-                    self.alertMessageText.text = "Please enter your phone Number"
-                }
-                //show empty state
-            }
+         
         }
         //more than 10 numbers
         
