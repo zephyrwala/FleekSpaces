@@ -23,6 +23,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var otp2: UITextField!
     @IBOutlet weak var otp3: UITextField!
     @IBOutlet weak var otp4: UITextField!
+    var otpString = ""
     var register = false
     
     
@@ -56,6 +57,13 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 otp4.becomeFirstResponder()
             case otp4:
                 print("OTP IS \(otp1.text)\(otp2.text)\(otp3.text)\(otp4.text)")
+                guard let safeOTP1 = otp1.text else {return}
+                guard let safeOTP2 = otp2.text else {return}
+                guard let safeOTP3 = otp3.text else {return}
+                guard let safeOTP4 = otp4.text else {return}
+                
+                otpString = "\(safeOTP1)\(safeOTP2)\(safeOTP3)\(safeOTP4)"
+                print("Final OTP is \(otpString)")
                 
             default:
                 break
@@ -108,8 +116,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                                     print("Message is \(safeMessage)")
                                     DispatchQueue.main.async {
                                         self.alertMessageText.textColor = UIColor(named: "CoinMessageColor")
-                                        self.alertMessageText.text = "\(safeMessage)"
-                                        
+                                        self.alertMessageText.text = "Hey Bro! 👋🏻 \(safeMessage)"
+                                        //change the bottom text code
                                         self.didntReceive.text = "Didn't recieve the code"
                                         self.resendOTPs.text = "Resend OTP"
                                         
@@ -155,7 +163,9 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func verifyBtnTap(_ sender: Any) {
         
-        verifyOTP()
+        print("Verfiy btn tapped")
+        guard let safeNumber = phoneNumber.text else {return}
+        verifyOTP(phoneNumber: "\(safeNumber)", otp: "\(otpString)")
     }
     
     
@@ -207,13 +217,24 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         
     }
     
+    //MARK: - Login Success
+    
+    func loginSucessMessage(userName: String) {
+        
+        let alert = UIAlertController(title: "Login Successful 🎉", message: "Welcome back \(userName), Bro! We misssed you a lot 🥹", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Let's Go!", style: .cancel, handler: { alerts in
+            self.dismiss(animated: true)
+        }))
+        present(alert, animated: true)
+    }
+    
     //MARK: - Verify OTP
     
-    func verifyOTP() {
+    func verifyOTP(phoneNumber: String, otp: String) {
         
         let network = NetworkURL()
         
-        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/users/verify_otp?phone=9820420420&otp=1234") else {return}
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/users/verify_otp?phone=\(phoneNumber)&otp=\(otp)") else {return}
         
         network.loginCalls(VerifyOTP.self, url: myUrl) { myResult, yourMessage in
             
@@ -221,9 +242,18 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 
             case .success(let otpMessage):
                 print("The user details is \(otpMessage.name) \(otpMessage.phoneNumber)")
+                
+                guard let safeuserName = otpMessage.name else {return}
+                DispatchQueue.main.async {
+                    self.loginSucessMessage(userName: "\(safeuserName)")
+                   
+                }
             
             case .failure(let errs):
                 print("OTP Failure \(errs) \(yourMessage)")
+                DispatchQueue.main.async {
+                    self.displayUIAlert(yourMessage: "OTP Failure \(errs)")
+                }
                 
             }
             
