@@ -9,6 +9,7 @@ import UIKit
 
 class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var alertMessageText: UILabel!
     @IBOutlet weak var selectImageBtn: UIButton!
     @IBOutlet weak var alertMessage: UIView!
     @IBOutlet weak var otpView: UIView!
@@ -60,52 +61,53 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
     
         //username check
         
-//        //phone number check
-//        if let safeNumber = numberTextField.text {
-//
-//
-//            switch safeNumber.count {
-//            case 0:
-//                DispatchQueue.main.async {
-//                    self.alertMessage.textColor = UIColor(named: "CoinMessageColor")
-//                    self.alertMessageText.text = "Hey Bro! 🤔 You didn't enter your phone number?"
-//                }
-//
-//            case 10:
-////                otpView.isHidden = false
-//                if self.register == false {
-//
-//                    loginFlow(phoneNumber: "\(safeNumber)")
-//                    print("Phone number text is \(safeNumber)")
-//
-//                } else if self.register == true {
-//
-//                    weak var pvc = self.presentingViewController
-//
-//                    self.dismiss(animated: true, completion: {
-//                        let vc = RegisterVC()
-//                        pvc?.present(vc, animated: true, completion: nil)
-//                    })
-//                }
-//
-//
-//
-//
-//            default:
-//                DispatchQueue.main.async {
-//                    self.alertMessageText.textColor = UIColor(named: "CoinMessageColor")
-//                    self.alertMessageText.text = "Bro? 🧐 Please enter a valid 10 digit phone number!"
-//                }
-//            }
-//
-//
-//        }
+        //phone number check
+            if let safeNumber = numberTextField.text {
+
+            guard let safeName = nameTextField.text else {return}
+
+            switch safeNumber.count {
+            case 0:
+                DispatchQueue.main.async {
+                    self.alertMessageText.textColor = UIColor(named: "CoinMessageColor")
+                    self.alertMessageText.text = "Hey Bro! 🤔 You didn't enter your phone number?"
+                }
+
+            case 10:
+//                otpView.isHidden = false
+               
+
+                    registerFlow(userName: "\(safeName)", phoneNumber: "\(safeNumber)")
+                    print("Phone number text is \(safeNumber)")
+
+                
+
+
+
+
+            default:
+                DispatchQueue.main.async {
+                    self.alertMessageText.textColor = UIColor(named: "CoinMessageColor")
+                    self.alertMessageText.text = "Bro? 🧐 Please enter a valid 10 digit phone number!"
+                }
+            }
+
+
+        }
         
         //profile pic check
         
         
         otpView.isHidden = false
        
+    }
+    
+        //MARK: - REgister Flow
+    
+    func registerFlow(userName: String, phoneNumber: String) {
+        
+        
+        
     }
     /*
     // MARK: - Navigation

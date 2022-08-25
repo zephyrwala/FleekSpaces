@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterVC" customModule="FleekSpaces" customModuleProvider="target">
             <connections>
                 <outlet property="alertMessage" destination="3Le-HG-tgz" id="23o-lw-sBP"/>
+                <outlet property="alertMessageText" destination="YA9-Pu-X1E" id="bk5-pU-LSn"/>
                 <outlet property="nameTextField" destination="gzN-pv-6iJ" id="S7Z-7A-cah"/>
                 <outlet property="numberTextField" destination="F5X-FF-Asc" id="0Jf-vD-SNl"/>
                 <outlet property="otp1" destination="5NR-el-qzu" id="aQR-ci-iNc"/>
