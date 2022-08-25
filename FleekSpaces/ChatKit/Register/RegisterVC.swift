@@ -7,8 +7,10 @@
 
 import UIKit
 
-class RegisterVC: UIViewController, UITextFieldDelegate {
+class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var selectImageBtn: UIButton!
+    @IBOutlet weak var alertMessage: UIView!
     @IBOutlet weak var otpView: UIView!
     @IBOutlet weak var veriftBtn: UIButton!
     @IBOutlet weak var otp4: UITextField!
@@ -28,12 +30,16 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
         setupOTPBorder()
         veriftBtn.layer.cornerRadius = 15
         otpView.isHidden = true
+        selectImageBtn.setTitle("", for: .normal)
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func selectImageBtnTap(_ sender: Any) {
+        presentPhotoActionSheet()
+    }
     
     func setupOTPBorder() {
-        
+        profilePic.makeItGolGol()
         otp1.layer.borderWidth = 1.0
         otp2.layer.borderWidth = 1.0
         otp3.layer.borderWidth = 1.0
@@ -52,6 +58,51 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
 
     @IBAction func registerBtnTap(_ sender: Any) {
     
+        //username check
+        
+//        //phone number check
+//        if let safeNumber = numberTextField.text {
+//
+//
+//            switch safeNumber.count {
+//            case 0:
+//                DispatchQueue.main.async {
+//                    self.alertMessage.textColor = UIColor(named: "CoinMessageColor")
+//                    self.alertMessageText.text = "Hey Bro! 🤔 You didn't enter your phone number?"
+//                }
+//
+//            case 10:
+////                otpView.isHidden = false
+//                if self.register == false {
+//
+//                    loginFlow(phoneNumber: "\(safeNumber)")
+//                    print("Phone number text is \(safeNumber)")
+//
+//                } else if self.register == true {
+//
+//                    weak var pvc = self.presentingViewController
+//
+//                    self.dismiss(animated: true, completion: {
+//                        let vc = RegisterVC()
+//                        pvc?.present(vc, animated: true, completion: nil)
+//                    })
+//                }
+//
+//
+//
+//
+//            default:
+//                DispatchQueue.main.async {
+//                    self.alertMessageText.textColor = UIColor(named: "CoinMessageColor")
+//                    self.alertMessageText.text = "Bro? 🧐 Please enter a valid 10 digit phone number!"
+//                }
+//            }
+//
+//
+//        }
+        
+        //profile pic check
+        
         
         otpView.isHidden = false
        
@@ -66,4 +117,59 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
     }
     */
 
+}
+
+
+
+extension RegisterVC: UIImagePickerControllerDelegate {
+    
+    func presentPhotoActionSheet() {
+        
+        let actionSheet = UIAlertController(title: "Profile Picture", message: "How would you like to select a picture?", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+            self.presentCamera()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Chose Photo", style: .default, handler: { _ in
+            self.presentPhotoPicker()
+        }))
+        
+        present(actionSheet, animated: true)
+    }
+    
+    func presentCamera(){
+        
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    
+    func presentPhotoPicker() {
+        
+        
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //
+        
+        picker.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {return}
+        
+        self.profilePic.image = selectedImage
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        //
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
 }

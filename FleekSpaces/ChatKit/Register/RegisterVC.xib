@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterVC" customModule="FleekSpaces" customModuleProvider="target">
             <connections>
+                <outlet property="alertMessage" destination="3Le-HG-tgz" id="23o-lw-sBP"/>
                 <outlet property="nameTextField" destination="gzN-pv-6iJ" id="S7Z-7A-cah"/>
                 <outlet property="numberTextField" destination="F5X-FF-Asc" id="0Jf-vD-SNl"/>
                 <outlet property="otp1" destination="5NR-el-qzu" id="aQR-ci-iNc"/>
@@ -19,6 +20,7 @@
                 <outlet property="otpView" destination="3Le-HG-tgz" id="d8W-Ly-kFW"/>
                 <outlet property="profilePic" destination="ert-PN-iqm" id="WUa-OX-t68"/>
                 <outlet property="registerBtn" destination="hWz-1k-2C9" id="Q4Y-6b-SUz"/>
+                <outlet property="selectImageBtn" destination="qxa-eA-WBa" id="7hu-dh-UqQ"/>
                 <outlet property="veriftBtn" destination="8pQ-y9-eJZ" id="xXA-pb-r41"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -37,7 +39,7 @@
                     <color key="textColor" name="CoinMessageColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ert-PN-iqm">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ert-PN-iqm">
                     <rect key="frame" x="137" y="113.5" width="140" height="139"/>
                     <color key="tintColor" name="BtnBorderColor"/>
                     <constraints>
@@ -45,6 +47,18 @@
                         <constraint firstAttribute="height" constant="140" id="ygU-Es-byB"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxa-eA-WBa">
+                    <rect key="frame" x="137" y="113" width="140" height="140"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="140" id="3SN-hL-IJV"/>
+                        <constraint firstAttribute="width" constant="140" id="ILd-J2-iYa"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                    <connections>
+                        <action selector="selectImageBtnTap:" destination="-1" eventType="touchUpInside" id="SsG-Yx-fzy"/>
+                    </connections>
+                </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="John Doe" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gzN-pv-6iJ">
                     <rect key="frame" x="20" y="324" width="374" height="44"/>
                     <color key="backgroundColor" name="BtnDisableColor"/>
@@ -110,7 +124,7 @@
                     <color key="textColor" name="avatarViewBackground"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Le-HG-tgz">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Le-HG-tgz">
                     <rect key="frame" x="0.0" y="44" width="414" height="505"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6J-5W-lOw">
@@ -262,11 +276,13 @@
                 <constraint firstItem="gzN-pv-6iJ" firstAttribute="top" secondItem="w0I-47-iPp" secondAttribute="bottom" constant="6" id="CVn-sO-K2V"/>
                 <constraint firstItem="3Le-HG-tgz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="GWp-8V-sra"/>
                 <constraint firstItem="gzN-pv-6iJ" firstAttribute="top" secondItem="w0I-47-iPp" secondAttribute="bottom" constant="6" id="Hgd-rc-H6e"/>
+                <constraint firstItem="qxa-eA-WBa" firstAttribute="top" secondItem="YA9-Pu-X1E" secondAttribute="bottom" constant="10" id="IYm-12-c7t"/>
                 <constraint firstItem="F5X-FF-Asc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Iib-qn-yYk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="w0I-47-iPp" secondAttribute="trailing" constant="20" id="Il0-5Z-UBE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gzN-pv-6iJ" secondAttribute="trailing" constant="20" id="Izu-yH-upH"/>
                 <constraint firstItem="iEl-rF-Z3d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Jbw-8G-gcz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iEl-rF-Z3d" secondAttribute="trailing" constant="20" id="O4p-bT-Gbc"/>
+                <constraint firstItem="qxa-eA-WBa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Odp-sE-Ajv"/>
                 <constraint firstItem="ert-PN-iqm" firstAttribute="top" secondItem="YA9-Pu-X1E" secondAttribute="bottom" constant="10" id="Otg-Ns-BhP"/>
                 <constraint firstItem="gzN-pv-6iJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Q2e-IE-0ay"/>
                 <constraint firstItem="S9u-BB-Dbb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="QAf-wv-GLt"/>
