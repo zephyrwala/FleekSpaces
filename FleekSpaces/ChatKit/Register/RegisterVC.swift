@@ -57,9 +57,20 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
         
     }
 
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == nameTextField {
+            if textField.state.isEmpty {
+                self.alertMessageText.text = "Bro? 🥸 Enter your name!"
+                
+            }
+        }
+    }
+    
+ 
     @IBAction func registerBtnTap(_ sender: Any) {
     
         //username check
+        
         
         //phone number check
             if let safeNumber = numberTextField.text {
@@ -79,7 +90,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
 
                     registerFlow(userName: "\(safeName)", phoneNumber: "\(safeNumber)")
                     print("Phone number text is \(safeNumber)")
-
+                self.otpView.isHidden = false
                 
 
 
@@ -92,13 +103,22 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
                 }
             }
 
+                if let safeName = nameTextField.text {
+                    
+                    if !safeName.isEmpty && !safeNumber.isEmpty {
+                        
+                        registerFlow(userName: safeName, phoneNumber: safeNumber)
+                    }
+                }
 
         }
         
+        
+      
         //profile pic check
         
         
-        otpView.isHidden = false
+       
        
     }
     
@@ -106,7 +126,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
     
     func registerFlow(userName: String, phoneNumber: String) {
         
-        
+        print("The username is \(userName) and phone is \(phoneNumber)")
         
     }
     /*
