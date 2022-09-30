@@ -37,11 +37,27 @@ class FinalDataModel: NSObject {
     static var searchResult: [SearchResultElement]?
     
     static var verfiyOTP: VerifyOTP?
+    
+    static var registerMessage: RegisterMessage?
+}
+
+
+// MARK: - RegisterMessage
+class RegisterMessage: Codable {
+    let message: String?
+    let error: String?
+
+      
+
+    init(message: String?, error: String?) {
+        self.message = message
+        self.error = error
+    }
 }
 
 // MARK: - VerifyOTP
 class VerifyOTP: Codable {
-    let userID, name, phoneNumber: String?
+    let userID, name, phoneNumber, email: String?
 
     let avatarURL: String?
     let loginStatus: Bool?
@@ -51,7 +67,7 @@ class VerifyOTP: Codable {
         case userID = "user_id"
         case name
         case phoneNumber = "phone_number"
-
+        case email
         case avatarURL = "avatar_url"
         case loginStatus = "login_status"
         case fcmToken = "fcm_token"
@@ -60,11 +76,11 @@ class VerifyOTP: Codable {
         case accessToken = "access_token"
     }
 
-    init(userID: String?, name: String?, phoneNumber: String?, avatarURL: String?, loginStatus: Bool?, fcmToken: String?, firebasePassword: String?, firebaseUid: String?, accessToken: String?) {
+    init(userID: String?, name: String?, phoneNumber: String?, email: String?, avatarURL: String?, loginStatus: Bool?, fcmToken: String?, firebasePassword: String?, firebaseUid: String?, accessToken: String?) {
         self.userID = userID
         self.name = name
         self.phoneNumber = phoneNumber
-       
+        self.email = email
         self.avatarURL = avatarURL
         self.loginStatus = loginStatus
         self.fcmToken = fcmToken

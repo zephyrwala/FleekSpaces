@@ -13,13 +13,38 @@ protocol episodeBtnTap: class {
     func didTapEpisodeBtn(sender: UIButton)
 }
 
+
+
+protocol dislikeBtnTap: class {
+    
+    
+    func didTapdisikeButtonTv(_ cell: MovieInfoCollectionViewCell)
+    
+    
+    
+}
+
+protocol likeBtnTap: class {
+    
+    
+    func didTapLikeButtonTv(_ cell: MovieInfoCollectionViewCell)
+    
+    
+    
+}
+
 class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
 
+    var liked = true
+    @IBOutlet weak var dislikeBtn: UIButton!
+    @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var loader: UIActivityIndicatorView!
     var progress = JGProgressHUD()
     @IBOutlet weak var utubePlayer: YTPlayerView!
     @IBOutlet weak var genreView: UIView!
     var episodeDelegate: episodeBtnTap?
+    var likeBtnDelegate: likeBtnTap?
+    var dislikeBtnDelegate: dislikeBtnTap??
     @IBOutlet weak var episodeBtn: UIButton!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieBackdrop: UIImageView!
@@ -42,9 +67,33 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
         episodeDelegate?.didTapEpisodeBtn(sender: sender)
     }
     
+    
+    
+    
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
 //        utubePlayer.playVideo()
     }
+    
+    
+    @IBAction func likeBtnTap(_ sender: UIButton) {
+        likeBtnDelegate?.didTapLikeButtonTv(self)
+        
+      
+        
+    }
+    
+    @IBAction func dislikeBtnTap(_ sender: UIButton) {
+        
+        dislikeBtnDelegate??.didTapdisikeButtonTv(self)
+      
+        
+
+        
+        
+    }
+    
+    
+    //Setup Calls
     func setupCell(fromData: MovieDetail) {
         
         loader.startAnimating()

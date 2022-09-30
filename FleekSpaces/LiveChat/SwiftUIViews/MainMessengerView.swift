@@ -46,6 +46,7 @@ class MainMessageViewModel: ObservableObject {
         
         DispatchQueue.main.async {
             self.isCurrentlyLoggedOut = FirebaseManager.shared.auth.currentUser?.uid == nil
+           
         }
         fetchCurrentUser()
         fetchRecentMessages()
@@ -129,9 +130,14 @@ class MainMessageViewModel: ObservableObject {
         }
     }
    
+    
+    //MARK: - Handle sign out here
     func handleSignOut() {
+        NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil)
         isCurrentlyLoggedOut.toggle()
         try? FirebaseManager.shared.auth.signOut()
+        
+        
        
         
     }
@@ -220,13 +226,26 @@ struct MainMessagesView: View {
                     .cancel()
             ])
         }
+       
+        
         .fullScreenCover(isPresented:
                             $vm.isCurrentlyLoggedOut, onDismiss: nil) {
-            LoginView {
-                self.vm.isCurrentlyLoggedOut = false
-                self.vm.fetchCurrentUser()
-                self.vm.fetchRecentMessages()
-            }       }
+            
+            //TODO: - Main login process
+            
+            
+//            LoginView {
+//                self.vm.isCurrentlyLoggedOut = false
+//                self.vm.fetchCurrentUser()
+//                self.vm.fetchRecentMessages()
+//            }
+            
+            
+           
+            
+            
+            
+        }
     }
     
     @State var shouldNavigateToChatLogView = false

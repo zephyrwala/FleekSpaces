@@ -223,7 +223,11 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         
         let alert = UIAlertController(title: "Login Successful 🎉", message: "Welcome back \(userName), Bro! We misssed you a lot 🥹", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Let's Go!", style: .cancel, handler: { alerts in
-            self.dismiss(animated: true)
+            
+           
+            self.dismiss(animated: true) {
+                NotificationCenter.default.post(name: NSNotification.Name("startSwiftUI"), object: nil)
+            }
         }))
         present(alert, animated: true)
     }
@@ -242,6 +246,31 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 
             case .success(let otpMessage):
                 print("The user details is \(otpMessage.name) \(otpMessage.phoneNumber)")
+                if let safeToken = otpMessage.accessToken {
+                    
+                    // Email login
+                 
+                    guard let safeEmail = otpMessage.email else {return}
+                    guard let safePassword = otpMessage.firebasePassword else {return}
+                    
+                    
+                    FirebaseManager.shared.auth.signIn(withEmail: "\(safeEmail)", password: "\(safePassword)") { result, err in
+                        if let err = err {
+                            print("TOKEN Failed to login user:", err)
+                            print("TOken Failed to login user: \(err)")
+                            return
+                        }
+
+                        print("Token Successfully logged in as user: \(result?.user.uid ?? "") and \(result?.user.email)")
+
+                       
+                        
+                      
+                        
+                    }
+                    print("user is logged in \(FirebaseManager.shared.auth.currentUser?.uid)")
+                }
+               
                 
                 guard let safeuserName = otpMessage.name else {return}
                 DispatchQueue.main.async {

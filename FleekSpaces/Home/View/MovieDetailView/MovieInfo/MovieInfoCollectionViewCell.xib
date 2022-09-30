@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,7 +36,7 @@
                                 <color key="color" name="Background"/>
                             </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ogc-Of-iwZ">
-                                <rect key="frame" x="15" y="203" width="370" height="339"/>
+                                <rect key="frame" x="15" y="203" width="370" height="336"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eIp-y1-VmK">
                                         <rect key="frame" x="0.0" y="0.0" width="370" height="60"/>
@@ -97,25 +97,25 @@
                                                 <rect key="frame" x="5" y="15" width="360" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ous-zX-xVZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="65.5" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="72.5" height="30"/>
                                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="gray" title="Action"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faS-vd-j73">
-                                                        <rect key="frame" x="75.5" y="0.0" width="78" height="30"/>
+                                                        <rect key="frame" x="82.5" y="0.0" width="88" height="30"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="gray" title="Comedy"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvJ-nk-alq">
-                                                        <rect key="frame" x="163.5" y="0.0" width="84.5" height="30"/>
+                                                        <rect key="frame" x="180.5" y="0.0" width="95.5" height="30"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="gray" title="Romance"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIC-41-l3g">
-                                                        <rect key="frame" x="258" y="0.0" width="102" height="30"/>
+                                                        <rect key="frame" x="286" y="0.0" width="74" height="30"/>
                                                     </view>
                                                 </subviews>
                                             </stackView>
@@ -139,31 +139,31 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Duration: 76 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta1-HH-kSU">
-                                        <rect key="frame" x="0.0" y="198" width="370" height="12.5"/>
+                                        <rect key="frame" x="0.0" y="198" width="370" height="9.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Language: EN, HI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19z-tG-JJN">
-                                        <rect key="frame" x="0.0" y="222.5" width="370" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="219.5" width="370" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Release Year: 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2R2-wB-0ef">
-                                        <rect key="frame" x="0.0" y="248" width="370" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="245" width="370" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Director: Mohan Laal Khurana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8s-vR-cwV">
-                                        <rect key="frame" x="0.0" y="273.5" width="370" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="270.5" width="370" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VuM-SV-RvL">
-                                        <rect key="frame" x="0.0" y="299" width="370" height="40"/>
+                                        <rect key="frame" x="0.0" y="296" width="370" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ZJF-Ix-xtd"/>
                                         </constraints>
@@ -177,31 +177,37 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Ey-Km-17V">
-                                <rect key="frame" x="15" y="557" width="370" height="31"/>
+                                <rect key="frame" x="15" y="554" width="370" height="34"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4JQ-Za-YXS">
-                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="31"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="62" height="34"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" image="hand.thumbsup" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="hand.thumbsup" catalog="system"/>
+                                        <connections>
+                                            <action selector="likeBtnTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="4d7-34-6jn"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcZ-7r-gVB">
-                                        <rect key="frame" x="72.5" y="0.0" width="62.5" height="31"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="72" y="0.0" width="62" height="34"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" image="hand.thumbsdown" catalog="system" title=""/>
+                                        <buttonConfiguration key="configuration" style="filled" image="hand.thumbsdown" catalog="system" title=""/>
+                                        <connections>
+                                            <action selector="dislikeBtnTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="zhV-wl-GW2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MhN-A6-Oev">
-                                        <rect key="frame" x="145" y="0.0" width="144.5" height="31"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="144" y="0.0" width="150" height="34"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Recommend"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Recommend"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53Z-Ed-4Dz">
-                                        <rect key="frame" x="299.5" y="0.0" width="70.5" height="31"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="304" y="0.0" width="66" height="34"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" image="bookmark" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="bookmark" catalog="system"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -243,8 +249,10 @@
             </constraints>
             <size key="customSize" width="400" height="598"/>
             <connections>
+                <outlet property="dislikeBtn" destination="DcZ-7r-gVB" id="6Vf-9t-lQ0"/>
                 <outlet property="episodeBtn" destination="VuM-SV-RvL" id="ddl-yn-9Ns"/>
                 <outlet property="genreView" destination="Rd1-SF-ME3" id="VNA-xv-CmA"/>
+                <outlet property="likeBtn" destination="4JQ-Za-YXS" id="Xbm-MC-uZn"/>
                 <outlet property="loader" destination="Fjo-lj-Isi" id="Tvo-Ts-eBE"/>
                 <outlet property="movieBackdrop" destination="XHW-Vc-mLO" id="zRt-QF-qsg"/>
                 <outlet property="movieDirector" destination="s8s-vR-cwV" id="WbP-2K-dFw"/>
@@ -260,9 +268,9 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="bookmark" catalog="system" width="112" height="128"/>
-        <image name="hand.thumbsdown" catalog="system" width="128" height="128"/>
-        <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
+        <image name="bookmark" catalog="system" width="110" height="128"/>
+        <image name="hand.thumbsdown" catalog="system" width="123" height="128"/>
+        <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
         <image name="show inside view 2" width="1440" height="744"/>
         <image name="star.square.fill" catalog="system" width="128" height="114"/>
         <namedColor name="BGColor">

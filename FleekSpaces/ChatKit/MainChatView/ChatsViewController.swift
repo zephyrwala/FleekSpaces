@@ -16,6 +16,8 @@ struct Sender: SenderType{
     
 }
 
+private var conversations = [Conversation]()
+
 extension MessageKind {
     var messageKindString: String {
         switch self {
@@ -51,6 +53,9 @@ struct Message: MessageType {
 }
 
 class ChatsViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate  {
+   
+   
+    
     
   
     
@@ -120,6 +125,7 @@ class ChatsViewController: MessagesViewController, MessagesDataSource, MessagesL
     }
     
    
+    
         
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
         return myMessages[indexPath.section]
@@ -150,15 +156,11 @@ extension ChatsViewController: InputBarAccessoryViewDelegate {
 
     @objc
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        myMessages.append(Message(sender: currentUser,
-                                  messageId: "987",
-                                  sentDate: Date().addingTimeInterval(-86400),
-                                  kind: .text(text)))
-        processInputBar(messageInputBar)
-        
-        print("send button pressed")
-        print("This is the text: \(text)")
-       
+        guard !text.replacingOccurrences(of: " ", with: "").isEmpty else {
+            return
+        }
+                
+                print("Sending this: \(text)")
     }
     
     func configureMessageInputBar() {

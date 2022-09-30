@@ -61,7 +61,50 @@ class NetworkURL {
     }
     
     
-    
+    func registerCalls<T: Codable>(_ type: T.Type, url: URL?, completion: @escaping(Result<T, Error>, _ yourMessage: String) -> (Void)) {
+        
+        //url
+        guard let myURL = url else {return}
+        
+        var request = URLRequest(url: myURL)
+            request.httpMethod = "GET"
+
+     
+        //make data task
+        let dataTask = URLSession.shared.dataTask(with: request) { myData, myResponse, myError in
+            
+            //decoder
+            print("Register calls")
+            guard let safeData = myData else {return}
+            
+            print(String(data: safeData, encoding: .utf8))
+            let decoder = JSONDecoder()
+            
+            //do-try-catch - decode the data
+            
+            do {
+                
+                let decodedData = try decoder.decode(T.self, from: safeData)
+                completion(.success(decodedData), "🎉 Data has been passed Successfully")
+                
+            } catch {
+                
+                print("decoding error")
+               print(myError)
+                completion(.failure(APIerror.jsonDecodeError), "💩 Shit the bed")
+                
+            }
+            
+            
+            
+        }
+        
+        //task.resume
+        dataTask.resume()
+        
+  
+        
+    }
     
     func loginCalls<T: Codable>(_ type: T.Type, url: URL?, completion: @escaping(Result<T, Error>, _ yourMessage: String) -> (Void)) {
         

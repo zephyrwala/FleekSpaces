@@ -11,10 +11,12 @@ import FirebaseFirestoreSwift
 
 class ChatKitViewController: UIViewController, UICollectionViewDelegate {
 
+    @IBOutlet weak var newChatButton: UIButton!
     var recentMessages = [RecentMessage]()
     private var firestoreListener: ListenerRegistration?
     let sec1 = "sec1ID"
     @Published var chatUser: ChatUser?
+    var userData: VerifyOTP?
     @IBOutlet weak var currentUserImage: UIImageView!
     @IBOutlet weak var currentUserName: UILabel!
     @IBOutlet weak var recentMessagesCollectionView: UICollectionView!
@@ -22,6 +24,13 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if FirebaseManager.shared.auth.currentUser?.uid != nil {
+           
+            print("user is logged in")
+        } else {
+            let loginVC = LoginVC()
+            self.present(loginVC, animated: true)
+        }
         setupCollectionView()
         currentUserImage.makeItGolGol()
        
@@ -32,6 +41,30 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//        handleSignOut()
+        if FirebaseManager.shared.auth.currentUser?.uid == nil {
+            let loginVC = LoginVC()
+            self.present(loginVC, animated: true)
+        }
+        
+    }
+    
+    
+    func handleSignOut() {
+      
+        try? FirebaseManager.shared.auth.signOut()
+       
+        
+    }
+    @IBAction func newChatBtnTapAction(_ sender: Any) {
+        
+        let vc = NewChatUsersVC()
+        
+        self.present(vc, animated: true)
+        
+        
+    }
     
     //MARK: - Fetch recent Messages
      func fetchRecentMessages() {
@@ -53,6 +86,8 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
                     self.displayUIAlert(yourMessage: "failed to listen to recent messages \(error)")
                     return
                 }
+                
+                
                 
                 
                 querySnapshot?.documentChanges.forEach({ change in
@@ -217,6 +252,11 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
             return
         }
         
+        DispatchQueue.main.async {
+            self.currentUserName.text = FirebaseManager.shared.auth.currentUser?.email
+//            self.currentUserImage.sd_setImage(with: URL(string: imageURL))
+        }
+        
         FirebaseManager.shared.firestore.collection("users").document(uid).getDocument { snapshot, error in
             if let error = error {
                 self.displayUIAlert(yourMessage: "Failed to fetch current user: \(error)")
@@ -232,7 +272,7 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
             
             
             DispatchQueue.main.async {
-                self.currentUserName.text = userName
+                self.currentUserName.text = FirebaseManager.shared.auth.currentUser?.uid
                 self.currentUserImage.sd_setImage(with: URL(string: imageURL))
             }
             

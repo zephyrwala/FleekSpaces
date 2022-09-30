@@ -7,11 +7,46 @@
 
 import UIKit
 
-class TVDetailViewController: UIViewController, UICollectionViewDelegate, episodeBtnTap {
+class TVDetailViewController: UIViewController, UICollectionViewDelegate, episodeBtnTap, likeBtnTap, dislikeBtnTap {
+    
+    func didTapdisikeButtonTv(_ cell: MovieInfoCollectionViewCell) {
+       
+            
+       
+        
+        
+              cell.likeBtn.tintColor = UIColor(named: "DarkBgColor")
+              cell.dislikeBtn.tintColor = UIColor(named: "BtnGreenColor")
+          
+          
+          print("Dislike tapp")
+        
+    }
+    
+    func didTapLikeButtonTv(_ cell: MovieInfoCollectionViewCell) {
+//        cell.likeBtn.backgroundColor = .green
+        
+   
+        cell.likeBtn.tintColor = UIColor(named: "BtnGreenColor")
+        
+        cell.dislikeBtn.tintColor = UIColor(named: "DarkBgColor")
+      
+        
+    print("Like tapp")
+        
+       
+    }
+    
+    
+    
+    
+    //protocols
     func didTapEpisodeBtn(sender: UIButton) {
         let controller = SeasonsViewController()
         navigationController?.pushViewController(controller, animated: true)
     }
+    
+    
     
 
     var tmdbID: String?
@@ -22,15 +57,9 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
     let sec0 = "sec0ID"
     var passedData: UResult?
     var tvPassedData: TVResult?
-//    var optionsLogos = [
-//    
-//        TextLogos(posterImage: UIImage(named: "hbomax")!, postername: "HBOmax"),
-//        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
-//        TextLogos(posterImage: UIImage(named: "hotstar")!, postername: "Hotstar"),
-//        TextLogos(posterImage: UIImage(named: "zee5")!, postername: "Zee5"),
-//        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
-//    
-//    ]
+
+    
+    
     @IBOutlet weak var tvCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -468,6 +497,9 @@ extension TVDetailViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieInfo", for: indexPath) as! MovieInfoCollectionViewCell
            
             cell.episodeDelegate = self
+            cell.likeBtnDelegate = self
+            cell.dislikeBtnDelegate = self
+            
 //            if let movieData = tvPassedData {
 //                cell.setupTVCell(fromData: movieData)
 //
@@ -479,7 +511,7 @@ extension TVDetailViewController: UICollectionViewDataSource {
                 
             }
             
-            
+           
             return cell
             
         case 1:

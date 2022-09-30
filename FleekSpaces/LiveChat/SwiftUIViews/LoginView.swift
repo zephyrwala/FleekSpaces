@@ -116,6 +116,7 @@ struct LoginView: View {
    
     
     private func loginUser() {
+//        FirebaseManager.shared.auth.signIn(withCustomToken: <#T##String#>)
         FirebaseManager.shared.auth.signIn(withEmail: email, password: password) { result, err in
             if let err = err {
                 print("Failed to login user:", err)
@@ -155,6 +156,12 @@ struct LoginView: View {
         }
     }
     
+    
+    
+    
+    
+    
+    //MARK: - Save Image to storage
     private func persistImageToStorage() {
         
         let filename = "user_profile_pics/\(UUID().uuidString)"
@@ -179,6 +186,7 @@ struct LoginView: View {
                 
                 guard let url = url else { return }
                 storeUserInformation(imageProfileUrl: url)
+                
             }
         }
         
@@ -193,6 +201,12 @@ struct LoginView: View {
      }
     
     
+    
+    
+    
+    
+    
+    //MARK: - Store user info - main stuff
     private func storeUserInformation(imageProfileUrl: URL) {
 
 
