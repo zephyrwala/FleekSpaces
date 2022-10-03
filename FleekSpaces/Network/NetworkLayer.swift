@@ -155,13 +155,13 @@ class NetworkURL {
     
     
     
-    func tokenCalls<T: Codable>(_ type: T.Type, url: URL?, token: String, completion: @escaping(Result<T, Error>, _ yourMessage: String) -> (Void)) {
+    func tokenCalls<T: Codable>(_ type: T.Type, url: URL?, token: String, methodType: String, completion: @escaping(Result<T, Error>, _ yourMessage: String) -> (Void)) {
         
         //url
         guard let myURL = url else {return}
         
         var request = URLRequest(url: myURL)
-            request.httpMethod = "POST"
+            request.httpMethod = methodType
         
         request.addValue(token, forHTTPHeaderField: "Authorization")
 
@@ -172,9 +172,10 @@ class NetworkURL {
             
             
             //decoder
-            print("Login calls")
+            print("token calls")
             guard let safeData = myData else {return}
             
+            print("token get")
             print(String(data: safeData, encoding: .utf8))
             let decoder = JSONDecoder()
             

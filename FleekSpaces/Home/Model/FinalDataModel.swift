@@ -44,6 +44,21 @@ class FinalDataModel: NSObject {
 }
 
 
+//MARK: - Check Likes
+class CheckLikes: Codable {
+    let totalLikes, totalDislikes: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case totalLikes = "total_likes"
+        case totalDislikes = "total_dislikes"
+    }
+
+    init(totalLikes: Int?, totalDislikes: Int?) {
+        self.totalLikes = totalLikes
+        self.totalDislikes = totalDislikes
+    }
+}
+
 
 // MARK: - AddLike
 class AddLike: Codable {
