@@ -9,33 +9,11 @@ import UIKit
 
 class TVDetailViewController: UIViewController, UICollectionViewDelegate, episodeBtnTap, likeBtnTap, dislikeBtnTap {
     
-    func didTapdisikeButtonTv(_ cell: MovieInfoCollectionViewCell) {
-       
-            
-       
-        
-        
-              cell.likeBtn.tintColor = UIColor(named: "DarkBgColor")
-              cell.dislikeBtn.tintColor = UIColor(named: "BtnGreenColor")
-          
-          
-          print("Dislike tapp")
-        
-    }
     
-    func didTapLikeButtonTv(_ cell: MovieInfoCollectionViewCell) {
-//        cell.likeBtn.backgroundColor = .green
-        
-   
-        cell.likeBtn.tintColor = UIColor(named: "BtnGreenColor")
-        
-        cell.dislikeBtn.tintColor = UIColor(named: "DarkBgColor")
-      
-        
-    print("Like tapp")
-        
-       
-    }
+    var tvShowDetail: TVshowDetail?
+  
+    
+
     
     
     
@@ -48,7 +26,52 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
     
     
     
+    func checkSignIn() {
+        
+        if  FirebaseManager.shared.auth.currentUser == nil {
+           loginPrompt()
+        } else {
+           
+            
+            
+            
+        }
+    }
+    
+    
 
+    
+    //MARK: - Login Prompt
+    
+    func loginPrompt() {
+        
+        let actionSheet = UIAlertController(title: "Must Login!", message: "Hey Bro! You must login to add likes and dislikes for this section!", preferredStyle: .alert)
+        
+        
+        actionSheet.addAction(UIAlertAction(title: "Log In", style: .default, handler: { [weak self] _ in
+            
+           
+            
+            let controller = LoginVC()
+                
+              
+//            self?.navigationController?.pushViewController(controller, animated: true)
+            
+            self?.present(controller, animated: true)
+//            self?.present(controller, animated: true)
+            
+          
+            
+        }))
+        
+    
+        
+        present(actionSheet, animated: true)
+        
+        
+    }
+
+    let defaults = UserDefaults.standard
     var tmdbID: String?
     var showId: String?
     let sec1 = "sec1ID"
@@ -385,6 +408,119 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func didTapdisikeButtonTv(_ cell: MovieInfoCollectionViewCell) {
+       
+            
+       
+        
+        
+        cell.likeBtn.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+        
+        cell.dislikeBtn.setImage(UIImage(systemName: "hand.thumbsdown.fill"), for: .normal)
+        
+        cell.dislikeBtn.tintColor = .systemPink
+          
+          print("Dislike tapp")
+        
+    }
+    
+    
+    func didTapLikeButtonTv(_ cell: MovieInfoCollectionViewCell) {
+//        cell.likeBtn.backgroundColor = .green
+        
+        if FirebaseManager.shared.auth.currentUser == nil {
+            loginPrompt()
+        } else if FirebaseManager.shared.auth.currentUser != nil {
+            
+            addLikes(movieTitle: "The Grudge 3")
+            cell.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+            
+            cell.dislikeBtn.setImage(UIImage(systemName: "hand.thumbsdown"), for: .normal)
+            
+            cell.likeBtn.tintColor = .systemTeal
+          
+            
+            //TODO: - Add like network call here
+//            addLike()
+       
+            
+        }
+        
+        print("Like tapp")
+        
+       
+    }
+    
+    
+    func addLikes(movieTitle: String) {
+        
+    
+//        print("This is our URL \(url)")
+        let showType = "movie"
+        let searchTerm = "obi wan kenobi"
+        let format = "The Grudge 3"
+        let showId = "af6ea506-a1fb-43b9-ba21-ea3735fb6dc7"
+        let posterUrl = "/gBCkf1rk9KyJt9o6wC866BM6WWi.jpg"
+        let like = "1"
+        let dislike = "0"
+
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api-space-dev.getfleek.app"
+        urlComponents.path = "/activity/add_likes_dislikes/"
+        //api-space-dev.getfleek.app/
+        urlComponents.queryItems = [
+           URLQueryItem(name: "show_type", value: showType),
+           URLQueryItem(name: "show_id", value: showId),
+           URLQueryItem(name: "posters_url", value: posterUrl),
+           URLQueryItem(name: "like", value: like),
+           URLQueryItem(name: "title", value: format),
+           URLQueryItem(name: "dislike", value: dislike)
+        ]
+
+        print(urlComponents.url?.absoluteString)
+        print("Clubbed url is ")
+        print(urlComponents.url?.absoluteString)
+        
+        
+   //https://api-space-dev.getfleek.app/activity/add_likes_dislikes?show_type=movie&show_id=af6ea506-a1fb-43b9-ba21-ea3735fb6dc7&posters_url=/gBCkf1rk9KyJt9o6wC866BM6WWi.jpg&like=1&title=The%20Grudge%203&dislike=0
+        
+        
+     //https://api-space-dev.getfleek.app/activity/add_likes_dislikes/?show_type=movie&show_id=af6ea506-a1fb-43b9-ba21-ea3735fb6dc7&posters_url=/gBCkf1rk9KyJt9o6wC866BM6WWi.jpg&like=1&title=The Grudge 3&dislike=0
+        
+        
+        guard let myTOken = defaults.string(forKey: "userToken") else {return}
+        print("My token is \(myTOken)")
+        guard let myUrl = urlComponents.url else {return}
+        
+        let network = NetworkURL()
+        network.tokenCalls(AddLike.self, url: myUrl, token: myTOken) { myResults, yourMessage in
+                
+            
+            switch myResults {
+                
+                
+                
+            case .success(let likes):
+                print("result is \(likes.title) \(yourMessage) \(likes)")
+                
+            case .failure(let err):
+                print("We have error \(err)")
+                
+                
+                
+                
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+    }
 
 }
 

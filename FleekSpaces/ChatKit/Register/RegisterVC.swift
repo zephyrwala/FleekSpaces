@@ -133,6 +133,9 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
                             //store user information
                             
                             self.loginSucessMessage(userName: "\(safeuserName)")
+                            
+                            
+//                            self.dismiss(animated: true)
                            
                         }
                       

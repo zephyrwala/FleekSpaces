@@ -23,6 +23,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var otp2: UITextField!
     @IBOutlet weak var otp3: UITextField!
     @IBOutlet weak var otp4: UITextField!
+    let defaults = UserDefaults.standard
     var otpString = ""
     var register = false
     
@@ -246,6 +247,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 
             case .success(let otpMessage):
                 print("The user details is \(otpMessage.name) \(otpMessage.phoneNumber)")
+                let token = otpMessage.accessToken
+                self.defaults.set(token, forKey: "userToken")
                 if let safeToken = otpMessage.accessToken {
                     
                     // Email login

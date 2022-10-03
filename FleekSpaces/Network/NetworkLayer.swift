@@ -113,8 +113,10 @@ class NetworkURL {
         
         var request = URLRequest(url: myURL)
             request.httpMethod = "POST"
+        
+//        request.addValue(<#T##String#>, forHTTPHeaderField: "Authorization")
 
-     
+     //request.addValue("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNDYwOGZjMDQ3NTU0NDA4ZGI1ZDk4ODQzZWU2MzJjNjIiLCJleHAiOjE2NjcxMDc3NzIsInBob25lX251bWJlciI6Ijk5ODg3NzY2NTMifQ.Ge8jKm6UBCmDUzMbOxgo8ezPr31ngypvkxsJX4lH1pA", forHTTPHeaderField: "Authorization")
         //make data task
         let dataTask = URLSession.shared.dataTask(with: request) { myData, myResponse, myError in
             
@@ -151,6 +153,60 @@ class NetworkURL {
         
     }
     
+    
+    
+    func tokenCalls<T: Codable>(_ type: T.Type, url: URL?, token: String, completion: @escaping(Result<T, Error>, _ yourMessage: String) -> (Void)) {
+        
+        //url
+        guard let myURL = url else {return}
+        
+        var request = URLRequest(url: myURL)
+            request.httpMethod = "POST"
+        
+        request.addValue(token, forHTTPHeaderField: "Authorization")
+
+     //request.addValue("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNDYwOGZjMDQ3NTU0NDA4ZGI1ZDk4ODQzZWU2MzJjNjIiLCJleHAiOjE2NjcxMDc3NzIsInBob25lX251bWJlciI6Ijk5ODg3NzY2NTMifQ.Ge8jKm6UBCmDUzMbOxgo8ezPr31ngypvkxsJX4lH1pA", forHTTPHeaderField: "Authorization")
+        //make data task
+        let dataTask = URLSession.shared.dataTask(with: request) { myData, myResponse, myError in
+         
+            
+            
+            //decoder
+            print("Login calls")
+            guard let safeData = myData else {return}
+            
+            print(String(data: safeData, encoding: .utf8))
+            let decoder = JSONDecoder()
+            
+            
+            //do-try-catch - decode the data
+            
+            do {
+                
+                let decodedData = try decoder.decode(T.self, from: safeData)
+                completion(.success(decodedData), "🎉 Data has been passed Successfully")
+                
+            } catch {
+                
+                print("decoding error")
+               print(myError)
+                completion(.failure(APIerror.jsonDecodeError), "💩 Shit the bed")
+                
+            }
+            
+            
+            
+            
+        }
+        
+        //task.resume
+        dataTask.resume()
+        
+  
+        
+    }
+    
+
     
 
     

@@ -157,15 +157,6 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
         
         let actionSheet = UIAlertController(title: "Authentication Status", message: "Hey Bro! You must login to view this section!", preferredStyle: .alert)
         
-        //3 buttons - cancel , take ,choose
-        
-//        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {  [weak self] _ in
-//
-//            self?.dismiss(animated: true)
-//
-//
-//
-//        }))
         
         actionSheet.addAction(UIAlertAction(title: "Log In", style: .default, handler: { [weak self] _ in
             

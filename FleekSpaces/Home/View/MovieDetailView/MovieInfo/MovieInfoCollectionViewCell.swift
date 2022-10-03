@@ -174,6 +174,7 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
                
             }
             
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                 self.progress.dismiss(animated: true)
                 self.utubePlayer.isHidden = false
