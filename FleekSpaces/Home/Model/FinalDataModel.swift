@@ -41,6 +41,44 @@ class FinalDataModel: NSObject {
     static var registerMessage: RegisterMessage?
     
     static var addLike: AddLike?
+    
+    static var userLikes: [UserLike]?
+}
+
+
+
+
+// MARK: - UserLike
+class UserLike: Codable {
+    let id: Int?
+    let showType, showID, title, postersURL: String?
+    let like, dislike: Bool?
+    let createdAt, updatedAt, user: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case showType = "show_type"
+        case showID = "show_id"
+        case title
+        case postersURL = "posters_url"
+        case like, dislike
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+        case user
+    }
+
+    init(id: Int?, showType: String?, showID: String?, title: String?, postersURL: String?, like: Bool?, dislike: Bool?, createdAt: String?, updatedAt: String?, user: String?) {
+        self.id = id
+        self.showType = showType
+        self.showID = showID
+        self.title = title
+        self.postersURL = postersURL
+        self.like = like
+        self.dislike = dislike
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+        self.user = user
+    }
 }
 
 

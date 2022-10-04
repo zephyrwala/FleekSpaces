@@ -111,6 +111,8 @@
 		693946C12848C42C00FE7574 /* SelectedSubCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 693946BF2848C42C00FE7574 /* SelectedSubCollectionViewCell.xib */; };
 		693946C42848D15800FE7574 /* SelectedSubCRV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693946C22848D15800FE7574 /* SelectedSubCRV.swift */; };
 		693946C52848D15800FE7574 /* SelectedSubCRV.xib in Resources */ = {isa = PBXBuildFile; fileRef = 693946C32848D15800FE7574 /* SelectedSubCRV.xib */; };
+		6942107F28EC4D620065EB3C /* UserDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6942107D28EC4D620065EB3C /* UserDataCollectionViewCell.swift */; };
+		6942108028EC4D620065EB3C /* UserDataCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6942107E28EC4D620065EB3C /* UserDataCollectionViewCell.xib */; };
 		694393B328740E9700CEC3C4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393B228740E9700CEC3C4 /* ImagePicker.swift */; };
 		694393B528744CA300CEC3C4 /* MainMessengerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393B428744CA300CEC3C4 /* MainMessengerView.swift */; };
 		694393B82874566500CEC3C4 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393B72874566500CEC3C4 /* FirebaseManager.swift */; };
@@ -287,6 +289,8 @@
 		693946BF2848C42C00FE7574 /* SelectedSubCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedSubCollectionViewCell.xib; sourceTree = "<group>"; };
 		693946C22848D15800FE7574 /* SelectedSubCRV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedSubCRV.swift; sourceTree = "<group>"; };
 		693946C32848D15800FE7574 /* SelectedSubCRV.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedSubCRV.xib; sourceTree = "<group>"; };
+		6942107D28EC4D620065EB3C /* UserDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataCollectionViewCell.swift; sourceTree = "<group>"; };
+		6942107E28EC4D620065EB3C /* UserDataCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataCollectionViewCell.xib; sourceTree = "<group>"; };
 		694393B228740E9700CEC3C4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		694393B428744CA300CEC3C4 /* MainMessengerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessengerView.swift; sourceTree = "<group>"; };
 		694393B72874566500CEC3C4 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -812,6 +816,15 @@
 			path = Section2;
 			sourceTree = "<group>";
 		};
+		6942107C28EC4D3B0065EB3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6942107D28EC4D620065EB3C /* UserDataCollectionViewCell.swift */,
+				6942107E28EC4D620065EB3C /* UserDataCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		694393B128740E8300CEC3C4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -938,6 +951,7 @@
 		695EBBF9286328FE00557D69 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				6942107C28EC4D3B0065EB3C /* View */,
 				695EBBFA2863294D00557D69 /* ProfileViewController.swift */,
 				694393C4287D5EF600CEC3C4 /* SignInEmbedViewController.swift */,
 				694393C5287D5EF600CEC3C4 /* SignInEmbedViewController.xib */,
@@ -1192,6 +1206,7 @@
 				69394670284628D100FE7574 /* Main.storyboard in Resources */,
 				6930D568285712E20080528D /* SearchResultCVC.xib in Resources */,
 				6930D5842859DEB00080528D /* GenreCollectionViewCell.xib in Resources */,
+				6942108028EC4D620065EB3C /* UserDataCollectionViewCell.xib in Resources */,
 				6939468E2847546C00FE7574 /* Section2CollectionViewCell.xib in Resources */,
 				695EBBF22862DF3B00557D69 /* DetailEpisodeViewController.xib in Resources */,
 				6930D5592856FBD40080528D /* MoreLikeThisCollectionViewCell.xib in Resources */,
@@ -1293,6 +1308,7 @@
 				694393BE2875571600CEC3C4 /* ChatUser.swift in Sources */,
 				692600C5284E203100B6D801 /* ChatCVCell.swift in Sources */,
 				693946892847545900FE7574 /* Section1CollectionViewCell.swift in Sources */,
+				6942107F28EC4D620065EB3C /* UserDataCollectionViewCell.swift in Sources */,
 				69643BFB28706913007128C0 /* ConversationsTableViewCell.swift in Sources */,
 				694393C32876B2A400CEC3C4 /* ChatLogView.swift in Sources */,
 				69394669284628D100FE7574 /* AppDelegate.swift in Sources */,

@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     
     
     
+    @IBOutlet weak var listCollectionView: UICollectionView!
     
     var chatUser: ChatUser?
     @IBAction func changeProfileBtn(_ sender: Any) {
@@ -39,20 +40,8 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
        
         profileImage.makeItGolGol()
      
-      
-//        segmentTabsSelection.removeBorder()
-////        segmentTabsSelection.addUnderlineForSelectedSegment()
-//        segmentTabsSelection.removeBorder()
-//        segmentTabsSelection.setupSegment()
-//        segmentTabsSelection.backgroundColor = .clear
-//
-      
-        // Do any additional setup after loading the view.
-        
-//        let controller = SignInViewController()
-//               // Present the bottom sheet
-//               present(controller, animated: true, completion: nil)
-//        setupUserName()
+      fetchUserMovieData()
+
         changeProfile.setTitle("", for: .normal)
 //        presentModal()
 //       showSignUp()
@@ -68,6 +57,30 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
         print(chatUser?.email)
         print(chatUser?.profileImageUrl)
 //        getuserData()
+        
+        setupCollectionView()
+    }
+    
+    
+    //MARK: - Setup CollectionView
+    
+    func setupCollectionView() {
+        
+        listCollectionView.delegate = self
+        listCollectionView.dataSource = self
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical //.horizontal
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        listCollectionView.setCollectionViewLayout(layout, animated: true)
+        
+        listCollectionView.register(UINib(nibName: "UserDataCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "userData")
+
+        
+        
+        
+        
     }
     
     
@@ -102,6 +115,10 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
         }
     }
     
+    
+    
+    
+    
     //MARK: - Apply username and profile pic
     
     func getuserData() {
@@ -129,6 +146,40 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
         
     }
     
+    
+    
+    //MARK: - Fetch User like / watchlist
+    
+    func fetchUserMovieData() {
+        
+        let network = NetworkURL()
+        
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/activity/get_likes_dislikes_of_user/") else {return}
+                
+        guard let myTOken = defaults.string(forKey: "userToken") else {return}
+    
+        network.tokenCalls([UserLike].self, url: myUrl, token: myTOken, methodType: "GET") { myResult, yourMessage in
+            
+            
+            switch myResult {
+                
+                
+            case .success(let userData):
+                FinalDataModel.userLikes = userData
+                DispatchQueue.main.async {
+                    self.listCollectionView.reloadData()
+                }
+                for users in userData {
+                    print("Movie liked are \(users.title)")
+                    
+                }
+            case .failure(let err):
+                print("Error is \(err)")
+                
+                
+            }
+        }
+    }
     
     //MARK: - Download Image
     
@@ -392,4 +443,37 @@ extension UISegmentedControl {
         underline.frame.origin.x = underlineFinalXPosition
 
     }
+}
+
+
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        FinalDataModel.userLikes?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let lay = collectionViewLayout as! UICollectionViewFlowLayout
+        let widthPerItem = collectionView.frame.width / 3 - lay.minimumInteritemSpacing
+        
+        return CGSize(width:widthPerItem, height:175)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userData", for: indexPath) as! UserDataCollectionViewCell
+        
+        if let posterURL = FinalDataModel.userLikes?[indexPath.item].postersURL {
+            
+            let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(posterURL)")
+            cell.posterImage.layer.cornerRadius = 6
+            cell.posterImage.sd_setImage(with: newURL)
+            
+            
+        }
+        
+        return cell
+    }
+    
+    
+    
 }
