@@ -7,18 +7,12 @@
 
 import UIKit
 
-class TVDetailViewController: UIViewController, UICollectionViewDelegate, episodeBtnTap, likeBtnTap, dislikeBtnTap {
+class TVDetailViewController: UIViewController, UICollectionViewDelegate, episodeBtnTap, likeBtnTap, dislikeBtnTap, watchListTap {
+   
+    
     
     
     var tvShowDetail: TVshowDetail?
-  
-    
-
-    
-    
-    
-
-
     let defaults = UserDefaults.standard
     var tmdbID: String?
     var showId: String?
@@ -378,6 +372,28 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
         
     }
     
+    //MARK: - Watchlist Button
+    
+    
+    func didTapWatchlistButton(_ cell: MovieInfoCollectionViewCell) {
+        
+        
+        if FirebaseManager.shared.auth.currentUser == nil {
+            loginPrompt()
+        } else if FirebaseManager.shared.auth.currentUser != nil {
+            cell.watchBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
+            cell.watchBtn.tintColor = .systemYellow
+            
+            addWatchlist()
+        }
+        
+        
+        
+    }
+    
+    
+    
+    //MARK: - Like Button
     
     func didTapLikeButtonTv(_ cell: MovieInfoCollectionViewCell) {
 //        cell.likeBtn.backgroundColor = .green
@@ -492,6 +508,81 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
         
     }
     
+    
+    //MARK: - Add Likes Function
+    
+    func addWatchlist() {
+        
+        
+       
+        
+        guard let showType = FinalDataModel.showDetails?.type else {return}
+       
+        guard let title = FinalDataModel.showDetails?.title else {return}
+        
+        guard let myShowId = FinalDataModel.showDetails?.showID else {return}
+        
+        guard let posterUrl = FinalDataModel.showDetails?.posterURL else {return}
+        
+      
+        
+    //https://api-space-dev.getfleek.app/activity/add_to_user_watch_list/?show_type=movie&show_id=e673369c-fee6-4ce9-a7b4-80cf5ebc03fc&title=The Grudge 3&posters_url=/uEOWWRr8BbgPM0BiJiSTwHGaRx4.jpg
+//        print("This is our URL \(url)")
+     
+
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api-space-dev.getfleek.app"
+        urlComponents.path = "/activity/add_to_user_watch_list/"
+        //api-space-dev.getfleek.app/
+        urlComponents.queryItems = [
+           URLQueryItem(name: "show_type", value: showType),
+           URLQueryItem(name: "show_id", value: myShowId),
+           URLQueryItem(name: "posters_url", value: posterUrl),
+           URLQueryItem(name: "title", value: title)
+         
+        ]
+
+        print(urlComponents.url?.absoluteString)
+        print("Clubbed url is ")
+        print(urlComponents.url?.absoluteString)
+        
+        
+
+        
+        
+        guard let myTOken = defaults.string(forKey: "userToken") else {return}
+        print("My token is \(myTOken)")
+        guard let myUrl = urlComponents.url else {return}
+        
+        let network = NetworkURL()
+        network.tokenCalls(WatchList.self, url: myUrl, token: myTOken, methodType: "POST") { myResults, yourMessage in
+                
+            
+            switch myResults {
+                
+                
+                
+            case .success(let likes):
+                print("result of watchlist is \(likes.title) \(yourMessage) \(likes)")
+                self.checkLikes()
+                
+            case .failure(let err):
+                print("We have error \(err)")
+                
+                
+                
+                
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+    }
     
     //MARK: - Check Likes
     
@@ -723,6 +814,8 @@ extension TVDetailViewController: UICollectionViewDataSource {
             cell.episodeDelegate = self
             cell.likeBtnDelegate = self
             cell.dislikeBtnDelegate = self
+            cell.watchlistBtnDelegate = self
+            
             
           
             cell.likeBtn.setTitle("\(numberOfLikes)", for: .normal)

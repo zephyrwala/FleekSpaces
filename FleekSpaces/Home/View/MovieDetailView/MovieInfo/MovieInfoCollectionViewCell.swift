@@ -9,6 +9,8 @@ import UIKit
 import YouTubeiOSPlayerHelper
 import JGProgressHUD
 
+//MARK: - Button Tap Protocols
+
 protocol episodeBtnTap: class {
     func didTapEpisodeBtn(sender: UIButton)
 }
@@ -19,8 +21,7 @@ protocol dislikeBtnTap: class {
     
     
     func didTapdisikeButtonTv(_ cell: MovieInfoCollectionViewCell)
-    
-    
+ 
     
 }
 
@@ -28,14 +29,22 @@ protocol likeBtnTap: class {
     
     
     func didTapLikeButtonTv(_ cell: MovieInfoCollectionViewCell)
-    
-    
+
     
 }
+
+protocol watchListTap: class {
+    
+    func didTapWatchlistButton(_ cell: MovieInfoCollectionViewCell)
+}
+
+
+
 
 class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
 
     var liked = true
+    @IBOutlet weak var watchBtn: UIButton!
     @IBOutlet weak var dislikeBtn: UIButton!
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var loader: UIActivityIndicatorView!
@@ -45,6 +54,7 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
     var episodeDelegate: episodeBtnTap?
     var likeBtnDelegate: likeBtnTap?
     var dislikeBtnDelegate: dislikeBtnTap??
+    var watchlistBtnDelegate: watchListTap?
     @IBOutlet weak var episodeBtn: UIButton!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieBackdrop: UIImageView!
@@ -69,6 +79,10 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
     
     
     
+    @IBAction func watchListBtnTaps(_ sender: Any) {
+        
+        watchlistBtnDelegate?.didTapWatchlistButton(self)
+    }
     
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
 //        utubePlayer.playVideo()
@@ -85,10 +99,7 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
     @IBAction func dislikeBtnTap(_ sender: UIButton) {
         
         dislikeBtnDelegate??.didTapdisikeButtonTv(self)
-      
-        
-
-        
+  
         
     }
     
@@ -162,9 +173,13 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
     
     func setupTVShowDetail(fromData: TVshowDetail) {
         
-        if let episodeRuntime = fromData.episodeRuntime?[0] {
-            self.movieDuration.text = "Episode Runtime: \(episodeRuntime) mins"
+        if fromData.episodeRuntime?.count != 0 {
+            
+            if let episodeRuntime = fromData.episodeRuntime?[0] {
+                self.movieDuration.text = "Episode Runtime: \(episodeRuntime) mins"
+            }
         }
+       
        
         if fromData.trailerUrls?.count != 0 {
             if let trailerUrl = fromData.trailerUrls {

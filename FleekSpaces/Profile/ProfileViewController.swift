@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     
     
     
+    var selectedOption = 0
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var changeProfile: UIButton!
     func userDidEnterInformation(info: String) {
@@ -20,7 +21,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     }
     
     
-    
+
     
     
     @IBOutlet weak var listCollectionView: UICollectionView!
@@ -40,7 +41,8 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
        
         profileImage.makeItGolGol()
      
-      fetchUserMovieData()
+//      fetchUserMovieData()
+        fetchUserWatchlistData()
 
         changeProfile.setTitle("", for: .normal)
 //        presentModal()
@@ -127,28 +129,48 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             return
         }
         
-//        let safeEmail = DatabaseManager.safeEmail(emailAddress: email)
-//        let fileName = safeEmail + "_profile_picture.png"
-//
-//        let path = "image/"+fileName
-//        StorageManager.shared.downloadURL(for: path) { [weak self] results in
-//            switch results {
-//
-//            case .success(let url):
-//                self?.downloadImage(imageView: (self?.profileImage)!, url: url)
-//            case .failure(let error):
-//                self?.displayUIAlert(yourMessage: "Couldnt get profile pic")
-//                print("Failed to get download url: \(error)")
-//
-//            }
-//        }
+
        
         
     }
     
+    //MARK: - Fetch watchlist
     
     
-    //MARK: - Fetch User like / watchlist
+    func fetchUserWatchlistData() {
+        
+        let network = NetworkURL()
+        
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/activity/get_user_watch_list/") else {return}
+                
+        guard let myTOken = defaults.string(forKey: "userToken") else {return}
+    
+        network.tokenCalls([FetchWatchList].self, url: myUrl, token: myTOken, methodType: "GET") { myResult, yourMessage in
+            
+            
+            switch myResult {
+                
+                
+            case .success(let userData):
+                FinalDataModel.fetchWatchList = userData
+                DispatchQueue.main.async {
+                    self.listCollectionView.reloadData()
+                }
+                for users in userData {
+                    print("Movie liked are \(users.title)")
+                    
+                }
+            case .failure(let err):
+                print("Error is \(err)")
+                
+                
+            }
+        }
+    }
+    
+    
+    //MARK: - Fetch user data
+    
     
     func fetchUserMovieData() {
         
@@ -257,16 +279,36 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
        
     }
     
-    @IBAction func segmentTap(_ sender: Any) {
+    @IBAction func segmentTap(_ sender: UISegmentedControl) {
         
-      
-        let loginState = LoginVC()
-         
-        if let sheet = loginState.sheetPresentationController {
-            sheet.detents = [ .large() ]
+        switch sender.selectedSegmentIndex {
+            
+        case 0:
+            print("Watchlist selected")
+            selectedOption = 0
+            fetchUserWatchlistData()
+            
+            
+        case 1:
+            print("Likes selected")
+            selectedOption = 1
+            fetchUserMovieData()
+            
+        case 2:
+            selectedOption = 2
+            print("Recommended selected")
+            
+        default:
+            print("Default")
         }
-         
-        present(loginState, animated: true)
+      
+//        let loginState = LoginVC()
+//
+//        if let sheet = loginState.sheetPresentationController {
+//            sheet.detents = [ .large() ]
+//        }
+//
+//        present(loginState, animated: true)
 //        presentModal()
     }
     
@@ -448,7 +490,19 @@ extension UISegmentedControl {
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        FinalDataModel.userLikes?.count ?? 0
+        switch selectedOption {
+            
+        case 0:
+           return FinalDataModel.fetchWatchList?.count ?? 0
+            
+        case 1:
+           return FinalDataModel.userLikes?.count ?? 0
+            
+        default:
+           return 1
+            
+            
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -460,18 +514,58 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userData", for: indexPath) as! UserDataCollectionViewCell
         
-        if let posterURL = FinalDataModel.userLikes?[indexPath.item].postersURL {
+        
+        
+        switch selectedOption {
             
-            let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(posterURL)")
-            cell.posterImage.layer.cornerRadius = 6
-            cell.posterImage.sd_setImage(with: newURL)
+            
+        case 0:
+            if let posterURL = FinalDataModel.fetchWatchList?[indexPath.item].postersURL {
+                
+                let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(posterURL)")
+                cell.posterImage.layer.cornerRadius = 6
+                cell.posterImage.sd_setImage(with: newURL)
+                
+                
+            }
+            
+            return cell
+            
+        case 1:
+            
+            if let posterURL = FinalDataModel.userLikes?[indexPath.item].postersURL {
+                
+                let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(posterURL)")
+                cell.posterImage.layer.cornerRadius = 6
+                cell.posterImage.sd_setImage(with: newURL)
+                
+                
+            }
+            
+            return cell
+            
+            
+        default:
+            
+            if let posterURL = FinalDataModel.userLikes?[indexPath.item].postersURL {
+                
+                let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(posterURL)")
+                cell.posterImage.layer.cornerRadius = 6
+                cell.posterImage.sd_setImage(with: newURL)
+                
+                
+            }
+            
+            return cell
             
             
         }
         
-        return cell
+        //
     }
     
     

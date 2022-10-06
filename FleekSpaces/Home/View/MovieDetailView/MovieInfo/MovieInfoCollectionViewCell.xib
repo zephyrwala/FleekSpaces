@@ -210,6 +210,9 @@
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" image="video.badge.plus" catalog="system"/>
+                                        <connections>
+                                            <action selector="watchListBtnTaps:" destination="gTV-IL-0wX" eventType="touchUpInside" id="XVV-F0-II3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -265,6 +268,7 @@
                 <outlet property="movieReleaseYear" destination="2R2-wB-0ef" id="TFy-Rl-r8P"/>
                 <outlet property="movieTitle" destination="96q-IS-UsW" id="nMQ-Vj-9a1"/>
                 <outlet property="utubePlayer" destination="Gta-W8-sn0" id="r5q-as-KTu"/>
+                <outlet property="watchBtn" destination="53Z-Ed-4Dz" id="efX-As-Fiy"/>
             </connections>
             <point key="canvasLocation" x="391.304347826087" y="297.32142857142856"/>
         </collectionViewCell>

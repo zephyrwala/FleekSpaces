@@ -43,9 +43,41 @@ class FinalDataModel: NSObject {
     static var addLike: AddLike?
     
     static var userLikes: [UserLike]?
+    
+    static var userWatchlist: WatchList?
+    
+    static var fetchWatchList: [FetchWatchList]?
 }
 
 
+// MARK: - FetchWatchListElement
+class FetchWatchList: Codable {
+    let id: Int?
+    let showType, showID, title, postersURL: String?
+    let createdAt, updatedAt, listID: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case showType = "show_type"
+        case showID = "show_id"
+        case title
+        case postersURL = "posters_url"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+        case listID = "list_id"
+    }
+
+    init(id: Int?, showType: String?, showID: String?, title: String?, postersURL: String?, createdAt: String?, updatedAt: String?, listID: String?) {
+        self.id = id
+        self.showType = showType
+        self.showID = showID
+        self.title = title
+        self.postersURL = postersURL
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+        self.listID = listID
+    }
+}
 
 
 // MARK: - UserLike
@@ -94,6 +126,39 @@ class CheckLikes: Codable {
     init(totalLikes: Int?, totalDislikes: Int?) {
         self.totalLikes = totalLikes
         self.totalDislikes = totalDislikes
+    }
+}
+
+
+
+
+
+// MARK: - WatchList
+class WatchList: Codable {
+    let id: Int?
+    let showType, showID, title, postersURL: String?
+    let createdAt, updatedAt, listID: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case showType = "show_type"
+        case showID = "show_id"
+        case title
+        case postersURL = "posters_url"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+        case listID = "list_id"
+    }
+
+    init(id: Int?, showType: String?, showID: String?, title: String?, postersURL: String?, createdAt: String?, updatedAt: String?, listID: String?) {
+        self.id = id
+        self.showType = showType
+        self.showID = showID
+        self.title = title
+        self.postersURL = postersURL
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+        self.listID = listID
     }
 }
 
