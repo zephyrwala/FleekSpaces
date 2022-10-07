@@ -38,7 +38,7 @@
                                 <color key="color" name="Background"/>
                             </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ogc-Of-iwZ">
-                                <rect key="frame" x="15" y="203" width="370" height="336"/>
+                                <rect key="frame" x="15" y="202.99999999999997" width="370" height="332.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eIp-y1-VmK">
                                         <rect key="frame" x="0.0" y="0.0" width="370" height="60"/>
@@ -74,7 +74,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eLP-39-oXH">
-                                                        <rect key="frame" x="93" y="7.5" width="21" height="44"/>
+                                                        <rect key="frame" x="93" y="7.6666666666666679" width="21" height="43.666666666666657"/>
                                                         <color key="tintColor" name="Warning_500"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="21" id="KBU-cx-8m2"/>
@@ -99,19 +99,19 @@
                                                 <rect key="frame" x="5" y="15" width="360" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ous-zX-xVZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="72.5" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="72.666666666666671" height="30"/>
                                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="gray" title="Action"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faS-vd-j73">
-                                                        <rect key="frame" x="82.5" y="0.0" width="88" height="30"/>
+                                                        <rect key="frame" x="82.666666666666671" y="0.0" width="88.000000000000014" height="30"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="gray" title="Comedy"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvJ-nk-alq">
-                                                        <rect key="frame" x="180.5" y="0.0" width="95.5" height="30"/>
+                                                        <rect key="frame" x="180.66666666666666" y="0.0" width="95.333333333333343" height="30"/>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="gray" title="Romance"/>
@@ -141,79 +141,128 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Duration: 76 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta1-HH-kSU">
-                                        <rect key="frame" x="0.0" y="198" width="370" height="9.5"/>
+                                        <rect key="frame" x="0.0" y="198" width="370" height="6.3333333333333428"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Language: EN, HI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19z-tG-JJN">
-                                        <rect key="frame" x="0.0" y="219.5" width="370" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="216.33333333333331" width="370" height="13.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Release Year: 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2R2-wB-0ef">
-                                        <rect key="frame" x="0.0" y="245" width="370" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="241.66666666666669" width="370" height="13.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Director: Mohan Laal Khurana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8s-vR-cwV">
-                                        <rect key="frame" x="0.0" y="270.5" width="370" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="267" width="370" height="13.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VuM-SV-RvL">
-                                        <rect key="frame" x="0.0" y="296" width="370" height="40"/>
+                                        <rect key="frame" x="0.0" y="292.33333333333331" width="370" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ZJF-Ix-xtd"/>
                                         </constraints>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="Border_10"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Episode guide" titleAlignment="center"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Episode guide" titleAlignment="center">
+                                            <color key="baseForegroundColor" name="CoinMessageColor"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="episodeBtnTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="yrZ-G2-Mbd"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Ey-Km-17V">
-                                <rect key="frame" x="15" y="554" width="370" height="34"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Ey-Km-17V">
+                                <rect key="frame" x="15" y="540.33333333333337" width="370" height="47.666666666666629"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4JQ-Za-YXS">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="34"/>
-                                        <color key="tintColor" systemColor="systemTealColor"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" image="hand.thumbsup" catalog="system"/>
-                                        <connections>
-                                            <action selector="likeBtnTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="4d7-34-6jn"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcZ-7r-gVB">
-                                        <rect key="frame" x="70" y="0.0" width="60.5" height="34"/>
-                                        <color key="tintColor" systemColor="systemPinkColor"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" image="hand.thumbsdown" catalog="system" title=""/>
-                                        <connections>
-                                            <action selector="dislikeBtnTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="zhV-wl-GW2"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MhN-A6-Oev">
-                                        <rect key="frame" x="140.5" y="0.0" width="146" height="34"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Recommend"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53Z-Ed-4Dz">
-                                        <rect key="frame" x="296.5" y="0.0" width="73.5" height="34"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" image="video.badge.plus" catalog="system"/>
-                                        <connections>
-                                            <action selector="watchListBtnTaps:" destination="gTV-IL-0wX" eventType="touchUpInside" id="XVV-F0-II3"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XIz-g0-857">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="47.666666666666664"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4JQ-Za-YXS">
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="34.333333333333336"/>
+                                                <color key="tintColor" name="Fleek_500"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup" catalog="system"/>
+                                                <connections>
+                                                    <action selector="likeBtnTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="4d7-34-6jn"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frt-3x-8lc">
+                                                <rect key="frame" x="0.0" y="34.333333333333258" width="85" height="13.333333333333336"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="28" id="NG5-bl-lfe"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" name="cellBorderColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="34S-FQ-LpJ">
+                                        <rect key="frame" x="95" y="0.0" width="85" height="47.666666666666664"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcZ-7r-gVB">
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="34.333333333333336"/>
+                                                <color key="tintColor" name="Danger_500"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="hand.thumbsdown" catalog="system" title=""/>
+                                                <connections>
+                                                    <action selector="dislikeBtnTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="zhV-wl-GW2"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dislike" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnH-lm-4Ex">
+                                                <rect key="frame" x="0.0" y="34.333333333333258" width="85" height="13.333333333333336"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" name="cellBorderColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QUS-xf-cxW">
+                                        <rect key="frame" x="190" y="0.0" width="85" height="47.666666666666664"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MhN-A6-Oev">
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="34.333333333333336"/>
+                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="person.badge.plus" catalog="system"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tU4-R6-Y3f">
+                                                <rect key="frame" x="0.0" y="34.333333333333258" width="85" height="13.333333333333336"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" name="cellBorderColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eec-gP-OEE">
+                                        <rect key="frame" x="285" y="0.0" width="85" height="47.666666666666664"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53Z-Ed-4Dz">
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="34.333333333333336"/>
+                                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="video.badge.plus" catalog="system"/>
+                                                <connections>
+                                                    <action selector="watchListBtnTaps:" destination="gTV-IL-0wX" eventType="touchUpInside" id="XVV-F0-II3"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watchlist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmA-qv-HOG">
+                                                <rect key="frame" x="0.0" y="34.333333333333258" width="85" height="13.333333333333336"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" name="cellBorderColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gta-W8-sn0" customClass="YTPlayerView">
@@ -232,7 +281,7 @@
                             <constraint firstItem="Fjo-lj-Isi" firstAttribute="centerX" secondItem="96N-ph-7ty" secondAttribute="centerX" id="K2P-Pg-Xv6"/>
                             <constraint firstItem="XHW-Vc-mLO" firstAttribute="top" secondItem="96N-ph-7ty" secondAttribute="top" id="KBd-XP-HdH"/>
                             <constraint firstItem="Gta-W8-sn0" firstAttribute="leading" secondItem="96N-ph-7ty" secondAttribute="leading" id="OGf-6N-KAt"/>
-                            <constraint firstItem="3Ey-Km-17V" firstAttribute="top" secondItem="ogc-Of-iwZ" secondAttribute="bottom" constant="15" id="Xjg-fE-3LT"/>
+                            <constraint firstItem="3Ey-Km-17V" firstAttribute="top" secondItem="ogc-Of-iwZ" secondAttribute="bottom" constant="5" id="Xjg-fE-3LT"/>
                             <constraint firstItem="Fjo-lj-Isi" firstAttribute="top" secondItem="96N-ph-7ty" secondAttribute="top" constant="90" id="gFH-ou-Mfg"/>
                             <constraint firstItem="XHW-Vc-mLO" firstAttribute="leading" secondItem="96N-ph-7ty" secondAttribute="leading" id="hSC-30-2eu"/>
                             <constraint firstAttribute="trailing" secondItem="XHW-Vc-mLO" secondAttribute="trailing" id="nUI-fa-fy9"/>
@@ -276,6 +325,7 @@
     <resources>
         <image name="hand.thumbsdown" catalog="system" width="123" height="128"/>
         <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
+        <image name="person.badge.plus" catalog="system" width="128" height="125"/>
         <image name="show inside view 2" width="1440" height="744"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="video.badge.plus" catalog="system" width="128" height="92"/>
@@ -288,17 +338,26 @@
         <namedColor name="BorderColor">
             <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="Border_10">
+            <color red="0.36500000953674316" green="0.3880000114440918" blue="0.43500000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="CoinMessageColor">
             <color red="0.85900002717971802" green="0.91399997472763062" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Danger_500">
+            <color red="1" green="0.27099999785423279" blue="0.22699999809265137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Fleek_500">
+            <color red="0.0" green="0.78799998760223389" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Warning_500">
             <color red="1" green="0.75300002098083496" blue="0.2630000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="cellBorderColor">
+            <color red="0.68599998950958252" green="0.68599998950958252" blue="0.68599998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

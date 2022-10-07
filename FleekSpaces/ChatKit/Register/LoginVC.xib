@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,9 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="FleekSpaces" customModuleProvider="target">
             <connections>
                 <outlet property="alertMessageText" destination="LUr-xt-T2G" id="xXv-AJ-tld"/>
+                <outlet property="backBtnTaps" destination="Cme-RO-wz8" id="d08-yE-HBx"/>
                 <outlet property="bgView" destination="wId-Lc-xYy" id="yvD-og-iWi"/>
                 <outlet property="didntReceive" destination="JSm-18-Opo" id="1WF-xN-ykC"/>
-                <outlet property="dismissBtn" destination="aa3-Iq-sLO" id="dSA-V6-wZt"/>
                 <outlet property="loginBtn" destination="Z6K-5h-Hew" id="qrY-t2-k8T"/>
                 <outlet property="otp1" destination="v84-6w-Y3L" id="qI9-Fi-DAo"/>
                 <outlet property="otp2" destination="VxD-eC-Hp9" id="IsE-4c-ago"/>
@@ -33,7 +34,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wId-Lc-xYy">
-                    <rect key="frame" x="0.0" y="219" width="414" height="677"/>
+                    <rect key="frame" x="0.0" y="168" width="414" height="728"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to proceed, please login to FleekSpaces" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUr-xt-T2G">
                             <rect key="frame" x="30" y="30" width="354" height="69"/>
@@ -211,22 +212,24 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAF-Y5-VJt">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="219"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="168"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aa3-Iq-sLO">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="219"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cme-RO-wz8">
+                            <rect key="frame" x="10" y="55" width="91" height="48"/>
+                            <color key="tintColor" name="avatarViewBackground"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain"/>
+                            <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title=" back"/>
                             <connections>
-                                <action selector="dismissThisView:" destination="-1" eventType="touchUpInside" id="lTF-bh-RTq"/>
+                                <action selector="backBtnTapped:" destination="-1" eventType="touchUpInside" id="dPU-L8-AHB"/>
                             </connections>
                         </button>
                     </subviews>
+                    <color key="backgroundColor" name="BGColor"/>
                     <constraints>
-                        <constraint firstItem="aa3-Iq-sLO" firstAttribute="top" secondItem="RAF-Y5-VJt" secondAttribute="top" id="3GA-ZB-svd"/>
-                        <constraint firstItem="aa3-Iq-sLO" firstAttribute="leading" secondItem="RAF-Y5-VJt" secondAttribute="leading" id="OeA-je-OzU"/>
-                        <constraint firstAttribute="trailing" secondItem="aa3-Iq-sLO" secondAttribute="trailing" id="XfK-lk-wVg"/>
-                        <constraint firstAttribute="bottom" secondItem="aa3-Iq-sLO" secondAttribute="bottom" id="YeH-Z3-8fc"/>
+                        <constraint firstAttribute="trailing" secondItem="Cme-RO-wz8" secondAttribute="trailing" constant="313" id="Oaj-I8-69N"/>
+                        <constraint firstItem="Cme-RO-wz8" firstAttribute="top" secondItem="RAF-Y5-VJt" secondAttribute="top" constant="55" id="VZb-Bx-xQC"/>
+                        <constraint firstAttribute="bottom" secondItem="Cme-RO-wz8" secondAttribute="bottom" constant="65" id="ZWl-NU-IZU"/>
+                        <constraint firstItem="Cme-RO-wz8" firstAttribute="leading" secondItem="RAF-Y5-VJt" secondAttribute="leading" constant="10" id="uz9-y7-3wX"/>
                     </constraints>
                 </view>
             </subviews>
@@ -239,12 +242,13 @@
                 <constraint firstItem="RAF-Y5-VJt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IkN-Q5-gBG"/>
                 <constraint firstItem="RAF-Y5-VJt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="QHT-zL-Obm"/>
                 <constraint firstItem="wId-Lc-xYy" firstAttribute="top" secondItem="RAF-Y5-VJt" secondAttribute="bottom" id="h3d-gl-Ndr"/>
-                <constraint firstItem="wId-Lc-xYy" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="175" id="oa6-6S-gtQ"/>
+                <constraint firstItem="wId-Lc-xYy" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="120" id="oa6-6S-gtQ"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="89.732142857142847"/>
         </view>
     </objects>
     <resources>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
         <namedColor name="BGColor">
             <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -259,6 +263,9 @@
         </namedColor>
         <namedColor name="Neutral_300">
             <color red="0.79600000381469727" green="0.79600000381469727" blue="0.79600000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="avatarViewBackground">
+            <color red="0.55699998140335083" green="0.55699998140335083" blue="0.57599997520446777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

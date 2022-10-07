@@ -11,13 +11,13 @@ import UIKit
 class LoginVC: UIViewController, UITextFieldDelegate {
 
    
+    @IBOutlet weak var backBtnTaps: UIButton!
     @IBOutlet weak var resendOTPs: UILabel!
     @IBOutlet weak var didntReceive: UILabel!
     @IBOutlet weak var alertMessageText: UILabel!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var phoneNumber: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
-    @IBOutlet weak var dismissBtn: UIButton!
     @IBOutlet weak var otpView: UIView!
     @IBOutlet weak var otp1: UITextField!
     @IBOutlet weak var otp2: UITextField!
@@ -38,12 +38,15 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         phoneNumber.layer.cornerRadius = 15
         loginBtn.layer.cornerRadius = 15
         verifyBtn.layer.cornerRadius = 15
-        dismissBtn.setTitle("", for: .normal)
+      
         // Do any additional setup after loading the view.
         setupOTPBorder()
         
     }
     
+    @IBAction func backBtnTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     @objc func changeCharacter(myTextField: UITextField){
         
@@ -84,12 +87,18 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 //        }
 //
        
-        weak var pvc = self.presentingViewController
-
-        self.dismiss(animated: true, completion: {
-            let vc = RegisterVC()
-            pvc?.present(vc, animated: true, completion: nil)
-        })
+        let controller = RegisterVC()
+        self.navigationController?.pushViewController(controller, animated: true)
+        
+        
+//        weak var pvc = self.presentingViewController
+//
+//        self.dismiss(animated: true, completion: {
+//            let vc = RegisterVC()
+//            pvc?.present(vc, animated: true, completion: nil)
+//
+//            self
+//        })
     }
     
     //MARK: - Login Flow

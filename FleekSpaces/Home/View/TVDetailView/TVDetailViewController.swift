@@ -685,9 +685,9 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
             let controller = LoginVC()
                 
               
-//            self?.navigationController?.pushViewController(controller, animated: true)
+            self?.navigationController?.pushViewController(controller, animated: true)
             
-            self?.present(controller, animated: true)
+//            self?.present(controller, animated: true)
 //            self?.present(controller, animated: true)
             
           

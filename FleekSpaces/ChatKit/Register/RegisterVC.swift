@@ -9,6 +9,7 @@ import UIKit
 
 class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var backBtns: UIButton!
     @IBOutlet weak var statusMessages: UILabel!
     @IBOutlet weak var emailID: UITextField!
     @IBOutlet weak var verifyBtn: UIButton!
@@ -48,6 +49,9 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
     
     
     
+    @IBAction func backBtnTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     
     func setupOTPBorder() {

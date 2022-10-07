@@ -71,8 +71,11 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
         // Initialization code
         utubePlayer.delegate = self
         utubePlayer.isHidden = true
+        
     }
 
+    
+    
     @IBAction func episodeBtnTap(_ sender: UIButton) {
         episodeDelegate?.didTapEpisodeBtn(sender: sender)
     }
