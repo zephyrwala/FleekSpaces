@@ -11,7 +11,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
    
     
     
-    
+    var watchlisted = false
     var tvShowDetail: TVshowDetail?
     let defaults = UserDefaults.standard
     var tmdbID: String?
@@ -36,13 +36,20 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
             fetchMoreTVLikeThis(tmdbID: safeTMDBId)
         }
         
-        checkLikes()
+        
         print("This is show id: \(showId)")
         print("This is tmdb tv id: \(tmdbID)")
 //        fetchMovieDetails(movieID: showId!)
        
         setupCollectionView()
         // Do any additional setup after loading the view.
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        checkLikes()
+        checkWatchlist()
     }
 
     @IBAction func backBtnTap(_ sender: Any) {
@@ -381,6 +388,10 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
         if FirebaseManager.shared.auth.currentUser == nil {
             loginPrompt()
         } else if FirebaseManager.shared.auth.currentUser != nil {
+            
+            
+            watchlistPrompt()
+            
             cell.watchBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
             cell.watchBtn.tintColor = .systemYellow
             
@@ -393,6 +404,35 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
     
     
     
+    func watchlistPrompt() {
+        
+        let actionSheet = UIAlertController(title: "Watchlist-ed 🎉", message: "This show has been added to your Watchlist!", preferredStyle: .alert)
+        
+        
+        actionSheet.addAction(UIAlertAction(title: "Awesome!", style: .default, handler: { [weak self] _ in
+            
+            if let strongSelf = self {
+                
+//                strongSelf.checkLikes()
+                
+                //TODO: - watch listed or not over here
+                
+                print("strong self and like generatoed for movies")
+            }
+     
+           
+            
+          
+            
+        }))
+        
+    
+        
+        present(actionSheet, animated: true)
+        
+        
+    }
+    
     //MARK: - Like Button
     
     func didTapLikeButtonTv(_ cell: MovieInfoCollectionViewCell) {
@@ -402,7 +442,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
             loginPrompt()
         } else if FirebaseManager.shared.auth.currentUser != nil {
             
-            addLikes(movieTitle: "The Grudge 3")
+            addLikes()
             cell.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
             
             cell.dislikeBtn.setImage(UIImage(systemName: "hand.thumbsdown"), for: .normal)
@@ -412,8 +452,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
            
                 
 
-                cell.likeBtn.setTitle("\(self.numberOfLikes)", for: .normal)
-               
+              
 
             
            
@@ -421,6 +460,8 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
            
             //TODO: - Add like network call here
 //            addLike()
+            
+            basicPrompt()
        
             
         }
@@ -431,9 +472,38 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
     }
     
     
+    //basic prompt
+    
+    func basicPrompt() {
+        
+        let actionSheet = UIAlertController(title: "Like-d 👍🏼", message: "Your Like has been added!", preferredStyle: .alert)
+        
+        
+        actionSheet.addAction(UIAlertAction(title: "Awesome", style: .default, handler: { [weak self] _ in
+            
+            if let strongSelf = self {
+                
+                strongSelf.checkLikes()
+                
+                print("strong self and like generatoed for movies")
+            }
+     
+           
+            
+          
+            
+        }))
+        
+    
+        
+        present(actionSheet, animated: true)
+        
+        
+    }
+    
     //MARK: - Add Likes Function
     
-    func addLikes(movieTitle: String) {
+    func addLikes() {
         
         
        
@@ -489,7 +559,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
                 
             case .success(let likes):
                 print("result is \(likes.title) \(yourMessage) \(likes)")
-                self.checkLikes()
+//                self.checkLikes()
                 
             case .failure(let err):
                 print("We have error \(err)")
@@ -525,9 +595,6 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
         guard let posterUrl = FinalDataModel.showDetails?.posterURL else {return}
         
       
-        
-    //https://api-space-dev.getfleek.app/activity/add_to_user_watch_list/?show_type=movie&show_id=e673369c-fee6-4ce9-a7b4-80cf5ebc03fc&title=The Grudge 3&posters_url=/uEOWWRr8BbgPM0BiJiSTwHGaRx4.jpg
-//        print("This is our URL \(url)")
      
 
         var urlComponents = URLComponents()
@@ -581,6 +648,71 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
         
         
         
+        
+    }
+    
+    
+    //MARK: - Check watchlist
+    
+    func checkWatchlist() {
+        
+        
+//        guard let showType = FinalDataModel.showDetails?.type else {return}
+       
+     
+        guard let safeID = showId else {return}
+        
+//        guard let myShowId = FinalDataModel.showDetails?.showID else {return}
+        
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api-space-dev.getfleek.app"
+        urlComponents.path = "/activity/get_show_watch_list/"
+        //api-space-dev.getfleek.app/
+        urlComponents.queryItems = [
+           URLQueryItem(name: "show_type", value: "tv_series"),
+           URLQueryItem(name: "show_id", value: safeID)
+         
+        ]
+        
+        
+        let network = NetworkURL()
+        
+
+        guard let myTOken = defaults.string(forKey: "userToken") else {return}
+        print("My token is \(myTOken)")
+        guard let myUrl = urlComponents.url else {return}
+        
+        network.tokenCalls(WatchlistedData.self, url: myUrl, token: myTOken, methodType: "GET") { myResults, yourMessage in
+            
+            
+            switch myResults {
+                
+                
+            case .success(let watchData):
+                print("Watclisted data is \(watchData.watchlisted)")
+                if watchData.watchlisted == true {
+                    
+                    DispatchQueue.main.async {
+                        
+                        self.watchlisted = true
+                        self.tvCollectionView.reloadData()
+                        
+                    }
+                    
+                }
+                
+        
+            case .failure(let err):
+                print("Error is here \(err)")
+                
+                
+                
+                
+            }
+            
+        }
         
     }
     
@@ -816,9 +948,18 @@ extension TVDetailViewController: UICollectionViewDataSource {
             cell.dislikeBtnDelegate = self
             cell.watchlistBtnDelegate = self
             
-            
+            if numberOfLikes != 0 {
+                
+                cell.likeBtn.setTitle("\(numberOfLikes)", for: .normal)
+            }
           
-            cell.likeBtn.setTitle("\(numberOfLikes)", for: .normal)
+        
+            if self.watchlisted == true {
+                
+                cell.watchBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
+                cell.watchBtn.tintColor = .systemYellow
+                
+            }
             
 //            if let movieData = tvPassedData {
 //                cell.setupTVCell(fromData: movieData)

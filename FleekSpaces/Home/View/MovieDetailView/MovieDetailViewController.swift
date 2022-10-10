@@ -13,16 +13,11 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
     let sec2 = "sec2ID"
     let sec3 = "sec3ID"
     let sec0 = "sec0ID"
-//    var optionsLogos = [
-//
-//        TextLogos(posterImage: UIImage(named: "hbomax")!, postername: "HBOmax"),
-//        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
-//        TextLogos(posterImage: UIImage(named: "hotstar")!, postername: "Hotstar"),
-//        TextLogos(posterImage: UIImage(named: "zee5")!, postername: "Zee5"),
-//        TextLogos(posterImage: UIImage(named: "prime video")!, postername: "Prime Video"),
-//
-//    ]
 
+    var watchlisted = false
+    var numberOfLikes = 0
+    var numberOfDislikes = 0
+    let defaults = UserDefaults.standard
     var tmdbID: String?
     var movieId: String?
     var passedData: UResult?
@@ -49,10 +44,96 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
     }
 
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        checkLikes()
+        checkWatchlist()
+    }
+    
     @IBAction func backBtnTap(_ sender: Any) {
         
         navigationController?.popViewController(animated: true)
     }
+    
+
+    //MARK: - Add Likes Function
+    
+    func addLikes() {
+        
+        
+       
+        
+        guard let showType = FinalDataModel.movieDetails?.type else {return}
+       
+        guard let title = FinalDataModel.movieDetails?.title else {return}
+        
+        guard let myShowId = FinalDataModel.movieDetails?.movieID else {return}
+        
+        guard let posterUrl = FinalDataModel.movieDetails?.posterURL else {return}
+        
+        let like = "1"
+        let dislike = "0"
+        
+    
+//        print("This is our URL \(url)")
+     
+
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api-space-dev.getfleek.app"
+        urlComponents.path = "/activity/add_likes_dislikes/"
+        //api-space-dev.getfleek.app/
+        urlComponents.queryItems = [
+           URLQueryItem(name: "show_type", value: "movie"),
+           URLQueryItem(name: "show_id", value: myShowId),
+           URLQueryItem(name: "posters_url", value: posterUrl),
+           URLQueryItem(name: "like", value: like),
+           URLQueryItem(name: "title", value: title),
+           URLQueryItem(name: "dislike", value: dislike)
+        ]
+
+        print(urlComponents.url?.absoluteString)
+        print("Clubbed url is ")
+        print(urlComponents.url?.absoluteString)
+        
+        
+
+        
+        
+        guard let myTOken = defaults.string(forKey: "userToken") else {return}
+        print("My token is \(myTOken)")
+        guard let myUrl = urlComponents.url else {return}
+        
+        let network = NetworkURL()
+        network.tokenCalls(AddLike.self, url: myUrl, token: myTOken, methodType: "POST") { myResults, yourMessage in
+                
+            
+            switch myResults {
+                
+                
+                
+            case .success(let likes):
+                print("Movie result is \(likes.title) \(yourMessage) \(likes)")
+                
+//                self.checkLikes()
+                
+            case .failure(let err):
+                print("We have movie error \(err)")
+                
+                
+                
+                
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+    }
+
     
     //MARK: - Fetch More Like This
     
@@ -367,7 +448,363 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
 
 //MARK: -  Data Source
 
-extension MovieDetailViewController: UICollectionViewDataSource {
+extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, watchListTap {
+    
+    //watchlist
+    func didTapWatchlistButton(_ cell: MovieInfoCollectionViewCell) {
+        
+        if FirebaseManager.shared.auth.currentUser == nil {
+            loginPrompt()
+        } else if FirebaseManager.shared.auth.currentUser != nil {
+            
+            
+            addWatchlist()
+            
+            //movie prompt comes here
+            
+            watchlistPrompt()
+            cell.watchBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
+            cell.watchBtn.tintColor = .systemYellow
+        }
+        
+        
+    }
+    
+    
+    //PROTOCOL
+    func didTapLikeButtonTv(_ cell: MovieInfoCollectionViewCell) {
+        
+        
+        if FirebaseManager.shared.auth.currentUser == nil {
+            loginPrompt()
+        } else if FirebaseManager.shared.auth.currentUser != nil {
+            
+            addLikes()
+            
+            //the pormpt should come here
+            cell.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+            
+            cell.dislikeBtn.setImage(UIImage(systemName: "hand.thumbsdown"), for: .normal)
+            
+            cell.likeBtn.tintColor = .systemTeal
+          
+           
+                
+
+//                cell.likeBtn.setTitle("\(self.numberOfLikes)", for: .normal)
+               
+
+            
+           
+         
+           
+            //TODO: - Add like network call here
+//            addLike()
+            
+            basicPrompt()
+       
+            
+        }
+        
+        print("Like tapp")
+        
+        
+        
+    }
+    
+    
+    //MARK: - Login Prompt
+    
+    func loginPrompt() {
+        
+        let actionSheet = UIAlertController(title: "Must Login!", message: "Hey Bro! You must login to add likes and dislikes for this section!", preferredStyle: .alert)
+        
+        
+        actionSheet.addAction(UIAlertAction(title: "Log In", style: .default, handler: { [weak self] _ in
+            
+           
+            
+            let controller = LoginVC()
+                
+              
+            self?.navigationController?.pushViewController(controller, animated: true)
+            
+//            self?.present(controller, animated: true)
+//            self?.present(controller, animated: true)
+            
+          
+            
+        }))
+        
+    
+        
+        present(actionSheet, animated: true)
+        
+        
+    }
+    
+    
+    //MARK: - Add Watchlist
+    
+    func addWatchlist() {
+        
+        
+       
+        
+        guard let showType = FinalDataModel.movieDetails?.type else {return}
+       
+        guard let title = FinalDataModel.movieDetails?.title else {return}
+        
+        guard let myShowId = FinalDataModel.movieDetails?.movieID else {return}
+        
+        guard let posterUrl = FinalDataModel.movieDetails?.posterURL else {return}
+        
+      
+     
+
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api-space-dev.getfleek.app"
+        urlComponents.path = "/activity/add_to_user_watch_list/"
+        //api-space-dev.getfleek.app/
+        urlComponents.queryItems = [
+           URLQueryItem(name: "show_type", value: "movie"),
+           URLQueryItem(name: "show_id", value: myShowId),
+           URLQueryItem(name: "posters_url", value: posterUrl),
+           URLQueryItem(name: "title", value: title)
+         
+        ]
+
+        print(urlComponents.url?.absoluteString)
+        print("Clubbed url is ")
+        print(urlComponents.url?.absoluteString)
+        
+        
+
+        
+        
+        guard let myTOken = defaults.string(forKey: "userToken") else {return}
+        print("My token is \(myTOken)")
+        guard let myUrl = urlComponents.url else {return}
+        
+        let network = NetworkURL()
+        network.tokenCalls(WatchList.self, url: myUrl, token: myTOken, methodType: "POST") { myResults, yourMessage in
+                
+            
+            switch myResults {
+                
+                
+                
+            case .success(let likes):
+                print("result of watchlist is \(likes.title) \(yourMessage) \(likes)")
+                self.checkLikes()
+                
+            case .failure(let err):
+                print("We have error \(err)")
+                
+                
+                
+                
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+    }
+    
+    
+    //MARK: - Basic prompt
+    
+    func basicPrompt() {
+        
+        let actionSheet = UIAlertController(title: "Like-d 👍🏼", message: "Your Like has been added!", preferredStyle: .alert)
+        
+        
+        actionSheet.addAction(UIAlertAction(title: "Awesome!", style: .default, handler: { [weak self] _ in
+            
+            if let strongSelf = self {
+                
+                strongSelf.checkLikes()
+                
+                print("strong self and like generatoed for movies")
+            }
+     
+           
+            
+          
+            
+        }))
+        
+    
+        
+        present(actionSheet, animated: true)
+        
+        
+    }
+    
+    func watchlistPrompt() {
+        
+        let actionSheet = UIAlertController(title: "Watchlist-ed 🎉", message: "This movie has been added to your Watchlist!", preferredStyle: .alert)
+        
+        
+        actionSheet.addAction(UIAlertAction(title: "Awesome!", style: .default, handler: { [weak self] _ in
+            
+            if let strongSelf = self {
+                
+//                strongSelf.checkLikes()
+                
+                //TODO: - watch listed or not over here
+                
+                print("strong self and like generatoed for movies")
+            }
+     
+           
+            
+          
+            
+        }))
+        
+    
+        
+        present(actionSheet, animated: true)
+        
+        
+    }
+    
+    //MARK: - Check Likes
+    
+    func checkLikes() {
+        
+        
+//        guard let showType = FinalDataModel.showDetails?.type else {return}
+       
+     
+        guard let safeID = movieId else {return}
+        
+//        guard let myShowId = FinalDataModel.showDetails?.showID else {return}
+        
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api-space-dev.getfleek.app"
+        urlComponents.path = "/activity/get_likes_dislikes_of_show/"
+        //api-space-dev.getfleek.app/
+        urlComponents.queryItems = [
+           URLQueryItem(name: "show_type", value: "movie"),
+           URLQueryItem(name: "show_id", value: safeID)
+         
+        ]
+        
+        
+        let network = NetworkURL()
+        
+
+        guard let myTOken = defaults.string(forKey: "userToken") else {return}
+        print("My token is \(myTOken)")
+        guard let myUrl = urlComponents.url else {return}
+        
+        network.tokenCalls(CheckLikes.self, url: myUrl, token: myTOken, methodType: "GET") { myResult, yourMessage in
+            
+            
+            switch myResult {
+                
+                
+            case .success(let likeStatus):
+                print("Number of likes are \(likeStatus.totalLikes) and dislikes are \(likeStatus.totalDislikes)")
+                
+                if let safeLikes = likeStatus.totalLikes {
+                    
+                   
+                    DispatchQueue.main.async {
+                        self.numberOfLikes = safeLikes
+                        self.movieDetailCollectionView.reloadData()
+                    }
+                  
+                    
+                }
+                
+                
+            case .failure(let err):
+                print("We have an error \(err)")
+                
+            }
+            
+            
+        }
+    }
+    
+    
+    
+    //MARK: - Check watchlist
+    
+
+    
+    func checkWatchlist() {
+        
+        
+//        guard let showType = FinalDataModel.showDetails?.type else {return}
+       
+     
+        guard let safeID = movieId else {return}
+        
+//        guard let myShowId = FinalDataModel.showDetails?.showID else {return}
+        
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api-space-dev.getfleek.app"
+        urlComponents.path = "/activity/get_show_watch_list/"
+        //api-space-dev.getfleek.app/
+        urlComponents.queryItems = [
+           URLQueryItem(name: "show_type", value: "movie"),
+           URLQueryItem(name: "show_id", value: safeID)
+         
+        ]
+        
+        
+        let network = NetworkURL()
+        
+
+        guard let myTOken = defaults.string(forKey: "userToken") else {return}
+        print("My token is \(myTOken)")
+        guard let myUrl = urlComponents.url else {return}
+        
+        network.tokenCalls(WatchlistedData.self, url: myUrl, token: myTOken, methodType: "GET") { myResults, yourMessage in
+            
+            
+            switch myResults {
+                
+                
+            case .success(let watchData):
+                print("Watclisted data is \(watchData.watchlisted)")
+                if watchData.watchlisted == true {
+                    
+                    DispatchQueue.main.async {
+                        
+                        self.watchlisted = true
+                        self.movieDetailCollectionView.reloadData()
+                        
+                    }
+                    
+                }
+                
+        
+            case .failure(let err):
+                print("Error is here \(err)")
+                
+                
+                
+                
+            }
+            
+        }
+        
+    }
+
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         4
@@ -479,14 +916,29 @@ extension MovieDetailViewController: UICollectionViewDataSource {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieInfo", for: indexPath) as! MovieInfoCollectionViewCell
            
+            cell.likeBtnDelegate = self
+            cell.watchlistBtnDelegate = self
             if let movieData = FinalDataModel.movieDetails {
                 print("movie data is here")
                 cell.setupCell(fromData: movieData)
+                
+                if self.watchlisted == true {
+                    
+                    cell.watchBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
+                    cell.watchBtn.tintColor = .systemYellow
+                    
+                }
+                
+                if numberOfLikes != 0 {
+                    
+                    cell.likeBtn.setTitle("\(numberOfLikes)", for: .normal)
+                }
+              
                
             }
            
             
-           
+    
             cell.moviePlot.text = FinalDataModel.movieDetails?.synopsies
             
             return cell

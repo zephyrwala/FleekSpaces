@@ -26,6 +26,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
     @IBOutlet weak var registerBtn: UIButton!
     @IBOutlet weak var numberTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
+    let defaults = UserDefaults.standard
     var selectedImagePicker: UIImage?
     var userDetails: VerifyOTP?
 //    let didCompleteLoginProcess: () -> ()
@@ -112,6 +113,8 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
                     
                     // token login
 
+                   
+                    self.defaults.set(safeToken, forKey: "userToken")
                     guard let safeFBEmail = otpMessage.email else {return}
                     guard let safeFBPassword = otpMessage.firebasePassword else {return}
                     FirebaseManager.shared.auth.signIn(withEmail: "\(safeFBEmail)", password: "\(safeFBPassword)") { result, err in

@@ -64,6 +64,11 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     }
     
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        checkSignIn()
+    }
     //MARK: - Setup CollectionView
     
     func setupCollectionView() {
@@ -228,14 +233,18 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     
     func loginPrompt() {
         
-        let actionSheet = UIAlertController(title: "Authentication Status", message: "Hey Bro! You must login to view this section!", preferredStyle: .alert)
+        let actionSheet = UIAlertController(title: "Auth Status 🤔", message: "Hey Bro! You must login to view this section!", preferredStyle: .alert)
         
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+        
+        //TODO: - On Cancel try to push to another view
         
         actionSheet.addAction(UIAlertAction(title: "Log In", style: .default, handler: { [weak self] _ in
             
            
+        
             
-            let controller = SignInEmbedViewController()
+            let controller = LoginVC()
                 
               
             self?.navigationController?.pushViewController(controller, animated: true)
@@ -244,6 +253,11 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
           
             
         }))
+        
+        
+       
+        
+       
         
     
         

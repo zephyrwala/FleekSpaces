@@ -47,7 +47,24 @@ class FinalDataModel: NSObject {
     static var userWatchlist: WatchList?
     
     static var fetchWatchList: [FetchWatchList]?
+    
+    static var checForkWatchlisted: WatchlistedData?
 }
+
+
+// MARK: - FetchWatchList
+class WatchlistedData: Codable {
+    let watchlisted: Bool?
+
+    enum CodingKeys: String, CodingKey {
+        case watchlisted = "Watchlisted"
+    }
+
+    init(watchlisted: Bool?) {
+        self.watchlisted = watchlisted
+    }
+}
+
 
 
 // MARK: - FetchWatchListElement
@@ -112,6 +129,8 @@ class UserLike: Codable {
         self.user = user
     }
 }
+
+
 
 
 //MARK: - Check Likes
