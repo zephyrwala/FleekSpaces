@@ -389,13 +389,17 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
             loginPrompt()
         } else if FirebaseManager.shared.auth.currentUser != nil {
             
+            if self.watchlisted == false {
+                
+                watchlistPrompt()
+                
+                cell.watchBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
+                cell.watchBtn.tintColor = .systemYellow
+                
+                addWatchlist()
+            }
             
-            watchlistPrompt()
-            
-            cell.watchBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
-            cell.watchBtn.tintColor = .systemYellow
-            
-            addWatchlist()
+          
         }
         
         
@@ -441,6 +445,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
         if FirebaseManager.shared.auth.currentUser == nil {
             loginPrompt()
         } else if FirebaseManager.shared.auth.currentUser != nil {
+            
             
             addLikes()
             cell.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
@@ -951,7 +956,10 @@ extension TVDetailViewController: UICollectionViewDataSource {
             if numberOfLikes != 0 {
                 
                 cell.likeBtn.setTitle("\(numberOfLikes)", for: .normal)
+               
+                
             }
+            
           
         
             if self.watchlisted == true {

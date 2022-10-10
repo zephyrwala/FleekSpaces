@@ -457,14 +457,19 @@ extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, wat
             loginPrompt()
         } else if FirebaseManager.shared.auth.currentUser != nil {
             
+            if self.watchlisted == false {
+                
+                addWatchlist()
+                
+                //movie prompt comes here
+                
+                watchlistPrompt()
+                cell.watchBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
+                cell.watchBtn.tintColor = .systemYellow
+                
+            }
             
-            addWatchlist()
             
-            //movie prompt comes here
-            
-            watchlistPrompt()
-            cell.watchBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
-            cell.watchBtn.tintColor = .systemYellow
         }
         
         
