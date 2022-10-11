@@ -42,21 +42,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         
         
 //        FirebaseApp.configure()
-//        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-//        IQKeyboardManager.shared.enable = true
-//        IQKeyboardManager.shared.enableDebugging = true
-//        IQKeyboardManager.shared.overrideKeyboardAppearance = true
-//        IQKeyboardManager.shared.enableAutoToolbar = false
-//        IQKeyboardManager.shared.keyboardAppearance = .dark
-//        IQKeyboardManager.shared.keyboardDistanceFromTextField = 9.0
-////
-////        IQKeyboardManager.shared.toolb
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableDebugging = true
+        IQKeyboardManager.shared.overrideKeyboardAppearance = true
+        IQKeyboardManager.shared.enableAutoToolbar = true
+        IQKeyboardManager.shared.keyboardAppearance = .dark
+        IQKeyboardManager.shared.keyboardDistanceFromTextField = 9.0
 //
-////        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatsViewController.self)
-//////
-////        IQKeyboardManager.shared.disabledToolbarClasses.append(ChatsViewController.self)
-//        IQKeyboardManager.shared.toolbarTintColor = UIColor(named: "BtnGreenColor")
-//        
+//        IQKeyboardManager.shared.toolb
+
+//        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatsViewController.self)
+////
+//        IQKeyboardManager.shared.disabledToolbarClasses.append(ChatsViewController.self)
+        IQKeyboardManager.shared.toolbarTintColor = UIColor(named: "BtnGreenColor")
+        
      
         // Override point for customization after application launch.
         return true

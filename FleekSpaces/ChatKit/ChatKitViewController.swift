@@ -11,6 +11,7 @@ import FirebaseFirestoreSwift
 
 class ChatKitViewController: UIViewController, UICollectionViewDelegate {
 
+   
     @IBOutlet weak var newChatButton: UIButton!
     var recentMessages = [RecentMessage]()
     private var firestoreListener: ListenerRegistration?
@@ -28,8 +29,9 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
            
             print("user is logged in")
         } else {
-            let loginVC = LoginVC()
-            self.present(loginVC, animated: true)
+            self.tabBarController?.selectedIndex = 2
+//            let loginVC = LoginVC()
+//            self.present(loginVC, animated: true)
         }
         setupCollectionView()
         currentUserImage.makeItGolGol()

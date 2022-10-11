@@ -95,7 +95,7 @@ class ChatViewController: UIViewController {
     //        controllers.modalPresentationStyle = .fullScreen
             self.navigationItem.leftBarButtonItem = nil;
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-    //        self.navigationController?.pushViewController(controllers, animated: true)
+//            self.navigationController?.pushViewController(controllers, animated: true)
             controllers.modalPresentationStyle = .overCurrentContext
          present(controllers, animated: true)
             
@@ -123,8 +123,7 @@ class ChatViewController: UIViewController {
             
             
         } else {
-            let loginVC = LoginVC()
-            self.present(loginVC, animated: true)
+            basicPrompt()
         }
 //        if FirebaseManager.shared.currentUser
 
@@ -134,9 +133,23 @@ class ChatViewController: UIViewController {
     }
     
 
+    //TODO: - Need to fix the login pop ups
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        
+        
+        IQKeyboardManager.shared.enable = false
+       
+        overrideUserInterfaceStyle = .dark
+//        chatView.addSubview(tableView)
+////        setupTableView()
+//
+        self.navigationController?.navigationItem.hidesBackButton = true
+        
+        btnSetup()
+//        startListeningForConversation()
         
         if FirebaseManager.shared.auth.currentUser?.uid != nil {
            
@@ -145,17 +158,78 @@ class ChatViewController: UIViewController {
     //        controllers.modalPresentationStyle = .fullScreen
             self.navigationItem.leftBarButtonItem = nil;
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-    //        self.navigationController?.pushViewController(controllers, animated: true)
+//            self.navigationController?.pushViewController(controllers, animated: true)
             controllers.modalPresentationStyle = .overCurrentContext
          present(controllers, animated: true)
-        } else {
             
-            let loginVC = LoginVC()
-            self.present(loginVC, animated: true)
+            NotificationCenter.default.addObserver(forName: NSNotification.Name("startSwiftUI"), object: nil, queue: nil) { (_) in
+                
+                print("user is logged in")
+                let controllers = UIHostingController(rootView: MainMessagesView())
+        //        controllers.modalPresentationStyle = .fullScreen
+                self.navigationItem.leftBarButtonItem = nil;
+                self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        //        self.navigationController?.pushViewController(controllers, animated: true)
+                controllers.modalPresentationStyle = .overCurrentContext
+                self.present(controllers, animated: true)
+              
+            }
+            
+            NotificationCenter.default.addObserver(forName: NSNotification.Name("dismissSwiftUI"), object: nil, queue: nil) { (_) in
+                controllers.dismiss(animated: true) {
+                    
+                    let loginVC = LoginVC()
+                    self.present(loginVC, animated: true)
+                    
+                }
+            }
+            
+            
+        } else {
+           basicPrompt()
         }
+//        if FirebaseManager.shared.currentUser
+
+      
+//        presentModal()
+        // Do any additional setup after loading the view.
         
         
     }
+    
+    
+    func basicPrompt() {
+        
+        let actionSheet = UIAlertController(title: "Ooops!", message: "You must login to access this section", preferredStyle: .alert)
+        
+        
+        actionSheet.addAction(UIAlertAction(title: "Log in", style: .default, handler: { [weak self] _ in
+            
+            if let strongSelf = self {
+                
+              
+                let loginVC = LoginVC()
+                self?.navigationController?.pushViewController(loginVC, animated: true)
+                
+                print("strong self and like generatoed for movies")
+            }
+     
+           
+            
+          
+            
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+        
+        
+    
+        
+        present(actionSheet, animated: true)
+        
+        
+    }
+    
     
     
     @IBAction func chatBtnTap(_ sender: Any) {

@@ -66,11 +66,11 @@
                     </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Babu Rao" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gzN-pv-6iJ">
-                    <rect key="frame" x="20" y="342" width="166" height="44"/>
+                    <rect key="frame" x="20" y="342" width="160" height="44"/>
                     <color key="backgroundColor" name="BtnDisableColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="8g3-zv-Mvb"/>
-                        <constraint firstAttribute="width" constant="166" id="hRu-V0-DTC"/>
+                        <constraint firstAttribute="width" constant="160" id="hRu-V0-DTC"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="mPs-Fr-t5c"/>
                     </constraints>
                     <color key="textColor" name="CoinMessageColor"/>
@@ -78,13 +78,13 @@
                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="babu@rao.com" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rMR-Nf-t7y">
-                    <rect key="frame" x="227" y="342" width="166" height="44"/>
+                    <rect key="frame" x="233" y="342" width="160" height="44"/>
                     <color key="backgroundColor" name="BtnDisableColor"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="14A-VX-AFh"/>
                         <constraint firstAttribute="height" constant="44" id="Qun-8o-S9u"/>
                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="UU3-nM-jB5"/>
-                        <constraint firstAttribute="width" constant="166" id="lTD-40-b4S"/>
+                        <constraint firstAttribute="width" constant="160" id="lTD-40-b4S"/>
                     </constraints>
                     <color key="textColor" name="CoinMessageColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -112,7 +112,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="9420420420" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="F5X-FF-Asc">
-                    <rect key="frame" x="20" y="437" width="374" height="44"/>
+                    <rect key="frame" x="20" y="517" width="374" height="44"/>
                     <color key="backgroundColor" name="BtnDisableColor"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="nmU-5c-4Em"/>
@@ -124,7 +124,7 @@
                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEl-rF-Z3d">
-                    <rect key="frame" x="20" y="406" width="374" height="25"/>
+                    <rect key="frame" x="20" y="486" width="374" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="RQM-Bc-NOd"/>
                     </constraints>
@@ -133,7 +133,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWz-1k-2C9">
-                    <rect key="frame" x="20" y="506" width="374" height="45"/>
+                    <rect key="frame" x="20" y="586" width="374" height="45"/>
                     <color key="backgroundColor" name="BtnGreenColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Sce-VH-oZh"/>
@@ -334,7 +334,7 @@
                 <constraint firstItem="1jv-Ix-Wh4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="QVr-4G-88m"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hWz-1k-2C9" secondAttribute="trailing" constant="20" id="RLh-Ts-DZ9"/>
                 <constraint firstItem="hWz-1k-2C9" firstAttribute="top" secondItem="F5X-FF-Asc" secondAttribute="bottom" constant="25" id="Rhr-ze-D22"/>
-                <constraint firstItem="iEl-rF-Z3d" firstAttribute="top" secondItem="gzN-pv-6iJ" secondAttribute="bottom" constant="20" id="WnO-tS-G6m"/>
+                <constraint firstItem="iEl-rF-Z3d" firstAttribute="top" secondItem="gzN-pv-6iJ" secondAttribute="bottom" constant="100" id="WnO-tS-G6m"/>
                 <constraint firstItem="YA9-Pu-X1E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="XDg-6b-OCv"/>
                 <constraint firstItem="F5X-FF-Asc" firstAttribute="top" secondItem="iEl-rF-Z3d" secondAttribute="bottom" constant="6" id="Xqo-Je-fd8"/>
                 <constraint firstItem="w0I-47-iPp" firstAttribute="top" secondItem="ert-PN-iqm" secondAttribute="bottom" constant="40" id="aIg-56-fZi"/>

@@ -134,20 +134,24 @@ class UserLike: Codable {
 
 
 //MARK: - Check Likes
+
 class CheckLikes: Codable {
+    let like, dislike: Bool?
     let totalLikes, totalDislikes: Int?
 
     enum CodingKeys: String, CodingKey {
+        case like, dislike
         case totalLikes = "total_likes"
         case totalDislikes = "total_dislikes"
     }
 
-    init(totalLikes: Int?, totalDislikes: Int?) {
+    init(like: Bool?, dislike: Bool?, totalLikes: Int?, totalDislikes: Int?) {
+        self.like = like
+        self.dislike = dislike
         self.totalLikes = totalLikes
         self.totalDislikes = totalDislikes
     }
 }
-
 
 
 

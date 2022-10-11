@@ -12,8 +12,14 @@ import SDWebImage
 class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigationControllerDelegate {
     
     
+    @IBOutlet weak var recommendBtn: UIButton!
+    @IBOutlet weak var likeBtn: UIButton!
+    @IBOutlet weak var watchlistBtn: UIButton!
+    
+    @IBOutlet weak var myProfileBg: UIImageView!
     
     var selectedOption = 0
+    var recommendCount = [Int]()
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var changeProfile: UIButton!
     func userDidEnterInformation(info: String) {
@@ -29,6 +35,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     var chatUser: ChatUser?
     @IBAction func changeProfileBtn(_ sender: Any) {
        presentPhotoActionSheet()
+        
     }
     @IBOutlet weak var segmentTabsSelection: UISegmentedControl!
     
@@ -41,8 +48,9 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
        
         profileImage.makeItGolGol()
      
-//      fetchUserMovieData()
+        fetchUserMovieData()
         fetchUserWatchlistData()
+        setupButtons()
 
         changeProfile.setTitle("", for: .normal)
 //        presentModal()
@@ -50,7 +58,8 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
        
             if let imageUrl = self.chatUser?.profileImageUrl {
                 
-                self.self.profileImage.sd_setImage(with: URL(string: imageUrl))
+                self.profileImage.sd_setImage(with: URL(string: imageUrl))
+                self.myProfileBg.sd_setImage(with: URL(string: imageUrl))
             }
             
             self.self.userNameLabel.text = self.chatUser?.email
@@ -68,7 +77,36 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     override func viewWillAppear(_ animated: Bool) {
         
         checkSignIn()
+        
+        setupButtons()
+       
     }
+    
+    
+    
+    func setupButtons() {
+        
+        
+        likeBtn.imageEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 10, right: 10)
+        watchlistBtn.imageEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 10, right: 10)
+        DispatchQueue.main.async {
+            if let safeLike = FinalDataModel.userLikes?.count {
+                
+                self.likeBtn.setTitle("\(safeLike)", for: .normal)
+            }
+            if let safeWatchlist = FinalDataModel.fetchWatchList?.count {
+                
+                self.watchlistBtn.setTitle("\(safeWatchlist)", for: .normal)
+            }
+        }
+       
+        
+       
+        
+        
+    }
+    
+    
     //MARK: - Setup CollectionView
     
     func setupCollectionView() {
@@ -113,11 +151,13 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             print("chat user singleton data is \(self.chatUser)")
             
             guard let imageURL = self.chatUser?.profileImageUrl else {return}
-            guard let userName = self.chatUser?.email else {return}
+            let userName = self.chatUser?.email.components(separatedBy: "@").first ?? "loading..."
             
             DispatchQueue.main.async {
+                
                 self.userNameLabel.text = userName
                 self.profileImage.sd_setImage(with: URL(string: imageURL))
+                self.myProfileBg.sd_setImage(with: URL(string: imageURL))
             }
         }
     }
@@ -159,6 +199,12 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             case .success(let userData):
                 FinalDataModel.fetchWatchList = userData
                 DispatchQueue.main.async {
+                    
+                   
+                        
+                    self.likeBtn.setTitle("\(userData.count)", for: .normal)
+                    
+                    
                     self.listCollectionView.reloadData()
                 }
                 for users in userData {
@@ -194,6 +240,8 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             case .success(let userData):
                 FinalDataModel.userLikes = userData
                 DispatchQueue.main.async {
+                    
+                    self.watchlistBtn.setTitle("\(userData.count)", for: .normal)
                     self.listCollectionView.reloadData()
                 }
                 for users in userData {
@@ -310,6 +358,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             
         case 2:
             selectedOption = 2
+            
             print("Recommended selected")
             
         default:
@@ -346,9 +395,6 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
 
     }
 
-    @IBAction func segmentTaps(_ sender: Any) {
-//        segmentTabsSelection.changeUnderlinePosition()
-    }
     
     /*
     // MARK: - Navigation
@@ -382,6 +428,18 @@ extension ProfileViewController: UIImagePickerControllerDelegate {
         actionSheet.addAction(UIAlertAction(title: "Choose Photo", style: .default, handler: { [weak self] _ in
             
             self?.presentPhotoPicker()
+            
+        }))
+        
+        
+        actionSheet.addAction(UIAlertAction(title: "Sign Out", style: .destructive, handler: { [weak self] _ in
+            
+            
+            try? FirebaseManager.shared.auth.signOut()
+            NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil)
+           let controller = LoginVC()
+            self?.navigationController?.pushViewController(controller, animated: true)
+           
             
         }))
         
@@ -511,6 +569,9 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             
         case 1:
            return FinalDataModel.userLikes?.count ?? 0
+            
+        case 2:
+            return recommendCount.count ?? 0
             
         default:
            return 1

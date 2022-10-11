@@ -207,25 +207,10 @@ struct MainMessagesView: View {
             }
 
             Spacer()
-            Button {
-                shouldShowLogOutOptions.toggle()
-            } label: {
-                Image(systemName: "gear")
-                    .font(.system(size: 24, weight: .bold))
-                    .foregroundColor(Color(.darkGray))
-            }
+         
         }
         .padding()
-        .actionSheet(isPresented: $shouldShowLogOutOptions) {
-            .init(title: Text("Settings"), message: Text("What do you want to do?"), buttons: [
-                .destructive(Text("Sign Out"), action: {
-                    print("handle sign out")
-                    vm.handleSignOut()
-                    
-                }),
-                    .cancel()
-            ])
-        }
+     
        
         
         .fullScreenCover(isPresented:

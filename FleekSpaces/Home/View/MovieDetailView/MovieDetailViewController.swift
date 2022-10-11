@@ -15,6 +15,7 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
     let sec0 = "sec0ID"
 
     var watchlisted = false
+    var liked = false
     var numberOfLikes = 0
     var numberOfDislikes = 0
     let defaults = UserDefaults.standard
@@ -470,6 +471,8 @@ extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, wat
             }
             
             
+            
+            
         }
         
         
@@ -484,14 +487,21 @@ extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, wat
             loginPrompt()
         } else if FirebaseManager.shared.auth.currentUser != nil {
             
-            addLikes()
+            if self.liked == false {
+                
+                addLikes()
+                
+                //the pormpt should come here
+                cell.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+                
+                cell.dislikeBtn.setImage(UIImage(systemName: "hand.thumbsdown"), for: .normal)
+                
+                cell.likeBtn.tintColor = .systemTeal
+                
+                basicPrompt()
+            }
             
-            //the pormpt should come here
-            cell.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
-            
-            cell.dislikeBtn.setImage(UIImage(systemName: "hand.thumbsdown"), for: .normal)
-            
-            cell.likeBtn.tintColor = .systemTeal
+          
           
            
                 
@@ -506,7 +516,7 @@ extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, wat
             //TODO: - Add like network call here
 //            addLike()
             
-            basicPrompt()
+          
        
             
         }
@@ -721,16 +731,17 @@ extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, wat
             case .success(let likeStatus):
                 print("Number of likes are \(likeStatus.totalLikes) and dislikes are \(likeStatus.totalDislikes)")
                 
-                if let safeLikes = likeStatus.totalLikes {
-                    
-                   
-                    DispatchQueue.main.async {
-                        self.numberOfLikes = safeLikes
-                        self.movieDetailCollectionView.reloadData()
-                    }
-                  
-                    
+                guard let safeLikes = likeStatus.totalLikes else { return }
+                guard let safeLikeValue = likeStatus.like else {
+                    return}
+                
+                DispatchQueue.main.async {
+                    self.liked = safeLikeValue
+                    print("this is self like \(self.liked) and this is safelike \(safeLikeValue)")
+                    self.numberOfLikes = safeLikes
+                    self.movieDetailCollectionView.reloadData()
                 }
+              
                 
                 
             case .failure(let err):

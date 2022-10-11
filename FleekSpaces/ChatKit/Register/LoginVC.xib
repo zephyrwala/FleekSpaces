@@ -214,8 +214,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAF-Y5-VJt">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="168"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cme-RO-wz8">
-                            <rect key="frame" x="10" y="55" width="91" height="48"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cme-RO-wz8">
+                            <rect key="frame" x="10" y="55" width="204" height="48"/>
                             <color key="tintColor" name="avatarViewBackground"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title=" back"/>
@@ -226,7 +226,7 @@
                     </subviews>
                     <color key="backgroundColor" name="BGColor"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Cme-RO-wz8" secondAttribute="trailing" constant="313" id="Oaj-I8-69N"/>
+                        <constraint firstAttribute="trailing" secondItem="Cme-RO-wz8" secondAttribute="trailing" constant="200" id="Oaj-I8-69N"/>
                         <constraint firstItem="Cme-RO-wz8" firstAttribute="top" secondItem="RAF-Y5-VJt" secondAttribute="top" constant="55" id="VZb-Bx-xQC"/>
                         <constraint firstAttribute="bottom" secondItem="Cme-RO-wz8" secondAttribute="bottom" constant="65" id="ZWl-NU-IZU"/>
                         <constraint firstItem="Cme-RO-wz8" firstAttribute="leading" secondItem="RAF-Y5-VJt" secondAttribute="leading" constant="10" id="uz9-y7-3wX"/>

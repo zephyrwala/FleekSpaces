@@ -235,9 +235,11 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: "Let's Go!", style: .cancel, handler: { alerts in
             
            
-            self.dismiss(animated: true) {
-                NotificationCenter.default.post(name: NSNotification.Name("startSwiftUI"), object: nil)
-            }
+            self.navigationController?.popToRootViewController(animated: true)
+            
+//            self.dismiss(animated: true) {
+//                NotificationCenter.default.post(name: NSNotification.Name("startSwiftUI"), object: nil)
+//            }
         }))
         present(alert, animated: true)
     }
@@ -279,16 +281,17 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         
                       
                         
+                        guard let safeuserName = otpMessage.name else {return}
+                        DispatchQueue.main.async {
+                            self.loginSucessMessage(userName: "\(safeuserName)")
+                           
+                        }
+
                     }
                     print("user is logged in \(FirebaseManager.shared.auth.currentUser?.uid)")
                 }
                
                 
-                guard let safeuserName = otpMessage.name else {return}
-                DispatchQueue.main.async {
-                    self.loginSucessMessage(userName: "\(safeuserName)")
-                   
-                }
             
             case .failure(let errs):
                 print("OTP Failure \(errs) \(yourMessage)")
