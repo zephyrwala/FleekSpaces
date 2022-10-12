@@ -6,11 +6,10 @@
 //
 
 import UIKit
-import IQKeyboardManagerSwift
 import Firebase
 import FirebaseMessaging
 import UserNotifications
-
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
@@ -44,13 +43,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 //        FirebaseApp.configure()
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enable = true
-        IQKeyboardManager.shared.enableDebugging = true
-        IQKeyboardManager.shared.overrideKeyboardAppearance = true
-        IQKeyboardManager.shared.enableAutoToolbar = true
+//        IQKeyboardManager.shared.enableDebugging = true
+//        IQKeyboardManager.shared.overrideKeyboardAppearance = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
+        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(RegisterVC.self)
         IQKeyboardManager.shared.keyboardAppearance = .dark
-        IQKeyboardManager.shared.keyboardDistanceFromTextField = 9.0
-//
-//        IQKeyboardManager.shared.toolb
+//        IQKeyboardManager.shared.keyboardDistanceFromTextField = 9.0
+
 
 //        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatsViewController.self)
 ////

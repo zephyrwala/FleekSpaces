@@ -35,6 +35,8 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
         super.viewDidLoad()
 
         nameTextField.delegate = self
+        emailID.delegate = self
+        numberTextField.delegate = self
         nameTextField.becomeFirstResponder()
         registerBtn.layer.cornerRadius = 12
         setupOTPBorder()
@@ -53,6 +55,23 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nameTextField {
+           textField.resignFirstResponder()
+           emailID.becomeFirstResponder()
+        } else if textField == emailID {
+           textField.resignFirstResponder()
+           numberTextField.becomeFirstResponder()
+        } else if textField == numberTextField {
+            textField.resignFirstResponder()
+        }
+       return true
+      }
     
     
     func setupOTPBorder() {
@@ -174,7 +193,8 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
         
         let alert = UIAlertController(title: "Login Successful 🎉", message: "Welcome to Fleek Spaces \(userName), Bro!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Let's Go!", style: .cancel, handler: { alerts in
-            self.dismiss(animated: true)
+           
+            self.navigationController?.popToRootViewController(animated: true)
         }))
         present(alert, animated: true)
     }

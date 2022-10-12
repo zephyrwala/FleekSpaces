@@ -112,7 +112,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="9420420420" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="F5X-FF-Asc">
-                    <rect key="frame" x="20" y="517" width="374" height="44"/>
+                    <rect key="frame" x="20" y="432" width="374" height="44"/>
                     <color key="backgroundColor" name="BtnDisableColor"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="nmU-5c-4Em"/>
@@ -124,7 +124,7 @@
                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEl-rF-Z3d">
-                    <rect key="frame" x="20" y="486" width="374" height="25"/>
+                    <rect key="frame" x="20" y="401" width="374" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="RQM-Bc-NOd"/>
                     </constraints>
@@ -133,7 +133,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWz-1k-2C9">
-                    <rect key="frame" x="20" y="586" width="374" height="45"/>
+                    <rect key="frame" x="20" y="501" width="374" height="45"/>
                     <color key="backgroundColor" name="BtnGreenColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Sce-VH-oZh"/>
@@ -299,7 +299,10 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jv-Ix-Wh4">
-                    <rect key="frame" x="10" y="55" width="104" height="34.5"/>
+                    <rect key="frame" x="10" y="55" width="120" height="34.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="Jmq-BM-359"/>
+                    </constraints>
                     <color key="tintColor" name="avatarViewBackground"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title=" back"/>
@@ -323,7 +326,6 @@
                 <constraint firstItem="gzN-pv-6iJ" firstAttribute="top" secondItem="w0I-47-iPp" secondAttribute="bottom" constant="6" id="Hgd-rc-H6e"/>
                 <constraint firstItem="qxa-eA-WBa" firstAttribute="top" secondItem="YA9-Pu-X1E" secondAttribute="bottom" constant="10" id="IYm-12-c7t"/>
                 <constraint firstItem="F5X-FF-Asc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Iib-qn-yYk"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1jv-Ix-Wh4" secondAttribute="trailing" constant="300" id="JHr-ke-fbN"/>
                 <constraint firstItem="iEl-rF-Z3d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Jbw-8G-gcz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iEl-rF-Z3d" secondAttribute="trailing" constant="20" id="O4p-bT-Gbc"/>
                 <constraint firstItem="qxa-eA-WBa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Odp-sE-Ajv"/>
@@ -334,7 +336,7 @@
                 <constraint firstItem="1jv-Ix-Wh4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="QVr-4G-88m"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hWz-1k-2C9" secondAttribute="trailing" constant="20" id="RLh-Ts-DZ9"/>
                 <constraint firstItem="hWz-1k-2C9" firstAttribute="top" secondItem="F5X-FF-Asc" secondAttribute="bottom" constant="25" id="Rhr-ze-D22"/>
-                <constraint firstItem="iEl-rF-Z3d" firstAttribute="top" secondItem="gzN-pv-6iJ" secondAttribute="bottom" constant="100" id="WnO-tS-G6m"/>
+                <constraint firstItem="iEl-rF-Z3d" firstAttribute="top" secondItem="gzN-pv-6iJ" secondAttribute="bottom" constant="15" id="WnO-tS-G6m"/>
                 <constraint firstItem="YA9-Pu-X1E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="XDg-6b-OCv"/>
                 <constraint firstItem="F5X-FF-Asc" firstAttribute="top" secondItem="iEl-rF-Z3d" secondAttribute="bottom" constant="6" id="Xqo-Je-fd8"/>
                 <constraint firstItem="w0I-47-iPp" firstAttribute="top" secondItem="ert-PN-iqm" secondAttribute="bottom" constant="40" id="aIg-56-fZi"/>

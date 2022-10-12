@@ -28,7 +28,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     
     
 
-    
+   
     
     @IBOutlet weak var listCollectionView: UICollectionView!
     
@@ -77,7 +77,30 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     override func viewWillAppear(_ animated: Bool) {
         
         checkSignIn()
+        profileImage.makeItGolGol()
+     
+        fetchUserMovieData()
+        fetchUserWatchlistData()
         
+
+        changeProfile.setTitle("", for: .normal)
+//        presentModal()
+//       showSignUp()
+       
+            if let imageUrl = self.chatUser?.profileImageUrl {
+                
+                self.profileImage.sd_setImage(with: URL(string: imageUrl))
+                self.myProfileBg.sd_setImage(with: URL(string: imageUrl))
+            }
+            
+            self.self.userNameLabel.text = self.chatUser?.email
+        
+        print("Output is:")
+        print(chatUser?.email)
+        print(chatUser?.profileImageUrl)
+//        getuserData()
+        
+        setupCollectionView()
         setupButtons()
        
     }
@@ -92,11 +115,11 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
         DispatchQueue.main.async {
             if let safeLike = FinalDataModel.userLikes?.count {
                 
-                self.likeBtn.setTitle("\(safeLike)", for: .normal)
+                self.watchlistBtn.setTitle("\(safeLike)+", for: .normal)
             }
             if let safeWatchlist = FinalDataModel.fetchWatchList?.count {
                 
-                self.watchlistBtn.setTitle("\(safeWatchlist)", for: .normal)
+                self.likeBtn.setTitle("\(safeWatchlist)", for: .normal)
             }
         }
        
@@ -202,7 +225,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
                     
                    
                         
-                    self.likeBtn.setTitle("\(userData.count)", for: .normal)
+                    self.watchlistBtn.setTitle("\(userData.count)", for: .normal)
                     
                     
                     self.listCollectionView.reloadData()
@@ -241,7 +264,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
                 FinalDataModel.userLikes = userData
                 DispatchQueue.main.async {
                     
-                    self.watchlistBtn.setTitle("\(userData.count)", for: .normal)
+                    self.likeBtn.setTitle("\(userData.count)", for: .normal)
                     self.listCollectionView.reloadData()
                 }
                 for users in userData {
@@ -349,16 +372,28 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             print("Watchlist selected")
             selectedOption = 0
             fetchUserWatchlistData()
+            DispatchQueue.main.async {
+                self.segmentTabsSelection.selectedSegmentTintColor = .systemOrange
+                self.watchlistBtn.tintColor = .systemYellow
+                self.likeBtn.tintColor = .darkGray
+            }
+           
             
             
         case 1:
             print("Likes selected")
             selectedOption = 1
             fetchUserMovieData()
+            self.watchlistBtn.tintColor = .darkGray
+            self.likeBtn.tintColor = .systemTeal
+            segmentTabsSelection.selectedSegmentTintColor = .systemTeal
             
         case 2:
             selectedOption = 2
-            
+            emptyData()
+            self.watchlistBtn.tintColor = .darkGray
+            self.likeBtn.tintColor = .darkGray
+            segmentTabsSelection.selectedSegmentTintColor = .darkGray
             print("Recommended selected")
             
         default:
@@ -374,6 +409,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
 //        present(loginState, animated: true)
 //        presentModal()
     }
+    
     
     private func presentModal() {
         let detailViewController = SignInViewController()
@@ -395,6 +431,18 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
 
     }
 
+    func emptyData() {
+        
+      
+        DispatchQueue.main.async {
+                        FinalDataModel.userLikes?.removeAll()
+                        self.listCollectionView.reloadData()
+        }
+       
+              
+        
+        
+    }
     
     /*
     // MARK: - Navigation
@@ -623,12 +671,25 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             
             return cell
             
+        case 2:
+            if let posterURL = FinalDataModel.userLikes?[indexPath.item].postersURL {
+                
+                let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(posterURL)")
+                cell.posterImage.layer.cornerRadius = 6
+                cell.posterImage.sd_setImage(with: newURL)
+                
+                
+            }
+            
+            return cell
+            
+            
             
         default:
             
             if let posterURL = FinalDataModel.userLikes?[indexPath.item].postersURL {
                 
-                let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(posterURL)")
+                let newURL = URL(string: "https://image.tmdb.orgg/t/p/w500/\(posterURL)")
                 cell.posterImage.layer.cornerRadius = 6
                 cell.posterImage.sd_setImage(with: newURL)
                 

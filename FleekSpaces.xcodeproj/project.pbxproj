@@ -155,9 +155,11 @@
 		69643BFF2872B437007128C0 /* LiveChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69643BFE2872B437007128C0 /* LiveChatViewController.swift */; };
 		69643C022872BDD8007128C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69643C012872BDD8007128C0 /* ContentView.swift */; };
 		69643C102872D4D5007128C0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69643C0F2872D4D5007128C0 /* LoginView.swift */; };
+		69691DAB28F5696400CE8B36 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 69691DAA28F5696400CE8B36 /* IQKeyboardManagerSwift */; };
+		69691DAE28F56AF400CE8B36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69691DAC28F56AF400CE8B36 /* RegisterViewController.swift */; };
+		69691DAF28F56AF400CE8B36 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69691DAD28F56AF400CE8B36 /* RegisterViewController.xib */; };
 		69C4996E28698012000F4394 /* EmailSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C4996C28698012000F4394 /* EmailSignInViewController.swift */; };
 		69C4996F28698012000F4394 /* EmailSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69C4996D28698012000F4394 /* EmailSignInViewController.xib */; };
-		69C4997428699410000F4394 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 69C4997328699410000F4394 /* IQKeyboardManagerSwift */; };
 		69C499782869BDB4000F4394 /* LoginEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C499762869BDB4000F4394 /* LoginEmailViewController.swift */; };
 		69C499792869BDB4000F4394 /* LoginEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69C499772869BDB4000F4394 /* LoginEmailViewController.xib */; };
 /* End PBXBuildFile section */
@@ -334,6 +336,8 @@
 		69643BFE2872B437007128C0 /* LiveChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveChatViewController.swift; sourceTree = "<group>"; };
 		69643C012872BDD8007128C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		69643C0F2872D4D5007128C0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		69691DAC28F56AF400CE8B36 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		69691DAD28F56AF400CE8B36 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		69C4996C28698012000F4394 /* EmailSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInViewController.swift; sourceTree = "<group>"; };
 		69C4996D28698012000F4394 /* EmailSignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmailSignInViewController.xib; sourceTree = "<group>"; };
 		69C499762869BDB4000F4394 /* LoginEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailViewController.swift; sourceTree = "<group>"; };
@@ -347,11 +351,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69691DAB28F5696400CE8B36 /* IQKeyboardManagerSwift in Frameworks */,
 				694393BB2874694E00CEC3C4 /* SDWebImageSwiftUI in Frameworks */,
 				693357E12895619000C49506 /* YouTubeiOSPlayerHelper in Frameworks */,
 				693946AA2847842200FE7574 /* SDWebImage in Frameworks */,
 				692600BB284DE5DB00B6D801 /* CheckmarkCollectionViewCell in Frameworks */,
-				69C4997428699410000F4394 /* IQKeyboardManagerSwift in Frameworks */,
 				05BAF937230305A929A057A5 /* Pods_FleekSpaces.framework in Frameworks */,
 				690182F7286C72BD00DF046E /* JGProgressHUD in Frameworks */,
 			);
@@ -408,6 +412,8 @@
 				6924001A28AF99B000DFB033 /* LoginVC.xib */,
 				6924001D28AFB6F100DFB033 /* RegisterVC.swift */,
 				6924001E28AFB6F200DFB033 /* RegisterVC.xib */,
+				69691DAC28F56AF400CE8B36 /* RegisterViewController.swift */,
+				69691DAD28F56AF400CE8B36 /* RegisterViewController.xib */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -1079,10 +1085,10 @@
 			packageProductDependencies = (
 				693946A92847842200FE7574 /* SDWebImage */,
 				692600BA284DE5DB00B6D801 /* CheckmarkCollectionViewCell */,
-				69C4997328699410000F4394 /* IQKeyboardManagerSwift */,
 				690182F6286C72BD00DF046E /* JGProgressHUD */,
 				694393BA2874694E00CEC3C4 /* SDWebImageSwiftUI */,
 				693357E02895619000C49506 /* YouTubeiOSPlayerHelper */,
+				69691DAA28F5696400CE8B36 /* IQKeyboardManagerSwift */,
 			);
 			productName = FleekSpaces;
 			productReference = 69394665284628D100FE7574 /* FleekSpaces.app */;
@@ -1135,10 +1141,10 @@
 			packageReferences = (
 				693946A82847842200FE7574 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				692600B9284DE5DB00B6D801 /* XCRemoteSwiftPackageReference "CheckmarkCollectionViewCell" */,
-				69C4997228699410000F4394 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				690182F5286C72BC00DF046E /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				694393B92874694D00CEC3C4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				693357DF2895618F00C49506 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
+				69691DA928F5696400CE8B36 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 69394666284628D100FE7574 /* Products */;
 			projectDirPath = "";
@@ -1177,6 +1183,7 @@
 				6939469C284757BB00FE7574 /* Section2CRV.xib in Resources */,
 				695EBBE92861B2F800557D69 /* SeasonCell.xib in Resources */,
 				6930D56228570A270080528D /* SearchViewController.xib in Resources */,
+				69691DAF28F56AF400CE8B36 /* RegisterViewController.xib in Resources */,
 				693946C12848C42C00FE7574 /* SelectedSubCollectionViewCell.xib in Resources */,
 				6930D55D285700B70080528D /* MoreLikeThisCRV.xib in Resources */,
 				6930D547285319F30080528D /* MoviePlayCollectionViewCell.xib in Resources */,
@@ -1290,6 +1297,7 @@
 				695EBBFF2864502200557D69 /* SignInViewController.swift in Sources */,
 				692600B7284DE24500B6D801 /* AddSubCollectionViewCell.swift in Sources */,
 				695EBBF12862DF3B00557D69 /* DetailEpisodeViewController.swift in Sources */,
+				69691DAE28F56AF400CE8B36 /* RegisterViewController.swift in Sources */,
 				6938499D2881B31300EC5C61 /* BooksHeaderCRV.swift in Sources */,
 				693849AC28829D0300EC5C61 /* BookPreviewUIViewViewController.swift in Sources */,
 				69643C022872BDD8007128C0 /* ContentView.swift in Sources */,
@@ -1521,7 +1529,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;
@@ -1558,7 +1566,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;
@@ -1712,7 +1720,7 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		69C4997228699410000F4394 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+		69691DA928F5696400CE8B36 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
 			requirement = {
@@ -1748,9 +1756,9 @@
 			package = 694393B92874694D00CEC3C4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
 		};
-		69C4997328699410000F4394 /* IQKeyboardManagerSwift */ = {
+		69691DAA28F5696400CE8B36 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 69C4997228699410000F4394 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			package = 69691DA928F5696400CE8B36 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

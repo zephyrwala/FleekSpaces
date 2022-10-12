@@ -8,7 +8,7 @@
 import UIKit
 import JGProgressHUD
 import SwiftUI
-import IQKeyboardManagerSwift
+//import IQKeyboardManagerSwift
 
 struct Conversation {
     
@@ -77,7 +77,7 @@ class ChatViewController: UIViewController {
 
         
         
-        IQKeyboardManager.shared.enable = false
+//        IQKeyboardManager.shared.enable = false
        
         overrideUserInterfaceStyle = .dark
 //        chatView.addSubview(tableView)
@@ -140,7 +140,7 @@ class ChatViewController: UIViewController {
         
         
         
-        IQKeyboardManager.shared.enable = false
+//        IQKeyboardManager.shared.enable = false
        
         overrideUserInterfaceStyle = .dark
 //        chatView.addSubview(tableView)
