@@ -16,6 +16,8 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
 
     var watchlisted = false
     var liked = false
+    var disliked = false
+    
     var numberOfLikes = 0
     var numberOfDislikes = 0
     let defaults = UserDefaults.standard
@@ -59,7 +61,7 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
 
     //MARK: - Add Likes Function
     
-    func addLikes() {
+    func addLikes(like: String, dislike: String) {
         
         
        
@@ -72,9 +74,9 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
         
         guard let posterUrl = FinalDataModel.movieDetails?.posterURL else {return}
         
-        let like = "1"
-        let dislike = "0"
-        
+//        let like = "1"
+//        let dislike = "0"
+//
     
 //        print("This is our URL \(url)")
      
@@ -449,7 +451,24 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
 
 //MARK: -  Data Source
 
-extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, watchListTap {
+extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, watchListTap, dislikeBtnTap {
+    
+    func didTapdisikeButtonTv(_ cell: MovieInfoCollectionViewCell) {
+       
+            
+       
+        
+        
+        cell.likeBtn.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+        
+        cell.dislikeBtn.setImage(UIImage(systemName: "hand.thumbsdown.fill"), for: .normal)
+        
+        cell.dislikeBtn.tintColor = .systemPink
+          
+        addLikes(like: "0", dislike: "1")
+          print("Dislike tapp")
+        
+    }
     
     //watchlist
     func didTapWatchlistButton(_ cell: MovieInfoCollectionViewCell) {
@@ -465,7 +484,7 @@ extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, wat
                 //movie prompt comes here
                 
                 watchlistPrompt()
-                cell.watchBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
+                cell.watchBtn.setImage(UIImage(systemName: "video.fill.badge.checkmark"), for: .normal)
                 cell.watchBtn.tintColor = .systemYellow
                 
             }
@@ -487,19 +506,20 @@ extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, wat
             loginPrompt()
         } else if FirebaseManager.shared.auth.currentUser != nil {
             
-            if self.liked == false {
+           
                 
-                addLikes()
+                addLikes(like: "1", dislike: "0")
                 
                 //the pormpt should come here
                 cell.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+                
+             
                 
                 cell.dislikeBtn.setImage(UIImage(systemName: "hand.thumbsdown"), for: .normal)
                 
                 cell.likeBtn.tintColor = .systemTeal
                 
-                basicPrompt()
-            }
+//                basicPrompt()
             
           
           
@@ -734,9 +754,11 @@ extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, wat
                 guard let safeLikes = likeStatus.totalLikes else { return }
                 guard let safeLikeValue = likeStatus.like else {
                     return}
+                guard let safeDislikeValue = likeStatus.dislike else {return}
                 
                 DispatchQueue.main.async {
                     self.liked = safeLikeValue
+                    self.disliked = safeDislikeValue
                     print("this is self like \(self.liked) and this is safelike \(safeLikeValue)")
                     self.numberOfLikes = safeLikes
                     self.movieDetailCollectionView.reloadData()
@@ -933,6 +955,7 @@ extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, wat
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieInfo", for: indexPath) as! MovieInfoCollectionViewCell
            
             cell.likeBtnDelegate = self
+            cell.dislikeBtnDelegate = self
             cell.watchlistBtnDelegate = self
             if let movieData = FinalDataModel.movieDetails {
                 print("movie data is here")
@@ -940,15 +963,27 @@ extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, wat
                 
                 if self.watchlisted == true {
                     
-                    cell.watchBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
+                    cell.watchBtn.setImage(UIImage(systemName: "video.fill.badge.checkmark"), for: .normal)
                     cell.watchBtn.tintColor = .systemYellow
                     
                 }
                 
-                if numberOfLikes != 0 {
+                
+                if self.liked == true {
                     
-                    cell.likeBtn.setTitle("\(numberOfLikes)", for: .normal)
+                    //the pormpt should come here
+                    cell.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+                } else if self.disliked == true {
+                    
+                    cell.dislikeBtn.setImage(UIImage(systemName: "hand.thumbsdown.fill"), for: .normal)
                 }
+                
+                
+                
+//                if numberOfLikes != 0 {
+//                    
+//                    cell.likeBtn.setTitle("\(numberOfLikes)", for: .normal)
+//                }
               
                
             }

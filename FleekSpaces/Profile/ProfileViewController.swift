@@ -76,7 +76,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     
     override func viewWillAppear(_ animated: Bool) {
         
-        checkSignIn()
+        checkSignInViewAppear()
         profileImage.makeItGolGol()
      
         fetchUserMovieData()
@@ -373,6 +373,9 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             selectedOption = 0
             fetchUserWatchlistData()
             DispatchQueue.main.async {
+                self.watchlistBtn.setImage(UIImage(systemName: "video.fill.badge.checkmark"), for: .normal)
+                self.likeBtn.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+                self.recommendBtn.setImage(UIImage(systemName: "person.badge.plus"), for: .normal)
                 self.segmentTabsSelection.selectedSegmentTintColor = .systemOrange
                 self.watchlistBtn.tintColor = .systemYellow
                 self.likeBtn.tintColor = .darkGray
@@ -384,6 +387,10 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             print("Likes selected")
             selectedOption = 1
             fetchUserMovieData()
+            self.watchlistBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
+            //hand.thumbsup.fill
+            self.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+            self.recommendBtn.setImage(UIImage(systemName: "person.badge.plus"), for: .normal)
             self.watchlistBtn.tintColor = .darkGray
             self.likeBtn.tintColor = .systemTeal
             segmentTabsSelection.selectedSegmentTintColor = .systemTeal
@@ -391,6 +398,11 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
         case 2:
             selectedOption = 2
             emptyData()
+            self.watchlistBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
+            self.likeBtn.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+            self.recommendBtn.setImage(UIImage(systemName: "person.fill.badge.plus"), for: .normal)
+            //person.fill.badge.plus
+            
             self.watchlistBtn.tintColor = .darkGray
             self.likeBtn.tintColor = .darkGray
             segmentTabsSelection.selectedSegmentTintColor = .darkGray
@@ -484,7 +496,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate {
             
             
             try? FirebaseManager.shared.auth.signOut()
-            NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil)
+//            NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil)
            let controller = LoginVC()
             self?.navigationController?.pushViewController(controller, animated: true)
            
@@ -503,6 +515,18 @@ extension ProfileViewController: UIImagePickerControllerDelegate {
            loginPrompt()
         } else {
             self.displayUIAlert(yourMessage: "Welcome back bro!")
+            fetchCurrentUser()
+        }
+    }
+    
+    
+    //MARK: - Sign In Check will appear
+    func checkSignInViewAppear() {
+        
+        if  FirebaseManager.shared.auth.currentUser == nil {
+           loginPrompt()
+        } else {
+            
             fetchCurrentUser()
         }
     }

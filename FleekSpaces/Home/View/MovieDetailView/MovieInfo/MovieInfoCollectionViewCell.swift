@@ -9,6 +9,7 @@ import UIKit
 import YouTubeiOSPlayerHelper
 import JGProgressHUD
 
+
 //MARK: - Button Tap Protocols
 
 protocol episodeBtnTap: class {
@@ -42,7 +43,7 @@ protocol watchListTap: class {
 
 
 class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
-
+   
     var liked = true
     @IBOutlet weak var watchBtn: UIButton!
     @IBOutlet weak var dislikeBtn: UIButton!

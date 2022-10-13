@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 //        IQKeyboardManager.shared.keyboardDistanceFromTextField = 9.0
 
 
-//        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatsViewController.self)
+        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatsViewController.self)
 ////
 //        IQKeyboardManager.shared.disabledToolbarClasses.append(ChatsViewController.self)
         IQKeyboardManager.shared.toolbarTintColor = UIColor(named: "BtnGreenColor")

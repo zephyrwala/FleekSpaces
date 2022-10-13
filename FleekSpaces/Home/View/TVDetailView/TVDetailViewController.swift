@@ -11,6 +11,8 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
    
     
     
+    var liked = false
+    var disliked = false
     var watchlisted = false
     var tvShowDetail: TVshowDetail?
     let defaults = UserDefaults.standard
@@ -375,6 +377,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
         
         cell.dislikeBtn.tintColor = .systemPink
           
+        addLikes(like: "0", dislike: "1")
           print("Dislike tapp")
         
     }
@@ -393,7 +396,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
                 
                 watchlistPrompt()
                 
-                cell.watchBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
+                cell.watchBtn.setImage(UIImage(systemName: "video.fill.badge.checkmark"), for: .normal)
                 cell.watchBtn.tintColor = .systemYellow
                 
                 addWatchlist()
@@ -447,7 +450,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
         } else if FirebaseManager.shared.auth.currentUser != nil {
             
             
-            addLikes()
+            addLikes(like: "1", dislike: "0")
             cell.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
             
             cell.dislikeBtn.setImage(UIImage(systemName: "hand.thumbsdown"), for: .normal)
@@ -466,7 +469,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
             //TODO: - Add like network call here
 //            addLike()
             
-            basicPrompt()
+//            basicPrompt()
        
             
         }
@@ -508,7 +511,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
     
     //MARK: - Add Likes Function
     
-    func addLikes() {
+    func addLikes(like: String, dislike: String) {
         
         
        
@@ -521,8 +524,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
         
         guard let posterUrl = FinalDataModel.showDetails?.posterURL else {return}
         
-        let like = "1"
-        let dislike = "0"
+
         
     
 //        print("This is our URL \(url)")
@@ -762,10 +764,17 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
             case .success(let likeStatus):
                 print("Number of likes are \(likeStatus.totalLikes) and dislikes are \(likeStatus.totalDislikes)")
                 
+                
+                
                 if let safeLikes = likeStatus.totalLikes {
                     
+                    guard let safeLikeValue = likeStatus.like else {
+                        return}
+                    guard let safeDislikeValue = likeStatus.dislike else {return}
                    
                     DispatchQueue.main.async {
+                        self.disliked = safeDislikeValue
+                        self.liked = safeLikeValue
                         self.numberOfLikes = safeLikes
                         self.tvCollectionView.reloadData()
                     }
@@ -953,18 +962,27 @@ extension TVDetailViewController: UICollectionViewDataSource {
             cell.dislikeBtnDelegate = self
             cell.watchlistBtnDelegate = self
             
-            if numberOfLikes != 0 {
-                
-                cell.likeBtn.setTitle("\(numberOfLikes)", for: .normal)
-               
-                
-            }
+//            if numberOfLikes != 0 {
+//
+//                cell.likeBtn.setTitle("\(numberOfLikes)", for: .normal)
+//
+//
+//            }
             
           
+            if self.liked == true {
+                
+                //the pormpt should come here
+                cell.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+            } else if self.disliked == true {
+                
+                cell.dislikeBtn.setImage(UIImage(systemName: "hand.thumbsdown.fill"), for: .normal)
+            }
+            
         
             if self.watchlisted == true {
                 
-                cell.watchBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
+                cell.watchBtn.setImage(UIImage(systemName: "video.fill.badge.checkmark"), for: .normal)
                 cell.watchBtn.tintColor = .systemYellow
                 
             }
