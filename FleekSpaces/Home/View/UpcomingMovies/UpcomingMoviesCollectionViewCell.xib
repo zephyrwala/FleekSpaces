@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="upcomginMov" id="gTV-IL-0wX" customClass="UpcomingMoviesCollectionViewCell" customModule="FleekSpaces" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="155" height="250"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="155" height="250"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0K-eu-PZ2">
+                        <rect key="frame" x="0.0" y="0.0" width="155" height="250"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AD9-Ks-vMO">
+                                <rect key="frame" x="6" y="226" width="143" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <color key="textColor" name="CoinMessageColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gJJ-aq-2gK">
+                                <rect key="frame" x="0.0" y="0.0" width="155" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="Sxd-ec-FqG"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="AD9-Ks-vMO" firstAttribute="leading" secondItem="C0K-eu-PZ2" secondAttribute="leading" constant="6" id="Os4-il-IGx"/>
+                            <constraint firstItem="gJJ-aq-2gK" firstAttribute="top" secondItem="C0K-eu-PZ2" secondAttribute="top" id="Qj9-QR-2hW"/>
+                            <constraint firstItem="gJJ-aq-2gK" firstAttribute="leading" secondItem="C0K-eu-PZ2" secondAttribute="leading" id="Xv9-s1-HA0"/>
+                            <constraint firstAttribute="bottom" secondItem="AD9-Ks-vMO" secondAttribute="bottom" constant="6" id="bxG-Qn-33O"/>
+                            <constraint firstAttribute="trailing" secondItem="gJJ-aq-2gK" secondAttribute="trailing" id="hgR-cD-g6e"/>
+                            <constraint firstAttribute="trailing" secondItem="AD9-Ks-vMO" secondAttribute="trailing" constant="6" id="qIj-Kf-zQB"/>
+                            <constraint firstItem="AD9-Ks-vMO" firstAttribute="top" secondItem="gJJ-aq-2gK" secondAttribute="bottom" constant="6" id="qW8-bE-Yee"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="C0K-eu-PZ2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Y3K-OT-X18"/>
+                <constraint firstAttribute="trailing" secondItem="C0K-eu-PZ2" secondAttribute="trailing" id="u4i-Pc-7Ic"/>
+                <constraint firstItem="C0K-eu-PZ2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="u7B-kc-Vsa"/>
+                <constraint firstAttribute="bottom" secondItem="C0K-eu-PZ2" secondAttribute="bottom" id="zyj-hx-ANN"/>
+            </constraints>
+            <size key="customSize" width="155" height="250"/>
+            <connections>
+                <outlet property="posterImage" destination="gJJ-aq-2gK" id="RQf-5O-ASY"/>
+                <outlet property="releaseDate" destination="AD9-Ks-vMO" id="Fmu-ZW-gZf"/>
+            </connections>
+            <point key="canvasLocation" x="54.615384615384613" y="71.090047393364927"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="CoinMessageColor">
+            <color red="0.85900002717971802" green="0.91399997472763062" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -49,6 +49,43 @@ class FinalDataModel: NSObject {
     static var fetchWatchList: [FetchWatchList]?
     
     static var checForkWatchlisted: WatchlistedData?
+    
+    static var upcomingMovies: UpcomingMovie?
+}
+
+
+
+// MARK: - UpcomingMovie
+class UpcomingMovie: Codable {
+    let region: String?
+    let movies: [Movie]?
+
+    init(region: String?, movies: [Movie]?) {
+        self.region = region
+        self.movies = movies
+    }
+}
+
+// MARK: - Movie
+class Movie: Codable {
+    let id: Int?
+    let backdropPath, title, posterPath, releaseDate: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case backdropPath = "backdrop_path"
+        case title
+        case posterPath = "poster_path"
+        case releaseDate = "release_date"
+    }
+
+    init(id: Int?, backdropPath: String?, title: String?, posterPath: String?, releaseDate: String?) {
+        self.id = id
+        self.backdropPath = backdropPath
+        self.title = title
+        self.posterPath = posterPath
+        self.releaseDate = releaseDate
+    }
 }
 
 

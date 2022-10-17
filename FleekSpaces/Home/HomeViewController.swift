@@ -189,6 +189,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         homeCollectionViews.register(UINib(nibName: "Section3CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "sec3")
         homeCollectionViews.register(UINib(nibName: "TrendingWorldCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "trendCell")
         homeCollectionViews.register(UINib(nibName: "BookCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "books")
+        homeCollectionViews.register(UINib(nibName: "UpcomingMoviesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "upcomingMov")
         
         //register the header
         homeCollectionViews.register(UINib(nibName: "Section1HeaderCRV", bundle: nil), forSupplementaryViewOfKind: self.sec1, withReuseIdentifier: "sec1Header")
@@ -386,6 +387,51 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         }
         
     }
+    
+    
+    //MARK: - Fetch upcoming movies
+    
+    func fetchUpcomingMovies() {
+        
+        
+        let network = NetworkURL()
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_upcoming_movies_theatres")
+        
+        network.theBestNetworkCall(UpcomingMovie.self, url: url) { myResult, yourMessage in
+            
+            DispatchQueue.main.async {
+                switch myResult {
+                    
+                case .success(let movieData):
+                    print("Movie is here \(movieData)")
+                    FinalDataModel.upcomingMovies = movieData
+                    self.homeCollectionViews.reloadData()
+    //                self.displayUIAlert(yourMessage: "Movie data \(movieData)")
+                    
+                    if let movieSequence = movieData.movies {
+                        
+                        for eachMovie in movieSequence {
+                            
+                            print("This is the movie name \(eachMovie.title)")
+                        }
+                        
+                        
+                    }
+                    
+                case .failure(let err):
+                    print("Failure in TV show fetch")
+    //                self.displayUIAlert(yourMessage: "Error \(err)")
+                    
+                }
+            }
+      
+            
+        }
+        
+        
+    }
+    
+    
     
     //MARK: - Worldwide Trending
     
