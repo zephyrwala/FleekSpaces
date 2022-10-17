@@ -50,7 +50,7 @@ class FinalDataModel: NSObject {
     
     static var checForkWatchlisted: WatchlistedData?
     
-    static var upcomingMovies: UpcomingMovie?
+    static var upcomingMovies: [UpcomingMovie]?
 }
 
 
@@ -58,16 +58,16 @@ class FinalDataModel: NSObject {
 // MARK: - UpcomingMovie
 class UpcomingMovie: Codable {
     let region: String?
-    let movies: [Movie]?
+    let movies: [Movies]?
 
-    init(region: String?, movies: [Movie]?) {
+    init(region: String?, movies: [Movies]?) {
         self.region = region
         self.movies = movies
     }
 }
 
 // MARK: - Movie
-class Movie: Codable {
+class Movies: Codable {
     let id: Int?
     let backdropPath, title, posterPath, releaseDate: String?
 

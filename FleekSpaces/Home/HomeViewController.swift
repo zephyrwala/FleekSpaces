@@ -65,6 +65,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         fetchOTTmovie(ottName: "Netflix")
         fetchTVshows()
         fetchWorldWideTrending()
+        fetchUpcomingMovies()
         setupBtn()
         setupCollectionView()
         setupSubsCollectionView()
@@ -395,38 +396,54 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         
         
         let network = NetworkURL()
-        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_upcoming_movies_theatres")
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/shows/get_upcoming_movies_theatres") else {return}
         
-        network.theBestNetworkCall(UpcomingMovie.self, url: url) { myResult, yourMessage in
+        network.theBestNetworkCall([UpcomingMovie].self, url: myUrl) { myResult, yourMessage in
             
-            DispatchQueue.main.async {
-                switch myResult {
-                    
-                case .success(let movieData):
-                    print("Movie is here \(movieData)")
-                    FinalDataModel.upcomingMovies = movieData
-                    self.homeCollectionViews.reloadData()
-    //                self.displayUIAlert(yourMessage: "Movie data \(movieData)")
-                    
-                    if let movieSequence = movieData.movies {
-                        
-                        for eachMovie in movieSequence {
-                            
-                            print("This is the movie name \(eachMovie.title)")
-                        }
-                        
-                        
-                    }
-                    
-                case .failure(let err):
-                    print("Failure in TV show fetch")
-    //                self.displayUIAlert(yourMessage: "Error \(err)")
-                    
-                }
+            switch myResult {
+                
+            case .success(let movieData):
+                print("upcoming data is here \(movieData)")
+                FinalDataModel.upcomingMovies = movieData
+                
+                
+            case .failure(let err):
+                print("error upcoming is \(err)")
             }
-      
             
         }
+        
+//        network.theBestNetworkCall([UpcomingMovie].self, url: myUrl) { myResult, yourMessage in
+//
+//            print("Upcoming result \(myResult) \(yourMessage)")
+//            DispatchQueue.main.async {
+//                switch myResult {
+//
+//                case .success(let movieData):
+//                    print("Upcoming Movie is here \(movieData)")
+//                    FinalDataModel.upcomingMovies = movieData
+//                    self.homeCollectionViews.reloadData()
+//    //                self.displayUIAlert(yourMessage: "Movie data \(movieData)")
+//
+//                    if let movieSequence = movieData.movies {
+//
+//                        for eachMovie in movieSequence {
+//
+//                            print("This is the movie name \(eachMovie.title)")
+//                        }
+//
+//
+//                    }
+//
+//                case .failure(let err):
+//                    print("Failure in Upcoming show fetch \(err)")
+//    //                self.displayUIAlert(yourMessage: "Error \(err)")
+//
+//                }
+//            }
+//
+//
+//        }
         
         
     }
@@ -796,7 +813,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 myItem.contentInsets.top = 10
                 
                 //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(220)), subitems: [myItem])
+                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(290)), subitems: [myItem])
                 
                 //section size
                 
@@ -1035,7 +1052,7 @@ extension HomeViewController: UICollectionViewDataSource {
          
             return 1
         case homeCollectionViews:
-            return 3
+            return 4
             
         default:
             return 1
@@ -1190,9 +1207,20 @@ extension HomeViewController: UICollectionViewDataSource {
         
             
             case 3:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "books", for: indexPath) as! BookCollectionViewCell
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "upcomingMov", for: indexPath) as! UpcomingMoviesCollectionViewCell
                 
-                cell.setupCell(fromData: myLogos[indexPath.item])
+                
+                if let upcomingData = FinalDataModel.upcomingMovies {
+                    
+                    if let mydata = upcomingData[0].movies?[indexPath.item] {
+                        
+                        cell.setupCell(fromData: mydata)
+                    }
+                    
+                   
+                }
+                
+               
                 
                 return cell
                 

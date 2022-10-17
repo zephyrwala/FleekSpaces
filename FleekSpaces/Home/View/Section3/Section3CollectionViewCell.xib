@@ -20,6 +20,13 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="99S-yo-X3Z">
                         <rect key="frame" x="0.0" y="0.0" width="155" height="220"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="AW8-FG-N73">
+                                <rect key="frame" x="62.5" y="95" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="MnP-GT-dMp"/>
+                                    <constraint firstAttribute="width" constant="30" id="PhI-6w-C5L"/>
+                                </constraints>
+                            </activityIndicatorView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="show 3" translatesAutoresizingMaskIntoConstraints="NO" id="QdH-DO-Dz3">
                                 <rect key="frame" x="0.0" y="0.0" width="155" height="220"/>
                             </imageView>
@@ -28,6 +35,8 @@
                             <constraint firstItem="QdH-DO-Dz3" firstAttribute="leading" secondItem="99S-yo-X3Z" secondAttribute="leading" id="98V-gk-tNQ"/>
                             <constraint firstAttribute="trailing" secondItem="QdH-DO-Dz3" secondAttribute="trailing" id="H5a-An-Sm2"/>
                             <constraint firstItem="QdH-DO-Dz3" firstAttribute="top" secondItem="99S-yo-X3Z" secondAttribute="top" id="c14-47-OWo"/>
+                            <constraint firstItem="AW8-FG-N73" firstAttribute="centerY" secondItem="99S-yo-X3Z" secondAttribute="centerY" id="dkB-gv-BQ1"/>
+                            <constraint firstItem="AW8-FG-N73" firstAttribute="centerX" secondItem="99S-yo-X3Z" secondAttribute="centerX" id="hsf-5a-p9C"/>
                             <constraint firstAttribute="bottom" secondItem="QdH-DO-Dz3" secondAttribute="bottom" id="qY3-42-K7j"/>
                         </constraints>
                     </view>

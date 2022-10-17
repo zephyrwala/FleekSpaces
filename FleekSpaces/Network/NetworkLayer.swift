@@ -30,7 +30,8 @@ class NetworkURL {
             
             //decoder
             print("Messagers")
-//            print(String(data: myData!, encoding: .utf8))
+            print("\(myData) datadata")
+            print(String(data: myData!, encoding: .utf8))
             let decoder = JSONDecoder()
             //TODO: - safe data for no data fix
             guard let safeData = myData else {return}
