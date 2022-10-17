@@ -47,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 //        IQKeyboardManager.shared.overrideKeyboardAppearance = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(RegisterVC.self)
+        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatViewController.self)
         IQKeyboardManager.shared.keyboardAppearance = .dark
 //        IQKeyboardManager.shared.keyboardDistanceFromTextField = 9.0
 

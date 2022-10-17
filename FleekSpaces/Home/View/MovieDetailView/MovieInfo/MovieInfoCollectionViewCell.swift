@@ -139,12 +139,16 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
        
         self.movieTitle.text = fromData.title
         self.moviePlot.text = fromData.synopsies
-        self.movieLanguage.text = "Language: \(fromData.originalLanguage!)"
+        self.movieLanguage.text = "Language: \(fromData.originalLanguage ?? "-")"
         
         if fromData.images?[1].backdrops?.count == 0 {
-            let backdropURL = fromData.posterURL
-            let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(backdropURL!)")
-            self.movieBackdrop.sd_setImage(with: newURL)
+            if let backdropURL = fromData.posterURL {
+                
+                let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(backdropURL)")
+                self.movieBackdrop.sd_setImage(with: newURL)
+            }
+           
+            
         } else {
             
             if let backdropURL = fromData.images?[1].backdrops?[0].filePath {
@@ -163,8 +167,8 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
         
        
        
-        self.movieRating.text = "\(fromData.tmdbRating!)/10"
-        self.movieReleaseYear.text = "Year: \(fromData.releaseDate!)"
+        self.movieRating.text = "\(fromData.tmdbRating ?? 0)/10"
+        self.movieReleaseYear.text = "Year: \(fromData.releaseDate ?? "-")"
 //        self.movieDirector.text = fromData
         self.genreView.isHidden = true
         self.episodeBtn.isHidden = true

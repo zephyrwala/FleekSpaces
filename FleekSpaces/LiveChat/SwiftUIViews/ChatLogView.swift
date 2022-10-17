@@ -214,7 +214,8 @@ struct ChatLogView: View {
             messagesView
             Text(vm.errorMessage)
         }
-        .navigationTitle(vm.chatUser?.email ?? "")
+//        vm.chatUser?.email.
+            .navigationTitle(vm.chatUser?.email.components(separatedBy: "@").first ?? "loading...")
         .navigationBarTitleDisplayMode(.inline)
         .preferredColorScheme(.dark)
         .accentColor(Color(.init("BtnGreenColor")))

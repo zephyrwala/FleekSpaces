@@ -1001,12 +1001,35 @@ extension HomeViewController: UICollectionViewDataSource {
                 
             case 3:
                 
-                var selectedController = BooksDetailViewController()
-               
-
-                    selectedController.passedData = myLogos[indexPath.item]
-
+                var selectedController = MovieDetailViewController()
                 
+                //pass the movie ID
+                
+                if let upcomingData = FinalDataModel.upcomingMovies {
+                    
+                    if let mydata = upcomingData[0].movies?[indexPath.item] {
+                        if let safeTMDBid = mydata.id {
+                            
+                            selectedController.tmdbID = "\(safeTMDBid)"
+                            selectedController.fetchMovieDetailswithTMDBid(tmdbID: "\(safeTMDBid)")
+                            
+                            print("this is new movieID \(safeTMDBid)")
+                            
+                        }
+                       
+                    }
+                    
+                   
+                }
+                
+                
+             
+                //pass movie data
+//                if let jsonData = MyMovieDataModel.upcoming?.results {
+//
+//                    selectedController.passedData = jsonData[indexPath.item]
+//
+//                }
                     
                 navigationController?.pushViewController(selectedController, animated: true)
                 
