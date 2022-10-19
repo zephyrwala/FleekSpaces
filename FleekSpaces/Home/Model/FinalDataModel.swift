@@ -99,6 +99,7 @@ class UpcomingMovie: Codable {
     }
 }
 
+
 // MARK: - Movie
 class Movies: Codable {
     let id: Int?

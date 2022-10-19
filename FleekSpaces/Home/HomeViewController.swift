@@ -14,7 +14,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
 
     var scrollSize = 0.0
     var isMovieSelected = true
+    var isIndiaSelected = true
     var chatUser: ChatUser?
+    var indiaMovies: [Movies]?
+    var usaMovies: [Movies]?
     
     @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var visualBlurHt: NSLayoutConstraint!
@@ -492,6 +495,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 print("upcoming data is here \(movieData)")
                 FinalDataModel.upcomingMovies = movieData
                 
+                self.indiaMovies = movieData[0].movies
+                self.usaMovies = movieData[1].movies
+                
                 
             case .failure(let err):
                 print("error upcoming is \(err)")
@@ -499,37 +505,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
             
         }
         
-//        network.theBestNetworkCall([UpcomingMovie].self, url: myUrl) { myResult, yourMessage in
-//
-//            print("Upcoming result \(myResult) \(yourMessage)")
-//            DispatchQueue.main.async {
-//                switch myResult {
-//
-//                case .success(let movieData):
-//                    print("Upcoming Movie is here \(movieData)")
-//                    FinalDataModel.upcomingMovies = movieData
-//                    self.homeCollectionViews.reloadData()
-//    //                self.displayUIAlert(yourMessage: "Movie data \(movieData)")
-//
-//                    if let movieSequence = movieData.movies {
-//
-//                        for eachMovie in movieSequence {
-//
-//                            print("This is the movie name \(eachMovie.title)")
-//                        }
-//
-//
-//                    }
-//
-//                case .failure(let err):
-//                    print("Failure in Upcoming show fetch \(err)")
-//    //                self.displayUIAlert(yourMessage: "Error \(err)")
-//
-//                }
-//            }
-//
-//
-//        }
         
         
     }
@@ -1091,22 +1066,48 @@ extension HomeViewController: UICollectionViewDataSource {
                 
                 //pass the movie ID
                 
-                if let upcomingData = FinalDataModel.upcomingMovies {
+                if isIndiaSelected == true {
                     
-                    if let mydata = upcomingData[0].movies?[indexPath.item] {
-                        if let safeTMDBid = mydata.id {
-                            
-                            selectedController.tmdbID = "\(safeTMDBid)"
-                            selectedController.fetchMovieDetailswithTMDBid(tmdbID: "\(safeTMDBid)")
-                            
-                            print("this is new movieID \(safeTMDBid)")
-                            
+                    
+                    if let upcomingData = FinalDataModel.upcomingMovies {
+                        
+                        if let mydata = upcomingData[0].movies?[indexPath.item] {
+                            if let safeTMDBid = mydata.id {
+                                
+                                selectedController.tmdbID = "\(safeTMDBid)"
+                                selectedController.fetchMovieDetailswithTMDBid(tmdbID: "\(safeTMDBid)")
+                                
+                                print("this is new movieID \(safeTMDBid)")
+                                
+                            }
+                           
                         }
+                        
                        
                     }
                     
-                   
+                } else {
+                    
+                    
+                    if let upcomingData = FinalDataModel.upcomingMovies {
+                        
+                        if let mydata = upcomingData[1].movies?[indexPath.item] {
+                            if let safeTMDBid = mydata.id {
+                                
+                                selectedController.tmdbID = "\(safeTMDBid)"
+                                selectedController.fetchMovieDetailswithTMDBid(tmdbID: "\(safeTMDBid)")
+                                
+                                print("this is new movieID \(safeTMDBid)")
+                                
+                            }
+                           
+                        }
+                        
+                       
+                    }
+                    
                 }
+          
                 
                 
              
@@ -1318,16 +1319,34 @@ extension HomeViewController: UICollectionViewDataSource {
             case 3:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "upcomingMov", for: indexPath) as! UpcomingMoviesCollectionViewCell
                 
+              
                 
-                if let upcomingData = FinalDataModel.upcomingMovies {
+//                if let upcomingData = FinalDataModel.upcomingMovies {
+//
+//                    if let mydata = upcomingData[0].movies?[indexPath.item] {
+//
+//                        cell.setupCell(fromData: mydata)
+//                    }
+//
+//
+//                }
+                print("Usa movies are \(usaMovies?[0].title)")
+                if isIndiaSelected == true {
                     
-                    if let mydata = upcomingData[0].movies?[indexPath.item] {
-                        
-                        cell.setupCell(fromData: mydata)
+                    if let saveIndiaMovies = indiaMovies?[indexPath.item] {
+                     
+                        cell.setupCell(fromData: saveIndiaMovies)
+                    }
+                } else {
+                    
+                    if let saveIndiaMovies = usaMovies?[indexPath.item] {
+                     
+                        cell.setupCell(fromData: saveIndiaMovies)
                     }
                     
-                   
                 }
+                
+               
                 
                
                 
@@ -1400,6 +1419,8 @@ extension HomeViewController: UICollectionViewDataSource {
             } else if indexPath.section == 3 {
                 
                 let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "booksHead", for: indexPath) as! BooksHeaderCRV
+                
+                header.conutryDelegate = self
                
                
                 return header
@@ -1442,7 +1463,17 @@ extension HomeViewController: seeAllTapped {
     
 }
 
-extension HomeViewController: TVshowTap {
+extension HomeViewController: TVshowTap, CountrySelection {
+    func indiaSelected() {
+        self.isIndiaSelected = true
+        homeCollectionViews.reloadData()
+    }
+    
+    func usaSelected() {
+        self.isIndiaSelected = false
+        homeCollectionViews.reloadData()
+    }
+    
     func movieSelected() {
         //TODO: - Cal movie function here
         self.isMovieSelected = true

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
@@ -25,7 +26,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X4S-RW-pRJ">
-                            <rect key="frame" x="270" y="9" width="85" height="32"/>
+                            <rect key="frame" x="285" y="9" width="85" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="85" id="52I-Sd-Ofr"/>
                             </constraints>
@@ -40,7 +41,7 @@
                             <state key="normal" title="Movies"/>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HXB-bM-iP8">
-                            <rect key="frame" x="356" y="19" width="15" height="12.5"/>
+                            <rect key="frame" x="362" y="19" width="15" height="12.5"/>
                             <color key="tintColor" name="CoinMessageColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="22" id="N1m-ox-ZEn"/>
@@ -52,11 +53,11 @@
                         <constraint firstItem="Qms-uV-WBg" firstAttribute="leading" secondItem="leY-QZ-Pse" secondAttribute="leading" constant="10" id="0MM-0w-97B"/>
                         <constraint firstItem="HXB-bM-iP8" firstAttribute="centerY" secondItem="leY-QZ-Pse" secondAttribute="centerY" id="6tp-gQ-S2N"/>
                         <constraint firstAttribute="trailing" secondItem="Qms-uV-WBg" secondAttribute="trailing" constant="10" id="B8R-4R-wfi"/>
+                        <constraint firstAttribute="trailing" secondItem="HXB-bM-iP8" secondAttribute="trailing" constant="3" id="BVZ-wo-aMD"/>
                         <constraint firstAttribute="bottom" secondItem="X4S-RW-pRJ" secondAttribute="bottom" constant="9" id="Gbb-Ix-iPa"/>
                         <constraint firstItem="X4S-RW-pRJ" firstAttribute="top" secondItem="leY-QZ-Pse" secondAttribute="top" constant="9" id="NLS-cF-Z2W"/>
-                        <constraint firstAttribute="trailing" secondItem="X4S-RW-pRJ" secondAttribute="trailing" constant="25" id="NYh-oH-e15"/>
+                        <constraint firstAttribute="trailing" secondItem="X4S-RW-pRJ" secondAttribute="trailing" constant="10" id="NYh-oH-e15"/>
                         <constraint firstAttribute="bottom" secondItem="Qms-uV-WBg" secondAttribute="bottom" constant="10" id="ciK-Hg-ZGi"/>
-                        <constraint firstItem="HXB-bM-iP8" firstAttribute="leading" secondItem="X4S-RW-pRJ" secondAttribute="trailing" constant="1" id="gIG-1b-J8a"/>
                         <constraint firstItem="HXB-bM-iP8" firstAttribute="centerY" secondItem="leY-QZ-Pse" secondAttribute="centerY" id="oKD-Ve-o2l"/>
                         <constraint firstItem="Qms-uV-WBg" firstAttribute="top" secondItem="leY-QZ-Pse" secondAttribute="top" constant="10" id="r7g-5O-Dp6"/>
                     </constraints>
@@ -76,7 +77,7 @@
         </collectionReusableView>
     </objects>
     <resources>
-        <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <image name="chevron.down" catalog="system" width="128" height="70"/>
         <namedColor name="BtnGreenColor">
             <color red="0.0" green="0.67500001192092896" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
