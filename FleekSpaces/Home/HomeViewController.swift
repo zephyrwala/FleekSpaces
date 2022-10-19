@@ -899,7 +899,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 myItem.contentInsets.top = 10
                 
                 //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(290)), subitems: [myItem])
+                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.90), heightDimension: .absolute(240)), subitems: [myItem])
                 
                 //section size
                 

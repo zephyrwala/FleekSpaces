@@ -11,6 +11,8 @@ class UpcomingMoviesCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var posterImage: UIImageView!
     
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var movieName: UILabel!
     @IBOutlet weak var releaseDate: UILabel!
     
     
@@ -20,11 +22,16 @@ class UpcomingMoviesCollectionViewCell: UICollectionViewCell {
     }
 
     
+    func roundCorners(with CACornerMask: CACornerMask, radius: CGFloat) {
+        self.layer.cornerRadius = radius
+        self.layer.maskedCorners = [CACornerMask]
+    }
+    
     func setupCell(fromData: Movies){
         
-        if let mainPosterPath = fromData.posterPath {
+        if let mainPosterPath = fromData.backdropPath {
             
-            let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(mainPosterPath)")
+            let newURL = URL(string: "https://image.tmdb.org/t/p/original/\(mainPosterPath)")
             self.posterImage.sd_setImage(with: newURL)
         }
        
@@ -32,9 +39,17 @@ class UpcomingMoviesCollectionViewCell: UICollectionViewCell {
         posterImage.layer.cornerRadius = 16
         
         releaseDate.text = fromData.releaseDate
+        guard let safeTitle = fromData.title else {return}
 
+        movieName.text = safeTitle
+        
+     
+        roundCorners(with: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner], radius: 20)
+
+       
         guard let safeDate = fromData.releaseDate else {return}
         dateFormato(myString: safeDate)
+       
     }
     
     
@@ -67,6 +82,7 @@ class UpcomingMoviesCollectionViewCell: UICollectionViewCell {
         print("This is the day \(day) and \(currentDate)")
         
         
+        
         self.releaseDate.text = "\(day) \(currentDate)"
         
     }
@@ -74,3 +90,9 @@ class UpcomingMoviesCollectionViewCell: UICollectionViewCell {
     
     
 }
+
+
+
+
+
+
