@@ -129,6 +129,7 @@
 		694393D9287ED26C00CEC3C4 /* FleekSpacesWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 694393CC287ED26600CEC3C4 /* FleekSpacesWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		695836D128FD305E006887FE /* UpcomingMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695836CF28FD305E006887FE /* UpcomingMoviesCollectionViewCell.swift */; };
 		695836D228FD305E006887FE /* UpcomingMoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 695836D028FD305E006887FE /* UpcomingMoviesCollectionViewCell.xib */; };
+		695836D528FE8370006887FE /* PushNotificationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695836D428FE8370006887FE /* PushNotificationConfig.swift */; };
 		69598DCC28D879E10071E1D1 /* NewChatUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69598DCA28D879E10071E1D1 /* NewChatUsersVC.swift */; };
 		69598DCD28D879E10071E1D1 /* NewChatUsersVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69598DCB28D879E10071E1D1 /* NewChatUsersVC.xib */; };
 		695EBBD2285B22E900557D69 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695EBBD1285B22E900557D69 /* OnboardingViewController.swift */; };
@@ -311,6 +312,7 @@
 		694393D6287ED26C00CEC3C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		695836CF28FD305E006887FE /* UpcomingMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		695836D028FD305E006887FE /* UpcomingMoviesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpcomingMoviesCollectionViewCell.xib; sourceTree = "<group>"; };
+		695836D428FE8370006887FE /* PushNotificationConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationConfig.swift; sourceTree = "<group>"; };
 		69598DCA28D879E10071E1D1 /* NewChatUsersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatUsersVC.swift; sourceTree = "<group>"; };
 		69598DCB28D879E10071E1D1 /* NewChatUsersVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewChatUsersVC.xib; sourceTree = "<group>"; };
 		695EBBD1285B22E900557D69 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -887,6 +889,14 @@
 			path = UpcomingMovies;
 			sourceTree = "<group>";
 		};
+		695836D328FE8306006887FE /* PushNotification */ = {
+			isa = PBXGroup;
+			children = (
+				695836D428FE8370006887FE /* PushNotificationConfig.swift */,
+			);
+			path = PushNotification;
+			sourceTree = "<group>";
+		};
 		69598DC928D8799A0071E1D1 /* NewChatUsers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1019,6 +1029,7 @@
 		69643BFD2872B408007128C0 /* LiveChat */ = {
 			isa = PBXGroup;
 			children = (
+				695836D328FE8306006887FE /* PushNotification */,
 				69643C002872BD62007128C0 /* SwiftUIViews */,
 				69643BFE2872B437007128C0 /* LiveChatViewController.swift */,
 			);
@@ -1305,6 +1316,7 @@
 				6962D91728DC627F00CE1B17 /* BaseFirebaseStorage.swift in Sources */,
 				693946A428477D6900FE7574 /* TestDataModel.swift in Sources */,
 				6930D553285360880080528D /* MovieCastCRV.swift in Sources */,
+				695836D528FE8370006887FE /* PushNotificationConfig.swift in Sources */,
 				693849A7288270DD00EC5C61 /* BookSectionCollectionViewCell.swift in Sources */,
 				692600C2284E1F8500B6D801 /* ChatViewController.swift in Sources */,
 				693946C02848C42C00FE7574 /* SelectedSubCollectionViewCell.swift in Sources */,
@@ -1545,7 +1557,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;
@@ -1563,7 +1575,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.11;
+				MARKETING_VERSION = 0.15;
 				PRODUCT_BUNDLE_IDENTIFIER = app.getfleek.fleekSpacesbeta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1582,7 +1594,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;
@@ -1600,7 +1612,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.11;
+				MARKETING_VERSION = 0.15;
 				PRODUCT_BUNDLE_IDENTIFIER = app.getfleek.fleekSpacesbeta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

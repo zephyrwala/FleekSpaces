@@ -14,6 +14,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
 
     var scrollSize = 0.0
     var isMovieSelected = true
+    var chatUser: ChatUser?
     
     @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var visualBlurHt: NSLayoutConstraint!
@@ -24,6 +25,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
     @IBOutlet weak var testViewHt: NSLayoutConstraint!
     @IBOutlet weak var addBtnChoose: UIButton!
     @IBOutlet weak var testView: UIView!
+    var safeEmail = ""
     
     
     @IBOutlet weak var homeCollectionViews: UICollectionView!
@@ -34,6 +36,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
     let sec0 = "sec0ID"
     let sec4 = "sec4ID"
     let newTOpID = "Top"
+    let defaults = UserDefaults.standard
     var myLogos = [
 //        Logos(posterImage: UIImage(systemName: "plus.circle.fill")!),
         Logos(posterImage:  UIImage(named: "bo1")!, bookName: "VOGUE", author: "Vogue India"),
@@ -53,7 +56,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        fetchCurrentUser()
         self.testViewHt.constant = 250
         self.collectionHt.constant = 250
         self.subsCollectionHts.constant = 110
@@ -69,8 +72,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         setupBtn()
         setupCollectionView()
         setupSubsCollectionView()
-     
-   
+        
+        
+        
+      
+       
        
                 // Do any additional setup after loading the view.
     }
@@ -81,6 +87,86 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         
     }
     
+    
+    //MARK: - Fetch Current user
+    func fetchCurrentUser()  {
+        
+        
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
+            self.displayUIAlert(yourMessage: "You need to login to access your profile!")
+            print("COuld not find firebase uid")
+            return
+        }
+        
+        FirebaseManager.shared.firestore.collection("users").document(uid).getDocument { snapshot, error in
+            if let error = error {
+                self.displayUIAlert(yourMessage: "Failed to fetch current user: \(error)")
+                
+                print("Failed to fetch current user:", error)
+                return
+            }
+            
+            self.chatUser = try? snapshot?.data(as: ChatUser.self)
+            print("chat user data is \(self.chatUser)")
+            FirebaseManager.shared.currentUser = self.chatUser
+            print("chat user singleton data is \(self.chatUser)")
+            
+            guard let imageURL = self.chatUser?.profileImageUrl else {return}
+          
+                if let userName = self.chatUser?.email {
+                    
+                    self.safeEmail = userName
+                    
+                    if let fcmName = self.defaults.string(forKey: "userFCMtoken") {
+                        print("User defaults fcm \(fcmName)")
+                        
+                        self.saveFCM(fcmTokens: fcmName, emails: userName)
+                        print("username is \(userName)")
+                       
+                    }
+                  
+                    
+                    
+                }
+            
+            
+            
+            
+          
+        }
+        
+       
+        
+        
+    }
+    
+    
+    //MARK: - save fcm token here
+    
+    func saveFCM(fcmTokens: String, emails: String) {
+        
+        
+        let network = NetworkURL()
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/users/update_firebase_token?fcmToken=\(fcmTokens)&email=\(emails)") else {return}
+        
+        network.loginCalls(UpdateToken.self, url: myUrl) { myResult, yourMessage in
+            
+            switch myResult {
+                
+                
+            case .success(let tokens):
+                print("Success is here \(tokens.isAFirebaseUser)")
+                
+            case .failure(let err):
+                print("Error is here \(err)")
+                
+            }
+            
+            
+            
+        }
+        
+    }
     //MARK: - scroll detect
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

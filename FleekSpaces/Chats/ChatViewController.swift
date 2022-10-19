@@ -87,50 +87,7 @@ class ChatViewController: UIViewController {
         self.navigationController?.navigationItem.hidesBackButton = true
         
         btnSetup()
-//        startListeningForConversation()
 //
-//        if FirebaseManager.shared.auth.currentUser?.uid != nil {
-//
-//            print("user is logged in")
-////            let controllers = UIHostingController(rootView: MainMessagesView())
-////    //        controllers.modalPresentationStyle = .fullScreen
-////            self.navigationItem.leftBarButtonItem = nil;
-////            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-//////            self.navigationController?.pushViewController(controllers, animated: true)
-////            controllers.modalPresentationStyle = .overCurrentContext
-////         present(controllers, animated: true)
-////
-//            NotificationCenter.default.addObserver(forName: NSNotification.Name("startSwiftUI"), object: nil, queue: nil) { (_) in
-//
-//                print("user is logged in")
-//                let controllers = UIHostingController(rootView: MainMessagesView())
-//                controllers.modalPresentationStyle = .fullScreen
-//                self.navigationItem.leftBarButtonItem = nil;
-//                self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-//                self.navigationController?.pushViewController(controllers, animated: true)
-////                controllers.modalPresentationStyle = .overCurrentContext
-////                self.present(controllers, animated: true)
-//
-//            }
-//
-////            NotificationCenter.default.addObserver(forName: NSNotification.Name("dismissSwiftUI"), object: nil, queue: nil) { (_) in
-////                controllers.dismiss(animated: true) {
-////
-////                    let loginVC = LoginVC()
-////                    self.present(loginVC, animated: true)
-////
-////                }
-////            }
-//
-//
-//        } else {
-//            basicPrompt()
-//        }
-//        if FirebaseManager.shared.currentUser
-
-      
-//        presentModal()
-        // Do any additional setup after loading the view.
     }
     
 
@@ -245,6 +202,7 @@ class ChatViewController: UIViewController {
         let navVC = UINavigationController(rootViewController: newController)
         present(navVC, animated: true)
     }
+    
     
     
     

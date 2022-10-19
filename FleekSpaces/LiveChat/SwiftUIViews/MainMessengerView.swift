@@ -34,6 +34,7 @@ struct RecentMessage: Codable, Identifiable {
 
 class MainMessageViewModel: ObservableObject {
     
+    let defaults = UserDefaults.standard
     @Published var errorMessage = ""
     @Published var chatUser: ChatUser?
     @Published var isCurrentlyLoggedOut = false
@@ -127,9 +128,44 @@ class MainMessageViewModel: ObservableObject {
             
             self.chatUser = try? snapshot?.data(as: ChatUser.self)
             FirebaseManager.shared.currentUser = self.chatUser
+            
+            let userName = self.chatUser?.email.components(separatedBy: "@").first ?? "loading..."
+            if let fcmName = self.defaults.string(forKey: "userFCMtoken") {
+                print("User defaults fcm \(fcmName)")
+                
+                self.saveFCM(fcmTokens: fcmName, emails: userName)
+                print("chatview username is \(userName)")
+               
+            }
         }
     }
    
+    //MARK: - save fcm token here
+    
+    func saveFCM(fcmTokens: String, emails: String) {
+        
+        
+        let network = NetworkURL()
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/users/update_firebase_token?fcmToken=\(fcmTokens)&email=\(emails)") else {return}
+        
+        network.loginCalls(UpdateToken.self, url: myUrl) { myResult, yourMessage in
+            
+            switch myResult {
+                
+                
+            case .success(let tokens):
+                print("Success is here \(tokens.isAFirebaseUser)")
+                
+            case .failure(let err):
+                print("Error is here \(err)")
+                
+            }
+            
+            
+            
+        }
+        
+    }
     
     //MARK: - Handle sign out here
     func handleSignOut() {

@@ -12,6 +12,7 @@ import SDWebImage
 class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigationControllerDelegate {
     
     
+   
     @IBOutlet weak var recommendBtn: UIButton!
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var watchlistBtn: UIButton!
@@ -27,6 +28,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     }
     
     
+    
 
    
     
@@ -34,6 +36,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     
     var chatUser: ChatUser?
     @IBAction func changeProfileBtn(_ sender: Any) {
+      
        presentPhotoActionSheet()
         
     }
@@ -106,6 +109,34 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     }
     
     
+
+    //MARK: - save fcm token here
+    
+    func saveFCM(fcmTokens: String, emails: String) {
+        
+        
+        let network = NetworkURL()
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/users/update_firebase_token?fcmToken=\(fcmTokens)&email=\(emails)") else {return}
+        
+        network.loginCalls(UpdateToken.self, url: myUrl) { myResult, yourMessage in
+            
+            switch myResult {
+                
+                
+            case .success(let tokens):
+                print("Success is here \(tokens.isAFirebaseUser)")
+                
+            case .failure(let err):
+                print("Error is here \(err)")
+                
+            }
+            
+            
+            
+        }
+        
+    }
+    
     
     func setupButtons() {
         
@@ -175,6 +206,14 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             
             guard let imageURL = self.chatUser?.profileImageUrl else {return}
             let userName = self.chatUser?.email.components(separatedBy: "@").first ?? "loading..."
+            
+            if let fcmName = self.defaults.string(forKey: "userFCMtoken") {
+                print("User defaults fcm \(fcmName)")
+                
+                self.saveFCM(fcmTokens: fcmName, emails: userName)
+                print("profileview username is \(userName)")
+               
+            }
             
             DispatchQueue.main.async {
                 

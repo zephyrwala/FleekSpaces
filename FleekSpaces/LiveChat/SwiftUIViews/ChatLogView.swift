@@ -48,16 +48,54 @@ class ChatLogViewModel: ObservableObject {
     @Published var chatText = ""
     @Published var errorMessage = ""
     @Published var chatMessages = [ChatMessage]()
+    @Published var fcmTokenofUser = ""
+  
 
     var chatUser: ChatUser?
 
     init(chatUser: ChatUser?) {
         self.chatUser = chatUser
         fetchMessages()
+       
         
     }
     
     var firestoreListener: ListenerRegistration?
+    
+    
+    //MARK: - Fetch FCM for the other user
+    
+    func fetchFCM(userEmail: String) {
+        
+        let network = NetworkURL()
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/users/get_firebase_token?email=\(userEmail)") else {
+            print("Bad url https://api-space-dev.getfleek.app/users/get_firebase_token?email=\(userEmail)")
+            return}
+        
+                network.loginCalls(FCMToken.self, url: myUrl) { myResult, yourMessage in
+                    
+                    
+                    switch myResult {
+                        
+                    case .success(let fcm):
+                        print("Here is the token of this user \(fcm.fcmToken)")
+                        guard let safeFCMtoken = fcm.fcmToken else {return}
+                       
+                        self.fcmTokenofUser = safeFCMtoken
+                        
+                        print("user fcm \(self.fcmTokenofUser)")
+                        
+                    case .failure(let err):
+                        print("Failure coz of fcm tok \(err)")
+                        
+                    }
+                    
+                    
+                    
+                }
+        
+    }
+    
     
     //MARK: - Fetch messages
     func fetchMessages() {
@@ -222,7 +260,15 @@ struct ChatLogView: View {
         .onDisappear {
             vm.firestoreListener?.remove()
         }
+        .onAppear{
+            
+            guard let safeEmail = vm.chatUser?.email else {return}
+            vm.fetchFCM(userEmail: "\(safeEmail)")
+            print("EMAILA \(safeEmail)")
+            
+        }
     }
+    
 
     static let emptyScrollToString = "empty"
     private var messagesView: some View {
@@ -278,8 +324,12 @@ struct ChatLogView: View {
             .cornerRadius(12)
 
             Button {
+                
                 //send button comes here
                 vm.handleSend()
+                let sender = PushNotificationSender()
+                guard let safeUserName = vm.chatUser?.email.components(separatedBy: "@").first else {return}
+                sender.sendPushNotification(to: self.vm.fcmTokenofUser, title: "\(safeUserName) 💬" ?? "Fleek Spaces", body: self.vm.chatText)
 
             } label: {
                 Image(systemName: "chevron.forward.square.fill")

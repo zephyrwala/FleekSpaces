@@ -15,12 +15,15 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
 
 
+    var chatUser: ChatUser?
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
 //        FirebaseApp.configure()
+        FirebaseManager.shared
         Messaging.messaging().delegate = self
+        
         UNUserNotificationCenter.current().delegate = self
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { success, _ in
@@ -35,9 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             
 //            return true
             
-    
         
-      
+        
+     
         
         
 //        FirebaseApp.configure()
@@ -71,8 +74,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
             }
 
             print("TOKENS here:\(thisToken)")
+            let defaults = UserDefaults.standard
+            defaults.set(thisToken, forKey: "userFCMtoken")
+           
         }
     }
+    
+
 
     // MARK: UISceneSession Lifecycle
 

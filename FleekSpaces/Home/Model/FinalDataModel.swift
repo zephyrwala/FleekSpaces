@@ -51,8 +51,41 @@ class FinalDataModel: NSObject {
     static var checForkWatchlisted: WatchlistedData?
     
     static var upcomingMovies: [UpcomingMovie]?
+    
+    static var fcmToken: FCMToken?
+    
+    static var updateToken: UpdateToken?
 }
 
+// MARK: - UpdateToken
+class UpdateToken: Codable {
+    let isAFirebaseUser: Bool?
+
+    enum CodingKeys: String, CodingKey {
+        case isAFirebaseUser = "is_a_firebase_user"
+    }
+
+    init(isAFirebaseUser: Bool?) {
+        self.isAFirebaseUser = isAFirebaseUser
+    }
+}
+
+
+// MARK: - FCMToken
+class FCMToken: Codable {
+    let isAFirebaseUser: Bool?
+    let fcmToken: String?
+
+    enum CodingKeys: String, CodingKey {
+        case isAFirebaseUser = "is_a_firebase_user"
+        case fcmToken = "fcm_token"
+    }
+
+    init(isAFirebaseUser: Bool?, fcmToken: String?) {
+        self.isAFirebaseUser = isAFirebaseUser
+        self.fcmToken = fcmToken
+    }
+}
 
 
 // MARK: - UpcomingMovie
