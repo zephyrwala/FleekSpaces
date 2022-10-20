@@ -130,6 +130,8 @@ class MainMessageViewModel: ObservableObject {
             FirebaseManager.shared.currentUser = self.chatUser
             
             let userName = self.chatUser?.email.components(separatedBy: "@").first ?? "loading..."
+            self.defaults.set(userName, forKey: "userName")
+            
             if let fcmName = self.defaults.string(forKey: "userFCMtoken") {
                 print("User defaults fcm \(fcmName)")
                 
@@ -218,7 +220,7 @@ struct MainMessagesView: View {
                 .clipped()
                 .cornerRadius(50)
                 .overlay(RoundedRectangle(cornerRadius: 44)
-                    .stroke(Color(.init("CoinMessageColor")), lineWidth: 1.2)
+                    .stroke(Color(.black), lineWidth: 1.2)
                 )
                 .shadow(radius: 5)
         

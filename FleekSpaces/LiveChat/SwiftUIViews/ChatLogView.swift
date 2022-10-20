@@ -45,10 +45,12 @@ struct ChatMessage: Identifiable {
 class ChatLogViewModel: ObservableObject {
     
   
+    let defaults = UserDefaults.standard
     @Published var chatText = ""
     @Published var errorMessage = ""
     @Published var chatMessages = [ChatMessage]()
     @Published var fcmTokenofUser = ""
+    @Published var currentuser = ""
   
 
     var chatUser: ChatUser?
@@ -101,6 +103,9 @@ class ChatLogViewModel: ObservableObject {
     func fetchMessages() {
         guard let fromId = FirebaseManager.shared.auth.currentUser?.uid else {return}
         
+        if let currentUsername = self.defaults.string(forKey: "userName") {
+            currentuser = currentUsername
+        }
         guard let toId = chatUser?.uid else {return}
         firestoreListener?.remove()
         chatMessages.removeAll()
@@ -329,7 +334,7 @@ struct ChatLogView: View {
                 vm.handleSend()
                 let sender = PushNotificationSender()
                 guard let safeUserName = vm.chatUser?.email.components(separatedBy: "@").first else {return}
-                sender.sendPushNotification(to: self.vm.fcmTokenofUser, title: "\(safeUserName) 💬" ?? "Fleek Spaces", body: self.vm.chatText)
+                sender.sendPushNotification(to: self.vm.fcmTokenofUser, title: "\(vm.currentuser) 💬" ?? "Fleek Spaces", body: self.vm.chatText)
 
             } label: {
                 Image(systemName: "chevron.forward.square.fill")

@@ -41,11 +41,11 @@ extension UIImageView {
         
                
 //                layer.masksToBounds = true
-                layer.borderColor = UIColor.systemGray.cgColor
+                layer.borderColor = UIColor.black.cgColor
                 
                 layer.cornerRadius = frame.height/2 //This will change with corners of image and height/2 will make this circle shape
                 clipsToBounds = true
-        layer.borderWidth = 1
+        layer.borderWidth = 3
         
     }
 }

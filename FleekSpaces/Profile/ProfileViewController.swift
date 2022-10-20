@@ -28,6 +28,44 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     }
     
     
+    var menuItems: [UIAction] {
+        return [
+            UIAction(title: "Take Photo", image: UIImage(systemName: "camera"), handler: { (_) in
+           
+                self.presentCamera()
+                
+            }),
+            UIAction(title: "Choose Photo", image: UIImage(systemName: "photo.on.rectangle"), handler: { (_) in
+                
+            
+                self.presentPhotoPicker()
+                
+            }),
+            UIAction(title: "Sign Out", image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), handler: { (_) in
+                
+              
+                try? FirebaseManager.shared.auth.signOut()
+    //            NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil)
+               let controller = LoginVC()
+                self.navigationController?.pushViewController(controller, animated: true)
+               
+                
+                
+            }),
+            UIAction(title: "Change App Icon!", image: UIImage(systemName: "wand.and.stars.inverse"), handler: { (_) in
+                
+                let controller = IconChangerViewController()
+                self.present(controller, animated: true)
+
+//                self.movieDelegate?.tvShowSelected()
+            })
+            
+        ]
+    }
+
+    var demoMenu: UIMenu {
+        return UIMenu(title: "Settings", image: nil, identifier: nil, options: [], children: menuItems)
+    }
     
 
    
@@ -37,7 +75,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     var chatUser: ChatUser?
     @IBAction func changeProfileBtn(_ sender: Any) {
       
-       presentPhotoActionSheet()
+//       presentPhotoActionSheet()
         
     }
     @IBOutlet weak var segmentTabsSelection: UISegmentedControl!
@@ -71,16 +109,22 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
         print(chatUser?.email)
         print(chatUser?.profileImageUrl)
 //        getuserData()
+        configureButtonMenu()
         
         setupCollectionView()
     }
     
     
+    func configureButtonMenu() {
+        changeProfile.menu = demoMenu
+        changeProfile.showsMenuAsPrimaryAction = true
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         
         checkSignInViewAppear()
-        profileImage.makeItGolGol()
+//        profileImage.makeItGolGol()
+        profileImage.makeitBorderGolGol()
      
         fetchUserMovieData()
         fetchUserWatchlistData()
@@ -207,6 +251,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             guard let imageURL = self.chatUser?.profileImageUrl else {return}
             let userName = self.chatUser?.email.components(separatedBy: "@").first ?? "loading..."
             
+            self.defaults.set(userName, forKey: "userName")
             if let fcmName = self.defaults.string(forKey: "userFCMtoken") {
                 print("User defaults fcm \(fcmName)")
                 

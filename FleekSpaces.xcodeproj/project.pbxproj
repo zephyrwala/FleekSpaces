@@ -165,6 +165,13 @@
 		69C4996F28698012000F4394 /* EmailSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69C4996D28698012000F4394 /* EmailSignInViewController.xib */; };
 		69C499782869BDB4000F4394 /* LoginEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C499762869BDB4000F4394 /* LoginEmailViewController.swift */; };
 		69C499792869BDB4000F4394 /* LoginEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69C499772869BDB4000F4394 /* LoginEmailViewController.xib */; };
+		69D527C529016572001B310C /* IconChangerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D527C329016572001B310C /* IconChangerViewController.swift */; };
+		69D527C629016572001B310C /* IconChangerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D527C429016572001B310C /* IconChangerViewController.xib */; };
+		69D527CA29019578001B310C /* iconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D527C829019578001B310C /* iconTableViewCell.swift */; };
+		69D527CB29019578001B310C /* iconTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D527C929019578001B310C /* iconTableViewCell.xib */; };
+		69D527D02901B013001B310C /* Diwali.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D527CD2901B012001B310C /* Diwali.png */; };
+		69D527D12901B013001B310C /* Diwali2.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D527CE2901B013001B310C /* Diwali2.png */; };
+		69D527D22901B013001B310C /* Halloween.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D527CF2901B013001B310C /* Halloween.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -348,6 +355,13 @@
 		69C4996D28698012000F4394 /* EmailSignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmailSignInViewController.xib; sourceTree = "<group>"; };
 		69C499762869BDB4000F4394 /* LoginEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailViewController.swift; sourceTree = "<group>"; };
 		69C499772869BDB4000F4394 /* LoginEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginEmailViewController.xib; sourceTree = "<group>"; };
+		69D527C329016572001B310C /* IconChangerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconChangerViewController.swift; sourceTree = "<group>"; };
+		69D527C429016572001B310C /* IconChangerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconChangerViewController.xib; sourceTree = "<group>"; };
+		69D527C829019578001B310C /* iconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconTableViewCell.swift; sourceTree = "<group>"; };
+		69D527C929019578001B310C /* iconTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = iconTableViewCell.xib; sourceTree = "<group>"; };
+		69D527CD2901B012001B310C /* Diwali.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diwali.png; sourceTree = "<group>"; };
+		69D527CE2901B013001B310C /* Diwali2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diwali2.png; sourceTree = "<group>"; };
+		69D527CF2901B013001B310C /* Halloween.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Halloween.png; sourceTree = "<group>"; };
 		B074456520EDC420251F3A55 /* Pods_FleekSpaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FleekSpaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD892A40D7B9C0EAB09C348E /* Pods-FleekSpaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FleekSpaces.release.xcconfig"; path = "Target Support Files/Pods-FleekSpaces/Pods-FleekSpaces.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -981,6 +995,7 @@
 		695EBBF9286328FE00557D69 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				69D527C229016550001B310C /* CustomIcons */,
 				6942107C28EC4D3B0065EB3C /* View */,
 				695EBBFA2863294D00557D69 /* ProfileViewController.swift */,
 				694393C4287D5EF600CEC3C4 /* SignInEmbedViewController.swift */,
@@ -1075,6 +1090,36 @@
 				69C499772869BDB4000F4394 /* LoginEmailViewController.xib */,
 			);
 			path = LoginEmail;
+			sourceTree = "<group>";
+		};
+		69D527C229016550001B310C /* CustomIcons */ = {
+			isa = PBXGroup;
+			children = (
+				69D527CC2901AF96001B310C /* AltIcons */,
+				69D527C729019552001B310C /* iconCell */,
+				69D527C329016572001B310C /* IconChangerViewController.swift */,
+				69D527C429016572001B310C /* IconChangerViewController.xib */,
+			);
+			path = CustomIcons;
+			sourceTree = "<group>";
+		};
+		69D527C729019552001B310C /* iconCell */ = {
+			isa = PBXGroup;
+			children = (
+				69D527C829019578001B310C /* iconTableViewCell.swift */,
+				69D527C929019578001B310C /* iconTableViewCell.xib */,
+			);
+			path = iconCell;
+			sourceTree = "<group>";
+		};
+		69D527CC2901AF96001B310C /* AltIcons */ = {
+			isa = PBXGroup;
+			children = (
+				69D527CD2901B012001B310C /* Diwali.png */,
+				69D527CE2901B013001B310C /* Diwali2.png */,
+				69D527CF2901B013001B310C /* Halloween.png */,
+			);
+			path = AltIcons;
 			sourceTree = "<group>";
 		};
 		CECA015D65819323CA5FC61B /* Frameworks */ = {
@@ -1186,6 +1231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69D527D02901B013001B310C /* Diwali.png in Resources */,
 				695EBBE32861AAD400557D69 /* SeasonsViewController.xib in Resources */,
 				6938499E2881B31300EC5C61 /* BooksHeaderCRV.xib in Resources */,
 				693357DE2894088000C49506 /* EpisodeCardsViewController.xib in Resources */,
@@ -1203,6 +1249,7 @@
 				6930D57C2859DB4B0080528D /* GenreBottomViewController.xib in Resources */,
 				693849A8288270DD00EC5C61 /* BookSectionCollectionViewCell.xib in Resources */,
 				6930D5422851F5290080528D /* MovieInfoCollectionViewCell.xib in Resources */,
+				69D527D22901B013001B310C /* Halloween.png in Resources */,
 				6924001C28AF99B000DFB033 /* LoginVC.xib in Resources */,
 				6930D5382851B55B0080528D /* TrendingtCollectionReusableView.xib in Resources */,
 				6962D91428D8837600CE1B17 /* NewChatsTableViewCell.xib in Resources */,
@@ -1223,6 +1270,7 @@
 				693357D92893F66700C49506 /* SeasonCardCVC.xib in Resources */,
 				693946922847548500FE7574 /* Section3CollectionViewCell.xib in Resources */,
 				69C4996F28698012000F4394 /* EmailSignInViewController.xib in Resources */,
+				69D527D12901B013001B310C /* Diwali2.png in Resources */,
 				6930D5772858AA850080528D /* filmographyHeader.xib in Resources */,
 				6939468A2847545900FE7574 /* Section1CollectionViewCell.xib in Resources */,
 				695EBBF82863223F00557D69 /* OnboardingCollectionViewCell.xib in Resources */,
@@ -1235,6 +1283,8 @@
 				693849AD28829D0300EC5C61 /* BookPreviewUIViewViewController.xib in Resources */,
 				693946BD2848B22F00FE7574 /* SearchCollectionCell.xib in Resources */,
 				693849A328826FE700EC5C61 /* BooksDetailViewController.xib in Resources */,
+				69D527C629016572001B310C /* IconChangerViewController.xib in Resources */,
+				69D527CB29019578001B310C /* iconTableViewCell.xib in Resources */,
 				693946862847518C00FE7574 /* NavCollectionViewCell.xib in Resources */,
 				69394670284628D100FE7574 /* Main.storyboard in Resources */,
 				6930D568285712E20080528D /* SearchResultCVC.xib in Resources */,
@@ -1337,6 +1387,7 @@
 				692600BE284E09A200B6D801 /* Section2HeadersCRV.swift in Sources */,
 				6924001B28AF99B000DFB033 /* LoginVC.swift in Sources */,
 				69643C102872D4D5007128C0 /* LoginView.swift in Sources */,
+				69D527C529016572001B310C /* IconChangerViewController.swift in Sources */,
 				694393C12875609900CEC3C4 /* CreateNewMessageView.swift in Sources */,
 				693849A228826FE700EC5C61 /* BooksDetailViewController.swift in Sources */,
 				6939468D2847546C00FE7574 /* Section2CollectionViewCell.swift in Sources */,
@@ -1367,6 +1418,7 @@
 				6930D567285712E20080528D /* SearchResultCVC.swift in Sources */,
 				693357D82893F66700C49506 /* SeasonCardCVC.swift in Sources */,
 				6939466B284628D100FE7574 /* SceneDelegate.swift in Sources */,
+				69D527CA29019578001B310C /* iconTableViewCell.swift in Sources */,
 				694393B82874566500CEC3C4 /* FirebaseManager.swift in Sources */,
 				6930D55C285700B70080528D /* MoreLikeThisCRV.swift in Sources */,
 				6922ECC928869C3100865540 /* ChatsViewController.swift in Sources */,
