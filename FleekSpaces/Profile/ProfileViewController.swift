@@ -12,7 +12,8 @@ import SDWebImage
 class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigationControllerDelegate {
     
     
-   
+    @IBOutlet weak var settingsBtn: UIBarButtonItem!
+    
     @IBOutlet weak var recommendBtn: UIButton!
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var watchlistBtn: UIButton!
@@ -62,9 +63,10 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             
         ]
     }
+    
 
     var demoMenu: UIMenu {
-        return UIMenu(title: "Settings", image: nil, identifier: nil, options: [], children: menuItems)
+        return UIMenu(title: "Profile Settings", image: nil, identifier: nil, options: [], children: menuItems)
     }
     
 
@@ -116,8 +118,8 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     
     
     func configureButtonMenu() {
-        changeProfile.menu = demoMenu
-        changeProfile.showsMenuAsPrimaryAction = true
+        settingsBtn.menu = demoMenu
+//        settingsBtn.showsMenuAsPrimaryAction = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -598,7 +600,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate {
         if  FirebaseManager.shared.auth.currentUser == nil {
            loginPrompt()
         } else {
-            self.displayUIAlert(yourMessage: "Welcome back bro!")
+            self.displayUIAlert(yourMessage: "We are happy to see you back!")
             fetchCurrentUser()
         }
     }

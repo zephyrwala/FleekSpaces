@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -484,10 +485,10 @@
             </objects>
             <point key="canvasLocation" x="-624.63768115942037" y="-409.15178571428572"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar View Controller-->
         <scene sceneID="gaq-fK-ffl">
             <objects>
-                <tabBarController id="8NC-dj-m7u" sceneMemberID="viewController">
+                <tabBarController id="8NC-dj-m7u" customClass="MainTabBarViewController" customModule="FleekSpaces" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" opaque="NO" alpha="0.93000000000000005" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="centered" id="oUI-1c-duJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -502,6 +503,7 @@
                         </tabBarAppearance>
                     </tabBar>
                     <connections>
+                        <outlet property="myTabBar" destination="oUI-1c-duJ" id="Yy6-0K-E5P"/>
                         <segue destination="FFa-df-FJe" kind="relationship" relationship="viewControllers" id="efL-Hs-XtV"/>
                         <segue destination="kXN-YT-dtV" kind="relationship" relationship="viewControllers" id="tnq-w9-Pc3"/>
                         <segue destination="Dqb-hx-E2l" kind="relationship" relationship="viewControllers" id="2Nk-l6-Mtd"/>
@@ -839,7 +841,12 @@
                             <constraint firstItem="Ch8-Vm-Vii" firstAttribute="leading" secondItem="aCA-Tq-Yth" secondAttribute="leading" id="yYr-GX-eOy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="c47-q3-xYE"/>
+                    <navigationItem key="navigationItem" id="c47-q3-xYE">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" style="done" id="7xp-d4-LiG">
+                            <imageReference key="image" image="gear.badge" catalog="system" renderingMode="original" variableValue="1"/>
+                            <color key="tintColor" name="Neutral_500"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="changeProfile" destination="IJ2-Ma-V7g" id="OkR-Br-NGk"/>
                         <outlet property="likeBtn" destination="R44-UV-XE2" id="eeC-li-Dge"/>
@@ -848,6 +855,7 @@
                         <outlet property="profileImage" destination="Iok-JB-hY5" id="G4t-zg-plN"/>
                         <outlet property="recommendBtn" destination="k11-6j-tva" id="u9m-UI-aEB"/>
                         <outlet property="segmentTabsSelection" destination="n7s-lM-z5h" id="DeW-Mq-fXy"/>
+                        <outlet property="settingsBtn" destination="7xp-d4-LiG" id="Pr7-Ue-LPi"/>
                         <outlet property="userNameLabel" destination="dir-5s-5PS" id="3SZ-hY-VMw"/>
                         <outlet property="watchlistBtn" destination="Gne-JT-iJ5" id="GfF-qQ-zmx"/>
                     </connections>
@@ -964,6 +972,7 @@
         <image name="banner_bg" width="1308" height="636"/>
         <image name="bubble.left.and.bubble.right" catalog="system" width="128" height="96"/>
         <image name="bubble.left.and.bubble.right.fill" catalog="system" width="128" height="97"/>
+        <image name="gear.badge" catalog="system" width="128" height="122"/>
         <image name="grad_layer" width="1200" height="1200"/>
         <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
         <image name="house" catalog="system" width="128" height="104"/>
@@ -1003,6 +1012,9 @@
         </namedColor>
         <namedColor name="Neutral_400">
             <color red="0.68599998950958252" green="0.68599998950958252" blue="0.68599998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Neutral_500">
+            <color red="0.45899999141693115" green="0.45899999141693115" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Primary_600">
             <color red="0.0" green="0.67500001192092896" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

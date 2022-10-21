@@ -9,7 +9,8 @@ import UIKit
 
 class IconChangerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-
+    @IBOutlet weak var lottieViewAnimation: UIView!
+    
     @IBOutlet weak var mainIconImage: UIImageView!
     
     @IBOutlet weak var iconTableView: UITableView!
@@ -47,7 +48,13 @@ class IconChangerViewController: UIViewController, UITableViewDataSource, UITabl
       
         
         print("\(iconSet[indexPath.row].iconImage)")
-        UIApplication.shared.setAlternateIconName("Diwali") { error in
+        
+        guard let safeIconName = iconSet[indexPath.row].iconImage else {
+            return
+        }
+        
+        self.mainIconImage.image = UIImage(named: "\(safeIconName)")
+        UIApplication.shared.setAlternateIconName(safeIconName) { error in
             
             guard error == nil else {
                 return

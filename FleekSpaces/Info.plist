@@ -21,5 +21,25 @@
 			</array>
 		</dict>
 	</dict>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundleAlternateIcons</key>
+		<dict>
+			<key>Diwali</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Diwali</string>
+				</array>
+			</dict>
+			<key>Diwali2</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Diwali2</string>
+				</array>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>
