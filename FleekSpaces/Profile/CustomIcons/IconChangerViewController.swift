@@ -6,29 +6,84 @@
 //
 
 import UIKit
+import Lottie
 
 class IconChangerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var lottieViewAnimation: UIView!
+    @IBOutlet weak var dismissBtn: UIImageView!
+    @IBOutlet weak var lottieViewAnimation: LottieAnimationView!
+    
+    var iconSelected = false
+    
+    var defaults = UserDefaults.standard
+    
+    @IBOutlet weak var dismaBtn: UIButton!
+    
     
     @IBOutlet weak var mainIconImage: UIImageView!
     
     @IBOutlet weak var iconTableView: UITableView!
     
-    var iconSet = [AltIcons(iconImage: "Diwali", iconName: "Diwali Diya"),
-                   AltIcons(iconImage: "Diwali2", iconName: "Diwali Lantern"),
-                   AltIcons(iconImage: "Halloween", iconName: "Haloween")
+    var iconSet = [
+                    AltIcons(iconImage: "xmas0", iconName: "Ho Ho Ho!"),
+                    AltIcons(iconImage: "xmas1", iconName: "Jingle Bells"),
+                    AltIcons(iconImage: "xmas2", iconName: "Merry Xmas"),
+                    AltIcons(iconImage: "Diwali9", iconName: "Diwali Diyas"),
+                    AltIcons(iconImage: "Diwali6", iconName: "Diwali Lights"),
+                   AltIcons(iconImage: "Diwali3", iconName: "Fireworks"),
+                   AltIcons(iconImage: "Diwali5", iconName: "More Fireworks"),
+                  
+                   AltIcons(iconImage: "Diwali7", iconName: "Diwali Rangoli"),
+                   AltIcons(iconImage: "Diwali8", iconName: "Diwali Daze"),
+                 
+                   AltIcons(iconImage: "Diwali", iconName: "Diwali Lantern"),
+                   AltIcons(iconImage: "Diwali2", iconName: "Diwali Diya"),
+                    AltIcons(iconImage: "default", iconName: "Default")
+                  
     
     
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if let iconName = defaults.string(forKey: "selectedIcon") {
+            
+            mainIconImage.image = UIImage(named: iconName)
+        }
         setupTableView()
         // Do any additional setup after loading the view.
+   
     }
-
+    
+    @IBAction func dismaBtnTap(_ sender: Any) {
+        
+        self.dismiss(animated: true)
+    }
+    
+    
+    func lottiePlay() {
+        
+        // 1. Set animation content mode
+          
+          lottieViewAnimation.contentMode = .scaleAspectFit
+          
+          // 2. Set animation loop mode
+          
+        lottieViewAnimation.loopMode = .playOnce
+          
+          // 3. Adjust animation speed
+          
+        lottieViewAnimation.animationSpeed = 0.5
+          
+          // 4. Play animation
+        lottieViewAnimation.play(completion: { _ in
+            
+            self.lottieViewAnimation.isHidden = true
+            
+        })
+        
+    }
 
     func setupTableView() {
         
@@ -54,16 +109,55 @@ class IconChangerViewController: UIViewController, UITableViewDataSource, UITabl
         }
         
         self.mainIconImage.image = UIImage(named: "\(safeIconName)")
-        UIApplication.shared.setAlternateIconName(safeIconName) { error in
-            
-            guard error == nil else {
-                return
+        print("Icon selected \(safeIconName)")
+        defaults.set(safeIconName, forKey: "selectedIcon")
+        DispatchQueue.main.async {
+            UIApplication.shared.setAlternateIconName(safeIconName) { error in
+                
+                guard error == nil else {
+                    return
+                }
+                self.lottieViewAnimation.isHidden = false
+                print("Icon Updated")
+                self.lottiePlay()
+               
             }
-            
-            print("Icon Updated")
-            
         }
-        
+      
+//        <key>CFBundleIcons</key>
+//        <dict>
+//            <key>CFBundlePrimaryIcon</key>
+//            <dict>
+//                <key>CFBundleIconFiles</key>
+//                <array>
+//                    <string>Icon-1</string>
+//                </array>
+//                <key>UIPrerenderedIcon</key>
+//                <false/>
+//            </dict>
+//            <key>CFBundleAlternateIcons</key>
+//            <dict>
+//                <key>AppIcon-2</key>
+//                <dict>
+//                    <key>CFBundleIconFiles</key>
+//                    <array>
+//                        <string>Icon-2</string>
+//                    </array>
+//                    <key>UIPrerenderedIcon</key>
+//                    <false/>
+//                </dict>
+//                <key>AppIcon-3</key>
+//                <dict>
+//                    <key>CFBundleIconFiles</key>
+//                    <array>
+//                        <string>Icon-3</string>
+//                    </array>
+//                    <key>UIPrerenderedIcon</key>
+//                    <false/>
+//                </dict>
+//            </dict>
+//        </dict>
+//        
         
         
        

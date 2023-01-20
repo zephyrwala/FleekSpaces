@@ -265,8 +265,9 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
         print("\(searchBar.text) is entered tap")
         if let safeText = searchBar.text {
             
+            guard let escapeAdd = safeText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return}
             setupCollectionView()
-            fetchResults(searchWord: safeText)
+            fetchResults(searchWord: escapeAdd)
         }
     }
     //MARK: - Searchbar stuff

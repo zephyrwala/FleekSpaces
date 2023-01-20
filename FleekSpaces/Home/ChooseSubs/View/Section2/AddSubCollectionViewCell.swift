@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import CheckmarkCollectionViewCell
+//import CheckmarkCollectionViewCell
 
-class AddSubCollectionViewCell: CheckmarkCollectionViewCell {
+class AddSubCollectionViewCell: UICollectionView {
     @IBOutlet weak var subscriptionLogo: UIImageView!
     @IBOutlet weak var subscriptionName: UILabel!
     @IBOutlet weak var CardBgView: UIView!

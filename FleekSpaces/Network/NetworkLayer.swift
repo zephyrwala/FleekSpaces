@@ -31,7 +31,7 @@ class NetworkURL {
             //decoder
             print("Messagers")
             print("\(myData) datadata")
-            print(String(data: myData!, encoding: .utf8))
+//            print(String(data: myData!, encoding: .utf8))
             let decoder = JSONDecoder()
             //TODO: - safe data for no data fix
             guard let safeData = myData else {return}
@@ -49,17 +49,139 @@ class NetworkURL {
                 completion(.failure(APIerror.jsonDecodeError), "💩 Shit the bed")
                 
             }
-            
-            
+ 
             
         }
         
         //task.resume
         dataTask.resume()
+   
+    }
+    
+    
+    //dujDT
+    
+    
+    func testCalls<T: Codable>(_ type: T.Type, url: URL?, completion: @escaping(Result<T, Error>) -> (Void)) {
         
-  
         
     }
+    
+    func getCall<T: Codable>(_ type: T.Type, url: URL?, request: String, completion: @escaping(Result<T, Error>) -> (Void)) {
+        
+        //dujdt
+        
+        
+        //url
+        guard let myUrl = url else {return}
+        
+        
+        //request type
+        var request = URLRequest(url: myUrl)
+        request.httpMethod = "\(request)"
+        
+        
+        //urlsession
+        let dataTask = URLSession.shared.dataTask(with: request) { data, response, err in
+            
+            guard let safeData = data else {return}
+            
+            let decoder = JSONDecoder()
+            
+            
+            //do-try-catch
+            
+            do {
+                let decodedData = try decoder.decode(T.self, from: safeData)
+                completion(.success(decodedData))
+            } catch {
+                print(err)
+                completion(.failure(APIerror.jsonDecodeError))
+            }
+            
+        }
+        dataTask.resume()
+        
+    }
+    
+    
+    
+    
+    
+    func testing<T: Codable>(_ type: T.Type, url: URL?, completion: @escaping(Result<T, Error>) -> (Void)) {
+        
+        
+        guard let safeURL = url else {return}
+        
+        
+        var request = URLRequest(url: safeURL)
+        request.httpMethod = "GET"
+        
+        
+        let dataTask = URLSession.shared.dataTask(with: request) { myData, myResponse, myErr in
+            
+            
+            guard let safeData = myData else {return}
+            
+            let decoder = JSONDecoder()
+            
+            
+            //do-try-catch
+            
+            do {
+                
+                let decodedData = try decoder.decode(T.self, from: safeData)
+                completion(.success(decodedData))
+                print("Data decoded succesfully")
+                
+            } catch {
+                print(myErr)
+                completion(.failure(APIerror.jsonDecodeError))
+            }
+            
+        }
+        dataTask.resume()
+        
+        
+    }
+    
+    
+    
+    
+    func getPostsCall<T: Codable>(_ type: T.Type, url: URL?, completion: @escaping(Result<T, Error>) -> (Void)) {
+        
+        guard let safeURL = url else {return}
+        
+        var request = URLRequest(url: safeURL)
+        request.httpMethod = "POST"
+
+        
+        let dataTask = URLSession.shared.dataTask(with: request) { data, response, err in
+            
+            guard let safeData = data else {return}
+            
+            let decoder = JSONDecoder()
+            
+            //do-try-catch
+            
+            do {
+                
+                let decodedData = try decoder.decode(T.self, from: safeData)
+                completion(.success(decodedData))
+                
+            } catch {
+                print(err)
+                completion(.failure(APIerror.jsonDecodeError))
+                
+            }
+            
+        }
+        dataTask.resume()
+        
+        
+        
+    }
+    
     
     
     func registerCalls<T: Codable>(_ type: T.Type, url: URL?, completion: @escaping(Result<T, Error>, _ yourMessage: String) -> (Void)) {

@@ -1,12 +1,12 @@
 {
   "pins" : [
     {
-      "identity" : "checkmarkcollectionviewcell",
+      "identity" : "activityview",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/yonat/CheckmarkCollectionViewCell",
+      "location" : "https://github.com/SwiftUI-Plus/ActivityView.git",
       "state" : {
-        "revision" : "d5be769035881c69a0206ad2e86f89927be9dda0",
-        "version" : "1.0.5"
+        "revision" : "444ff3755e49b0284c12360b3db0d64d31f0c3f8",
+        "version" : "1.2.0"
       }
     },
     {
@@ -28,6 +28,15 @@
       }
     },
     {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "818cf21b6a9046a509fd2319e26485886d387077"
+      }
+    },
+    {
       "identity" : "sdwebimage",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage",
@@ -43,15 +52,6 @@
       "state" : {
         "revision" : "cd8625b7cf11a97698e180d28bb7d5d357196678",
         "version" : "2.0.2"
-      }
-    },
-    {
-      "identity" : "sweeterswift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/yonat/SweeterSwift",
-      "state" : {
-        "revision" : "74b3d19dc80158b2a87240d05894154a1ba7f2ef",
-        "version" : "1.2.1"
       }
     },
     {

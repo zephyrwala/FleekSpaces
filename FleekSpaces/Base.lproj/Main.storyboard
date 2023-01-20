@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8NC-dj-m7u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8NC-dj-m7u">
     <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -507,6 +507,7 @@
                         <segue destination="FFa-df-FJe" kind="relationship" relationship="viewControllers" id="efL-Hs-XtV"/>
                         <segue destination="kXN-YT-dtV" kind="relationship" relationship="viewControllers" id="tnq-w9-Pc3"/>
                         <segue destination="Dqb-hx-E2l" kind="relationship" relationship="viewControllers" id="2Nk-l6-Mtd"/>
+                        <segue destination="G9X-7b-Adr" kind="relationship" relationship="viewControllers" id="5em-mi-xoY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wra-ZO-tfD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -518,7 +519,7 @@
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overCurrentContext" id="Ppb-iH-IIp" customClass="ChatKitViewController" customModule="FleekSpaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fji-TC-SqN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="721"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="638"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIn-ww-8ZC">
@@ -581,7 +582,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SEP-cU-feM">
-                                <rect key="frame" x="0.0" y="153" width="375" height="568"/>
+                                <rect key="frame" x="0.0" y="153" width="375" height="485"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AfW-w9-bqR">
                                     <size key="itemSize" width="128" height="128"/>

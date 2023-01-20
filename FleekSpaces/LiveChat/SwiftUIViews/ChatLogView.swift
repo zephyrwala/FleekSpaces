@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import SDWebImageSwiftUI
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
@@ -258,8 +259,24 @@ struct ChatLogView: View {
             Text(vm.errorMessage)
         }
 //        vm.chatUser?.email.
-            .navigationTitle(vm.chatUser?.email.components(separatedBy: "@").first ?? "loading...")
+//            .navigationTitle(vm.chatUser?.email.components(separatedBy: "@").first ?? "loading...")
+        
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+                   ToolbarItem(placement: .principal) {
+                       HStack(spacing: 10) {
+                           WebImage(url: URL(string: vm.chatUser!.profileImageUrl))
+                               .resizable()
+                               .scaledToFill()
+                               .frame(width: 36, height: 36)
+                               .clipped()
+                               .cornerRadius(64)
+                               .overlay(RoundedRectangle(cornerRadius: 64)
+                                .stroke(Color(.init("CoinMessageColor")), lineWidth: 0.5))
+                           Text(vm.chatUser?.email.components(separatedBy: "@").first ?? "loading...").font(.headline)
+                       }.padding(.bottom)
+                   }
+               }
         .preferredColorScheme(.dark)
         .accentColor(Color(.init("BtnGreenColor")))
         .onDisappear {

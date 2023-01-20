@@ -285,13 +285,15 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
                     
                 } else if selectedImagePicker != nil{
                     
+                   //8928883791
+                    
                     if let safeName = nameTextField.text {
                         
-                       
+                        guard let escapedAddress = safeName.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {return}
                         
                         if !safeName.isEmpty && !safeNumber.isEmpty {
                             
-                            registerFlow(userName: "\(safeName)", phoneNumber: "\(safeNumber)", email: "\(safeEmail)")
+                            registerFlow(userName: "\(escapedAddress)", phoneNumber: "\(safeNumber)", email: "\(safeEmail)")
                         }
                         
                         
@@ -317,7 +319,9 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
         
         print("The username is \(userName) and phone is \(phoneNumber) and email is \(email)")
         
-        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/users/register?phone=\(phoneNumber)&name=\(userName)&email=\(email)") else {return}
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/users/register?phone=\(phoneNumber)&name=\(userName)&email=\(email)") else {
+            print("Safe url is https://api-space-dev.getfleek.app/users/register?phone=\(phoneNumber)&name=\(userName)&email=\(email)")
+            return}
         
         let network = NetworkURL()
         

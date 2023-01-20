@@ -6,6 +6,10 @@
 //
 
 import UIKit
+enum DeepLink: String {
+    case home
+    case profile
+}
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollViewDelegate {
 
@@ -87,6 +91,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
     @IBAction func searchBtnTapped(_ sender: Any) {
         let controller = SearchViewController()
         navigationController?.pushViewController(controller, animated: true)
+        
+        
+
+        
         
     }
     
@@ -1190,7 +1198,7 @@ extension HomeViewController: UICollectionViewDataSource {
         if collectionView == subsCollectionView {
             
             return MyMovieDataModel.streamingPlatform?.count ?? 1
-        } else {
+        } else if collectionView == homeCollectionViews{
             
             switch section {
                 
@@ -1221,9 +1229,29 @@ extension HomeViewController: UICollectionViewDataSource {
                     return 9
                 }
             
-                //books
+                
             case 3:
-                return myLogos.count
+                if isIndiaSelected == true {
+                    
+                    if let safeIndiaMovie = indiaMovies?.count {
+                        
+                        return safeIndiaMovie
+                        
+                    }
+                      
+                     
+                    
+                }
+                   
+                 else if isIndiaSelected == false{
+                     if let safeUSAmovie = usaMovies?.count {
+                         
+                         return safeUSAmovie
+                     }
+                     
+                     
+                }
+               
             
             default:
                 return 1
@@ -1234,7 +1262,7 @@ extension HomeViewController: UICollectionViewDataSource {
             
         
           
-            
+            return 1
      
         //section ends here
     }

@@ -159,6 +159,10 @@ extension ChatsViewController: InputBarAccessoryViewDelegate {
         guard !text.replacingOccurrences(of: " ", with: "").isEmpty else {
             return
         }
+        
+       
+        
+        
                 
                 print("Sending this: \(text)")
     }

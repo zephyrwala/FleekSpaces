@@ -9,7 +9,8 @@ import SwiftUI
 import SDWebImageSwiftUI
 import Firebase
 import FirebaseFirestoreSwift
-
+import UIKit
+import ActivityView
 
 
 
@@ -185,9 +186,10 @@ class MainMessageViewModel: ObservableObject {
 
 struct MainMessagesView: View {
 
+    @State private var isShareSheetPresented = false
     @State var shouldShowNewMessageScreen = false
     @State var shouldShowLogOutOptions = false
-  
+    @State private var item: ActivityItem?
 
     @ObservedObject private var vm = MainMessageViewModel()
     private var chatLogViewModel = ChatLogViewModel(chatUser: nil)
@@ -203,9 +205,11 @@ struct MainMessagesView: View {
                     ChatLogView(vm: chatLogViewModel)
                 }
             }
-            .overlay(
-                newMessageButton, alignment: .bottom)
+//            .overlay(
+//                newMessageButton, alignment: .bottom)
             .navigationBarHidden(true)
+//            .navigationTitle("Chats")
+          
             .background(Color(.init("BGColor")))
             //BtnGreenColor
         }.accentColor(Color(.init("BtnGreenColor")))
@@ -214,37 +218,79 @@ struct MainMessagesView: View {
     private var customNavBar: some View {
         HStack(spacing: 16) {
 
-            WebImage(url: URL(string: vm.chatUser?.profileImageUrl ?? "")).resizable()
-                .scaledToFill()
-                .frame(width: 50, height: 50)
-                .clipped()
-                .cornerRadius(50)
-                .overlay(RoundedRectangle(cornerRadius: 44)
-                    .stroke(Color(.black), lineWidth: 1.2)
-                )
-                .shadow(radius: 5)
-        
-
-
-            VStack(alignment: .leading, spacing: 4) {
-                let email = vm.chatUser?.email.components(separatedBy: "@").first ?? "loading..."
-                Text(email)
-                    .font(.system(size: 21, weight: .bold))
-                    .foregroundColor(Color(.init("BtnGreenColor")))
-
-
-                HStack {
-                    Circle()
-                        .foregroundColor(.green)
-                        .frame(width: 9, height: 9)
-                    Text("online")
-                        .font(.system(size: 12))
-                        .foregroundColor(Color(.lightGray))
-                }
-
+            Image("chas")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100, height: 60)
+                .padding(.leading)
+            Spacer()
+            
+            Button {
+//                self.isShareSheetPresented.toggle()
+                shouldShowNewMessageScreen.toggle()
+                
+//                item = ActivityItem(
+//                           items: "This will be shared"
+//                       )
+                
+            } label: {
+                
+                Image(systemName: "square.and.pencil")
+                    .foregroundColor(Color("CoinMessageColor"))
+            }
+            .activitySheet($item)
+            .popover(isPresented: $shouldShowNewMessageScreen) {
+                
+                CreateNewMessageView(didSelectnewUser:{ user in
+                
+                    self.shouldNavigateToChatLogView.toggle()
+                    print(user.email)
+                    self.chatUser = user
+                    self.chatLogViewModel.chatUser = user
+                    self.chatLogViewModel.fetchMessages()
+                    
+                    
+                })
             }
 
-            Spacer()
+          
+//            WebImage(url: URL(string: vm.chatUser?.profileImageUrl ?? "")).resizable()
+//                .scaledToFill()
+//                .frame(width: 50, height: 50)
+//                .clipped()
+//                .cornerRadius(50)
+//                .overlay(RoundedRectangle(cornerRadius: 44)
+//                    .stroke(Color(.black), lineWidth: 1.2)
+//                )
+//                .shadow(radius: 5)
+//
+//
+//
+//            VStack(alignment: .leading, spacing: 4) {
+//
+//
+//
+////                let email = vm.chatUser?.email.components(separatedBy: "@").first ?? "loading..."
+////                Text(email)
+////                    .font(.system(size: 21, weight: .bold))
+////                    .foregroundColor(Color(.init("BtnGreenColor")))
+////
+////
+////                HStack {
+////
+////
+////
+////                    Circle()
+////                        .foregroundColor(.green)
+////                        .frame(width: 9, height: 9)
+////                    Text("online")
+////                        .font(.system(size: 12))
+////                        .foregroundColor(Color(.lightGray))
+////                }
+//
+//            }
+//
+//            Spacer()
          
         }
         .padding()
@@ -269,7 +315,9 @@ struct MainMessagesView: View {
             
             
         }
+        
     }
+    
     
     @State var shouldNavigateToChatLogView = false
    

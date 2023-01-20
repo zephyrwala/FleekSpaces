@@ -53,7 +53,17 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
                 
                 
             }),
-            UIAction(title: "Change App Icon!", image: UIImage(systemName: "wand.and.stars.inverse"), handler: { (_) in
+            UIAction(title: "Invite Friends", image: UIImage(systemName: "person.crop.circle.badge.plus"), handler: { (_) in
+                
+              
+                let shareText = "👋🏻 Hey there! Let's discover some cool movies & TV shows on Fleek Spaces 🍿 on https://getfleek.app/"
+                let textShare = [shareText]
+                let activityViewController = UIActivityViewController(activityItems: textShare , applicationActivities: nil)
+                    activityViewController.popoverPresentationController?.sourceView = self.view
+                    self.present(activityViewController, animated: true, completion: nil)
+                
+            }),
+            UIAction(title: "Change App Icon!", image: UIImage(systemName: "wand.and.stars.inverse"),  attributes: .destructive, handler: { (_) in
                 
                 let controller = IconChangerViewController()
                 self.present(controller, animated: true)
@@ -365,6 +375,30 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
         }
     }
     
+    
+    func test() {
+        
+        let network = NetworkURL()
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/activity/get_likes_dislikes_of_user/") else {return}
+        
+        network.testCalls([UserLike].self, url: myUrl) { myResult in
+            
+            
+            switch myResult{
+                
+            case .success(let datas):
+                print("data is \(datas)")
+                
+            case .failure(let err):
+                print(err)
+                
+            }
+            
+        }
+        
+        
+    }
+    
     //MARK: - Download Image
     
     func downloadImage(imageView: UIImageView, url: URL) {
@@ -586,6 +620,13 @@ extension ProfileViewController: UIImagePickerControllerDelegate {
            let controller = LoginVC()
             self?.navigationController?.pushViewController(controller, animated: true)
            
+            
+        }))
+        
+        
+        actionSheet.addAction(UIAlertAction(title: "Share App", style: .default, handler: { [weak self] _ in
+            
+            self?.presentPhotoPicker()
             
         }))
         

@@ -263,13 +263,13 @@ extension ChooseSubsViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addSub", for: indexPath) as! AddSubCollectionViewCell
             
             cell.setupCell(fromData: optionsLogos[indexPath.item])
-            cell.selectedImage = UIImage(systemName: "checkmark.circle.fill")
-            cell.deselectedImage = UIImage(systemName: "circle")
-            cell.tintColor = UIColor(named: "Fleek_600")
-            cell.checkmarkSize = 30.0
-            cell.checkmarkMargin = 17.0
-            cell.checkmarkLocation = [NSLayoutConstraint.Attribute.top, NSLayoutConstraint.Attribute.right]
-            return cell
+//            cell.selectedImage = UIImage(systemName: "checkmark.circle.fill")
+//            cell.deselectedImage = UIImage(systemName: "circle")
+//            cell.tintColor = UIColor(named: "Fleek_600")
+//            cell.checkmarkSize = 30.0
+//            cell.checkmarkMargin = 17.0
+//            cell.checkmarkLocation = [NSLayoutConstraint.Attribute.top, NSLayoutConstraint.Attribute.right]
+//            return cell
             
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchSection", for: indexPath) as! SearchCollectionCell

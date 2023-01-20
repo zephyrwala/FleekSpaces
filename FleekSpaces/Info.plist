@@ -1,7 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
+    
 <dict>
+	<key>CFBundleIcons</key>
+	<dict>
+        <key>CFBundlePrimaryIcon</key>
+        <dict>
+            <key>CFBundleIconFiles</key>
+            <array>
+                <string>xmas0</string>
+            </array>
+            <key>UIPrerenderedIcon</key>
+            <false/>
+        </dict>
+		<key>CFBundleAlternateIcons</key>
+		<dict>
+			<key>Default</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>default</string>
+				</array>
+			</dict>
+            <key>xmas0</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>xmas0</string>
+                </array>
+            </dict>
+            <key>xmas1</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>xmas1</string>
+                </array>
+            </dict>
+            <key>xmas2</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>xmas2</string>
+                </array>
+            </dict>
+			<key>Diwali</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Diwali</string>
+				</array>
+			</dict>
+			<key>Diwali2</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Diwali2</string>
+				</array>
+			</dict>
+			<key>Diwali3</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Diwali3</string>
+				</array>
+			</dict>
+			<key>Diwali5</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Diwali5</string>
+				</array>
+			</dict>
+			<key>Diwali6</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Diwali6</string>
+				</array>
+			</dict>
+			<key>Diwali7</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Diwali7</string>
+				</array>
+			</dict>
+			<key>Diwali8</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Diwali8</string>
+				</array>
+			</dict>
+			<key>Diwali9</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>Diwali9</string>
+				</array>
+			</dict>
+		</dict>
+	</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string>default</string>
+			<key>CFBundleURLName</key>
+			<string>app.getfleek.fleekSpacesbeta</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fleekspaces</string>
+			</array>
+		</dict>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -19,26 +134,6 @@
 					<string>Main</string>
 				</dict>
 			</array>
-		</dict>
-	</dict>
-	<key>CFBundleIcons</key>
-	<dict>
-		<key>CFBundleAlternateIcons</key>
-		<dict>
-			<key>Diwali</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>Diwali</string>
-				</array>
-			</dict>
-			<key>Diwali2</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>Diwali2</string>
-				</array>
-			</dict>
 		</dict>
 	</dict>
 </dict>

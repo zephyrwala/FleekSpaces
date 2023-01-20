@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import ActivityView
 
 class CreateNewMessageViewModel: ObservableObject {
     
@@ -18,6 +19,15 @@ class CreateNewMessageViewModel: ObservableObject {
         fetchAllUsers()
     }
     
+    func shareto() {
+        
+        let shareText = "👋🏻 Hey there! Let's discover some cool movies & TV shows on Fleek Spaces 🍿 on https://getfleek.app/"
+        let textShare = [shareText]
+        let activityViewController = UIActivityViewController(activityItems: textShare , applicationActivities: nil)
+//            activityViewController.popoverPresentationController?.sourceView = self.view
+//            self.present(activityViewController, animated: true, completion: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true)
+    }
     //users fetch
     private func fetchAllUsers() {
         
@@ -47,8 +57,30 @@ class CreateNewMessageViewModel: ObservableObject {
     
 }
 
+
+//struct ActivityView: UIViewControllerRepresentable {
+//    var url: String
+//    @Binding var showing: Bool
+//
+//    func makeUIViewController(context: Context) -> UIActivityViewController {
+//        let vc = UIActivityViewController(
+//            activityItems: [NSURL(string: url)!],
+//            applicationActivities: nil
+//        )
+//        vc.completionWithItemsHandler = { (activityType, completed, returnedItems, error) in
+//            self.showing = false
+//        }
+//        return vc
+//    }
+//
+//    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
+//    }
+//}
+
 struct CreateNewMessageView: View {
     
+    @State private var item: ActivityItem?
+    @State var showSheet = false
     let didSelectnewUser: (ChatUser) -> ()
     //define colums grid item size
     let columns = [
@@ -62,6 +94,20 @@ struct CreateNewMessageView: View {
     //observed object for the new message view model
     @ObservedObject var vm = CreateNewMessageViewModel()
     
+    func shareto() {
+        
+        let shareText = "👋🏻 Hey Bro! I'm inviting you to chat 💬 with me on Fleek Spaces 🍿 on https://getfleek.app/"
+        let textShare = [shareText]
+        let activityViewController = UIActivityViewController(activityItems: textShare , applicationActivities: nil)
+//            activityViewController.popoverPresentationController?.sourceView = self.view
+//            self.present(activityViewController, animated: true, completion: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true)
+    }
+    
+    
+    let link = URL(string: "https://www.hackingwithswift.com")!
+    
+    
     
     var body: some View {
         NavigationView {
@@ -73,8 +119,26 @@ struct CreateNewMessageView: View {
 //                    Spacer()
 //                }.padding()
                 VStack(alignment: .leading, spacing: 9) {
+                    Button {
+
+                        item = ActivityItem(
+                                   items: "👋🏻 Hey there! I'm inviting you to chat 💬 with me on Fleek Spaces 🍿 on https://apps.apple.com/in/app/fleekspaces/id1631251801"
+                               )
+                     
+
+                    } label: {
+                        HStack{
+                            Image(systemName: "person.crop.circle.badge.plus")
+                                .foregroundColor(Color("CoinMessageColor"))
+                            Text("Invite Friends")
+                                .foregroundColor(Color("CoinMessageColor"))
+                        }
+                        
+                    }.activitySheet($item)
+
+                        .padding(.bottom)
                     
-                    Text("Invite friends and start chatting!")
+                    Text("Start chatting with \(vm.users.count) friends!")
                         .font(.system(size: 15))
                         .fontWeight(.semibold)
                         .foregroundColor(Color(.init("BtnGreenColor")))
@@ -89,7 +153,7 @@ struct CreateNewMessageView: View {
                     .padding(.bottom)
                 //lazy grid setup
                 
-                LazyVGrid(columns: columns, spacing: 18) {
+//                LazyVGrid(columns: columns, spacing: 18) {
                     //over here vm.users will fetch the users dynamically via the
                 ForEach(vm.users) { user in
                     
@@ -100,11 +164,11 @@ struct CreateNewMessageView: View {
                     } label: {
                         
                         
-                        VStack(spacing: 20) {
+                        HStack(spacing: 20) {
                             WebImage(url: URL(string: user.profileImageUrl))
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 66, height: 66)
+                                .frame(width: 42, height: 42)
                                 .clipped()
                                 .cornerRadius(50)
                                 .overlay(RoundedRectangle(cornerRadius: 50)
@@ -116,7 +180,7 @@ struct CreateNewMessageView: View {
                             Text(user.email.components(separatedBy: "@").first ?? "loading...")
                             //vm.chatUser?.email.components(separatedBy: "@").first ?? "loading..."
                                 .font(.system(size: 15))
-                                .fontWeight(.semibold)
+                                .fontWeight(.regular)
                                 .foregroundColor(Color(.init("CoinMessageColor")))
                             Spacer()
                         }.padding(.horizontal)
@@ -128,18 +192,19 @@ struct CreateNewMessageView: View {
                     
                
                 }
-                .frame(height: 120)
-                }
+                .frame(height: 50)
+                
                 //ends here
-            }.navigationTitle("New Message")
+            }.navigationTitle("New Message 💬 ")
+                .navigationBarTitleDisplayMode(.inline)
                 .background(Color(.init("BGColor")))
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarLeading) {
                         Button {
                             presentationMode.wrappedValue.dismiss()
                         } label: {
-                            Text("Cancel")
-                                .foregroundColor(Color(.init("BtnGreenColor")))
+                           Image(systemName: "chevron.left")
+                                .foregroundColor(Color(.init("CoinMessageColor")))
                         }
                     }
                 }

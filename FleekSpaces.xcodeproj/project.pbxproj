@@ -19,7 +19,6 @@
 		6924002028AFB6F200DFB033 /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6924001E28AFB6F200DFB033 /* RegisterVC.xib */; };
 		692600B7284DE24500B6D801 /* AddSubCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692600B5284DE24500B6D801 /* AddSubCollectionViewCell.swift */; };
 		692600B8284DE24500B6D801 /* AddSubCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 692600B6284DE24500B6D801 /* AddSubCollectionViewCell.xib */; };
-		692600BB284DE5DB00B6D801 /* CheckmarkCollectionViewCell in Frameworks */ = {isa = PBXBuildFile; productRef = 692600BA284DE5DB00B6D801 /* CheckmarkCollectionViewCell */; };
 		692600BE284E09A200B6D801 /* Section2HeadersCRV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692600BC284E09A200B6D801 /* Section2HeadersCRV.swift */; };
 		692600BF284E09A200B6D801 /* Section2HeadersCRV.xib in Resources */ = {isa = PBXBuildFile; fileRef = 692600BD284E09A200B6D801 /* Section2HeadersCRV.xib */; };
 		692600C2284E1F8500B6D801 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692600C1284E1F8500B6D801 /* ChatViewController.swift */; };
@@ -153,6 +152,9 @@
 		6962D91328D8837600CE1B17 /* NewChatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6962D91128D8837600CE1B17 /* NewChatsTableViewCell.swift */; };
 		6962D91428D8837600CE1B17 /* NewChatsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6962D91228D8837600CE1B17 /* NewChatsTableViewCell.xib */; };
 		6962D91728DC627F00CE1B17 /* BaseFirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6962D91628DC627F00CE1B17 /* BaseFirebaseStorage.swift */; };
+		6963C5DA2954BE40000E6C45 /* xmas0.png in Resources */ = {isa = PBXBuildFile; fileRef = 6963C5D72954BE3E000E6C45 /* xmas0.png */; };
+		6963C5DB2954BE40000E6C45 /* xmas1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6963C5D82954BE3F000E6C45 /* xmas1.png */; };
+		6963C5DC2954BE40000E6C45 /* xmas2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6963C5D92954BE40000E6C45 /* xmas2.png */; };
 		69643BFB28706913007128C0 /* ConversationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69643BF928706913007128C0 /* ConversationsTableViewCell.swift */; };
 		69643BFC28706913007128C0 /* ConversationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69643BFA28706913007128C0 /* ConversationsTableViewCell.xib */; };
 		69643BFF2872B437007128C0 /* LiveChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69643BFE2872B437007128C0 /* LiveChatViewController.swift */; };
@@ -161,6 +163,7 @@
 		69691DAB28F5696400CE8B36 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 69691DAA28F5696400CE8B36 /* IQKeyboardManagerSwift */; };
 		69691DAE28F56AF400CE8B36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69691DAC28F56AF400CE8B36 /* RegisterViewController.swift */; };
 		69691DAF28F56AF400CE8B36 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69691DAD28F56AF400CE8B36 /* RegisterViewController.xib */; };
+		6995FED8297913E800190253 /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = 6995FED7297913E800190253 /* ActivityView */; };
 		69C4996E28698012000F4394 /* EmailSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C4996C28698012000F4394 /* EmailSignInViewController.swift */; };
 		69C4996F28698012000F4394 /* EmailSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69C4996D28698012000F4394 /* EmailSignInViewController.xib */; };
 		69C499782869BDB4000F4394 /* LoginEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C499762869BDB4000F4394 /* LoginEmailViewController.swift */; };
@@ -173,6 +176,16 @@
 		69D527D12901B013001B310C /* Diwali2.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D527CE2901B013001B310C /* Diwali2.png */; };
 		69D527D22901B013001B310C /* Halloween.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D527CF2901B013001B310C /* Halloween.png */; };
 		69D527D429024880001B310C /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D527D329024880001B310C /* MainTabBarViewController.swift */; };
+		69D527D729027EE5001B310C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 69D527D629027EE5001B310C /* Lottie */; };
+		69D527DA290280C6001B310C /* firework.json in Resources */ = {isa = PBXBuildFile; fileRef = 69D527D9290280C6001B310C /* firework.json */; };
+		69D527DC29028296001B310C /* fire.json in Resources */ = {isa = PBXBuildFile; fileRef = 69D527DB29028296001B310C /* fire.json */; };
+		69D527E32902AB69001B310C /* Diwali5.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D527DD2902AB66001B310C /* Diwali5.png */; };
+		69D527E42902AB69001B310C /* Diwali6.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D527DE2902AB67001B310C /* Diwali6.png */; };
+		69D527E52902AB69001B310C /* Diwali8.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D527DF2902AB67001B310C /* Diwali8.png */; };
+		69D527E62902AB69001B310C /* Diwali3.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D527E02902AB68001B310C /* Diwali3.png */; };
+		69D527E72902AB69001B310C /* Diwali7.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D527E12902AB68001B310C /* Diwali7.png */; };
+		69D527E82902AB69001B310C /* Diwali9.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D527E22902AB69001B310C /* Diwali9.png */; };
+		69D527EA2902C02F001B310C /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D527E92902C02F001B310C /* default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -345,6 +358,9 @@
 		6962D91128D8837600CE1B17 /* NewChatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatsTableViewCell.swift; sourceTree = "<group>"; };
 		6962D91228D8837600CE1B17 /* NewChatsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewChatsTableViewCell.xib; sourceTree = "<group>"; };
 		6962D91628DC627F00CE1B17 /* BaseFirebaseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFirebaseStorage.swift; sourceTree = "<group>"; };
+		6963C5D72954BE3E000E6C45 /* xmas0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xmas0.png; sourceTree = "<group>"; };
+		6963C5D82954BE3F000E6C45 /* xmas1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xmas1.png; sourceTree = "<group>"; };
+		6963C5D92954BE40000E6C45 /* xmas2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xmas2.png; sourceTree = "<group>"; };
 		69643BF928706913007128C0 /* ConversationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsTableViewCell.swift; sourceTree = "<group>"; };
 		69643BFA28706913007128C0 /* ConversationsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationsTableViewCell.xib; sourceTree = "<group>"; };
 		69643BFE2872B437007128C0 /* LiveChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveChatViewController.swift; sourceTree = "<group>"; };
@@ -364,6 +380,15 @@
 		69D527CE2901B013001B310C /* Diwali2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diwali2.png; sourceTree = "<group>"; };
 		69D527CF2901B013001B310C /* Halloween.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Halloween.png; sourceTree = "<group>"; };
 		69D527D329024880001B310C /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		69D527D9290280C6001B310C /* firework.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = firework.json; sourceTree = "<group>"; };
+		69D527DB29028296001B310C /* fire.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fire.json; sourceTree = "<group>"; };
+		69D527DD2902AB66001B310C /* Diwali5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diwali5.png; sourceTree = "<group>"; };
+		69D527DE2902AB67001B310C /* Diwali6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diwali6.png; sourceTree = "<group>"; };
+		69D527DF2902AB67001B310C /* Diwali8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diwali8.png; sourceTree = "<group>"; };
+		69D527E02902AB68001B310C /* Diwali3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diwali3.png; sourceTree = "<group>"; };
+		69D527E12902AB68001B310C /* Diwali7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diwali7.png; sourceTree = "<group>"; };
+		69D527E22902AB69001B310C /* Diwali9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diwali9.png; sourceTree = "<group>"; };
+		69D527E92902C02F001B310C /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		B074456520EDC420251F3A55 /* Pods_FleekSpaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FleekSpaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD892A40D7B9C0EAB09C348E /* Pods-FleekSpaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FleekSpaces.release.xcconfig"; path = "Target Support Files/Pods-FleekSpaces/Pods-FleekSpaces.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -374,10 +399,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				69691DAB28F5696400CE8B36 /* IQKeyboardManagerSwift in Frameworks */,
+				69D527D729027EE5001B310C /* Lottie in Frameworks */,
 				694393BB2874694E00CEC3C4 /* SDWebImageSwiftUI in Frameworks */,
 				693357E12895619000C49506 /* YouTubeiOSPlayerHelper in Frameworks */,
+				6995FED8297913E800190253 /* ActivityView in Frameworks */,
 				693946AA2847842200FE7574 /* SDWebImage in Frameworks */,
-				692600BB284DE5DB00B6D801 /* CheckmarkCollectionViewCell in Frameworks */,
 				05BAF937230305A929A057A5 /* Pods_FleekSpaces.framework in Frameworks */,
 				690182F7286C72BD00DF046E /* JGProgressHUD in Frameworks */,
 			);
@@ -1098,6 +1124,7 @@
 		69D527C229016550001B310C /* CustomIcons */ = {
 			isa = PBXGroup;
 			children = (
+				69D527D8290280BA001B310C /* Anime */,
 				69D527CC2901AF96001B310C /* AltIcons */,
 				69D527C729019552001B310C /* iconCell */,
 				69D527C329016572001B310C /* IconChangerViewController.swift */,
@@ -1118,11 +1145,30 @@
 		69D527CC2901AF96001B310C /* AltIcons */ = {
 			isa = PBXGroup;
 			children = (
+				6963C5D72954BE3E000E6C45 /* xmas0.png */,
+				6963C5D82954BE3F000E6C45 /* xmas1.png */,
+				6963C5D92954BE40000E6C45 /* xmas2.png */,
+				69D527E92902C02F001B310C /* default.png */,
+				69D527E02902AB68001B310C /* Diwali3.png */,
+				69D527DD2902AB66001B310C /* Diwali5.png */,
+				69D527DE2902AB67001B310C /* Diwali6.png */,
+				69D527E12902AB68001B310C /* Diwali7.png */,
+				69D527DF2902AB67001B310C /* Diwali8.png */,
+				69D527E22902AB69001B310C /* Diwali9.png */,
 				69D527CD2901B012001B310C /* Diwali.png */,
 				69D527CE2901B013001B310C /* Diwali2.png */,
 				69D527CF2901B013001B310C /* Halloween.png */,
 			);
 			path = AltIcons;
+			sourceTree = "<group>";
+		};
+		69D527D8290280BA001B310C /* Anime */ = {
+			isa = PBXGroup;
+			children = (
+				69D527DB29028296001B310C /* fire.json */,
+				69D527D9290280C6001B310C /* firework.json */,
+			);
+			path = Anime;
 			sourceTree = "<group>";
 		};
 		CECA015D65819323CA5FC61B /* Frameworks */ = {
@@ -1157,11 +1203,12 @@
 			name = FleekSpaces;
 			packageProductDependencies = (
 				693946A92847842200FE7574 /* SDWebImage */,
-				692600BA284DE5DB00B6D801 /* CheckmarkCollectionViewCell */,
 				690182F6286C72BD00DF046E /* JGProgressHUD */,
 				694393BA2874694E00CEC3C4 /* SDWebImageSwiftUI */,
 				693357E02895619000C49506 /* YouTubeiOSPlayerHelper */,
 				69691DAA28F5696400CE8B36 /* IQKeyboardManagerSwift */,
+				69D527D629027EE5001B310C /* Lottie */,
+				6995FED7297913E800190253 /* ActivityView */,
 			);
 			productName = FleekSpaces;
 			productReference = 69394665284628D100FE7574 /* FleekSpaces.app */;
@@ -1213,11 +1260,12 @@
 			mainGroup = 6939465C284628D100FE7574;
 			packageReferences = (
 				693946A82847842200FE7574 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				692600B9284DE5DB00B6D801 /* XCRemoteSwiftPackageReference "CheckmarkCollectionViewCell" */,
 				690182F5286C72BC00DF046E /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				694393B92874694D00CEC3C4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				693357DF2895618F00C49506 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
 				69691DA928F5696400CE8B36 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				69D527D529027EE5001B310C /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				6995FED6297913E800190253 /* XCRemoteSwiftPackageReference "ActivityView" */,
 			);
 			productRefGroup = 69394666284628D100FE7574 /* Products */;
 			projectDirPath = "";
@@ -1236,19 +1284,24 @@
 			files = (
 				69D527D02901B013001B310C /* Diwali.png in Resources */,
 				695EBBE32861AAD400557D69 /* SeasonsViewController.xib in Resources */,
+				69D527DA290280C6001B310C /* firework.json in Resources */,
 				6938499E2881B31300EC5C61 /* BooksHeaderCRV.xib in Resources */,
 				693357DE2894088000C49506 /* EpisodeCardsViewController.xib in Resources */,
 				695EBBD92860839900557D69 /* TVDetailViewController.xib in Resources */,
 				690182F1286B081D00DF046E /* GoogleService-Info.plist in Resources */,
 				69384995288146BC00EC5C61 /* RecentChatViewCell.xib in Resources */,
+				69D527E52902AB69001B310C /* Diwali8.png in Resources */,
 				6930D53D2851D3A60080528D /* MovieDetailViewController.xib in Resources */,
 				695836D228FD305E006887FE /* UpcomingMoviesCollectionViewCell.xib in Resources */,
 				695EBBDC28619DEF00557D69 /* tvshow.json in Resources */,
 				69598DCD28D879E10071E1D1 /* NewChatUsersVC.xib in Resources */,
 				695EBC002864502200557D69 /* SignInViewController.xib in Resources */,
+				6963C5DC2954BE40000E6C45 /* xmas2.png in Resources */,
+				6963C5DB2954BE40000E6C45 /* xmas1.png in Resources */,
 				6924002028AFB6F200DFB033 /* RegisterVC.xib in Resources */,
 				693946962847577D00FE7574 /* Section1HeaderCRV.xib in Resources */,
 				693946B2284896DF00FE7574 /* ChooseSubsViewController.xib in Resources */,
+				69D527E42902AB69001B310C /* Diwali6.png in Resources */,
 				6930D57C2859DB4B0080528D /* GenreBottomViewController.xib in Resources */,
 				693849A8288270DD00EC5C61 /* BookSectionCollectionViewCell.xib in Resources */,
 				6930D5422851F5290080528D /* MovieInfoCollectionViewCell.xib in Resources */,
@@ -1262,6 +1315,7 @@
 				69691DAF28F56AF400CE8B36 /* RegisterViewController.xib in Resources */,
 				693946C12848C42C00FE7574 /* SelectedSubCollectionViewCell.xib in Resources */,
 				6930D55D285700B70080528D /* MoreLikeThisCRV.xib in Resources */,
+				69D527E72902AB69001B310C /* Diwali7.png in Resources */,
 				6930D547285319F30080528D /* MoviePlayCollectionViewCell.xib in Resources */,
 				69394675284628D500FE7574 /* LaunchScreen.storyboard in Resources */,
 				692600C6284E203100B6D801 /* ChatCVCell.xib in Resources */,
@@ -1273,8 +1327,11 @@
 				693357D92893F66700C49506 /* SeasonCardCVC.xib in Resources */,
 				693946922847548500FE7574 /* Section3CollectionViewCell.xib in Resources */,
 				69C4996F28698012000F4394 /* EmailSignInViewController.xib in Resources */,
+				69D527EA2902C02F001B310C /* default.png in Resources */,
 				69D527D12901B013001B310C /* Diwali2.png in Resources */,
+				69D527E82902AB69001B310C /* Diwali9.png in Resources */,
 				6930D5772858AA850080528D /* filmographyHeader.xib in Resources */,
+				69D527DC29028296001B310C /* fire.json in Resources */,
 				6939468A2847545900FE7574 /* Section1CollectionViewCell.xib in Resources */,
 				695EBBF82863223F00557D69 /* OnboardingCollectionViewCell.xib in Resources */,
 				692600B8284DE24500B6D801 /* AddSubCollectionViewCell.xib in Resources */,
@@ -1287,6 +1344,7 @@
 				693946BD2848B22F00FE7574 /* SearchCollectionCell.xib in Resources */,
 				693849A328826FE700EC5C61 /* BooksDetailViewController.xib in Resources */,
 				69D527C629016572001B310C /* IconChangerViewController.xib in Resources */,
+				69D527E62902AB69001B310C /* Diwali3.png in Resources */,
 				69D527CB29019578001B310C /* iconTableViewCell.xib in Resources */,
 				693946862847518C00FE7574 /* NavCollectionViewCell.xib in Resources */,
 				69394670284628D100FE7574 /* Main.storyboard in Resources */,
@@ -1295,11 +1353,13 @@
 				6942108028EC4D620065EB3C /* UserDataCollectionViewCell.xib in Resources */,
 				6939468E2847546C00FE7574 /* Section2CollectionViewCell.xib in Resources */,
 				695EBBF22862DF3B00557D69 /* DetailEpisodeViewController.xib in Resources */,
+				69D527E32902AB69001B310C /* Diwali5.png in Resources */,
 				6930D5592856FBD40080528D /* MoreLikeThisCollectionViewCell.xib in Resources */,
 				6930D550285346A60080528D /* MovieCastCell.xib in Resources */,
 				693946A1284757EA00FE7574 /* Section3CRV.xib in Resources */,
 				694393C7287D5EF700CEC3C4 /* SignInEmbedViewController.xib in Resources */,
 				6930D54B285330BE0080528D /* YourHeaderCRV2.xib in Resources */,
+				6963C5DA2954BE40000E6C45 /* xmas0.png in Resources */,
 				6938499A2881B2A500EC5C61 /* BookCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1613,7 +1673,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;
@@ -1631,7 +1691,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.15;
+				MARKETING_VERSION = 0.19;
 				PRODUCT_BUNDLE_IDENTIFIER = app.getfleek.fleekSpacesbeta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1650,7 +1710,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;
@@ -1668,7 +1728,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.15;
+				MARKETING_VERSION = 0.19;
 				PRODUCT_BUNDLE_IDENTIFIER = app.getfleek.fleekSpacesbeta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1772,14 +1832,6 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		692600B9284DE5DB00B6D801 /* XCRemoteSwiftPackageReference "CheckmarkCollectionViewCell" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/yonat/CheckmarkCollectionViewCell";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.5;
-			};
-		};
 		693357DF2895618F00C49506 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/youtube/youtube-ios-player-helper.git";
@@ -1812,6 +1864,22 @@
 				kind = branch;
 			};
 		};
+		6995FED6297913E800190253 /* XCRemoteSwiftPackageReference "ActivityView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUI-Plus/ActivityView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		69D527D529027EE5001B310C /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1819,11 +1887,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 690182F5286C72BC00DF046E /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
 			productName = JGProgressHUD;
-		};
-		692600BA284DE5DB00B6D801 /* CheckmarkCollectionViewCell */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 692600B9284DE5DB00B6D801 /* XCRemoteSwiftPackageReference "CheckmarkCollectionViewCell" */;
-			productName = CheckmarkCollectionViewCell;
 		};
 		693357E02895619000C49506 /* YouTubeiOSPlayerHelper */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1844,6 +1907,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 69691DA928F5696400CE8B36 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		6995FED7297913E800190253 /* ActivityView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6995FED6297913E800190253 /* XCRemoteSwiftPackageReference "ActivityView" */;
+			productName = ActivityView;
+		};
+		69D527D629027EE5001B310C /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69D527D529027EE5001B310C /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

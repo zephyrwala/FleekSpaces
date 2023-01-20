@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IconChangerViewController" customModule="FleekSpaces" customModuleProvider="target">
             <connections>
+                <outlet property="dismaBtn" destination="JpD-xd-tC9" id="jrQ-HT-wSc"/>
                 <outlet property="iconTableView" destination="kAW-XF-yHY" id="iS6-PB-cLO"/>
+                <outlet property="lottieViewAnimation" destination="4RK-cs-ad0" id="QjE-Ct-xtK"/>
                 <outlet property="mainIconImage" destination="dtu-uz-Usg" id="HzP-hh-WaU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,6 +23,13 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4RK-cs-ad0" customClass="LottieAnimationView" customModule="Lottie">
+                    <rect key="frame" x="0.0" y="47" width="390" height="486"/>
+                    <color key="backgroundColor" name="BGColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="fire"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appstore" translatesAutoresizingMaskIntoConstraints="NO" id="dtu-uz-Usg">
                     <rect key="frame" x="120" y="177" width="150" height="150"/>
                     <constraints>
@@ -29,7 +38,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🪄  Custom App Icons" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0N-sp-0dI">
-                    <rect key="frame" x="30" y="82" width="320" height="35"/>
+                    <rect key="frame" x="25" y="82" width="325" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="zC2-xv-FcP"/>
                     </constraints>
@@ -52,21 +61,40 @@
                     <color key="separatorColor" name="Neutral_800"/>
                     <color key="sectionIndexBackgroundColor" name="BGColor"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JpD-xd-tC9">
+                    <rect key="frame" x="15" y="82" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="27V-VQ-tvP"/>
+                        <constraint firstAttribute="height" constant="35" id="cLQ-19-Sa1"/>
+                    </constraints>
+                    <color key="tintColor" name="BtnBorderColor"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system"/>
+                    <connections>
+                        <action selector="dismaBtnTap:" destination="-1" eventType="touchUpInside" id="d7I-Ve-q1V"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="BGColor"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Fh8-7P-VFb" secondAttribute="trailing" constant="30" id="2jZ-nr-Z8d"/>
+                <constraint firstItem="JpD-xd-tC9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="2v1-7M-gGQ"/>
                 <constraint firstItem="Fh8-7P-VFb" firstAttribute="top" secondItem="dtu-uz-Usg" secondAttribute="bottom" constant="50" id="BtB-Pt-wq1"/>
                 <constraint firstItem="kAW-XF-yHY" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="GDB-zT-4kE"/>
                 <constraint firstItem="dtu-uz-Usg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="130" id="IeQ-tc-2uo"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="B0N-sp-0dI" secondAttribute="trailing" constant="40" id="K9M-QI-13V"/>
+                <constraint firstItem="4RK-cs-ad0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="QEk-wR-V10"/>
                 <constraint firstItem="Fh8-7P-VFb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="TRD-sR-9kp"/>
                 <constraint firstItem="dtu-uz-Usg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="W1D-uu-aQ4"/>
-                <constraint firstItem="B0N-sp-0dI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="fuk-2g-lp3"/>
+                <constraint firstItem="4RK-cs-ad0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="XFj-IQ-izG"/>
+                <constraint firstItem="JpD-xd-tC9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="35" id="a0k-uB-qbA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4RK-cs-ad0" secondAttribute="trailing" id="a4Z-94-M0c"/>
+                <constraint firstItem="B0N-sp-0dI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="fuk-2g-lp3"/>
                 <constraint firstItem="dtu-uz-Usg" firstAttribute="top" secondItem="B0N-sp-0dI" secondAttribute="bottom" constant="60" id="jSs-kn-VGI"/>
                 <constraint firstItem="kAW-XF-yHY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="rDI-Bv-7F1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kAW-XF-yHY" secondAttribute="trailing" constant="16" id="uvF-75-x3p"/>
+                <constraint firstAttribute="bottom" secondItem="4RK-cs-ad0" secondAttribute="bottom" constant="311" id="v75-aF-ugp"/>
                 <constraint firstItem="kAW-XF-yHY" firstAttribute="top" secondItem="Fh8-7P-VFb" secondAttribute="bottom" constant="15" id="y6M-s0-YGM"/>
             </constraints>
             <point key="canvasLocation" x="-26.153846153846153" y="-1.4218009478672986"/>
@@ -74,8 +102,12 @@
     </objects>
     <resources>
         <image name="appstore" width="1024" height="1024"/>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
         <namedColor name="BGColor">
             <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BtnBorderColor">
+            <color red="0.32499998807907104" green="0.32499998807907104" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Neutral_200">
             <color red="0.88599997758865356" green="0.88599997758865356" blue="0.88599997758865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -203,12 +203,16 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     
                 } else if self.register == true {
                     
-                    weak var pvc = self.presentingViewController
-
-                    self.dismiss(animated: true, completion: {
-                        let vc = RegisterVC()
-                        pvc?.present(vc, animated: true, completion: nil)
-                    })
+//                    weak var pvc = self.presentingViewController
+//
+//                    self.dismiss(animated: true, completion: {
+//                        let vc = RegisterVC()
+//                        pvc?.present(vc, animated: true, completion: nil)
+//                    })
+                    
+                    
+                    let controller = RegisterVC()
+                    self.navigationController?.pushViewController(controller, animated: true)
                 }
                
                
