@@ -99,9 +99,7 @@ struct CreateNewMessageView: View {
         let shareText = "👋🏻 Hey Bro! I'm inviting you to chat 💬 with me on Fleek Spaces 🍿 on https://getfleek.app/"
         let textShare = [shareText]
         let activityViewController = UIActivityViewController(activityItems: textShare , applicationActivities: nil)
-//            activityViewController.popoverPresentationController?.sourceView = self.view
-//            self.present(activityViewController, animated: true, completion: nil)
-        UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true)
+
     }
     
     

@@ -10,6 +10,8 @@ import Firebase
 import FirebaseFirestoreSwift
 
 class ChatKitViewController: UIViewController, UICollectionViewDelegate {
+    
+
 
    
     @IBOutlet weak var newChatButton: UIButton!
@@ -25,6 +27,8 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        RealTimeDatabaseManager.shared.test()
+        
         if FirebaseManager.shared.auth.currentUser?.uid != nil {
            
             print("user is logged in")
@@ -62,9 +66,26 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
     @IBAction func newChatBtnTapAction(_ sender: Any) {
         
         let vc = NewChatUsersVC()
+        vc.completion = {[weak self] result in
+            print("\(result)")
+            self?.createnewConversation(result: result)
+            
+        }
         
         self.present(vc, animated: true)
         
+        
+    }
+    
+    
+    private func createnewConversation(result: [String: String]) {
+        
+        
+        let controllers = ChatsViewController()
+//        controllers.modalPresentationStyle = .fullScreen
+       
+        controllers.title = "Jenny Smith"
+        navigationController?.pushViewController(controllers, animated: true)
         
     }
     

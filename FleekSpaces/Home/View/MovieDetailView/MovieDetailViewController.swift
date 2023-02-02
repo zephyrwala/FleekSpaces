@@ -855,9 +855,19 @@ extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, wat
         case 1:
             return FinalDataModel.movieDetails?.providerOffers?.providerOffersIN?.flatrate?.count ?? 1
         case 2:
-            if FinalDataModel.movieDetails?.castAndCrew?.count ?? 12 >= 12 {
-                return 12
-            } else {return 6}
+            
+            if let castCount = FinalDataModel.movieDetails?.castAndCrew?.count {
+                
+                if castCount >= 12 {
+                    return 12
+                } else  {
+                    return castCount
+                    
+                }
+                
+            }
+        
+          
         case 3:
             return FinalDataModel.similarMovies?.results?.count ?? 1
             
@@ -866,6 +876,7 @@ extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, wat
             return 1
         }
         
+        return 1
     }
     
     //MARK: - Headers CV

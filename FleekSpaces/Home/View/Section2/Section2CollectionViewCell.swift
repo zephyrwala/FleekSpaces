@@ -27,8 +27,6 @@ class Section2CollectionViewCell: UICollectionViewCell {
         }
         
         
-
-        
     }
     
     func setupOTTmovie(fromData: OTTmovie) {

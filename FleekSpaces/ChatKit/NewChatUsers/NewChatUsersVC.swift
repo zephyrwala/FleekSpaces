@@ -11,7 +11,7 @@ import SDWebImage
 class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
  
-    
+    public var completion: (([String: String]) -> (Void))?
 
     @IBOutlet weak var testTable: UITableView!
     
@@ -80,6 +80,12 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let targetuserData = users[indexPath.row]
+        dismiss(animated: true) { [weak self] in
+//            self?.completion?(targetuserData)
+        }
+        
         
     }
     

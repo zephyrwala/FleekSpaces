@@ -80,13 +80,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         setupCollectionView()
         setupSubsCollectionView()
         
+       
         
+       
         
       
        
        
                 // Do any additional setup after loading the view.
     }
+    
+ 
     
     @IBAction func searchBtnTapped(_ sender: Any) {
         let controller = SearchViewController()
@@ -268,6 +272,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         subsCollectionView.register(UINib(nibName: "Section1CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "sec1")
         subsCollectionView.register(UINib(nibName: "Section2CRV", bundle: nil), forSupplementaryViewOfKind: self.sec1, withReuseIdentifier: "sec2Header")
         subsCollectionView.allowsMultipleSelection = false
+        
+ //TODO: - remove this
+      
         
     }
     
@@ -1205,11 +1212,17 @@ extension HomeViewController: UICollectionViewDataSource {
                 //change this
             case 0:
                
-                if FinalDataModel.ottMovie?.count ?? 3 >= 15 {
-                    return 15
-                } else {
-                    return 9
+                if let finalCount = FinalDataModel.ottMovie?.count {
+                    
+                    
+                    if finalCount >= 15 {
+                        return 15
+                    } else {
+                        return finalCount
+                    }
+                    
                 }
+               
                 
             case 1:
                 
@@ -1223,11 +1236,17 @@ extension HomeViewController: UICollectionViewDataSource {
                 
                 //worldwide trending
             case 2:
-                if FinalDataModel.worldWide?.count ?? 3 >= 15 {
-                    return 15
-                } else {
-                    return 9
+                
+                if let finalWWcount = FinalDataModel.worldWide?.count {
+                    
+                    if finalWWcount >= 15 {
+                        return 15
+                    } else {
+                        return finalWWcount
+                    }
+                    
                 }
+                
             
                 
             case 3:
@@ -1286,6 +1305,8 @@ extension HomeViewController: UICollectionViewDataSource {
                 }
               
                 cell.selectedSub.makeItGolGol()
+                
+               
 //                cell.setupLogos(fromData: myLogos[indexPath.item])
                 
                 return cell

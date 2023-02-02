@@ -12,7 +12,8 @@ class NewChatsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        profiles.layer.cornerRadius = 10
+//        profiles.layer.cornerRadius = 30
+        profiles.makeItGolGol()
     }
     
     @IBOutlet weak var profiles: UIImageView!

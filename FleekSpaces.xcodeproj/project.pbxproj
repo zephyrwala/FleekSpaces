@@ -164,6 +164,7 @@
 		69691DAE28F56AF400CE8B36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69691DAC28F56AF400CE8B36 /* RegisterViewController.swift */; };
 		69691DAF28F56AF400CE8B36 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69691DAD28F56AF400CE8B36 /* RegisterViewController.xib */; };
 		6995FED8297913E800190253 /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = 6995FED7297913E800190253 /* ActivityView */; };
+		6995FEDB297DAC9A00190253 /* RealTimeDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6995FEDA297DAC9A00190253 /* RealTimeDatabaseManager.swift */; };
 		69C4996E28698012000F4394 /* EmailSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C4996C28698012000F4394 /* EmailSignInViewController.swift */; };
 		69C4996F28698012000F4394 /* EmailSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69C4996D28698012000F4394 /* EmailSignInViewController.xib */; };
 		69C499782869BDB4000F4394 /* LoginEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C499762869BDB4000F4394 /* LoginEmailViewController.swift */; };
@@ -368,6 +369,7 @@
 		69643C0F2872D4D5007128C0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		69691DAC28F56AF400CE8B36 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		69691DAD28F56AF400CE8B36 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		6995FEDA297DAC9A00190253 /* RealTimeDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeDatabaseManager.swift; sourceTree = "<group>"; };
 		69C4996C28698012000F4394 /* EmailSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInViewController.swift; sourceTree = "<group>"; };
 		69C4996D28698012000F4394 /* EmailSignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmailSignInViewController.xib; sourceTree = "<group>"; };
 		69C499762869BDB4000F4394 /* LoginEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailViewController.swift; sourceTree = "<group>"; };
@@ -626,6 +628,7 @@
 		6938498E2881373000EC5C61 /* ChatKit */ = {
 			isa = PBXGroup;
 			children = (
+				6995FED9297DAC1200190253 /* RealtimeDB */,
 				6962D91528DC625D00CE1B17 /* BaseFirebase */,
 				69598DC928D8799A0071E1D1 /* NewChatUsers */,
 				6924001828AF991C00DFB033 /* Register */,
@@ -1095,6 +1098,14 @@
 			path = SwiftUIViews;
 			sourceTree = "<group>";
 		};
+		6995FED9297DAC1200190253 /* RealtimeDB */ = {
+			isa = PBXGroup;
+			children = (
+				6995FEDA297DAC9A00190253 /* RealTimeDatabaseManager.swift */,
+			);
+			path = RealtimeDB;
+			sourceTree = "<group>";
+		};
 		69C4996B28697FE0000F4394 /* EmailSignIn */ = {
 			isa = PBXGroup;
 			children = (
@@ -1480,6 +1491,7 @@
 				693946A728477E0800FE7574 /* ExtensionsFile.swift in Sources */,
 				69C499782869BDB4000F4394 /* LoginEmailViewController.swift in Sources */,
 				6930D567285712E20080528D /* SearchResultCVC.swift in Sources */,
+				6995FEDB297DAC9A00190253 /* RealTimeDatabaseManager.swift in Sources */,
 				693357D82893F66700C49506 /* SeasonCardCVC.swift in Sources */,
 				6939466B284628D100FE7574 /* SceneDelegate.swift in Sources */,
 				69D527CA29019578001B310C /* iconTableViewCell.swift in Sources */,
@@ -1673,7 +1685,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;
@@ -1710,7 +1722,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;

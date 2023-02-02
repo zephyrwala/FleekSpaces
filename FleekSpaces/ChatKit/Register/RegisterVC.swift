@@ -286,7 +286,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
                 } else if selectedImagePicker != nil{
                     
                    //8928883791
-                    
+                    //TODO: - name is passed wihout the space
                     if let safeName = nameTextField.text {
                         
                         guard let escapedAddress = safeName.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {return}
@@ -313,8 +313,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
        
     }
     
-        //MARK: - REgister Flow check Number / EMail
-    
+    //MARK: - REgister Flow check Number / EMail
     func registerFlow(userName: String, phoneNumber: String, email:String ) {
         
         print("The username is \(userName) and phone is \(phoneNumber) and email is \(email)")
@@ -371,7 +370,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
 }
 
 
-
+// MARK: - Photo Action Sheet
 extension RegisterVC: UIImagePickerControllerDelegate {
     
     func presentPhotoActionSheet() {
@@ -389,6 +388,9 @@ extension RegisterVC: UIImagePickerControllerDelegate {
         present(actionSheet, animated: true)
     }
     
+    
+    
+    //MARK: - Present camera function
     func presentCamera(){
         
         let vc = UIImagePickerController()
@@ -401,7 +403,7 @@ extension RegisterVC: UIImagePickerControllerDelegate {
     
   
     
-    //MARK: - Save Image to storage
+    //MARK: - Save Image to storage in Firebase storage
     func persistImageToStorage() {
         
         let filename = "user_profile_pics/\(UUID().uuidString)"
@@ -438,6 +440,8 @@ extension RegisterVC: UIImagePickerControllerDelegate {
         
     }
     
+    //MARK: - Store user information in firestore
+    
     func storeUserInformation(imageProfileUrl: URL) {
 
 
@@ -454,6 +458,25 @@ extension RegisterVC: UIImagePickerControllerDelegate {
                 return
             }
 
+                    guard let safeName = self.nameTextField.text else {return}
+                    
+                    
+                    RealTimeDatabaseManager.shared.userExists(with: safeEmail) { [weak self] exists in
+                        
+                        //TODO: - sort some alert message here
+                        //check user exists or not
+                        guard !exists else {
+                            
+            //user already exists - exit the function
+                            return
+                        }
+                        
+            //new user - carry on with registereing in the db
+                        //TODO: - Realtime db func starts here
+                        
+                        RealTimeDatabaseManager.shared.insertUser(with: ChatAppUser(name: safeName, email: safeEmail, uid: uid, profileImageUrl: imageProfileUrl.absoluteString))
+                    }
+                   
             print("user Info storage Sucess")
         
 //                self.didCompleteLoginProcess()
@@ -472,6 +495,9 @@ extension RegisterVC: UIImagePickerControllerDelegate {
         present(vc, animated: true)
         
     }
+    
+    
+    //MARK: - Image picker function
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //
