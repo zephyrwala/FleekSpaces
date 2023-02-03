@@ -10,7 +10,7 @@ import MessageKit
 import InputBarAccessoryView
 
 struct Sender: SenderType{
-    
+    var photoURL: String
     var senderId: String
     var displayName: String
     
@@ -59,11 +59,11 @@ class ChatsViewController: MessagesViewController, MessagesDataSource, MessagesL
     
   
     
-    let currentUser = Sender(senderId: "self", displayName: "Rohan")
+    let currentUser = Sender(photoURL: "", senderId: "self", displayName: "Chagan")
 
     var myMessages = [MessageType]()
     
-    var otherUser = Sender(senderId: "other", displayName: "Mohan")
+    var otherUser = Sender(photoURL: "", senderId: "other", displayName: "Gagan")
    
     
     override func viewDidLoad() {
@@ -82,12 +82,12 @@ class ChatsViewController: MessagesViewController, MessagesDataSource, MessagesL
         myMessages.append(Message(sender: currentUser,
                                   messageId: "1",
                                   sentDate: Date().addingTimeInterval(-86400),
-                                  kind: .text("Hello Mohan")))
+                                  kind: .text("Hello Bro")))
         
         myMessages.append(Message(sender: otherUser,
                                   messageId: "2",
                                   sentDate: Date().addingTimeInterval(-70000),
-                                  kind: .text("Hello Rohan")))
+                                  kind: .text("Hello hello hello")))
         
         myMessages.append(Message(sender: currentUser,
                                   messageId: "3",
@@ -120,16 +120,21 @@ class ChatsViewController: MessagesViewController, MessagesDataSource, MessagesL
     }
     
 
+    
+    //MARK: - Current user (Left or Right message bubble)
+    
     func currentSender() -> SenderType {
         return currentUser
     }
     
    
-    
+    //MARK: - All the messages
         
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
         return myMessages[indexPath.section]
     }
+    
+    
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return myMessages.count

@@ -40,7 +40,7 @@
                         </constraints>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" name="BGColor"/>
+                <color key="backgroundColor" name="TabBar"/>
                 <constraints>
                     <constraint firstItem="vT9-vh-1Ur" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="6cI-hf-reM"/>
                     <constraint firstItem="vT9-vh-1Ur" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="D8b-Ic-lWD"/>
@@ -56,11 +56,11 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="BGColor">
-            <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="CoinMessageColor">
             <color red="0.85900002717971802" green="0.91399997472763062" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TabBar">
+            <color red="0.12200000137090683" green="0.12200000137090683" blue="0.12200000137090683" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

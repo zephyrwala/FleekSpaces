@@ -157,7 +157,7 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
                     
                     FinalDataModel.similarMovies = movieData
                     self.movieDetailCollectionView.reloadData()
-                    print("Similar Data is here \(movieData) and \(movieData.results?[0].posterPath)")
+//                    print("Similar Data is here \(movieData) and \(movieData.results?[0].posterPath)")
                 }
                 
             case .failure(let err):
@@ -210,7 +210,6 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
             
         }
         
-        
     
     }
     
@@ -221,6 +220,7 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
             return
         }
 
+        
       
         let network = NetworkURL()
         let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_movie_details/?movie_id=\(movieID)")

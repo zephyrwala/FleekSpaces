@@ -279,6 +279,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
                 }
             }
                 
+                //check if image is nil
                 if selectedImagePicker == nil {
                     
                     self.alertMessageText.text = "Bro? 🧐 Enter a profile picture!"
@@ -306,10 +307,8 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
         
         
       
-        //profile pic check
+        //profile pic check done
         
-        
-       
        
     }
     
@@ -419,7 +418,7 @@ extension RegisterVC: UIImagePickerControllerDelegate {
         guard let imageData = selectedImagePicker?.jpegData(compressionQuality: 0.5) else {return}
         ref.putData(imageData, metadata: nil) { meta, err in
             if let err = err {
-                print("Failed to push image to storage \(err)")
+                print("Failed to push image to storage \(err) \(StorageErros.failedToUpload)")
                 
                 return
             }
@@ -427,7 +426,7 @@ extension RegisterVC: UIImagePickerControllerDelegate {
             ref.downloadURL { url, err in
                 
                 if let err = err {
-                    print("failed to retrieve downloadURL: \(err)")
+                    print("failed to retrieve downloadURL: \(err) \(StorageErros.failedToGetDownloadUrl)")
                     return
                 }
                 
@@ -458,6 +457,7 @@ extension RegisterVC: UIImagePickerControllerDelegate {
                 return
             }
 
+                    //FIXME: - Persist the username to userdefaults
                     guard let safeName = self.nameTextField.text else {return}
                     
                     
@@ -474,7 +474,16 @@ extension RegisterVC: UIImagePickerControllerDelegate {
             //new user - carry on with registereing in the db
                         //TODO: - Realtime db func starts here
                         
-                        RealTimeDatabaseManager.shared.insertUser(with: ChatAppUser(name: safeName, email: safeEmail, uid: uid, profileImageUrl: imageProfileUrl.absoluteString))
+                        let chatUser = ChatAppUser(name: safeName, email: safeEmail, uid: uid, profileImageUrl: imageProfileUrl.absoluteString)
+                        RealTimeDatabaseManager.shared.insertUser(with: chatUser, completion: { success in
+                            
+                            if success {
+                                // upload image
+                                
+                            }
+                            
+                            
+                        })
                     }
                    
             print("user Info storage Sucess")
@@ -514,4 +523,11 @@ extension RegisterVC: UIImagePickerControllerDelegate {
         picker.dismiss(animated: true, completion: nil)
     }
     
+}
+
+
+
+public enum StorageErros: Error {
+    case failedToUpload
+    case failedToGetDownloadUrl
 }

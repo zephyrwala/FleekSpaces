@@ -27,7 +27,7 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        RealTimeDatabaseManager.shared.test()
+//        RealTimeDatabaseManager.shared.test()
         
         if FirebaseManager.shared.auth.currentUser?.uid != nil {
            
@@ -301,15 +301,7 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
             
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
 
 }
 
@@ -322,6 +314,7 @@ extension ChatKitViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
+    
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
