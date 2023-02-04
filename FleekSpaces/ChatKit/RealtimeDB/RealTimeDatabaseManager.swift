@@ -64,6 +64,30 @@ extension RealTimeDatabaseManager {
         }
     }
     
+    
+    
+    //MARK: - Fetch New DB users
+    
+    public func fetchDBUsers(completion: @escaping (Result<[[String: String]], Error>) -> Void) {
+        
+        
+        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+            
+            guard let value = snapshot.value as? [[String: String]] else {
+                completion(.failure(DatabaseError.failedToFetch))
+                return
+            }
+            
+            completion(.success(value))
+        }
+       
+        
+        
+    }
+    
+    
+    //MARK: - Insert New User
+    
     public func insertUser(with user: ChatAppUser, completion: @escaping(Bool) -> Void) {
         
         //FIXME: - create the child with number after this!

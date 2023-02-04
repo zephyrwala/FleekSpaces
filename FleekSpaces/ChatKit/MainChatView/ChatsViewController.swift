@@ -56,7 +56,9 @@ class ChatsViewController: MessagesViewController, MessagesDataSource, MessagesL
    
    
     
-    
+    public let otherUserEmail: String
+    public var isNewConversation = false
+ 
   
     
     let currentUser = Sender(photoURL: "", senderId: "self", displayName: "Chagan")
@@ -65,6 +67,19 @@ class ChatsViewController: MessagesViewController, MessagesDataSource, MessagesL
     
     var otherUser = Sender(photoURL: "", senderId: "other", displayName: "Gagan")
    
+    
+     init(with email: String) {
+        self.otherUserEmail = email
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        messageInputBar.inputTextView.becomeFirstResponder()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,44 +94,45 @@ class ChatsViewController: MessagesViewController, MessagesDataSource, MessagesL
         messagesCollectionView.messagesDisplayDelegate = self
         // Do any additional setup after loading the view.
        configureMessageInputBar()
-        myMessages.append(Message(sender: currentUser,
-                                  messageId: "1",
-                                  sentDate: Date().addingTimeInterval(-86400),
-                                  kind: .text("Hello Bro")))
-        
-        myMessages.append(Message(sender: otherUser,
-                                  messageId: "2",
-                                  sentDate: Date().addingTimeInterval(-70000),
-                                  kind: .text("Hello hello hello")))
-        
-        myMessages.append(Message(sender: currentUser,
-                                  messageId: "3",
-                                  sentDate: Date().addingTimeInterval(-60000),
-                                  kind: .text("how are you? It has been a while since we messaged each other. Life is tough.")))
-        
-        myMessages.append(Message(sender: otherUser,
-                                  messageId: "4",
-                                  sentDate: Date().addingTimeInterval(-50000),
-                                  kind: .text("I am fine. Life has been tough but we are getting through it every single day and managing")))
-        
-        myMessages.append(Message(sender: currentUser,
-                                  messageId: "5",
-                                  sentDate: Date().addingTimeInterval(-40000),
-                                  kind: .text("That is awesome")))
-        
-        myMessages.append(Message(sender: otherUser,
-                                  messageId: "6",
-                                  sentDate: Date().addingTimeInterval(-30000),
-                                  kind: .text("let's have wine?")))
-        myMessages.append(Message(sender: currentUser,
-                                  messageId: "7",
-                                  sentDate: Date().addingTimeInterval(-40000),
-                                  kind: .text("That is awesome. Life has been tough but we are getting through it every single day and managing")))
-        
-        myMessages.append(Message(sender: otherUser,
-                                  messageId: "8",
-                                  sentDate: Date().addingTimeInterval(-30000),
-                                  kind: .text("let's have wine?. Life has been tough but we are getting through it every single day and managing. Life has been tough but we are getting through it every single day and managing. Life has been tough but we are getting through it every single day and managing")))
+       
+//        myMessages.append(Message(sender: currentUser,
+//                                  messageId: "1",
+//                                  sentDate: Date().addingTimeInterval(-86400),
+//                                  kind: .text("Hello Bro")))
+//
+//        myMessages.append(Message(sender: otherUser,
+//                                  messageId: "2",
+//                                  sentDate: Date().addingTimeInterval(-70000),
+//                                  kind: .text("Hello hello hello")))
+//
+//        myMessages.append(Message(sender: currentUser,
+//                                  messageId: "3",
+//                                  sentDate: Date().addingTimeInterval(-60000),
+//                                  kind: .text("how are you? It has been a while since we messaged each other. Life is tough.")))
+//
+//        myMessages.append(Message(sender: otherUser,
+//                                  messageId: "4",
+//                                  sentDate: Date().addingTimeInterval(-50000),
+//                                  kind: .text("I am fine. Life has been tough but we are getting through it every single day and managing")))
+//
+//        myMessages.append(Message(sender: currentUser,
+//                                  messageId: "5",
+//                                  sentDate: Date().addingTimeInterval(-40000),
+//                                  kind: .text("That is awesome")))
+//
+//        myMessages.append(Message(sender: otherUser,
+//                                  messageId: "6",
+//                                  sentDate: Date().addingTimeInterval(-30000),
+//                                  kind: .text("let's have wine?")))
+//        myMessages.append(Message(sender: currentUser,
+//                                  messageId: "7",
+//                                  sentDate: Date().addingTimeInterval(-40000),
+//                                  kind: .text("That is awesome. Life has been tough but we are getting through it every single day and managing")))
+//
+//        myMessages.append(Message(sender: otherUser,
+//                                  messageId: "8",
+//                                  sentDate: Date().addingTimeInterval(-30000),
+//                                  kind: .text("let's have wine?. Life has been tough but we are getting through it every single day and managing. Life has been tough but we are getting through it every single day and managing. Life has been tough but we are getting through it every single day and managing")))
     }
     
 
@@ -166,7 +182,13 @@ extension ChatsViewController: InputBarAccessoryViewDelegate {
         }
         
        
+        //send message
         
+        if isNewConversation {
+            //create convo in db
+        } else {
+            //append to an existing convo in db
+        }
         
                 
                 print("Sending this: \(text)")

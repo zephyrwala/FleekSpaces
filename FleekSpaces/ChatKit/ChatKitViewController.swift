@@ -57,12 +57,19 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
     }
     
     
+    
+    
+    
     func handleSignOut() {
       
         try? FirebaseManager.shared.auth.signOut()
        
         
     }
+    
+    
+    
+    
     @IBAction func newChatBtnTapAction(_ sender: Any) {
         
         let vc = NewChatUsersVC()
@@ -78,16 +85,28 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
     }
     
     
+    
+    
+    
+    
+    //MARK: - New conversation is created here
     private func createnewConversation(result: [String: String]) {
         
+        guard let name = result["name"], let email = result["email"] else {return}
         
-        let controllers = ChatsViewController()
+        let controllers = ChatsViewController(with: email)
 //        controllers.modalPresentationStyle = .fullScreen
-       
-        controllers.title = "Jenny Smith"
+        controllers.isNewConversation = true
+        controllers.title = name
         navigationController?.pushViewController(controllers, animated: true)
         
     }
+    
+    
+    
+    
+    
+    
     
     //MARK: - Fetch recent Messages
      func fetchRecentMessages() {
@@ -158,6 +177,11 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
             }
         
     }
+    
+    
+    
+    
+    
     
     
     //MARK: - Setup CollectionView
@@ -318,13 +342,13 @@ extension ChatKitViewController: UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controllers = ChatsViewController()
+        let controllers = ChatsViewController(with: "fake@email.com")
 //        controllers.modalPresentationStyle = .fullScreen
-       
+
         controllers.title = "Chato"
         navigationController?.pushViewController(controllers, animated: true)
-//        controllers.modalPresentationStyle = .overCurrentContext
-//     present(controllers, animated: true)
+        controllers.modalPresentationStyle = .overCurrentContext
+     present(controllers, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

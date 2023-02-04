@@ -7,11 +7,20 @@
 
 import UIKit
 import SDWebImage
+import FirebaseDatabase
+import JGProgressHUD
+
+
 
 class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    private let spinny = JGProgressHUD(style: .light)
+    //store the users from reatime db here
+    private var dbUsers = [[String: String]]()
  
     public var completion: (([String: String]) -> (Void))?
+    
+   var db = Database.database().reference()
 
     @IBOutlet weak var testTable: UITableView!
     
@@ -22,7 +31,9 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fetchAllUsers()
+        spinny.show(in: view)
+//        fetchAllUsers()
+        getAllDBUsers()
         testTable.delegate = self
         testTable.dataSource = self
         testTable.register(UINib(nibName: "NewChatsTableViewCell", bundle: nil), forCellReuseIdentifier: "newsuser")
@@ -32,70 +43,90 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
 
     
     
-    //users fetch
-    private func fetchAllUsers() {
+    //MARK: - users fetch firestore
+//    private func fetchAllUsers() {
+//
+//        FirebaseManager.shared.firestore.collection("users")
+//            .getDocuments { documentsSnapshot, error in
+//
+//                if let error = error {
+//
+//                    self.errorMessage = "Failed to fetch users: \(error)"
+//                    print("Failed to fetch users: \(error)")
+//                    return
+//                }
+//
+//                self.errorMessage = "Fetched users succesfully"
+//
+//
+//                documentsSnapshot?.documents.forEach({ snapshot in
+//                    let user = try? snapshot.data(as: ChatUser.self)
+//                    if user?.uid != FirebaseManager.shared.auth.currentUser?.uid {
+//                        self.users.append(user!)
+//                        DispatchQueue.main.async {
+//                            self.testTable.reloadData()
+//                        }
+//
+//                    }
+//
+//                })
+//            }
+//
+//    }
+    
+    //MARK: - users fetch from Realtime db
+
+
+
+    func getAllDBUsers() {
         
-        FirebaseManager.shared.firestore.collection("users")
-            .getDocuments { documentsSnapshot, error in
+        RealTimeDatabaseManager.shared.getAllUsers { [weak self] result in
+            
+            switch result {
                 
-                if let error = error {
+            case .success(let usersColl):
+                self?.dbUsers = usersColl
+                DispatchQueue.main.async {
                     
-                    self.errorMessage = "Failed to fetch users: \(error)"
-                    print("Failed to fetch users: \(error)")
-                    return
+                    self?.spinny.dismiss()
+                    self?.testTable.reloadData()
                 }
                 
-                self.errorMessage = "Fetched users succesfully"
+            case .failure(let err):
+                print("Failed to get users \(err)")
                 
                 
-                documentsSnapshot?.documents.forEach({ snapshot in
-                    let user = try? snapshot.data(as: ChatUser.self)
-                    if user?.uid != FirebaseManager.shared.auth.currentUser?.uid {
-                        self.users.append(user!)
-                        DispatchQueue.main.async {
-                            self.testTable.reloadData()
-                        }
-                       
-                    }
-                    
-                })
             }
+            
+        }
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        users.count
+        dbUsers.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let targetuserData = users[indexPath.row]
+        //start conversation
+        let targetuserData = dbUsers[indexPath.row]
         dismiss(animated: true) { [weak self] in
-//            self?.completion?(targetuserData)
+        self?.completion?(targetuserData)
         }
         
-        
+        //dismiss and start the conversation
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsuser", for: indexPath) as! NewChatsTableViewCell
         
-        cell.userNameLabel.text = users[indexPath.item].email
+//        cell.userNameLabel.text = users[indexPath.item].email
         
-        if let imageURL = URL(string: "\(users[indexPath.item].profileImageUrl)") {
-            
+        cell.userNameLabel.text = dbUsers[indexPath.item]["name"]
+        print("Check \(dbUsers[indexPath.item]["profileImageUrl"])")
+
+        if let imageURL = URL(string: dbUsers[indexPath.item]["profileImageUrl"] ?? "") {
+
+            print("image url is \(imageURL)")
             cell.profiles.sd_setImage(with: imageURL)
         }
        
