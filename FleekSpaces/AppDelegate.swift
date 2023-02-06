@@ -16,9 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 
 
     var chatUser: ChatUser?
-    
-    
-    
+ 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -41,10 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 //            return true
             
         
-        
-     
-        
-        
 //        FirebaseApp.configure()
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enable = true
@@ -52,12 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 //        IQKeyboardManager.shared.overrideKeyboardAppearance = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(RegisterVC.self)
-        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatViewController.self)
+        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatUIViewController.self)
         IQKeyboardManager.shared.keyboardAppearance = .dark
 //        IQKeyboardManager.shared.keyboardDistanceFromTextField = 9.0
 
 
-        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatsViewController.self)
+        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatUIViewController.self)
 ////
 //        IQKeyboardManager.shared.disabledToolbarClasses.append(ChatsViewController.self)
         IQKeyboardManager.shared.toolbarTintColor = UIColor(named: "BtnGreenColor")

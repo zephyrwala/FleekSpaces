@@ -36,7 +36,7 @@ struct LatestMessage {
     let isRead: Bool
 }
 
-class ChatViewController: UIViewController {
+class ChatUIViewController: UIViewController {
     
    
 

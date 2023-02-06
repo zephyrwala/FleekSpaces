@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FirebaseFirestoreSwift
 
-class ChatKitViewController: UIViewController, UICollectionViewDelegate {
+class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
     
 
 
@@ -23,6 +23,7 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
     @IBOutlet weak var currentUserImage: UIImageView!
     @IBOutlet weak var currentUserName: UILabel!
     @IBOutlet weak var recentMessagesCollectionView: UICollectionView!
+    var defautls = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +95,7 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
         
         guard let name = result["name"], let email = result["email"] else {return}
         
-        let controllers = ChatsViewController(with: email)
+        let controllers = ChatViewController(with: email)
 //        controllers.modalPresentationStyle = .fullScreen
         controllers.isNewConversation = true
         controllers.title = name
@@ -299,10 +300,8 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
             return
         }
         
-        DispatchQueue.main.async {
-            self.currentUserName.text = FirebaseManager.shared.auth.currentUser?.email
-//            self.currentUserImage.sd_setImage(with: URL(string: imageURL))
-        }
+       
+        
         
         FirebaseManager.shared.firestore.collection("users").document(uid).getDocument { snapshot, error in
             if let error = error {
@@ -317,9 +316,12 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
             guard let imageURL = self.chatUser?.profileImageUrl else {return}
             guard let userName = self.chatUser?.email else {return}
             
+            self.defautls.set(userName, forKey: "email")
             
             DispatchQueue.main.async {
-                self.currentUserName.text = FirebaseManager.shared.auth.currentUser?.uid
+                self.currentUserName.text = FirebaseManager.shared.auth.currentUser?.email
+                
+               print("username email is \(userName)")
                 self.currentUserImage.sd_setImage(with: URL(string: imageURL))
             }
             
@@ -330,7 +332,7 @@ class ChatKitViewController: UIViewController, UICollectionViewDelegate {
 }
 
 
-extension ChatKitViewController: UICollectionViewDataSource {
+extension RecentChatKitViewController: UICollectionViewDataSource {
     
     
     
@@ -342,7 +344,7 @@ extension ChatKitViewController: UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controllers = ChatsViewController(with: "fake@email.com")
+        let controllers = ChatViewController(with: "fake@email.com")
 //        controllers.modalPresentationStyle = .fullScreen
 
         controllers.title = "Chato"

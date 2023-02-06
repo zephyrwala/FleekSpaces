@@ -29,6 +29,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
     let defaults = UserDefaults.standard
     var selectedImagePicker: UIImage?
     var userDetails: VerifyOTP?
+    
 //    let didCompleteLoginProcess: () -> ()
     var otpString = ""
     override func viewDidLoad() {
@@ -132,9 +133,11 @@ class RegisterVC: UIViewController, UITextFieldDelegate, UINavigationControllerD
                     
                     // token login
 
-                   
+                   //NOTE: - All the login data ponints are persisted
                     self.defaults.set(safeToken, forKey: "userToken")
+                    
                     guard let safeFBEmail = otpMessage.email else {return}
+                    self.defaults.set(safeFBEmail, forKey: "email")
                     guard let safeFBPassword = otpMessage.firebasePassword else {return}
                     FirebaseManager.shared.auth.signIn(withEmail: "\(safeFBEmail)", password: "\(safeFBPassword)") { result, err in
                         if let err = err {

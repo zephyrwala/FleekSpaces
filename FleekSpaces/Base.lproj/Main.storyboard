@@ -189,10 +189,10 @@
             </objects>
             <point key="canvasLocation" x="92.753623188405811" y="569.86607142857144"/>
         </scene>
-        <!--Chat View Controller-->
+        <!--ChatUI View Controller-->
         <scene sceneID="5Z8-HC-AI9">
             <objects>
-                <viewController id="61s-vG-aG6" customClass="ChatViewController" customModule="FleekSpaces" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="61s-vG-aG6" customClass="ChatUIViewController" customModule="FleekSpaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rlZ-s3-5oP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -517,7 +517,7 @@
         <!--Chat-->
         <scene sceneID="dhs-0N-CyS">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overCurrentContext" id="Ppb-iH-IIp" customClass="ChatKitViewController" customModule="FleekSpaces" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overCurrentContext" id="Ppb-iH-IIp" customClass="RecentChatKitViewController" customModule="FleekSpaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fji-TC-SqN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="638"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
