@@ -13,7 +13,7 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
     
 
 
-   
+    private var dbUsers = [[String: String]]()
     @IBOutlet weak var newChatButton: UIButton!
     var recentMessages = [RecentMessage]()
     private var firestoreListener: ListenerRegistration?
@@ -24,6 +24,8 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
     @IBOutlet weak var currentUserName: UILabel!
     @IBOutlet weak var recentMessagesCollectionView: UICollectionView!
     var defautls = UserDefaults.standard
+    private var conversations = [Conversation]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +43,10 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
         setupCollectionView()
         currentUserImage.makeItGolGol()
        
-        fetchCurrentUser()
-        fetchRecentMessages()
+//        fetchCurrentUser()
+//        fetchRecentMessages()
         recentMessagesCollectionView.reloadData()
+        startListeningForConversations()
        
         // Do any additional setup after loading the view.
     }
@@ -88,20 +91,58 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
     
     
     
-    
-    
     //MARK: - New conversation is created here
     private func createnewConversation(result: [String: String]) {
         
-        guard let name = result["name"], let email = result["email"] else {return}
+        guard let name = result["name"],
+                let email = result["email"] else {
+            return
+            
+        }
         
-        let controllers = ChatViewController(with: email)
+        let vc = ChatViewController(with: email, id: nil)
+        
+        //FIXME: - Id is nil over here???
 //        controllers.modalPresentationStyle = .fullScreen
-        controllers.isNewConversation = true
-        controllers.title = name
-        navigationController?.pushViewController(controllers, animated: true)
+        vc.isNewConversation = true
+        vc.title = name
+        navigationController?.pushViewController(vc, animated: true)
         
     }
+    
+    private func startListeningForConversations() {
+        
+        guard let email = defautls.string(forKey: "email") else {return}
+        
+        let safeEmail = RealTimeDatabaseManager.safeEmail(emailAddress: email)
+        RealTimeDatabaseManager.shared.getAllConversations(for: safeEmail, completion: { [weak self] result in
+            switch result {
+            case .success(let conversations):
+                print("successfully got conversation models")
+                guard !conversations.isEmpty else {
+                    self?.recentMessagesCollectionView.isHidden = true
+//                    self?.noConversationsLabel.isHidden = false
+                    return
+                }
+//                self?.noConversationsLabel.isHidden = true
+                self?.recentMessagesCollectionView.isHidden = false
+                self?.conversations = conversations
+
+                DispatchQueue.main.async {
+                    self?.recentMessagesCollectionView.reloadData()
+                }
+            case .failure(let error):
+                self?.recentMessagesCollectionView.isHidden = true
+//                self?.noConversationsLabel.isHidden = false
+//                print("failed to get convos: \(error)")
+            }
+        })
+    }
+    
+    
+    
+    
+ 
     
     
     
@@ -290,6 +331,7 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
         
     }
     
+  
 
     
     //MARK: - Fetch Current user
@@ -344,19 +386,24 @@ extension RecentChatKitViewController: UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controllers = ChatViewController(with: "fake@email.com")
-//        controllers.modalPresentationStyle = .fullScreen
+        recentMessagesCollectionView.deselectItem(at: indexPath, animated: true)
+        let model = conversations[indexPath.row]
+        let vc = ChatViewController(with: model.otherUserEmail, id: model.id)
+        
+        
+        vc.title = model.name
+        navigationController?.pushViewController(vc, animated: true)
 
-        controllers.title = "Chato"
-        navigationController?.pushViewController(controllers, animated: true)
-        controllers.modalPresentationStyle = .overCurrentContext
-     present(controllers, animated: true)
     }
+    
+    
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return recentMessages.count
+            return conversations.count
         
             
             
@@ -375,15 +422,22 @@ extension RecentChatKitViewController: UICollectionViewDataSource {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recentChatCell", for: indexPath) as! RecentChatViewCell
            
+            let model = conversations[indexPath.row]
 //            if let chatData = recentMessages {
 //                cell.setupCell(fromData: chatData[indexPath.item])
 //
 //            }
+            
+         
             print("Cell loaded")
             
 //            cell.userName.text = recentMessages[indexPath.item].username
             
-            cell.setupCell(fromData: recentMessages[indexPath.item])
+            cell.setupCell(fromData: model)
+           
+            
+            
+            
             return cell
             
  

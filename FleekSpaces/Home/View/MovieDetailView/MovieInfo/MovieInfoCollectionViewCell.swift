@@ -66,13 +66,30 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
     @IBOutlet weak var movieReleaseYear: UILabel!
     @IBOutlet weak var movieDirector: UILabel!
     
+    @IBOutlet weak var moReleaseDate: UILabel!
+    @IBOutlet weak var moDuration: UILabel!
+    @IBOutlet weak var moLanguage: UILabel!
+    
+    
+    @IBOutlet weak var cat1: UIView!
+    @IBOutlet weak var cat2: UIView!
+    @IBOutlet weak var cat3: UIView!
+    
+    @IBOutlet weak var cat1Label: UILabel!
+    @IBOutlet weak var cat2Label: UILabel!
+    @IBOutlet weak var cat3Label: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         utubePlayer.delegate = self
         utubePlayer.isHidden = true
-        
+        cat1.layer.cornerRadius = 10
+        cat2.layer.cornerRadius = 10
+        cat3.layer.cornerRadius = 10
+       
+      
+    
     }
 
     
@@ -137,6 +154,7 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
         }
        
        
+        
         self.movieTitle.text = fromData.title
         self.moviePlot.text = fromData.synopsies
         self.movieLanguage.text = "Language: \(fromData.originalLanguage ?? "-")"
@@ -164,17 +182,108 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
 //            print("Picture url: \(newURL)\(images[0].filePath!)")
     
         
+        if let safeDate = fromData.releaseDate {
+            moReleaseDate.text = "\(safeDate)"
+        }
         
+        if let safeDuration = fromData.runtime {
+            moDuration.text = "\(safeDuration) mins"
+        }
+        
+        if let safeLanguage = fromData.originalLanguage {
+            switch safeLanguage {
+                
+            case "hi":
+                moLanguage.text = "Hindi"
+            case "en":
+                moLanguage.text = "English"
+            case "ta":
+                moLanguage.text = "Tamil"
+            case "de":
+                moLanguage.text = "German"
+            case "no":
+                moLanguage.text = "Norwegian"
+            case "kn":
+                moLanguage.text = "Kannada"
+            case "ml":
+                moLanguage.text = "Malayalam"
+            case "pa":
+                moLanguage.text = "Punjabi"
+            case "te":
+                moLanguage.text = "Telugu"
+                
+            default:
+                moLanguage.text = safeLanguage
+                
+                
+            }
+        }
+        
+        
+        
+      
+        
+        var category = fromData.genres
+        
+        switch category?.count {
+        case 0:
+            cat1.isHidden = true
+            cat2.isHidden = true
+            cat3.isHidden = true
+            
+        case 1:
+            cat1.isHidden = false
+            cat2.isHidden = true
+            cat3.isHidden = true
+            
+            cat1Label.text = category?[0].name
+            
+            
+        case 2:
+            cat1.isHidden = false
+            cat2.isHidden = false
+            cat3.isHidden = true
+            
+            cat1Label.text = category?[0].name
+            cat2Label.text = category?[1].name
+            
+        case 3:
+            cat1.isHidden = false
+            cat2.isHidden = false
+            cat3.isHidden = false
+            
+            cat1Label.text = category?[0].name
+            cat2Label.text = category?[1].name
+            cat3Label.text = category?[2].name
+            
+
+            
+        default:
+            print("default cat")
+            cat1.isHidden = false
+            cat2.isHidden = false
+            cat3.isHidden = false
+            
+            cat1Label.text = category?[0].name
+            cat2Label.text = category?[1].name
+            cat3Label.text = category?[2].name
+            
+        }
        
        
-        self.movieRating.text = "\(fromData.tmdbRating ?? 0)/10"
+        self.movieRating.text = "\(fromData.tmdbRating ?? 0)"
         self.movieReleaseYear.text = "Year: \(fromData.releaseDate ?? "-")"
 //        self.movieDirector.text = fromData
-        self.genreView.isHidden = true
+        self.genreView.isHidden = false
         self.episodeBtn.isHidden = true
         if let safeTagline = fromData.tagline {
             self.movieDirector.text = "Tagline: \(safeTagline)"
         }
+        
+        
+       
+        
+        
         
         
     }
@@ -238,10 +347,98 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
         }
      
        
-        self.genreView.isHidden = true
+        self.genreView.isHidden = false
+        
+        if let safeDate = fromData.firstAirDate {
+            moReleaseDate.text = "\(safeDate)"
+        }
+        
+        if let safeDuration = fromData.episodeRuntime {
+            moDuration.text = "\(safeDuration) mins"
+            
+            print("episode runtime \(safeDuration)")
+        }
+        
+        if let safeLanguage = fromData.originalLanguage {
+            switch safeLanguage {
+                
+            case "hi":
+                moLanguage.text = "Hindi"
+            case "en":
+                moLanguage.text = "English"
+            case "ta":
+                moLanguage.text = "Tamil"
+            case "de":
+                moLanguage.text = "German"
+            case "no":
+                moLanguage.text = "Norwegian"
+            case "kn":
+                moLanguage.text = "Kannada"
+            case "ml":
+                moLanguage.text = "Malayalam"
+            case "pa":
+                moLanguage.text = "Punjabi"
+            case "te":
+                moLanguage.text = "Telugu"
+                
+            default:
+                moLanguage.text = safeLanguage
+                
+                
+            }
+        }
+        
+        
+        var category = fromData.genres
+        
+        switch category?.count {
+        case 0:
+            cat1.isHidden = true
+            cat2.isHidden = true
+            cat3.isHidden = true
+            
+        case 1:
+            cat1.isHidden = false
+            cat2.isHidden = true
+            cat3.isHidden = true
+            
+            cat1Label.text = category?[0].name
+            
+            
+        case 2:
+            cat1.isHidden = false
+            cat2.isHidden = false
+            cat3.isHidden = true
+            
+            cat1Label.text = category?[0].name
+            cat2Label.text = category?[1].name
+            
+        case 3:
+            cat1.isHidden = false
+            cat2.isHidden = false
+            cat3.isHidden = false
+            
+            cat1Label.text = category?[0].name
+            cat2Label.text = category?[1].name
+            cat3Label.text = category?[2].name
+            
+
+            
+        default:
+            print("default cat")
+            cat1.isHidden = false
+            cat2.isHidden = false
+            cat3.isHidden = false
+            
+            cat1Label.text = category?[0].name
+            cat2Label.text = category?[1].name
+            cat3Label.text = category?[2].name
+            
+        }
+       
         if let movieRating = fromData.tmdbRating {
             
-            self.movieRating.text = "\(movieRating)/10"
+            self.movieRating.text = "\(movieRating)"
         }
         if let airDate = fromData.firstAirDate {
             self.movieReleaseYear.text = "Year: \(airDate)"
@@ -264,7 +461,7 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
        
       
         self.genreView.isHidden = true
-        self.movieRating.text = "\(fromData.voteAverage!)/10"
+        self.movieRating.text = "\(fromData.voteAverage!)"
         self.movieReleaseYear.text = "Year: \(fromData.firstAirDate!)"
 //        self.movieDirector.text = fromData
        
@@ -286,14 +483,15 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
             self.episodeBtn.isHidden = false
         }
        
+        genreView.isHidden = true
         self.movieDirector.isHidden = true
         self.episodeBtn.isHidden = true
-        self.movieRating.text = "\(fromData.voteAverage!)/10"
+        self.movieRating.text = "\(fromData.voteAverage!)"
         self.movieReleaseYear.text = "Year: \(fromData.airDate!)"
 //        self.movieDirector.text = fromData
         
-        self.movieDuration.isHidden = false
-        self.genreView.isHidden = false
+        self.movieDuration.isHidden = true
+//        self.genreView.isHidden = false
 //        self.movieDuration.isHidden = true
         self.movieLanguage.isHidden = true
         self.movieDirector.isHidden = true

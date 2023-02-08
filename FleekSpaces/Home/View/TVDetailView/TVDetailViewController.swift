@@ -188,7 +188,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
                     
                     FinalDataModel.similarTV = movieData
                     self.tvCollectionView.reloadData()
-                    print("Similar TV Data is here \(movieData) and \(movieData.results?[0].posterPath)")
+//                    print("Similar TV Data is here \(movieData) and \(movieData.results?[0].posterPath)")
                 }
                 
             case .failure(let err):
@@ -222,7 +222,7 @@ class TVDetailViewController: UIViewController, UICollectionViewDelegate, episod
             
             
             //group size
-            let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(550)), subitems: [myItem])
+            let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(600)), subitems: [myItem])
             
             //section size
             
@@ -926,7 +926,7 @@ extension TVDetailViewController: UICollectionViewDataSource {
         case 1:
             
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sec2Header", for: indexPath) as! Section2CRV
-            header.headerText.text = "Streaming Platforms"
+            header.headerText.text = "  Streaming Platforms"
            
             return header
         
@@ -943,7 +943,7 @@ extension TVDetailViewController: UICollectionViewDataSource {
             
         default:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sec2Header", for: indexPath) as! Section2CRV
-            header.headerText.text = "Streaming Platforms"
+            header.headerText.text = "  Streaming Platforms"
            
             return header
         }

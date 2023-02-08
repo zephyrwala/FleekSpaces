@@ -124,7 +124,7 @@ class DetailEpisodeViewController: UIViewController, UICollectionViewDelegate {
             
             
             //group size
-            let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(470)), subitems: [myItem])
+            let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(450)), subitems: [myItem])
             
             //section size
             
@@ -303,7 +303,7 @@ extension DetailEpisodeViewController: UICollectionViewDataSource {
         case 1:
             
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sec2Header", for: indexPath) as! Section2CRV
-            header.headerText.text = "Streaming Platforms"
+            header.headerText.text = "  Streaming Platforms"
            
             return header
         
@@ -320,7 +320,7 @@ extension DetailEpisodeViewController: UICollectionViewDataSource {
             
         default:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sec2Header", for: indexPath) as! Section2CRV
-            header.headerText.text = "Streaming Platforms"
+            header.headerText.text = "  Streaming Platforms"
            
             return header
         }

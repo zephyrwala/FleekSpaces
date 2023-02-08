@@ -389,7 +389,10 @@ class SearchResultElement: Codable {
 
 
 
-
+struct SearchResults {
+    let name: String
+    let email: String
+}
 
 typealias SearchResult = [SearchResultElement]
 

@@ -28,6 +28,8 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
     var tvPassedData: TVResult?
     @IBOutlet weak var movieDetailCollectionView: UICollectionView!
     @IBOutlet weak var backBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -300,7 +302,7 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
             
             
             //group size
-            let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(500)), subitems: [myItem])
+                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(550)), subitems: [myItem])
             
             //section size
             
@@ -887,7 +889,7 @@ extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, wat
         case 1:
             
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sec2Header", for: indexPath) as! Section2CRV
-            header.headerText.text = "Streaming Platforms"
+            header.headerText.text = "    Streaming Platforms"
            
             return header
         
@@ -904,7 +906,7 @@ extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, wat
             
         default:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sec2Header", for: indexPath) as! Section2CRV
-            header.headerText.text = "Streaming Platforms"
+            header.headerText.text = "  Streaming Platforms"
            
             return header
         }
