@@ -24,7 +24,11 @@ struct FirebaseConstants {
     static let recentMessages = "recent_messages"
 }
 
-struct ChatMessage: Identifiable {
+class ChatDataObject: NSObject {
+    
+    static var chatMessagesAreHere: [ChatMessage]?
+}
+class ChatMessage: Identifiable {
     
     var id: String {
         
@@ -99,6 +103,59 @@ class ChatLogViewModel: ObservableObject {
         
     }
     
+    func fetchTestMessages() {
+        guard let fromId = FirebaseManager.shared.auth.currentUser?.uid else {return}
+        
+//        if let currentUsername = self.defaults.string(forKey: "userName") {
+//            currentuser = currentUsername
+//        }
+//        let fromId = "aw8kTTGiE4gcJMrQXB3sDDMZnn92"
+//        let toId = "aw8kTTGiE4gcJMrQXB3sDDMZnn92"
+        
+        //other user
+        
+        guard let toId = chatUser?.uid else {return}
+        
+        UserDefaults.standard.set(toId, forKey: "testID")
+        
+        
+//        firestoreListener?.remove()
+//        chatMessages.removeAll()
+        //remove the listener
+        
+        firestoreListener = FirebaseManager.shared.firestore
+            .collection("messages")
+            .document(fromId)
+            .collection(toId)
+            .order(by: "timeStamp")
+            .addSnapshotListener { querySnapshot, err in
+            if let error = err {
+//                self.errorMessage = "Failed to listen for messages"
+                print("Snapshot Error is here : \(error)")
+                return
+            }
+                
+                print("path \(self.firestoreListener)")
+            //message is recieved here
+            
+            querySnapshot?.documentChanges.forEach({ change in
+                if change.type == .added {
+                    let data = change.document.data()
+//                    self.chatMessages.append(.init(documentId: change.document.documentID, data: data))
+                    
+                    
+                    print("snap data is \(data)")
+                   
+                }
+                
+            })
+               
+            
+
+               
+
+        }
+    }
     
     //MARK: - Fetch messages
     func fetchMessages() {
@@ -130,11 +187,23 @@ class ChatLogViewModel: ObservableObject {
                 if change.type == .added {
                     let data = change.document.data()
                     self.chatMessages.append(.init(documentId: change.document.documentID, data: data))
+                    
+                    
+                    
+                   
                 }
                 
+                self.fetchTestMessages()
+                
             })
+               
             
                 DispatchQueue.main.async {
+//                    if let safeChat = ChatDataObject.chatMessagesAreHere {
+//                        self.chatMessages = safeChat
+//
+//                        print(" swift ui safe chat \(safeChat)")
+//                    }
                     self.count += 1
                 }
                

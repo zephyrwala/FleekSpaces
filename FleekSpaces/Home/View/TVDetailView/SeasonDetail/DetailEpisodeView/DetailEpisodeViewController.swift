@@ -70,10 +70,13 @@ class DetailEpisodeViewController: UIViewController, UICollectionViewDelegate {
         
         //https://api-space-dev.getfleek.app/shows/get_episode_details?show_id=89ca137c-1034-4a22-b92d-48ad2d1399bc&season_number=1&episode_number=1
         
-        
+        //http://api-space-dev.getfleek.app/shows/get_episode_details?show_id=2d95cd18-9a5d-4fda-8850-baa2cee458c2&season_number=1&season_tmdb_id=77680&episode_number=1
         let network = NetworkURL()
         let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_episode_details?show_id=\(showId)&season_number=\(seasonNo)&episode_number=\(episodeNo)")
         
+//        guard let urls = URL(string: "http://api-space-dev.getfleek.app/shows/get_episode_details?show_id=\(showId)&season_number=\(seasonNo)&season_tmdb_id=\(season_tmdbID)&episode_number=\(episodeNo)") else {return}
+//
+        print("Episode detail URL = \(url)")
         network.theBestNetworkCall(EpisodeDetailData.self, url: url) { myMovieResult, yourMessage in
             
           

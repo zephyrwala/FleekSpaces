@@ -222,35 +222,50 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
         
         
       
-        
         var category = fromData.genres
         
         switch category?.count {
         case 0:
-            cat1.isHidden = true
-            cat2.isHidden = true
-            cat3.isHidden = true
+//            cat1.isHidden = true
+//            cat2.isHidden = true
+//            cat3.isHidden = true
+            
+            cat1.alpha = 0
+            cat2.alpha = 0
+            cat3.alpha = 0
             
         case 1:
-            cat1.isHidden = false
-            cat2.isHidden = true
-            cat3.isHidden = true
+//            cat1.isHidden = false
+//            cat2.isHidden = true
+//            cat3.isHidden = true
+            
+            cat1.alpha = 1
+            cat2.alpha = 0
+            cat3.alpha = 0
             
             cat1Label.text = category?[0].name
             
             
         case 2:
-            cat1.isHidden = false
-            cat2.isHidden = false
-            cat3.isHidden = true
+//            cat1.isHidden = false
+//            cat2.isHidden = false
+//            cat3.isHidden = true
+            
+            cat1.alpha = 1
+            cat2.alpha = 1
+            cat3.alpha = 0
             
             cat1Label.text = category?[0].name
             cat2Label.text = category?[1].name
             
         case 3:
-            cat1.isHidden = false
-            cat2.isHidden = false
-            cat3.isHidden = false
+//            cat1.isHidden = false
+//            cat2.isHidden = false
+//            cat3.isHidden = false
+            
+            cat1.alpha = 1
+            cat2.alpha = 1
+            cat3.alpha = 1
             
             cat1Label.text = category?[0].name
             cat2Label.text = category?[1].name
@@ -269,7 +284,6 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
             cat3Label.text = category?[2].name
             
         }
-       
        
         self.movieRating.text = "\(fromData.tmdbRating ?? 0)"
         self.movieReleaseYear.text = "Year: \(fromData.releaseDate ?? "-")"
@@ -393,30 +407,46 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
         
         switch category?.count {
         case 0:
-            cat1.isHidden = true
-            cat2.isHidden = true
-            cat3.isHidden = true
+//            cat1.isHidden = true
+//            cat2.isHidden = true
+//            cat3.isHidden = true
+            
+            cat1.alpha = 0
+            cat2.alpha = 0
+            cat3.alpha = 0
             
         case 1:
-            cat1.isHidden = false
-            cat2.isHidden = true
-            cat3.isHidden = true
+//            cat1.isHidden = false
+//            cat2.isHidden = true
+//            cat3.isHidden = true
+            
+            cat1.alpha = 1
+            cat2.alpha = 0
+            cat3.alpha = 0
             
             cat1Label.text = category?[0].name
             
             
         case 2:
-            cat1.isHidden = false
-            cat2.isHidden = false
-            cat3.isHidden = true
+//            cat1.isHidden = false
+//            cat2.isHidden = false
+//            cat3.isHidden = true
+            
+            cat1.alpha = 1
+            cat2.alpha = 1
+            cat3.alpha = 0
             
             cat1Label.text = category?[0].name
             cat2Label.text = category?[1].name
             
         case 3:
-            cat1.isHidden = false
-            cat2.isHidden = false
-            cat3.isHidden = false
+//            cat1.isHidden = false
+//            cat2.isHidden = false
+//            cat3.isHidden = false
+            
+            cat1.alpha = 1
+            cat2.alpha = 1
+            cat3.alpha = 1
             
             cat1Label.text = category?[0].name
             cat2Label.text = category?[1].name
@@ -461,7 +491,10 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
        
       
         self.genreView.isHidden = true
-        self.movieRating.text = "\(fromData.voteAverage!)"
+        if let safeVotes = fromData.voteAverage {
+          
+            self.movieRating.text =   String(format:"%.1f", safeVotes)
+        }
         self.movieReleaseYear.text = "Year: \(fromData.firstAirDate!)"
 //        self.movieDirector.text = fromData
        
@@ -486,7 +519,12 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
         genreView.isHidden = true
         self.movieDirector.isHidden = true
         self.episodeBtn.isHidden = true
-        self.movieRating.text = "\(fromData.voteAverage!)"
+        if let safeVotes = fromData.voteAverage {
+          
+            self.movieRating.text =   String(format:"%.1f", safeVotes)
+        }
+       
+       
         self.movieReleaseYear.text = "Year: \(fromData.airDate!)"
 //        self.movieDirector.text = fromData
         

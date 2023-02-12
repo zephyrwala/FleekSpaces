@@ -43,10 +43,10 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
         setupCollectionView()
         currentUserImage.makeItGolGol()
        
-//        fetchCurrentUser()
-//        fetchRecentMessages()
+        fetchCurrentUser()
+        fetchRecentMessages()
         recentMessagesCollectionView.reloadData()
-        startListeningForConversations()
+//        startListeningForConversations()
        
         // Do any additional setup after loading the view.
     }
@@ -387,11 +387,12 @@ extension RecentChatKitViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         recentMessagesCollectionView.deselectItem(at: indexPath, animated: true)
-        let model = conversations[indexPath.row]
-        let vc = ChatViewController(with: model.otherUserEmail, id: model.id)
+        let model = recentMessages[indexPath.row]
+        let vc = ChatViewController(with: model.toId, id: model.id)
         
         
-        vc.title = model.name
+        vc.title = model.email
+        print("\(model.email) and from id \(model.fromId)")
         navigationController?.pushViewController(vc, animated: true)
 
     }
@@ -403,7 +404,7 @@ extension RecentChatKitViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return conversations.count
+            return recentMessages.count
         
             
             
@@ -422,19 +423,20 @@ extension RecentChatKitViewController: UICollectionViewDataSource {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recentChatCell", for: indexPath) as! RecentChatViewCell
            
-            let model = conversations[indexPath.row]
-//            if let chatData = recentMessages {
-//                cell.setupCell(fromData: chatData[indexPath.item])
-//
-//            }
+//            let model = conversations[indexPath.row]
+            let chatData = recentMessages
+              
+
+         
+            cell.setupCell(fromData: chatData[indexPath.item])
             
          
             print("Cell loaded")
             
-//            cell.userName.text = recentMessages[indexPath.item].username
+            cell.userName.text = recentMessages[indexPath.item].username
             
-            cell.setupCell(fromData: model)
-           
+//            cell.setupCell(fromData: model)
+//
             
             
             

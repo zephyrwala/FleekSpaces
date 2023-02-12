@@ -9,6 +9,7 @@ import UIKit
 
 class EpisodeCell: UICollectionViewCell {
 
+    @IBOutlet weak var episodeRuntime: UILabel!
     @IBOutlet weak var episodeBanner: UIImageView!
     @IBOutlet weak var episodeRating: UILabel!
     @IBOutlet weak var episodeDate: UILabel!
@@ -23,16 +24,27 @@ class EpisodeCell: UICollectionViewCell {
     
     func setupCell(fromData: MyEpisode) {
         
+        if let safeURLPath = fromData.backdropPath {
+            let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(safeURLPath)")
+                self.episodeBanner.sd_setImage(with: newURL)
+        }
+        
+        if let safeRunTime = fromData.runtime {
+            episodeRuntime.text = "\(safeRunTime) mins"
+        }
        
-        let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(fromData.backdropPath!)")
 //        self.episodeImage.sd_setImage(with: newURL)
-        self.episodeBanner.sd_setImage(with: newURL)
-        self.episodeTitle.text = fromData.name
+        if let safeTitle = fromData.name {
+            
+            self.episodeTitle.text = " \(fromData.episodeNumber!). \(safeTitle)"
+        }
+        
         self.episodeRating.text = "\(fromData.airDate!)"
-        self.episodeDate.text = "EPISODE \(fromData.episodeNumber!)"
+//        self.episodeDate.text = "EPISODE \(fromData.episodeNumber!)"
 //        episodeImage.layer.cornerRadius = 10
         episodeBanner.layer.cornerRadius = 8
-        episodeBanner.layer.borderWidth = 1
+        episodeBanner.layer.cornerCurve = .continuous
+//        episodeBanner.layer.borderWidth = 1
         episodeBanner.layer.borderColor = UIColor.gray.cgColor
     }
 

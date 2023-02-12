@@ -8,6 +8,10 @@
 import UIKit
 import MessageKit
 import InputBarAccessoryView
+import Firebase
+import SDWebImageSwiftUI
+import FirebaseFirestoreSwift
+import FirebaseFirestore
 
 
 
@@ -25,28 +29,37 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         return formatter
         
     }()
-    
+    //this is main message
     private var messages = [Message]()
     public let otherUserEmail: String
     private let conversationId: String?
     public var isNewConversation = false
     var defaults = UserDefaults.standard
+    let fireDB = Firestore.firestore()
+    
+    var swiftChat = ChatDataObject.chatMessagesAreHere
   
     
+    private let selfSender = Sender(photoURL: "", senderId: "1", displayName: "Mohan")
+    private let otherUser = Sender(photoURL: "", senderId: "2", displayName: "Baba Blackshee")
    
     var myMessages = [MessageType]()
+    var chatMessages = [ChatMessage]()
+    var firestoreListener: ListenerRegistration?
+    
+   
     
     //creating + computing the sender and returning the computed sender
-    private var selfSender: Sender? {
-        
-        guard let email = defaults.string(forKey: "email") else {return nil}
-        let safeEmail = RealTimeDatabaseManager.safeEmail(emailAddress: email)
-        
-       return Sender(photoURL: "",
-                     senderId: safeEmail,
-                     displayName: "Me")
-        
-    }
+//    private var selfSender: Sender? {
+//
+//        guard let email = defaults.string(forKey: "email") else {return nil}
+//        let safeEmail = RealTimeDatabaseManager.safeEmail(emailAddress: email)
+//
+//       return Sender(photoURL: "",
+//                     senderId: safeEmail,
+//                     displayName: "Me")
+//
+//    }
    
     
     //MARK: - Class Initialiser
@@ -67,20 +80,162 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        fetchMessages()
         messageInputBar.inputTextView.becomeFirstResponder()
-        if let conversationId = conversationId {
-            listenForMessages(id: conversationId, shouldScrollToBottom: true)
-        }
+//        if let conversationId = conversationId {
+//            listenForMessages(id: conversationId, shouldScrollToBottom: true)
+//        }
+     
+        
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
       
         
+        fireTest()
       setupUIStuff()
+      fetchMessages()
+        print("Chat object \(ChatDataObject.chatMessagesAreHere)")
+//        messages.append(Message(sender: selfSender, messageId: "1", sentDate: Date(), kind: .text("hellow world")))
+//
+//        messages.append(Message(sender: selfSender, messageId: "2", sentDate: Date(), kind: .text("This is going to be awesome and everyone loves the chat")))
+//
+//        messages.append(Message(sender: otherUser, messageId: "3", sentDate: Date(), kind: .text("This is cool guys, lets rock")))
+     
+        
      
        
     }
+    
+    func fireTest() {
+        
+    
+        
+        let docsRef = fireDB.collection("messages").document("aw8kTTGiE4gcJMrQXB3sDDMZnn92").collection("0HxLkjzkAiSR0OPUzEs3MeoBjw52").order(by: "timeStamp")
+        
+        docsRef.addSnapshotListener { snapshotssa, err in
+            
+            
+            
+            guard let data = snapshotssa, err == nil else {return}
+            
+            data.documentChanges.forEach { docChange in
+                
+                
+                let datas = docChange.document.data()
+                if docChange.type == .added {
+                    let changeData = docChange.document.data()
+                    print("Change data = \(changeData)")
+                    
+                    self.chatMessages.append(.init(documentId: docChange.document.documentID, data: changeData))
+                    
+                    
+                    print("snapy data is \(data)")
+                   
+                }
+                print("Inside docs are here \(datas)")
+                
+                print("chat messages \(self.chatMessages)")
+                for eachChatMessage in self.chatMessages {
+                    if eachChatMessage.fromId == "aw8kTTGiE4gcJMrQXB3sDDMZnn92" {
+                        
+                        let newMes = Message(sender: self.selfSender, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .text(eachChatMessage.text))
+                        
+                        self.messages.append(newMes)
+                        
+                        print("New message is \(newMes)")
+                        
+//                        self.messagesCollectionView.reloadData()
+                    } else {
+                        
+                        let newMes = Message(sender: self.otherUser, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .text(eachChatMessage.text))
+                        
+                        self.messages.append(newMes)
+                        
+                        print("New message is \(newMes)")
+                        
+                        self.messagesCollectionView.reloadData()
+                    }
+                   
+                }
+                
+            }
+            
+            
+        
+            
+            
+            print("data is here yo \(data)")
+            
+        }
+        
+        
+        
+    }
+    
+    //MARK: - Fetch messages
+    func fetchMessages() {
+        guard let fromId = FirebaseManager.shared.auth.currentUser?.uid else {return}
+        
+//        if let currentUsername = self.defaults.string(forKey: "userName") {
+//            currentuser = currentUsername
+//        }
+//        let fromId = "aw8kTTGiE4gcJMrQXB3sDDMZnn92"
+        
+        guard let toId = UserDefaults.standard.string(forKey: "testId") else {return}
+        //other user
+        
+        
+        firestoreListener?.remove()
+        chatMessages.removeAll()
+        //remove the listener
+        
+        firestoreListener = FirebaseManager.shared.firestore
+            .collection("messages")
+            .document(fromId)
+            .collection(toId)
+            .order(by: "timeStamp")
+            .addSnapshotListener { querySnapshot, err in
+            if let error = err {
+//                self.errorMessage = "Failed to listen for messages"
+                print("Snapshot Error is here : \(error)")
+                
+                
+                return
+            }
+            //message is recieved here
+                
+             
+            
+            querySnapshot?.documentChanges.forEach({ change in
+                if change.type == .added {
+                    let data = change.document.data()
+                    self.chatMessages.append(.init(documentId: change.document.documentID, data: data))
+                    
+                    
+                    print("snapy data is \(data)")
+                   
+                }
+                
+            })
+               
+            
+                DispatchQueue.main.async {
+//                    if let safeChat = ChatDataObject.chatMessagesAreHere {
+//                        self.chatMessages = safeChat
+//
+//                        print(" swift ui safe chat \(safeChat)")
+//                    }
+//                    self.count += 1
+                }
+               
+
+        }
+    }
+    
+    
     
     //MARK: - Listen Messages
     
@@ -129,9 +284,12 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     //MARK: - Current user (Left or Right message bubble)
     
     func currentSender() -> SenderType {
-        if let sender = selfSender {
-            return sender
-        }
+//        if let sender = selfSender {
+//            return sender
+//        }
+        
+        
+        return selfSender
         fatalError("Self Sender is nil, email should be cached")
 //        return Sender(photoURL: "", senderId: "123", displayName: "")
     }
@@ -152,9 +310,12 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     }
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ? UIColor.systemIndigo : UIColor.darkGray
+        return isFromCurrentSender(message: message) ? UIColor.systemCyan : UIColor.darkGray
         }
 
+    func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        return isFromCurrentSender(message: message) ? UIColor.black : UIColor.white
+    }
 }
 
 
@@ -163,56 +324,56 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     @objc
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         
-        guard !text.replacingOccurrences(of: " ", with: "").isEmpty,
-                let selfSender = self.selfSender,
-                let messageID = createMessageID()
-                else {
-                        return
-                     }
-        
-//        guard let selfSender = self.selfSender else {
-//            return
-//        }
-        
-        let message = Message(sender: selfSender,
-                              messageId: messageID,
-                              sentDate: Date(),
-                              kind: .text(text))
-       
-        //send message
-        
-        if isNewConversation {
-            //create convo in db
-          
-            
-            
-            RealTimeDatabaseManager.shared.createNewConversation(with: otherUserEmail, name: self.title ?? "user", firstMessage: message) { success in
-                if success {
-                    print("message sent")
-                } else {
-                    print("message failed to send")
-                }
-            }
-            
-        } else {
-            guard let conversationId = conversationId, let name = self.title else {
-                return
-            }
-
-            // append to existing conversation data
-//            RealTimeDatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: otherUserEmail, name: name, newMessage: message, completion: { [weak self] success in
-//                if success {
-//                    self?.messageInputBar.inputTextView.text = nil
-//                    print("message sent appended")
-//                }
+//        guard !text.replacingOccurrences(of: " ", with: "").isEmpty,
+//                let selfSender = self.selfSender,
+//                let messageID = createMessageID()
 //                else {
-//                    print("failed to send")
+//                        return
+//                     }
+//
+////        guard let selfSender = self.selfSender else {
+////            return
+////        }
+//
+//        let message = Message(sender: selfSender,
+//                              messageId: messageID,
+//                              sentDate: Date(),
+//                              kind: .text(text))
+//
+//        //send message
+//
+//        if isNewConversation {
+//            //create convo in db
+//
+//
+//
+//            RealTimeDatabaseManager.shared.createNewConversation(with: otherUserEmail, name: self.title ?? "user", firstMessage: message) { success in
+//                if success {
+//                    print("message sent")
+//                } else {
+//                    print("message failed to send")
 //                }
-//            })
-        }
-        
-                
-                print("Sending this: \(text)")
+//            }
+//
+//        } else {
+//            guard let conversationId = conversationId, let name = self.title else {
+//                return
+//            }
+//
+//            // append to existing conversation data
+////            RealTimeDatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: otherUserEmail, name: name, newMessage: message, completion: { [weak self] success in
+////                if success {
+////                    self?.messageInputBar.inputTextView.text = nil
+////                    print("message sent appended")
+////                }
+////                else {
+////                    print("failed to send")
+////                }
+////            })
+//        }
+//
+//
+//                print("Sending this: \(text)")
     }
     
     

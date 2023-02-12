@@ -12,6 +12,7 @@ class EpisodeCardsViewController: UIViewController, UICollectionViewDelegate {
     @IBOutlet weak var episodeCount: UILabel!
     var getSeasonID : String?
     var getSeasonNo: String?
+    var getSeasonTMDBid: String?
     @IBOutlet weak var episodeCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +21,14 @@ class EpisodeCardsViewController: UIViewController, UICollectionViewDelegate {
         print("This is the season ID - \(getSeasonNo)")
         if let finalShowId = getSeasonID {
             if let seasonNums = getSeasonNo {
-                fetchEpisodeDetails(showId: finalShowId, seasonNo: seasonNums)
+                if let seasonTMDbs = getSeasonTMDBid {
+                    
+                    fetchEpisodeDetails(showId: finalShowId, seasonNo: seasonNums, tmdb_season_id: seasonTMDbs)
+                }
             }
            
         }
+        
         if let episodeNumber = FinalDataModel.episodesList?.episodes?.count {
             
             self.episodeCount.text = "Episodes \(episodeNumber)"
@@ -58,14 +63,14 @@ class EpisodeCardsViewController: UIViewController, UICollectionViewDelegate {
  //MARK: - Get episode data
     
     //MARK: - Fetch Movie Detail
-    func fetchEpisodeDetails(showId: String, seasonNo: String) {
+    func fetchEpisodeDetails(showId: String, seasonNo: String, tmdb_season_id: String) {
         
         guard let finalMovieId = getSeasonID else {
             return
         }
 
         let network = NetworkURL()
-        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_season_details?show_id=\(showId)&season_number=\(seasonNo)")
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_season_details?show_id=\(showId)&season_number=\(seasonNo)&season_tmdb_id=\(tmdb_season_id)")
         
         
         network.theBestNetworkCall(EpisodesList.self, url: url) { myMovieResult, yourMessage in
@@ -231,8 +236,11 @@ extension EpisodeCardsViewController: UICollectionViewDataSource {
         guard let showID = FinalDataModel.episodesList?.showID else {return}
         guard let seasonNumber = FinalDataModel.episodesList?.seasonNumber else {return}
         guard let episodeNumber = FinalDataModel.episodesList?.episodes?[indexPath.item].episodeNumber else {return}
+        guard let seasTMDBID = UserDefaults.standard.string(forKey: "seasonTMDBs") else {return}
       
         selectedController.getEpisodeData(showId: showID, seasonNo: "\(seasonNumber)", episodeNo: "\(episodeNumber)")
+        
+        print("Episode call done")
         navigationController?.pushViewController(selectedController, animated: true)
     }
     
