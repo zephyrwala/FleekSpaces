@@ -31,9 +31,9 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        spinny.show(in: view)
-//        fetchAllUsers()
-        getAllDBUsers()
+//        spinny.show(in: view)
+        fetchAllUsers()
+     
         testTable.delegate = self
         testTable.dataSource = self
         testTable.register(UINib(nibName: "NewChatsTableViewCell", bundle: nil), forCellReuseIdentifier: "newsuser")
@@ -43,67 +43,68 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
 
     
     
-    //MARK: - users fetch firestore
-//    private func fetchAllUsers() {
-//
-//        FirebaseManager.shared.firestore.collection("users")
-//            .getDocuments { documentsSnapshot, error in
-//
-//                if let error = error {
-//
-//                    self.errorMessage = "Failed to fetch users: \(error)"
-//                    print("Failed to fetch users: \(error)")
-//                    return
-//                }
-//
-//                self.errorMessage = "Fetched users succesfully"
-//
-//
-//                documentsSnapshot?.documents.forEach({ snapshot in
-//                    let user = try? snapshot.data(as: ChatUser.self)
-//                    if user?.uid != FirebaseManager.shared.auth.currentUser?.uid {
-//                        self.users.append(user!)
-//                        DispatchQueue.main.async {
-//                            self.testTable.reloadData()
-//                        }
-//
-//                    }
-//
-//                })
-//            }
-//
-//    }
+//    MARK: - users fetch firestore
+    private func fetchAllUsers() {
+
+        FirebaseManager.shared.firestore.collection("users")
+            .getDocuments { documentsSnapshot, error in
+
+                if let error = error {
+
+                    self.errorMessage = "Failed to fetch users: \(error)"
+                    print("Failed to fetch users: \(error)")
+                    return
+                }
+
+                self.errorMessage = "Fetched users succesfully"
+
+
+                documentsSnapshot?.documents.forEach({ snapshot in
+                    let user = try? snapshot.data(as: ChatUser.self)
+                    if user?.uid != FirebaseManager.shared.auth.currentUser?.uid {
+                        self.users.append(user!)
+                        DispatchQueue.main.async {
+                            self.testTable.reloadData()
+//                            self.spinny.dismiss(animated: true)
+                        }
+
+                    }
+
+                })
+            }
+
+    }
     
     //MARK: - users fetch from Realtime db
 
 
 
-    func getAllDBUsers() {
-        
-        RealTimeDatabaseManager.shared.getAllUsers { [weak self] result in
-            
-            switch result {
-                
-            case .success(let usersColl):
-                self?.dbUsers = usersColl
-                DispatchQueue.main.async {
-                    
-                    self?.spinny.dismiss()
-                    self?.testTable.reloadData()
-                }
-                
-            case .failure(let err):
-                print("Failed to get users \(err)")
-                
-                
-            }
-            
-        }
-        
-    }
+//    func getAllDBUsers() {
+//
+//        RealTimeDatabaseManager.shared.getAllUsers { [weak self] result in
+//
+//            switch result {
+//
+//            case .success(let usersColl):
+//                self?.dbUsers = usersColl
+//                DispatchQueue.main.async {
+//
+//                    self?.spinny.dismiss()
+//                    self?.testTable.reloadData()
+//                }
+//
+//            case .failure(let err):
+//                print("Failed to get users \(err)")
+//
+//
+//            }
+//
+//        }
+//
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dbUsers.count
+        users.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -119,12 +120,12 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsuser", for: indexPath) as! NewChatsTableViewCell
         
-//        cell.userNameLabel.text = users[indexPath.item].email
+        cell.userNameLabel.text = users[indexPath.item].email
         
-        cell.userNameLabel.text = dbUsers[indexPath.item]["name"]
-        print("Check \(dbUsers[indexPath.item]["profileImageUrl"])")
+//        cell.userNameLabel.text = user[indexPath.item]["name"]
+       
 
-        if let imageURL = URL(string: dbUsers[indexPath.item]["profileImageUrl"] ?? "") {
+        if let imageURL = URL(string: users[indexPath.item].profileImageUrl) {
 
             print("image url is \(imageURL)")
             cell.profiles.sd_setImage(with: imageURL)

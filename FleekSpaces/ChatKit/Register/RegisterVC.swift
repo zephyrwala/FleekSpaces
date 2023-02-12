@@ -464,30 +464,6 @@ extension RegisterVC: UIImagePickerControllerDelegate {
                     guard let safeName = self.nameTextField.text else {return}
                     
                     
-                    RealTimeDatabaseManager.shared.userExists(with: safeEmail) { [weak self] exists in
-                        
-                        //TODO: - sort some alert message here
-                        //check user exists or not
-                        guard !exists else {
-                            
-            //user already exists - exit the function
-                            return
-                        }
-                        
-            //new user - carry on with registereing in the db
-                        //TODO: - Realtime db func starts here
-                        
-                        let chatUser = ChatAppUser(name: safeName, email: safeEmail, uid: uid, profileImageUrl: imageProfileUrl.absoluteString)
-                        RealTimeDatabaseManager.shared.insertUser(with: chatUser, completion: { success in
-                            
-                            if success {
-                                // upload image
-                                
-                            }
-                            
-                            
-                        })
-                    }
                    
             print("user Info storage Sucess")
         

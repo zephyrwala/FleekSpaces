@@ -193,7 +193,7 @@ class ChatLogViewModel: ObservableObject {
                    
                 }
                 
-                self.fetchTestMessages()
+//                self.fetchTestMessages()
                 
             })
                

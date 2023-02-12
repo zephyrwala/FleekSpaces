@@ -67,6 +67,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         self.conversationId = id
         self.otherUserEmail = email
         super.init(nibName: nil, bundle: nil)
+        print("Initializer working as ID \(conversationId) and email \(otherUserEmail) ")
        
     }
     
@@ -80,13 +81,14 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        fetchMessages()
+//        fetchMessages()
+      
         messageInputBar.inputTextView.becomeFirstResponder()
 //        if let conversationId = conversationId {
 //            listenForMessages(id: conversationId, shouldScrollToBottom: true)
 //        }
      
-        
+//        print("The transfered IDs are \()")
         
     }
     
@@ -94,10 +96,11 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         super.viewDidLoad()
       
         
-        fireTest()
       setupUIStuff()
-      fetchMessages()
+//      fetchMessages()
         print("Chat object \(ChatDataObject.chatMessagesAreHere)")
+        fireTest()
+
 //        messages.append(Message(sender: selfSender, messageId: "1", sentDate: Date(), kind: .text("hellow world")))
 //
 //        messages.append(Message(sender: selfSender, messageId: "2", sentDate: Date(), kind: .text("This is going to be awesome and everyone loves the chat")))
@@ -111,10 +114,15 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     
     func fireTest() {
         
+        guard let toId = conversationId else {return}
     
+        guard let fromId = FirebaseManager.shared.auth.currentUser?.uid else {return}
         
-        let docsRef = fireDB.collection("messages").document("aw8kTTGiE4gcJMrQXB3sDDMZnn92").collection("0HxLkjzkAiSR0OPUzEs3MeoBjw52").order(by: "timeStamp")
-        
+        firestoreListener?.remove()
+        chatMessages.removeAll()
+        messages.removeAll()
+        let docsRef = fireDB.collection("messages").document(fromId).collection(toId).order(by: "timeStamp")
+      
         docsRef.addSnapshotListener { snapshotssa, err in
             
             
@@ -138,28 +146,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
                 print("Inside docs are here \(datas)")
                 
                 print("chat messages \(self.chatMessages)")
-                for eachChatMessage in self.chatMessages {
-                    if eachChatMessage.fromId == "aw8kTTGiE4gcJMrQXB3sDDMZnn92" {
-                        
-                        let newMes = Message(sender: self.selfSender, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .text(eachChatMessage.text))
-                        
-                        self.messages.append(newMes)
-                        
-                        print("New message is \(newMes)")
-                        
-//                        self.messagesCollectionView.reloadData()
-                    } else {
-                        
-                        let newMes = Message(sender: self.otherUser, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .text(eachChatMessage.text))
-                        
-                        self.messages.append(newMes)
-                        
-                        print("New message is \(newMes)")
-                        
-                        self.messagesCollectionView.reloadData()
-                    }
-                   
-                }
+     
                 
             }
             
@@ -168,6 +155,33 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
             
             
             print("data is here yo \(data)")
+            
+            
+            for eachChatMessage in self.chatMessages {
+                if eachChatMessage.fromId == "aw8kTTGiE4gcJMrQXB3sDDMZnn92" {
+                    
+                    let newMes = Message(sender: self.selfSender, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .text(eachChatMessage.text))
+                    
+                    self.messages.append(newMes)
+                    
+                    print("New message is \(newMes)")
+                    
+//                        self.messagesCollectionView.reloadData()
+                } else {
+                    
+                    let otherMes = Message(sender: self.otherUser, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .text(eachChatMessage.text))
+                    
+                    self.messages.append(otherMes)
+                    
+                    print("New message is \(otherMes)")
+                    
+                  
+                }
+               
+                DispatchQueue.main.async {
+                    self.messagesCollectionView.reloadData()
+                }
+            }
             
         }
         
@@ -179,10 +193,6 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     func fetchMessages() {
         guard let fromId = FirebaseManager.shared.auth.currentUser?.uid else {return}
         
-//        if let currentUsername = self.defaults.string(forKey: "userName") {
-//            currentuser = currentUsername
-//        }
-//        let fromId = "aw8kTTGiE4gcJMrQXB3sDDMZnn92"
         
         guard let toId = UserDefaults.standard.string(forKey: "testId") else {return}
         //other user
@@ -237,31 +247,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     
     
     
-    //MARK: - Listen Messages
-    
-    private func listenForMessages(id: String, shouldScrollToBottom: Bool) {
-        RealTimeDatabaseManager.shared.getAllMessagesForConversation(with: id, completion: { [weak self] result in
-            switch result {
-            case .success(let messages):
-                print("success in getting messages: \(messages)")
-                guard !messages.isEmpty else {
-                    print("messages are empty")
-                    return
-                }
-                self?.messages = messages
 
-                DispatchQueue.main.async {
-                    self?.messagesCollectionView.reloadDataAndKeepOffset()
-
-                    if shouldScrollToBottom {
-                        self?.messagesCollectionView.scrollToBottom()
-                    }
-                }
-            case .failure(let error):
-                print("failed to get messages: \(error)")
-            }
-        })
-    }
     
     
 
@@ -379,22 +365,22 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     
     //MARK: - Message id is created here
     
-    private func createMessageID() -> String? {
-        //date, otheruseremail, senderemail, randomint
-       
-        guard let currentUserEmail = defaults.string(forKey: "email") else {return nil}
-        
-        let safeCurrentEmail = RealTimeDatabaseManager.safeEmail(emailAddress: currentUserEmail)
-        
-        let dateString = Self.dateFormatter.string(from: Date())
-        //FIXME: - Check current user email - has to be safe email
-        ///fixed :) 
-        
-        let newIdentifier = "\(otherUserEmail)_\(safeCurrentEmail)_\(dateString)"
-        
-        print("Created message id \(newIdentifier)")
-        return newIdentifier
-    }
+//    private func createMessageID() -> String? {
+//        //date, otheruseremail, senderemail, randomint
+//
+//        guard let currentUserEmail = defaults.string(forKey: "email") else {return nil}
+//
+//        let safeCurrentEmail = RealTimeDatabaseManager.safeEmail(emailAddress: currentUserEmail)
+//
+//        let dateString = Self.dateFormatter.string(from: Date())
+//        //FIXME: - Check current user email - has to be safe email
+//        ///fixed :)
+//
+//        let newIdentifier = "\(otherUserEmail)_\(safeCurrentEmail)_\(dateString)"
+//
+//        print("Created message id \(newIdentifier)")
+//        return newIdentifier
+//    }
     
     
     

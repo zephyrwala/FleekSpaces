@@ -109,35 +109,35 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
         navigationController?.pushViewController(vc, animated: true)
         
     }
-    
-    private func startListeningForConversations() {
-        
-        guard let email = defautls.string(forKey: "email") else {return}
-        
-        let safeEmail = RealTimeDatabaseManager.safeEmail(emailAddress: email)
-        RealTimeDatabaseManager.shared.getAllConversations(for: safeEmail, completion: { [weak self] result in
-            switch result {
-            case .success(let conversations):
-                print("successfully got conversation models")
-                guard !conversations.isEmpty else {
-                    self?.recentMessagesCollectionView.isHidden = true
-//                    self?.noConversationsLabel.isHidden = false
-                    return
-                }
-//                self?.noConversationsLabel.isHidden = true
-                self?.recentMessagesCollectionView.isHidden = false
-                self?.conversations = conversations
-
-                DispatchQueue.main.async {
-                    self?.recentMessagesCollectionView.reloadData()
-                }
-            case .failure(let error):
-                self?.recentMessagesCollectionView.isHidden = true
-//                self?.noConversationsLabel.isHidden = false
-//                print("failed to get convos: \(error)")
-            }
-        })
-    }
+//    
+//    private func startListeningForConversations() {
+//        
+//        guard let email = defautls.string(forKey: "email") else {return}
+//        
+//        let safeEmail = RealTimeDatabaseManager.safeEmail(emailAddress: email)
+//        RealTimeDatabaseManager.shared.getAllConversations(for: safeEmail, completion: { [weak self] result in
+//            switch result {
+//            case .success(let conversations):
+//                print("successfully got conversation models")
+//                guard !conversations.isEmpty else {
+//                    self?.recentMessagesCollectionView.isHidden = true
+////                    self?.noConversationsLabel.isHidden = false
+//                    return
+//                }
+////                self?.noConversationsLabel.isHidden = true
+//                self?.recentMessagesCollectionView.isHidden = false
+//                self?.conversations = conversations
+//
+//                DispatchQueue.main.async {
+//                    self?.recentMessagesCollectionView.reloadData()
+//                }
+//            case .failure(let error):
+//                self?.recentMessagesCollectionView.isHidden = true
+////                self?.noConversationsLabel.isHidden = false
+////                print("failed to get convos: \(error)")
+//            }
+//        })
+//    }
     
     
     
@@ -388,7 +388,7 @@ extension RecentChatKitViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         recentMessagesCollectionView.deselectItem(at: indexPath, animated: true)
         let model = recentMessages[indexPath.row]
-        let vc = ChatViewController(with: model.toId, id: model.id)
+        let vc = ChatViewController(with: model.email, id: model.toId)
         
         
         vc.title = model.email
