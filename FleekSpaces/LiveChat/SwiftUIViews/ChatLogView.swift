@@ -170,6 +170,7 @@ class ChatLogViewModel: ObservableObject {
         chatMessages.removeAll()
         //remove the listener
         
+        
         firestoreListener = FirebaseManager.shared.firestore
             .collection("messages")
             .document(fromId)

@@ -30,6 +30,7 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+      
 //        RealTimeDatabaseManager.shared.test()
         
         if FirebaseManager.shared.auth.currentUser?.uid != nil {
@@ -73,6 +74,17 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
     
     
     
+    @IBAction func addChatBtnTap(_ sender: Any) {
+        
+        let vc = NewChatUsersVC()
+        vc.completion = {[weak self] result in
+            print("\(result)")
+            self?.createnewConversation(result: result)
+            
+        }
+        
+        self.present(vc, animated: true)
+    }
     
     @IBAction func newChatBtnTapAction(_ sender: Any) {
         
@@ -109,11 +121,11 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
         navigationController?.pushViewController(vc, animated: true)
         
     }
-//    
+//
 //    private func startListeningForConversations() {
-//        
+//
 //        guard let email = defautls.string(forKey: "email") else {return}
-//        
+//
 //        let safeEmail = RealTimeDatabaseManager.safeEmail(emailAddress: email)
 //        RealTimeDatabaseManager.shared.getAllConversations(for: safeEmail, completion: { [weak self] result in
 //            switch result {
@@ -304,7 +316,7 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
                 
                 
                 //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(480)), subitems: [myItem])
+                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(680)), subitems: [myItem])
                 
                 //section size
                 
@@ -359,7 +371,7 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
             guard let userName = self.chatUser?.email else {return}
             
             self.defautls.set(userName, forKey: "email")
-            
+            self.defautls.set(imageURL, forKey: "photu")
             DispatchQueue.main.async {
                 self.currentUserName.text = FirebaseManager.shared.auth.currentUser?.email
                 
@@ -368,6 +380,7 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
             }
             
         }
+        
     }
  
 
@@ -388,10 +401,10 @@ extension RecentChatKitViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         recentMessagesCollectionView.deselectItem(at: indexPath, animated: true)
         let model = recentMessages[indexPath.row]
-        let vc = ChatViewController(with: model.email, id: model.toId)
+        let vc = ChatViewController(with: model.email, id: model.id)
         
-        
-        vc.title = model.email
+        vc.thisMessage = model
+        vc.title = model.username
         print("\(model.email) and from id \(model.fromId)")
         navigationController?.pushViewController(vc, animated: true)
 

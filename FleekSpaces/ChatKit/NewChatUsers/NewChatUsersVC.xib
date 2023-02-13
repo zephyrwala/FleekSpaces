@@ -21,13 +21,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" sectionIndexMinimumDisplayRowCount="1" rowHeight="72" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wVK-Ys-9sM">
-                    <rect key="frame" x="18" y="97" width="339" height="681"/>
+                    <rect key="frame" x="18" y="127" width="339" height="651"/>
                     <color key="backgroundColor" name="TabBar"/>
                     <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="sectionIndexBackgroundColor" name="TabBar"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 💬 New Chat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnT-SC-s2t">
-                    <rect key="frame" x="39" y="65" width="297" height="30"/>
+                    <rect key="frame" x="39" y="71" width="297" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="WAc-XE-lUR"/>
                     </constraints>
@@ -41,10 +41,10 @@
             <constraints>
                 <constraint firstItem="wVK-Ys-9sM" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="0NS-2O-n3f"/>
                 <constraint firstItem="qnT-SC-s2t" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="39" id="CeT-fb-AOF"/>
-                <constraint firstItem="wVK-Ys-9sM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="Lky-5S-fqH"/>
+                <constraint firstItem="qnT-SC-s2t" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="JkY-3g-7kj"/>
+                <constraint firstItem="wVK-Ys-9sM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="Lky-5S-fqH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qnT-SC-s2t" secondAttribute="trailing" constant="39" id="LpI-Qh-niW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wVK-Ys-9sM" secondAttribute="trailing" constant="18" id="ThV-yc-KS1"/>
-                <constraint firstItem="wVK-Ys-9sM" firstAttribute="top" secondItem="qnT-SC-s2t" secondAttribute="bottom" constant="2" id="U1C-nj-ktV"/>
                 <constraint firstItem="wVK-Ys-9sM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="snI-qT-1xL"/>
             </constraints>
             <point key="canvasLocation" x="-26.399999999999999" y="20.689655172413794"/>

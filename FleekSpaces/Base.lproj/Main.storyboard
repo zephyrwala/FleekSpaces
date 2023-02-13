@@ -101,7 +101,7 @@
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oDg-YP-CFy">
                                                         <rect key="frame" x="0.0" y="0.0" width="169" height="50"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Discover" translatesAutoresizingMaskIntoConstraints="NO" id="Cor-GM-feK">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disco" translatesAutoresizingMaskIntoConstraints="NO" id="Cor-GM-feK">
                                                                 <rect key="frame" x="2" y="0.0" width="140" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="140" id="TNt-1b-53P"/>
@@ -507,14 +507,14 @@
                         <segue destination="FFa-df-FJe" kind="relationship" relationship="viewControllers" id="efL-Hs-XtV"/>
                         <segue destination="kXN-YT-dtV" kind="relationship" relationship="viewControllers" id="tnq-w9-Pc3"/>
                         <segue destination="Dqb-hx-E2l" kind="relationship" relationship="viewControllers" id="2Nk-l6-Mtd"/>
-                        <segue destination="G9X-7b-Adr" kind="relationship" relationship="viewControllers" id="xEB-QX-c2s"/>
+                        <segue destination="G9X-7b-Adr" kind="relationship" relationship="viewControllers" id="bbt-Tb-pPT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wra-ZO-tfD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="649" y="-410"/>
         </scene>
-        <!--Chat-->
+        <!--💬 Chat-->
         <scene sceneID="dhs-0N-CyS">
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overCurrentContext" id="Ppb-iH-IIp" customClass="RecentChatKitViewController" customModule="FleekSpaces" customModuleProvider="target" sceneMemberID="viewController">
@@ -522,7 +522,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="638"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIn-ww-8ZC">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIn-ww-8ZC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="145"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LIQ-zW-anb">
@@ -581,8 +581,8 @@
                                     <constraint firstItem="LIQ-zW-anb" firstAttribute="top" secondItem="AIn-ww-8ZC" secondAttribute="top" constant="60" id="qYi-CR-bjq"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SEP-cU-feM">
-                                <rect key="frame" x="0.0" y="153" width="375" height="485"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SEP-cU-feM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="638"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AfW-w9-bqR">
                                     <size key="itemSize" width="128" height="128"/>
@@ -605,8 +605,8 @@
                         <viewLayoutGuide key="safeArea" id="yG0-aV-Y29"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="SEP-cU-feM" firstAttribute="top" secondItem="AIn-ww-8ZC" secondAttribute="bottom" constant="8" symbolic="YES" id="AGV-5S-CaF"/>
                             <constraint firstAttribute="bottom" secondItem="SEP-cU-feM" secondAttribute="bottom" id="Vbz-2L-O9q"/>
+                            <constraint firstItem="SEP-cU-feM" firstAttribute="top" secondItem="Fji-TC-SqN" secondAttribute="top" id="fD9-hj-BQV"/>
                             <constraint firstItem="SEP-cU-feM" firstAttribute="leading" secondItem="yG0-aV-Y29" secondAttribute="leading" id="gTT-ty-GwA"/>
                             <constraint firstItem="AIn-ww-8ZC" firstAttribute="leading" secondItem="yG0-aV-Y29" secondAttribute="leading" id="hJM-Ws-n4m"/>
                             <constraint firstItem="SEP-cU-feM" firstAttribute="trailing" secondItem="yG0-aV-Y29" secondAttribute="trailing" id="niN-Gs-Sfu"/>
@@ -615,8 +615,14 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Chat" id="NXI-wz-iIV">
+                    <navigationItem key="navigationItem" title="💬 Chat" id="NXI-wz-iIV">
                         <barButtonItem key="backBarButtonItem" title="back" id="5oT-Xo-4Tx"/>
+                        <barButtonItem key="rightBarButtonItem" title="New Chat" image="plus" catalog="system" style="plain" id="aci-9G-8bl">
+                            <color key="tintColor" name="BtnGreenColor"/>
+                            <connections>
+                                <action selector="addChatBtnTap:" destination="Ppb-iH-IIp" id="McQ-Fd-uLF"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="currentUserImage" destination="yps-mT-vSU" id="Kyh-5a-ul1"/>
@@ -627,7 +633,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YmR-Mi-ase" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2704.347826086957" y="-410.49107142857139"/>
+            <point key="canvasLocation" x="2703.1999999999998" y="-410.83743842364532"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Ule-QM-gXG">
@@ -935,23 +941,12 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G9X-7b-Adr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Chat" image="bubble.left.and.bubble.right" catalog="system" selectedImage="bubble.left.and.bubble.right.fill" id="boT-ie-Qf3"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="ZMp-yt-IUa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ZMp-yt-IUa">
                         <rect key="frame" x="0.0" y="47" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="BtnGreenColor"/>
                         <color key="barTintColor" name="BtnGreenColor"/>
-                        <navigationBarAppearance key="standardAppearance">
-                            <barButtonItemAppearance key="backButtonAppearance">
-                                <barButtonItemStateAppearance key="normal">
-                                    <textAttributes key="titleTextAttributes">
-                                        <color key="textColor" name="BtnGreenColor"/>
-                                    </textAttributes>
-                                </barButtonItemStateAppearance>
-                                <barButtonItemStateAppearance key="highlighted"/>
-                                <barButtonItemStateAppearance key="disabled"/>
-                                <barButtonItemStateAppearance key="focused"/>
-                            </barButtonItemAppearance>
-                        </navigationBarAppearance>
+                        <navigationBarAppearance key="standardAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wiQ-3b-lcm">
@@ -969,10 +964,10 @@
     <resources>
         <image name="Actor view" width="64" height="64"/>
         <image name="Chats" width="325" height="88"/>
-        <image name="Discover" width="463" height="87"/>
         <image name="banner_bg" width="1308" height="636"/>
         <image name="bubble.left.and.bubble.right" catalog="system" width="128" height="96"/>
         <image name="bubble.left.and.bubble.right.fill" catalog="system" width="128" height="97"/>
+        <image name="disco" width="4621" height="866"/>
         <image name="gear.badge" catalog="system" width="128" height="122"/>
         <image name="grad_layer" width="1200" height="1200"/>
         <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
