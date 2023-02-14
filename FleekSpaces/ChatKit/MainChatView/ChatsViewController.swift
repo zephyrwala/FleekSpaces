@@ -42,6 +42,8 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     
     var swiftChat = ChatDataObject.chatMessagesAreHere
   
+    var reference: CollectionReference?
+    var messageListener: ListenerRegistration?
     
     private let selfSender = Sender(photoURL: "", senderId: "1", displayName: "Mohan")
     private let otherUser = Sender(photoURL: "", senderId: "2", displayName: "Baba Blackshee")
@@ -100,15 +102,20 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         
     }
     
+    deinit {
+        messageListener?.remove()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        fireTest()
         setupInputButton()
         print("passed message \(thisMessage) and message id \(thisMessage?.id) ")
       setupUIStuff()
+      
 //      fetchMessages()
         print("Chat object \(ChatDataObject.chatMessagesAreHere)")
-        fireTest()
+       
 
         
         
@@ -122,6 +129,8 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
      
        
     }
+    
+    
     
     
     //MARK: - Setup input button
@@ -194,14 +203,21 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         guard let fromId = FirebaseManager.shared.auth.currentUser?.uid else {return}
         
         
+        messageListener?.remove()
         
         
-        firestoreListener?.remove()
         chatMessages.removeAll()
+        
+        
         messages.removeAll()
+        
+        
+        
+        //let docsRef =
         let docsRef = fireDB.collection("messages").document(fromId).collection(toId).order(by: "timeStamp")
+       
       
-        docsRef.addSnapshotListener { snapshotssa, err in
+      messageListener = docsRef.addSnapshotListener { snapshotssa, err in
             
             
             
@@ -239,8 +255,12 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
                 if eachChatMessage.fromId == "aw8kTTGiE4gcJMrQXB3sDDMZnn92" {
                     
                     let newMes = Message(sender: self.selfSender, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .text(eachChatMessage.text))
-                    
-                    self.messages.append(newMes)
+                    if self.messages.contains(where: { $0.messageId == eachChatMessage.documentId }) {
+                       
+                    } else {
+                        self.messages.append(newMes)
+                    }
+                  
                     
                     print("New message is \(newMes)")
                     
@@ -249,11 +269,14 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
                     
                     let otherMes = Message(sender: self.otherUser, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .text(eachChatMessage.text))
                     
-                    self.messages.append(otherMes)
-                    
+                    if self.messages.contains(where: { $0.messageId == eachChatMessage.documentId }) {
+                       
+                    } else {
+                        self.messages.append(otherMes)
+                    }
+                   
                     print("New message is \(otherMes)")
                     
-                  
                 }
                
                 DispatchQueue.main.async {
@@ -396,7 +419,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         
         self.handleSend(sendThisText: text)
         
-        
+        inputBar.inputTextView.text = ""
         
         
         //        guard !text.replacingOccurrences(of: " ", with: "").isEmpty,
@@ -455,6 +478,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     //MARK: - Send Button
     func handleSend(sendThisText: String) {
         
+       
         //        print(chatText)
         guard let fromId = FirebaseManager.shared.auth.currentUser?.uid else {return}
         
@@ -480,13 +504,16 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             //message auto scroll
             //                self.count += 1
             
-            DispatchQueue.main.async {
+            
+            
+//            DispatchQueue.main.async {
+//
+////                self.messagesCollectionView.reloadDataAndKeepOffset()
+//
 //                self.messagesCollectionView.reloadDataAndKeepOffset()
-
-                self.messagesCollectionView.reloadDataAndKeepOffset()
-                self.messagesCollectionView.scrollToBottom()
-                
-            }
+//                self.messagesCollectionView.scrollToBottom()
+//
+//            }
         }
         
         let recipientMessageDocument = FirebaseManager.shared.firestore.collection("messages").document(toId).collection(fromId).document()
