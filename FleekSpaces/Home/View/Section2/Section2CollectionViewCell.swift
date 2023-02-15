@@ -34,6 +34,7 @@ class Section2CollectionViewCell: UICollectionViewCell {
         if let posterUrl = fromData.posterURL {
             
             let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(posterUrl)")
+            print("poster url is \(newURL)")
             self.posterImage.sd_setImage(with: newURL)
             
             posterImage.layer.cornerRadius = 16

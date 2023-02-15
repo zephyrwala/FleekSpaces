@@ -37,7 +37,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     var defaults = UserDefaults.standard
     let fireDB = Firestore.firestore()
     var thisMessage: RecentMessage?
-    
+    let secondChild = RecommendChatViewController()
 //    var fetchedMe
     
     var swiftChat = ChatDataObject.chatMessagesAreHere
@@ -92,7 +92,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         setupUIStuff()
       
       
-        messageInputBar.inputTextView.becomeFirstResponder()
+//        messageInputBar.inputTextView.becomeFirstResponder()
 //        if let conversationId = conversationId {
 //            listenForMessages(id: conversationId, shouldScrollToBottom: true)
 //        }
@@ -131,16 +131,47 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     }
     
     
+    func addSecondChild() {
+        
+        let vc = RecommendChatViewController()
+        
+        self.present(vc, animated: true)
+    }
+    
+    private func presentModal() {
+        let detailViewController = RecommendChatViewController()
+        let nav = UINavigationController(rootViewController: detailViewController)
+        // 1
+        nav.modalPresentationStyle = .pageSheet
+
+        
+        // 2
+        if let sheet = nav.sheetPresentationController {
+
+            // 3
+            sheet.detents = [.medium()]
+
+        }
+        // 4
+        present(nav, animated: true, completion: nil)
+
+    }
     
     
     //MARK: - Setup input button
     private func setupInputButton() {
         let button = InputBarButtonItem()
         button.setSize(CGSize(width: 35, height: 35), animated: false)
-        button.setImage(UIImage(systemName: "paperclip"), for: .normal)
+        button.setImage(UIImage(systemName: "popcorn"), for: .normal)
         button.tintColor = .darkGray
         button.onTouchUpInside { [weak self] _ in
-            self?.presentInputActionSheet()
+//            self?.presentInputActionSheet()
+            
+//            self?.addSecondChild()
+            
+            self?.presentModal()
+            
+            
         }
         messageInputBar.setLeftStackViewWidthConstant(to: 36, animated: false)
         messageInputBar.setStackViewItems([button], forStack: .left, animated: false)
@@ -156,6 +187,8 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         }))
         actionSheet.addAction(UIAlertAction(title: "Video", style: .default, handler: { [weak self]  _ in
 //            self?.presentVideoInputActionsheet()
+            self?.testPhoto()
+          
         }))
         actionSheet.addAction(UIAlertAction(title: "Audio", style: .default, handler: {  _ in
 
@@ -166,6 +199,19 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
         present(actionSheet, animated: true)
+    }
+    
+    func testPhoto() {
+        
+//        self.messages.append(Message(sender: self.selfSender, messageId: "1", sentDate: Date(), kind: .photo(Media(placeholderImage: UIImage(named: "a2")!, size: CGSize(width: 200, height: 200)))))
+        
+        if let safeURL = URL(string: "https://image.tmdb.org/t/p/w500/vDGr1YdrlfbU9wxTOdpf3zChmv9.jpg") {
+           
+            self.messages.append(Message(sender: selfSender, messageId: "3", sentDate: Date(), kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300)))))
+        }
+      
+        
+        self.messagesCollectionView.reloadDataAndKeepOffset()
     }
     
     //MARK: - Present Photo input
@@ -262,6 +308,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
                     }
                   
                     
+                    
                     print("New message is \(newMes)")
                     
 //                        self.messagesCollectionView.reloadData()
@@ -281,6 +328,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
                
                 DispatchQueue.main.async {
                     self.messagesCollectionView.reloadData()
+                    self.messagesCollectionView.scrollToLastItem()
                 }
             }
             
@@ -362,6 +410,8 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        messagesCollectionView.showsVerticalScrollIndicator = false
+       
         // Do any additional setup after loading the view.
        configureMessageInputBar()
     }
@@ -487,7 +537,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         let document = FirebaseManager.shared.firestore.collection("messages").document(fromId).collection(toId).document()
         
         let messageData = [
-            FirebaseConstants.fromId: fromId, FirebaseConstants.toId: toId, FirebaseConstants.text: sendThisText,
+            FirebaseConstants.fromId: fromId, FirebaseConstants.toId: toId, FirebaseConstants.text: sendThisText, "posterURL":"",
             "timeStamp": Timestamp()] as [String : Any]
         
         document.setData(messageData) { error in
@@ -648,12 +698,37 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             sleep(1)
             DispatchQueue.main.async { [weak self] in
                 inputBar.sendButton.stopAnimating()
-                inputBar.inputTextView.placeholder = "Aa"
+                inputBar.inputTextView.placeholder = "Type something"
                 //                self?.insertMessages(components)
-                self?.messagesCollectionView.scrollToLastItem(animated: true)
+                self?.messagesCollectionView.scrollToLastItem()
+               
             }
         }
     }
+    
+    func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
+      let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
+        return .bubbleTail(corner, .pointedEdge)
+    }
+  
+    
+    func configureMediaMessageImageView(_ imageView: UIImageView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        guard let message = message as? Message else {
+            return
+        }
+
+        switch message.kind {
+        case .photo(let media):
+            guard let imageUrl = media.url else {
+                return
+            }
+            imageView.sd_setImage(with: imageUrl, completed: nil)
+        default:
+            break
+        }
+    }
+    
+    
     
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
@@ -692,6 +767,14 @@ struct Sender: SenderType{
     var displayName: String
     
 }
+
+struct Media: MediaItem {
+    var url: URL?
+    var image: UIImage?
+    var placeholderImage: UIImage
+    var size: CGSize
+}
+
 
 private var conversations = [Conversation]()
 

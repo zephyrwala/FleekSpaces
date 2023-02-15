@@ -187,6 +187,8 @@
 		69D527E72902AB69001B310C /* Diwali7.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D527E12902AB68001B310C /* Diwali7.png */; };
 		69D527E82902AB69001B310C /* Diwali9.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D527E22902AB69001B310C /* Diwali9.png */; };
 		69D527EA2902C02F001B310C /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D527E92902C02F001B310C /* default.png */; };
+		69D9E5FE299CD377000DE3E5 /* RecommendChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D9E5FC299CD377000DE3E5 /* RecommendChatViewController.swift */; };
+		69D9E5FF299CD377000DE3E5 /* RecommendChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D9E5FD299CD377000DE3E5 /* RecommendChatViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -391,6 +393,8 @@
 		69D527E12902AB68001B310C /* Diwali7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diwali7.png; sourceTree = "<group>"; };
 		69D527E22902AB69001B310C /* Diwali9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diwali9.png; sourceTree = "<group>"; };
 		69D527E92902C02F001B310C /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
+		69D9E5FC299CD377000DE3E5 /* RecommendChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendChatViewController.swift; sourceTree = "<group>"; };
+		69D9E5FD299CD377000DE3E5 /* RecommendChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendChatViewController.xib; sourceTree = "<group>"; };
 		B074456520EDC420251F3A55 /* Pods_FleekSpaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FleekSpaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD892A40D7B9C0EAB09C348E /* Pods-FleekSpaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FleekSpaces.release.xcconfig"; path = "Target Support Files/Pods-FleekSpaces/Pods-FleekSpaces.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -450,6 +454,7 @@
 		6922ECC528869B6900865540 /* MainChatView */ = {
 			isa = PBXGroup;
 			children = (
+				69D9E5FB299CD35A000DE3E5 /* RecommendChat */,
 				6922ECC828869C3100865540 /* ChatsViewController.swift */,
 			);
 			path = MainChatView;
@@ -1182,6 +1187,15 @@
 			path = Anime;
 			sourceTree = "<group>";
 		};
+		69D9E5FB299CD35A000DE3E5 /* RecommendChat */ = {
+			isa = PBXGroup;
+			children = (
+				69D9E5FC299CD377000DE3E5 /* RecommendChatViewController.swift */,
+				69D9E5FD299CD377000DE3E5 /* RecommendChatViewController.xib */,
+			);
+			path = RecommendChat;
+			sourceTree = "<group>";
+		};
 		CECA015D65819323CA5FC61B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1350,6 +1364,7 @@
 				695EBBED2861B31800557D69 /* EpisodeCell.xib in Resources */,
 				69643BFC28706913007128C0 /* ConversationsTableViewCell.xib in Resources */,
 				6930D56D2858544B0080528D /* ActorDetailViewController.xib in Resources */,
+				69D9E5FF299CD377000DE3E5 /* RecommendChatViewController.xib in Resources */,
 				69394672284628D500FE7574 /* Assets.xcassets in Resources */,
 				693849AD28829D0300EC5C61 /* BookPreviewUIViewViewController.xib in Resources */,
 				693946BD2848B22F00FE7574 /* SearchCollectionCell.xib in Resources */,
@@ -1447,6 +1462,7 @@
 				693946C02848C42C00FE7574 /* SelectedSubCollectionViewCell.swift in Sources */,
 				6930D53C2851D3A60080528D /* MovieDetailViewController.swift in Sources */,
 				695EBBFF2864502200557D69 /* SignInViewController.swift in Sources */,
+				69D9E5FE299CD377000DE3E5 /* RecommendChatViewController.swift in Sources */,
 				695836D128FD305E006887FE /* UpcomingMoviesCollectionViewCell.swift in Sources */,
 				692600B7284DE24500B6D801 /* AddSubCollectionViewCell.swift in Sources */,
 				695EBBF12862DF3B00557D69 /* DetailEpisodeViewController.swift in Sources */,
