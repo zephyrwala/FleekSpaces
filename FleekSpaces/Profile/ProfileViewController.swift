@@ -814,9 +814,9 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             if let posterURL = FinalDataModel.userLikes?[indexPath.item].postersURL {
                 
                 let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(posterURL)")
-                cell.posterImage.layer.cornerRadius = 6
+                cell.posterImage.layer.cornerRadius = 10
                 cell.posterImage.sd_setImage(with: newURL)
-                
+                cell.posterImage.layer.cornerCurve = .continuous
                 
             }
             
@@ -826,8 +826,9 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             if let posterURL = FinalDataModel.userLikes?[indexPath.item].postersURL {
                 
                 let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(posterURL)")
-                cell.posterImage.layer.cornerRadius = 6
+                cell.posterImage.layer.cornerRadius = 10
                 cell.posterImage.sd_setImage(with: newURL)
+                cell.posterImage.layer.cornerCurve = .continuous
                 
                 
             }

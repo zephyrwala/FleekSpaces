@@ -112,6 +112,8 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
             
         }
         
+        defautls.set(email, forKey: "otherUserEmail")
+        
         let vc = ChatViewController(with: email, id: nil)
         
         //FIXME: - Id is nil over here???

@@ -38,7 +38,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     let fireDB = Firestore.firestore()
     var thisMessage: RecentMessage?
     let secondChild = RecommendChatViewController()
-//    var fetchedMe
+//    var fetchedMef
     
     var swiftChat = ChatDataObject.chatMessagesAreHere
   
@@ -88,7 +88,10 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         super.viewDidAppear(animated)
 //        fetchMessages()
         
+        let secondVC = RecommendChatViewController()
+              secondVC.movieDelegate = self
         
+//        fireTest()
         setupUIStuff()
       
       
@@ -140,6 +143,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     
     private func presentModal() {
         let detailViewController = RecommendChatViewController()
+        detailViewController.movieDelegate = self
         let nav = UINavigationController(rootViewController: detailViewController)
         // 1
         nav.modalPresentationStyle = .pageSheet
@@ -170,6 +174,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
 //            self?.addSecondChild()
             
             self?.presentModal()
+            
             
             
         }
@@ -208,10 +213,17 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         if let safeURL = URL(string: "https://image.tmdb.org/t/p/w500/vDGr1YdrlfbU9wxTOdpf3zChmv9.jpg") {
            
             self.messages.append(Message(sender: selfSender, messageId: "3", sentDate: Date(), kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300)))))
+            
+            print("test photo 1")
         }
-      
+        print("test photo 2")
         
-        self.messagesCollectionView.reloadDataAndKeepOffset()
+        DispatchQueue.main.async {
+            self.messagesCollectionView.reloadDataAndKeepOffset()
+            print("test photo 3")
+        }
+       
+       
     }
     
     //MARK: - Present Photo input
@@ -830,5 +842,37 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
         
         print("Did finish picking")
     }
+    
+}
+
+
+extension ChatViewController: PassMovieDelegate {
+    
+   
+    
+    
+  
+    func cellTapped(posterString: String) {
+        
+//                self.messages.append(Message(sender: self.selfSender, messageId: "1", sentDate: Date(), kind: .photo(Media(placeholderImage: UIImage(named: "a2")!, size: CGSize(width: 200, height: 200)))))
+////
+        ///
+                if let safeURL = URL(string: posterString) {
+
+                    self.messages.append(Message(sender: selfSender, messageId: "3", sentDate: Date(), kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300)))))
+
+                    print("test photo 1")
+                }
+                print("test photo 2")
+                
+                DispatchQueue.main.async {
+                    self.messagesCollectionView.reloadDataAndKeepOffset()
+                    print("test photo 3")
+                }
+    }
+    
+    
+    
+    
     
 }
