@@ -214,27 +214,18 @@ extension RecommendChatViewController: UICollectionViewDelegate, UICollectionVie
                    
                     self.dismiss(animated: true) {
                         
-//                        if let safeEmail =  self.defaults.string(forKey: "otherUserEmail") {
-//
-//
-//
-//                            let vc = ChatViewController(with: safeEmail, id: nil)
-//
-//                            vc.testPhoto()
-//
-//
-//
-//
-//                        }
-                        
+
+                        if let safeTMDBID = FinalDataModel.fetchWatchList?[indexPath.item].showID {
+                            
+                            print("safe TMDB is \(safeTMDBID)")
+                            self.defaults.set(safeTMDBID, forKey: "watchME")
+                        }
                       
                         self.movieDelegate?.cellTapped(posterString: "https://image.tmdb.org/t/p/w500/\(posterURL)")
                     }
                 }
                
-                
-                
-                
+                   
                 
             }
             
@@ -244,10 +235,21 @@ extension RecommendChatViewController: UICollectionViewDelegate, UICollectionVie
             
             if let posterURL = FinalDataModel.userLikes?[indexPath.item].postersURL {
                 
-                let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(posterURL)")
+                if let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(posterURL)") {
+                    
+                    
+                    self.dismiss(animated: true) {
+                        
+
+                      
+                        self.movieDelegate?.cellTapped(posterString: "https://image.tmdb.org/t/p/w500/\(posterURL)")
+                    }
+                    
+                    print("new Url is \(newURL)")
+                }
                
                 
-                print("new Url is \(newURL)")
+               
                 
                 
             }

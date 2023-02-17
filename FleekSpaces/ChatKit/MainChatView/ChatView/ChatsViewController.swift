@@ -86,6 +86,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
 //        fetchMessages()
         
         let secondVC = RecommendChatViewController()
@@ -102,6 +103,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
      
 //        print("The transfered IDs are \()")
         
+//        messagesCollectionView.backgroundColor = .lightGray
         
     }
     
@@ -113,6 +115,10 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         super.viewDidLoad()
         fireTest()
         setupInputButton()
+      
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
+       
+                    
         print("passed message \(thisMessage) and message id \(thisMessage?.id) ")
       setupUIStuff()
       
@@ -166,8 +172,8 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     private func setupInputButton() {
         let button = InputBarButtonItem()
         button.setSize(CGSize(width: 35, height: 35), animated: false)
-        button.setImage(UIImage(systemName: "popcorn"), for: .normal)
-        button.tintColor = .darkGray
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.tintColor = .systemTeal
         button.onTouchUpInside { [weak self] _ in
 //            self?.presentInputActionSheet()
             
@@ -308,33 +314,68 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
             
             print("data is here yo \(data)")
             
-            
+          guard let myUID = FirebaseManager.shared.auth.currentUser?.uid else {return}
             for eachChatMessage in self.chatMessages {
-                if eachChatMessage.fromId == "aw8kTTGiE4gcJMrQXB3sDDMZnn92" {
-                    
-                    let newMes = Message(sender: self.selfSender, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .text(eachChatMessage.text))
-                    if self.messages.contains(where: { $0.messageId == eachChatMessage.documentId }) {
-                       
+                //this is the main UID check logic
+                if eachChatMessage.fromId == myUID {
+                    //this is the poster check logic
+                    if eachChatMessage.posterURL == "" {
+                        let newMes = Message(sender: self.selfSender, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .text(eachChatMessage.text))
+                        
+                        
+                         if self.messages.contains(where: { $0.messageId == eachChatMessage.documentId }) {
+                            
+                         } else {
+                             self.messages.append(newMes)
+                         }
                     } else {
-                        self.messages.append(newMes)
+                        guard let safeURL = URL(string: eachChatMessage.posterURL) else {return}
+                        let newMes = Message(sender: self.selfSender, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300))))
+                        
+                        
+                         if self.messages.contains(where: { $0.messageId == eachChatMessage.documentId }) {
+                            
+                         } else {
+                             self.messages.append(newMes)
+                         }
                     }
+                  
+                
                   
                     
                     
-                    print("New message is \(newMes)")
-                    
+//                    print("New message is \(newMes)")
+                    //uid logic ends here
 //                        self.messagesCollectionView.reloadData()
                 } else {
                     
-                    let otherMes = Message(sender: self.otherUser, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .text(eachChatMessage.text))
-                    
-                    if self.messages.contains(where: { $0.messageId == eachChatMessage.documentId }) {
-                       
+                    if eachChatMessage.posterURL == "" {
+                        
+                        let otherMes = Message(sender: self.otherUser, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .text(eachChatMessage.text))
+                        
+                        if self.messages.contains(where: { $0.messageId == eachChatMessage.documentId }) {
+                           
+                        } else {
+                            self.messages.append(otherMes)
+                        }
+                        
                     } else {
-                        self.messages.append(otherMes)
+                        
+                        guard let safeURL = URL(string: eachChatMessage.posterURL) else {return}
+                        
+                        let otherMes = Message(sender: self.otherUser, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300))))
+                        
+                        if self.messages.contains(where: { $0.messageId == eachChatMessage.documentId }) {
+                           
+                        } else {
+                            self.messages.append(otherMes)
+                        }
+                        
                     }
+                    
+                 
                    
-                    print("New message is \(otherMes)")
+//                    print("New message is \(otherMes)")
                     
                 }
                
@@ -422,6 +463,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        messagesCollectionView.messageCellDelegate = self
         messagesCollectionView.showsVerticalScrollIndicator = false
        
         // Do any additional setup after loading the view.
@@ -445,6 +487,8 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     
     
     //schema
+    
+    
    
     //MARK: - All the messages
         
@@ -452,11 +496,26 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         return messages[indexPath.section]
     }
     
+    func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        return NSAttributedString(string: message.sentDate.time(), attributes: [.font: UIFont.boldSystemFont(ofSize: 10), .foregroundColor: UIColor.darkGray])
+    }
     
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return messages.count
     }
+    
+    func cellBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        
+        return isFromCurrentSender(message: message) ? 17 : 0
+    }
+    
+    
+    func messageBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        
+        return indexPath.section != messages.count - 1 ? 10 : 0
+    }
+    
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? UIColor.systemCyan : UIColor.darkGray
@@ -537,11 +596,10 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     }
     
     
+    
     //MARK: - Send Button
     func handleSend(sendThisText: String) {
         
-       
-        //        print(chatText)
         guard let fromId = FirebaseManager.shared.auth.currentUser?.uid else {return}
         
         guard let toId = conversationId else {return}
@@ -557,25 +615,10 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 print("Failed to save message into Firestore : \(error)")
                 return
             }
-            
             print("Sucess saved current user sending message")
             
             self.persistRecentMessage(persistThis: sendThisText)
-            //clear chat text
-            //                text = ""
-            //message auto scroll
-            //                self.count += 1
-            
-            
-            
-//            DispatchQueue.main.async {
-//
-////                self.messagesCollectionView.reloadDataAndKeepOffset()
-//
-//                self.messagesCollectionView.reloadDataAndKeepOffset()
-//                self.messagesCollectionView.scrollToBottom()
-//
-//            }
+
         }
         
         let recipientMessageDocument = FirebaseManager.shared.firestore.collection("messages").document(toId).collection(fromId).document()
@@ -723,21 +766,86 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         return .bubbleTail(corner, .pointedEdge)
     }
   
+ 
     
-    func configureMediaMessageImageView(_ imageView: UIImageView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
-        guard let message = message as? Message else {
+    
+    func didTapImage(in cell: MessageCollectionViewCell) {
+        guard let indexPath = messagesCollectionView.indexPath(for: cell) else {
+            print("dismiss here")
             return
         }
+        print("dismiss here")
+        let message = messages[indexPath.section]
 
         switch message.kind {
         case .photo(let media):
             guard let imageUrl = media.url else {
+                print("dismiss in here")
                 return
             }
-            imageView.sd_setImage(with: imageUrl, completed: nil)
+            print("dismiss iver here")
+            
+            //FIXME: - Uncomment this once done
+//            let vc = MovieDetailViewController()
+            if let movieIDS = UserDefaults.standard.string(forKey: "watchME"){
+                
+                  let detailViewController = MoPopUpViewController()
+                  detailViewController.movieId = movieIDS
+                detailViewController.fetchMovieDetails(movieID: movieIDS)
+//                vc.movieId = movieIDS
+
+          //        detailViewController.movieDelegate = self
+                  let nav = UINavigationController(rootViewController: detailViewController)
+                  // 1
+                  nav.modalPresentationStyle = .pageSheet
+
+                  
+                  // 2
+                  if let sheet = nav.sheetPresentationController {
+
+                      // 3
+                      sheet.detents = [.medium()]
+
+                  }
+                  // 4
+                  present(nav, animated: true, completion: nil)
+                
+////                vc.fetchMovieDetailswithTMDBid(tmdbID: movieIDS)
+            }
+            
+            
+          
+            
+           
+          
+            
+            
+          
         default:
             break
         }
+    }
+    
+
+   
+    private func presentMoPop() {
+        let detailViewController = MoPopUpViewController()
+//        detailViewController.movieDelegate = self
+        let nav = UINavigationController(rootViewController: detailViewController)
+        // 1
+        nav.modalPresentationStyle = .pageSheet
+
+        
+        // 2
+        if let sheet = nav.sheetPresentationController {
+
+            // 3
+            sheet.detents = [.medium()]
+
+        }
+        // 4
+        present(nav, animated: true, completion: nil)
+
     }
     
     
@@ -859,7 +967,7 @@ extension ChatViewController: PassMovieDelegate {
         ///
                 if let safeURL = URL(string: posterString) {
 
-                    self.messages.append(Message(sender: selfSender, messageId: "3", sentDate: Date(), kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300)))))
+//                    self.messages.append(Message(sender: selfSender, messageId: "3", sentDate: Date(), kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300)))))
 
                     print("test photo 1")
                 }
@@ -869,10 +977,77 @@ extension ChatViewController: PassMovieDelegate {
                     self.messagesCollectionView.reloadDataAndKeepOffset()
                     print("test photo 3")
                 }
+        
+        handlePhotoSend(posterURL: posterString)
+        
+        //need a function to save this
+    }
+    
+    func handlePhotoSend(posterURL: String) {
+        
+        
+        
+        guard let fromId = FirebaseManager.shared.auth.currentUser?.uid else {return}
+        
+        guard let toId = conversationId else {return}
+        
+        let document = FirebaseManager.shared.firestore.collection("messages").document(fromId).collection(toId).document()
+        
+        let messageData = [
+            FirebaseConstants.fromId: fromId, FirebaseConstants.toId: toId, FirebaseConstants.text: "Check this out", "posterURL":posterURL,
+            "timeStamp": Timestamp()] as [String : Any]
+        
+        document.setData(messageData) { error in
+            if let error = error {
+                print("Failed to save message into Firestore : \(error)")
+                return
+            }
+            print("Sucess saved current user sending message")
+            
+            self.persistRecentMessage(persistThis: "Poster 📷")
+
+        }
+        
+        let recipientMessageDocument = FirebaseManager.shared.firestore.collection("messages").document(toId).collection(fromId).document()
+        
+        recipientMessageDocument.setData(messageData) { error in
+            if let error = error {
+                print("Failed to save message into Firestore : \(error)")
+                return
+            }
+            
+            print("Sucess saved recipient user receiving message")
+            
+            
+        }
+        
     }
     
     
     
+}
+
+
+extension ChatViewController: MessageCellDelegate {
+    
+    
+    func configureMediaMessageImageView(_ imageView: UIImageView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        guard let message = message as? Message else {
+            return
+        }
+
+        switch message.kind {
+        case .photo(let media):
+            guard let imageUrl = media.url else {
+                return
+            }
+            imageView.sd_setImage(with: imageUrl, completed: nil)
+        default:
+            break
+        }
+    }
     
     
 }
+
+

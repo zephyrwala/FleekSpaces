@@ -191,6 +191,9 @@
 		69D9E5FF299CD377000DE3E5 /* RecommendChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D9E5FD299CD377000DE3E5 /* RecommendChatViewController.xib */; };
 		69D9E606299CE9BA000DE3E5 /* PasterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D9E604299CE9BA000DE3E5 /* PasterCollectionViewCell.swift */; };
 		69D9E607299CE9BB000DE3E5 /* PasterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D9E605299CE9BA000DE3E5 /* PasterCollectionViewCell.xib */; };
+		69D9E60B299E43CD000DE3E5 /* MoPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D9E609299E43CC000DE3E5 /* MoPopUpViewController.swift */; };
+		69D9E60C299E43CD000DE3E5 /* MoPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D9E60A299E43CC000DE3E5 /* MoPopUpViewController.xib */; };
+		69D9E610299F013E000DE3E5 /* ChatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D9E60F299F013E000DE3E5 /* ChatExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -399,6 +402,9 @@
 		69D9E5FD299CD377000DE3E5 /* RecommendChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendChatViewController.xib; sourceTree = "<group>"; };
 		69D9E604299CE9BA000DE3E5 /* PasterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasterCollectionViewCell.swift; sourceTree = "<group>"; };
 		69D9E605299CE9BA000DE3E5 /* PasterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasterCollectionViewCell.xib; sourceTree = "<group>"; };
+		69D9E609299E43CC000DE3E5 /* MoPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoPopUpViewController.swift; sourceTree = "<group>"; };
+		69D9E60A299E43CC000DE3E5 /* MoPopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoPopUpViewController.xib; sourceTree = "<group>"; };
+		69D9E60F299F013E000DE3E5 /* ChatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatExtensions.swift; sourceTree = "<group>"; };
 		B074456520EDC420251F3A55 /* Pods_FleekSpaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FleekSpaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD892A40D7B9C0EAB09C348E /* Pods-FleekSpaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FleekSpaces.release.xcconfig"; path = "Target Support Files/Pods-FleekSpaces/Pods-FleekSpaces.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -458,8 +464,9 @@
 		6922ECC528869B6900865540 /* MainChatView */ = {
 			isa = PBXGroup;
 			children = (
+				69D9E608299E43A6000DE3E5 /* MoviePopUp */,
 				69D9E5FB299CD35A000DE3E5 /* RecommendChat */,
-				6922ECC828869C3100865540 /* ChatsViewController.swift */,
+				69D9E60D299F0104000DE3E5 /* ChatView */,
 			);
 			path = MainChatView;
 			sourceTree = "<group>";
@@ -1210,6 +1217,32 @@
 			path = PosterCell;
 			sourceTree = "<group>";
 		};
+		69D9E608299E43A6000DE3E5 /* MoviePopUp */ = {
+			isa = PBXGroup;
+			children = (
+				69D9E609299E43CC000DE3E5 /* MoPopUpViewController.swift */,
+				69D9E60A299E43CC000DE3E5 /* MoPopUpViewController.xib */,
+			);
+			path = MoviePopUp;
+			sourceTree = "<group>";
+		};
+		69D9E60D299F0104000DE3E5 /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				69D9E60E299F011E000DE3E5 /* Extensions */,
+				6922ECC828869C3100865540 /* ChatsViewController.swift */,
+			);
+			path = ChatView;
+			sourceTree = "<group>";
+		};
+		69D9E60E299F011E000DE3E5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				69D9E60F299F013E000DE3E5 /* ChatExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CECA015D65819323CA5FC61B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1348,6 +1381,7 @@
 				6924001C28AF99B000DFB033 /* LoginVC.xib in Resources */,
 				6930D5382851B55B0080528D /* TrendingtCollectionReusableView.xib in Resources */,
 				6962D91428D8837600CE1B17 /* NewChatsTableViewCell.xib in Resources */,
+				69D9E60C299E43CD000DE3E5 /* MoPopUpViewController.xib in Resources */,
 				6939469C284757BB00FE7574 /* Section2CRV.xib in Resources */,
 				695EBBE92861B2F800557D69 /* SeasonCell.xib in Resources */,
 				6930D56228570A270080528D /* SearchViewController.xib in Resources */,
@@ -1549,8 +1583,10 @@
 				6939467E2847338000FE7574 /* HomeViewController.swift in Sources */,
 				693946A0284757EA00FE7574 /* Section3CRV.swift in Sources */,
 				693946AC28487D9500FE7574 /* OfflineModel.swift in Sources */,
+				69D9E610299F013E000DE3E5 /* ChatExtensions.swift in Sources */,
 				6930D5372851B55B0080528D /* TrendingtCollectionReusableView.swift in Sources */,
 				6930D5762858AA850080528D /* filmographyHeader.swift in Sources */,
+				69D9E60B299E43CD000DE3E5 /* MoPopUpViewController.swift in Sources */,
 				6922ECCB2887FEE400865540 /* FinalDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
