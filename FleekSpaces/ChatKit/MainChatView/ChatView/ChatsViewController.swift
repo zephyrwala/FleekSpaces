@@ -380,7 +380,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
                         
                         guard let safeURL = URL(string: eachChatMessage.posterURL) else {return}
                         
-                        let otherMes = Message(sender: self.otherUser, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300))))
+                        let otherMes = Message(sender: self.otherUser, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300), showID: eachChatMessage.showId)))
                         
                         if self.messages.contains(where: { $0.messageId == eachChatMessage.documentId }) {
                            
@@ -854,6 +854,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                     detailViewController.fetchMovieDetails(movieID: safeIndexID)
     //                vc.movieId = movieIDS
 
+                print("safe in")
               //        detailViewController.movieDelegate = self
                       let nav = UINavigationController(rootViewController: detailViewController)
                       // 1
@@ -902,12 +903,14 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 //FIXME: - Uncomment this once done
     //            let vc = MovieDetailViewController()
                 
+                guard let safeMediaShowID = media.showID else {return}
                 //TODO: - Pass the show ID BELOW!!!
               
-                    guard let safeIndexID = messages[indexPath.section].showID else {return}
+                print("Safe media show id \(safeMediaShowID)")
+//                    guard let safeIndexID = messages[indexPath.section].showID else {return}
                       let detailViewController = MoPopUpViewController()
-                      detailViewController.movieId = safeIndexID
-                    detailViewController.fetchMovieDetails(movieID: safeIndexID)
+                      detailViewController.movieId = safeMediaShowID
+                    detailViewController.fetchMovieDetails(movieID: safeMediaShowID)
     //                vc.movieId = movieIDS
 
               //        detailViewController.movieDelegate = self
