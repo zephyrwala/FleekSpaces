@@ -23,6 +23,7 @@ struct FirebaseConstants {
     static let users = "users"
     static let recentMessages = "recent_messages"
     static let posterURL = "posterURL"
+    static let showID = "showID"
 }
 
 class ChatDataObject: NSObject {
@@ -40,6 +41,7 @@ class ChatMessage: Identifiable {
   
     
     let posterURL: String
+    let showId: String
     let documentId: String
     let timestamps: Date
     let fromId, toId, text: String
@@ -50,7 +52,7 @@ class ChatMessage: Identifiable {
         self.text = data[FirebaseConstants.text] as? String ?? ""
         self.posterURL = data[FirebaseConstants.posterURL] as? String ?? ""
         self.timestamps = data[FirebaseConstants.timestamp] as? Date ?? Date()
-      
+        self.showId = data[FirebaseConstants.showID] as? String ?? ""
         
     }
     

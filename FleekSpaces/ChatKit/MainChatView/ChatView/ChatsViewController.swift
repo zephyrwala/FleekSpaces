@@ -343,9 +343,13 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
                          }
                     } else {
                         guard let safeURL = URL(string: eachChatMessage.posterURL) else {return}
-                        let newMes = Message(sender: self.selfSender, messageId: eachChatMessage.documentId, sentDate: eachChatMessage.timestamps, kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300))))
+                        let newMes = Message(sender: self.selfSender, messageId: eachChatMessage.documentId, sentDate: eachChatMessage.timestamps, kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300))), showID: eachChatMessage.showId)
                         
+                     
                         
+                     
+                        
+                       
                          if self.messages.contains(where: { $0.messageId == eachChatMessage.documentId }) {
                             
                          } else {
@@ -808,64 +812,137 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         return .bubbleTail(corner, .pointedEdge)
     }
   
- 
     
+    func didSelectMessage(in cell: MessageCollectionViewCell) {
+       let indexPath = messagesCollectionView.indexPath(for: cell)
+      let messageData = String(describing: messages[(indexPath?.section)!].showID)
+    print("message tap \(messageData)")
+    }
+    
+   
     
     func didTapImage(in cell: MessageCollectionViewCell) {
         guard let indexPath = messagesCollectionView.indexPath(for: cell) else {
             print("dismiss here")
             return
         }
-        print("dismiss here")
+        print("dismiss not here")
         let message = messages[indexPath.section]
+        print(messages[indexPath.section].sender.displayName)
+        print(messages[indexPath.section].showID)
 
-        switch message.kind {
-        case .photo(let media):
-            guard let imageUrl = media.url else {
-                print("dismiss in here")
-                return
-            }
-            print("dismiss iver here")
+        if message.sender.senderId == "1" {
             
-            //FIXME: - Uncomment this once done
-//            let vc = MovieDetailViewController()
-            if let movieIDS = UserDefaults.standard.string(forKey: "watchME"){
+            switch message.kind {
+            case .photo(let media):
                 
-                  let detailViewController = MoPopUpViewController()
-                  detailViewController.movieId = movieIDS
-                detailViewController.fetchMovieDetails(movieID: movieIDS)
-//                vc.movieId = movieIDS
-
-          //        detailViewController.movieDelegate = self
-                  let nav = UINavigationController(rootViewController: detailViewController)
-                  // 1
-                  nav.modalPresentationStyle = .pageSheet
-
-                  
-                  // 2
-                  if let sheet = nav.sheetPresentationController {
-
-                      // 3
-                      sheet.detents = [.medium()]
-
-                  }
-                  // 4
-                  present(nav, animated: true, completion: nil)
+                print("this comes \(media.showID)")
+                guard let imageUrl = media.url else {
+                    print("dismiss in here")
+                    return
+                }
+                print("dismiss iver here")
                 
-////                vc.fetchMovieDetailswithTMDBid(tmdbID: movieIDS)
+                //FIXME: - Uncomment this once done
+    //            let vc = MovieDetailViewController()
+                
+                //TODO: - Pass the show ID BELOW!!!
+              
+                    guard let safeIndexID = messages[indexPath.section].showID else {return}
+                      let detailViewController = MoPopUpViewController()
+                      detailViewController.movieId = safeIndexID
+                    detailViewController.fetchMovieDetails(movieID: safeIndexID)
+    //                vc.movieId = movieIDS
+
+              //        detailViewController.movieDelegate = self
+                      let nav = UINavigationController(rootViewController: detailViewController)
+                      // 1
+                      nav.modalPresentationStyle = .pageSheet
+
+                      
+                      // 2
+                      if let sheet = nav.sheetPresentationController {
+
+                          // 3
+                          sheet.detents = [.medium()]
+
+                      }
+                      // 4
+                      present(nav, animated: true, completion: nil)
+                    
+    ////                vc.fetchMovieDetailswithTMDBid(tmdbID: movieIDS)
+                
+                
+                
+              
+                
+               
+              
+                
+                
+              
+            default:
+                break
             }
             
-            
-          
-            
-           
-          
+        } else {
             
             
-          
-        default:
-            break
+            switch message.kind {
+            case .photo(let media):
+                
+                print("Other user tapped \(message.showID)")
+                print("this comes \(media.showID)")
+                guard let imageUrl = media.url else {
+                    print("dismiss in here")
+                    return
+                }
+                print("other user tapped again \(messages[indexPath.section].showID)")
+                
+                //FIXME: - Uncomment this once done
+    //            let vc = MovieDetailViewController()
+                
+                //TODO: - Pass the show ID BELOW!!!
+              
+                    guard let safeIndexID = messages[indexPath.section].showID else {return}
+                      let detailViewController = MoPopUpViewController()
+                      detailViewController.movieId = safeIndexID
+                    detailViewController.fetchMovieDetails(movieID: safeIndexID)
+    //                vc.movieId = movieIDS
+
+              //        detailViewController.movieDelegate = self
+                      let nav = UINavigationController(rootViewController: detailViewController)
+                      // 1
+                      nav.modalPresentationStyle = .pageSheet
+
+                      
+                      // 2
+                      if let sheet = nav.sheetPresentationController {
+
+                          // 3
+                          sheet.detents = [.medium()]
+
+                      }
+                      // 4
+                      present(nav, animated: true, completion: nil)
+                    
+    ////                vc.fetchMovieDetailswithTMDBid(tmdbID: movieIDS)
+                
+                
+                
+              
+                
+               
+              
+                
+                
+              
+            default:
+                break
+            }
+            
         }
+    
     }
     
 
@@ -935,6 +1012,7 @@ struct Media: MediaItem {
     var image: UIImage?
     var placeholderImage: UIImage
     var size: CGSize
+    var showID: String?
 }
 
 
@@ -946,6 +1024,7 @@ struct Message: MessageType {
    public var messageId: String
    public var sentDate: Date
    public var kind: MessageKind
+    public var showID: String?
 }
 
 
@@ -997,12 +1076,14 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
 
 
 extension ChatViewController: PassMovieDelegate {
+  
+    
     
    
     
     
   
-    func cellTapped(posterString: String) {
+    func cellTapped(posterString: String, showID: String) {
         
 //                self.messages.append(Message(sender: self.selfSender, messageId: "1", sentDate: Date(), kind: .photo(Media(placeholderImage: UIImage(named: "a2")!, size: CGSize(width: 200, height: 200)))))
 ////
@@ -1020,24 +1101,25 @@ extension ChatViewController: PassMovieDelegate {
                     print("test photo 3")
                 }
         
-        handlePhotoSend(posterURL: posterString)
+        handlePhotoSend(posterURL: posterString, showID: showID)
         
         //need a function to save this
     }
     
-    func handlePhotoSend(posterURL: String) {
+    func handlePhotoSend(posterURL: String, showID: String) {
         
         
         
         guard let fromId = FirebaseManager.shared.auth.currentUser?.uid else {return}
         
         guard let toId = conversationId else {return}
+//        guard let showID = defaults.string(forKey: "watchME") else { return}
         
         let document = FirebaseManager.shared.firestore.collection("messages").document(fromId).collection(toId).document()
         
         let messageData = [
             FirebaseConstants.fromId: fromId, FirebaseConstants.toId: toId, FirebaseConstants.text: "Check this out", "posterURL":posterURL,
-            "timeStamp": Timestamp()] as [String : Any]
+            "timeStamp": Timestamp(), "showID": showID] as [String : Any]
         
         document.setData(messageData) { error in
             if let error = error {
@@ -1072,6 +1154,15 @@ extension ChatViewController: PassMovieDelegate {
 
 extension ChatViewController: MessageCellDelegate {
     
+    func didTapMessage(in cell: MessageCollectionViewCell) {
+        
+        guard let indexPath = messagesCollectionView.indexPath(for: cell) else {
+            print("no path detect")
+            return
+        }
+        print("test tap mess \(messages[indexPath.section].showID)")
+        
+    }
     
     func configureMediaMessageImageView(_ imageView: UIImageView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         guard let message = message as? Message else {
@@ -1081,6 +1172,7 @@ extension ChatViewController: MessageCellDelegate {
         switch message.kind {
         case .photo(let media):
             guard let imageUrl = media.url else {
+                
                 return
             }
             imageView.sd_setImage(with: imageUrl, completed: nil)
@@ -1093,3 +1185,8 @@ extension ChatViewController: MessageCellDelegate {
 }
 
 
+extension MediaItem {
+    public var classTag: String {
+        return String(describing: type(of: self))
+    }
+}

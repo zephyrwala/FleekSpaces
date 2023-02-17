@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PassMovieDelegate:AnyObject {
-    func cellTapped(posterString: String)
+    func cellTapped(posterString: String, showID: String)
 }
 
 class RecommendChatViewController: UIViewController {
@@ -219,9 +219,12 @@ extension RecommendChatViewController: UICollectionViewDelegate, UICollectionVie
                             
                             print("safe TMDB is \(safeTMDBID)")
                             self.defaults.set(safeTMDBID, forKey: "watchME")
+                            
+                            
+                            self.movieDelegate?.cellTapped(posterString: "https://image.tmdb.org/t/p/w500/\(posterURL)", showID: safeTMDBID)
                         }
                       
-                        self.movieDelegate?.cellTapped(posterString: "https://image.tmdb.org/t/p/w500/\(posterURL)")
+                       
                     }
                 }
                
@@ -241,8 +244,12 @@ extension RecommendChatViewController: UICollectionViewDelegate, UICollectionVie
                     self.dismiss(animated: true) {
                         
 
+                        if let safeTMDBID = FinalDataModel.userLikes?[indexPath.item].showID {
+                            
+                            self.movieDelegate?.cellTapped(posterString: "https://image.tmdb.org/t/p/w500/\(posterURL)", showID: safeTMDBID)
+                        }
                       
-                        self.movieDelegate?.cellTapped(posterString: "https://image.tmdb.org/t/p/w500/\(posterURL)")
+                       
                     }
                     
                     print("new Url is \(newURL)")
