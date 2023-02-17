@@ -320,9 +320,22 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
                 if eachChatMessage.fromId == myUID {
                     //this is the poster check logic
                     if eachChatMessage.posterURL == "" {
-                        let newMes = Message(sender: self.selfSender, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .text(eachChatMessage.text))
+                        let newMes = Message(sender: self.selfSender, messageId: eachChatMessage.documentId, sentDate: eachChatMessage.timestamps, kind: .text(eachChatMessage.text))
                         
+                       
                         
+                        let servdate = eachChatMessage.timestamps
+                        
+                       print("serv date is \(servdate)")
+                        let dateFormatter = DateFormatter()
+                         
+                        dateFormatter.dateFormat = "HH:mm:ss"
+                         
+                        let result = dateFormatter.string(from: servdate)
+                        
+                        print("Date time is \(result)")
+                       
+                 
                          if self.messages.contains(where: { $0.messageId == eachChatMessage.documentId }) {
                             
                          } else {
@@ -330,7 +343,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
                          }
                     } else {
                         guard let safeURL = URL(string: eachChatMessage.posterURL) else {return}
-                        let newMes = Message(sender: self.selfSender, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300))))
+                        let newMes = Message(sender: self.selfSender, messageId: eachChatMessage.documentId, sentDate: eachChatMessage.timestamps, kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300))))
                         
                         
                          if self.messages.contains(where: { $0.messageId == eachChatMessage.documentId }) {
@@ -497,9 +510,38 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     }
     
     func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-        return NSAttributedString(string: message.sentDate.time(), attributes: [.font: UIFont.boldSystemFont(ofSize: 10), .foregroundColor: UIColor.darkGray])
+        if  isFromCurrentSender(message: message){
+            
+            let servdate = chatMessages[indexPath.item].timestamps
+            
+           print("serv date is \(servdate)")
+            let dateFormatter = DateFormatter()
+             
+            dateFormatter.dateFormat = "HH:mm:ss"
+             
+            let result = dateFormatter.string(from: servdate)
+            
+//            let message = chatMessages[indexPath.item].
+            return NSAttributedString(string: result, attributes: [.font: UIFont.boldSystemFont(ofSize: 10), .foregroundColor: UIColor.darkGray])
+        }
+       return nil
     }
     
+    
+//
+//    func cellBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+//
+//        if  isFromCurrentSender(message: message) {
+//
+//            let message = mkMessages[indexPath.section]
+//            let status = indexPath.section == mkMessages.count - 1 ? message.status + " " +
+//            message.readDate.time() : ""
+//
+//            return NSAttributedString(string: status, attributes: [.font : UIFont.boldSystemFont(ofSize: 10), .foregroundColor : UIColor.darkGray] )
+//        }
+//
+//        return nil
+//    }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return messages.count

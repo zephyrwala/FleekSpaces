@@ -36,8 +36,12 @@ class ChatMessage: Identifiable {
         documentId
     }
     
+   
+  
+    
     let posterURL: String
     let documentId: String
+    let timestamps: Date
     let fromId, toId, text: String
     init(documentId: String, data:[String: Any]) {
         self.documentId = documentId
@@ -45,6 +49,8 @@ class ChatMessage: Identifiable {
         self.toId = data[FirebaseConstants.toId] as? String ?? ""
         self.text = data[FirebaseConstants.text] as? String ?? ""
         self.posterURL = data[FirebaseConstants.posterURL] as? String ?? ""
+        self.timestamps = data[FirebaseConstants.timestamp] as? Date ?? Date()
+      
         
     }
     

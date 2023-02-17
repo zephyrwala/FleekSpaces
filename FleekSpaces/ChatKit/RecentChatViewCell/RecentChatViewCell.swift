@@ -26,25 +26,7 @@ class RecentChatViewCell: UICollectionViewCell {
         let path = "image/\(fromData.profileImageUrl).png"
         
         print("path is \(path)")
-//        StorageManager.shared.downloadURL(for: path, completion: { [weak self] result in
-//
-//            switch result {
-//
-//            case .success(let url):
-//                DispatchQueue.main.async {
-//
-//
-//                    self?.userProfileImage.sd_setImage(with: url)
-//
-//                }
-//            case .failure(let err):
-//                print("we got error \(err)")
-//
-//            }
-//
-//
-//
-//
+
 //
 //        })
         self.userMessageTime.text = fromData.timeAgo
