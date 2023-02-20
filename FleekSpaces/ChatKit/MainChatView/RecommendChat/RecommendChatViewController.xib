@@ -49,8 +49,8 @@
                                     <constraint firstAttribute="height" constant="300" id="i4p-87-oWy"/>
                                 </constraints>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j7J-sW-qt2">
-                                <rect key="frame" x="90" y="50" width="213" height="32"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j7J-sW-qt2">
+                                <rect key="frame" x="75" y="50" width="243" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="MGY-db-tdT"/>
                                 </constraints>
@@ -65,9 +65,9 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="j7J-sW-qt2" firstAttribute="top" secondItem="8Jl-tM-Fcw" secondAttribute="top" constant="50" id="AlH-O3-nBI"/>
-                            <constraint firstAttribute="trailing" secondItem="j7J-sW-qt2" secondAttribute="trailing" constant="90" id="LK4-lk-K3Z"/>
+                            <constraint firstAttribute="trailing" secondItem="j7J-sW-qt2" secondAttribute="trailing" constant="75" id="LK4-lk-K3Z"/>
                             <constraint firstItem="Uew-ZQ-Hjs" firstAttribute="top" secondItem="j7J-sW-qt2" secondAttribute="bottom" constant="12" id="P1a-UR-Pc1"/>
-                            <constraint firstItem="j7J-sW-qt2" firstAttribute="leading" secondItem="8Jl-tM-Fcw" secondAttribute="leading" constant="90" id="SEv-MJ-mQV"/>
+                            <constraint firstItem="j7J-sW-qt2" firstAttribute="leading" secondItem="8Jl-tM-Fcw" secondAttribute="leading" constant="75" id="SEv-MJ-mQV"/>
                             <constraint firstItem="Uew-ZQ-Hjs" firstAttribute="leading" secondItem="8Jl-tM-Fcw" secondAttribute="leading" constant="10" id="kuc-EG-LAZ"/>
                             <constraint firstAttribute="trailing" secondItem="Uew-ZQ-Hjs" secondAttribute="trailing" constant="10" id="xX1-uv-ker"/>
                         </constraints>

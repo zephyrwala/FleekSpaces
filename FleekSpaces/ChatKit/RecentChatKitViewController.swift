@@ -76,15 +76,47 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
     
     @IBAction func addChatBtnTap(_ sender: Any) {
         
+     
+        
+        newChatUserPop()
+        
+//        self.navigationController?.pushViewController(vc, animated: true)
+//        self.present(vc, animated: true)
+    }
+    
+    func newChatUserPop() {
+        
         let vc = NewChatUsersVC()
         vc.completion = {[weak self] result in
             print("\(result)")
             self?.createnewConversation(result: result)
             
         }
+      
+        vc.modalPresentationStyle = .pageSheet
         
-        self.present(vc, animated: true)
+//        let navs =
+//        let nav = UINavigationController(rootViewController: vc)
+//
+       
+        // 1
+//        nav.modalPresentationStyle = .pageSheet
+
+        
+        // 2
+        if let sheet = vc.sheetPresentationController {
+
+            // 3
+            sheet.detents = [.medium(), .large()]
+
+        }
+        // 4
+//        present(nav, animated: true, completion: nil)
+     
+        present(vc, animated: true)
+
     }
+    
     
     @IBAction func newChatBtnTapAction(_ sender: Any) {
         
@@ -221,7 +253,7 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
                         
                     } catch {
                         
-                        print(error)
+                        print(error)            
                     }
                     }
                     
