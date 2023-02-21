@@ -11,6 +11,10 @@ import FirebaseDatabase
 import JGProgressHUD
 
 
+struct RecentUsersModel {
+    var uid: String
+    var emailID: String
+}
 
 class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
@@ -19,13 +23,16 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     var recentUID = [String]()
+    var recentUserspass = [RecentUsersModel]()
+    public var completion: ((ChatUser) -> (Void))?
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     private let spinny = JGProgressHUD(style: .light)
     //store the users from reatime db here
     private var dbUsers = [[String: String]]()
     
-    public var completion: (([String: String]) -> (Void))?
+//    public var completion: (([String: String]) -> (Void))?
     
     var db = Database.database().reference()
     
@@ -183,9 +190,14 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
             let safeUsers = users[indexPath.item]
             let contains = numbers.contains(where: { $0 == safeUsers.uid })
             
-            print("contains \(contains)")
+//            print("contains \(contains)")
+            print("This has been selected email \(safeUsers.email) and id \(safeUsers.uid) - does it exists: \(contains)")
             
+            let targetuserData = safeUsers
+            self.dismiss(animated: true) {
+                self.completion?(targetuserData)
             
+            }
             //dismiss and start the conversation
         }
         

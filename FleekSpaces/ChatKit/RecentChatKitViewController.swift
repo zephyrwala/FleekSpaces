@@ -88,6 +88,8 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
         
         let vc = NewChatUsersVC()
         vc.completion = {[weak self] result in
+            self?.chatUser = result
+//            self?.recentMessages = result
             print("\(result)")
             self?.createnewConversation(result: result)
             
@@ -95,9 +97,6 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
       
         vc.modalPresentationStyle = .pageSheet
         
-//        let navs =
-//        let nav = UINavigationController(rootViewController: vc)
-//
        
         // 1
 //        nav.modalPresentationStyle = .pageSheet
@@ -120,14 +119,7 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
     
     @IBAction func newChatBtnTapAction(_ sender: Any) {
         
-        let vc = NewChatUsersVC()
-        vc.completion = {[weak self] result in
-            print("\(result)")
-            self?.createnewConversation(result: result)
-            
-        }
-        
-        self.present(vc, animated: true)
+     
         
         
     }
@@ -136,22 +128,23 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
     
     
     //MARK: - New conversation is created here
-    private func createnewConversation(result: [String: String]) {
+    private func createnewConversation(result: ChatUser) {
         
-        guard let name = result["name"],
-                let email = result["email"] else {
-            return
-            
-        }
+        let email = result.email
+        
+        let uid = result.uid
         
         defautls.set(email, forKey: "otherUserEmail")
         
-        let vc = ChatViewController(with: email, id: nil)
+        let vc = ChatViewController(with: email, id: uid)
+        //FIXME: - Pass the model
+        vc.newChatThisMessage = self.chatUser
+//        vc.thisMessage = self.chatUser
         
         //FIXME: - Id is nil over here???
 //        controllers.modalPresentationStyle = .fullScreen
         vc.isNewConversation = true
-        vc.title = name
+        vc.title = email
         navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -253,7 +246,7 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
                         
                     } catch {
                         
-                        print(error)            
+                        print(error)
                     }
                     }
                     

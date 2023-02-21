@@ -36,6 +36,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     public var isNewConversation = false
     var defaults = UserDefaults.standard
     let fireDB = Firestore.firestore()
+    var newChatThisMessage: ChatUser?
     var thisMessage: RecentMessage?
     let secondChild = RecommendChatViewController()
 //    var fetchedMef
@@ -663,7 +664,12 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             }
             print("Sucess saved current user sending message")
             
-            self.persistRecentMessage(persistThis: sendThisText)
+            if self.thisMessage != nil {
+                
+                self.persistRecentMessage(persistThis: sendThisText)
+            } else if self.newChatThisMessage != nil {
+                self.persistRecentNewChatMessage(persistThis: sendThisText)
+            }
 
         }
         
@@ -685,7 +691,66 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     
     //MARK: - Persist Recent Messages
     private func persistRecentMessage(persistThis: String) {
+        
         guard let chatUser = thisMessage else { return }
+        
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        guard let toId = chatUser.id else { return }
+        
+        let document = FirebaseManager.shared.firestore
+            .collection(FirebaseConstants.recentMessages)
+            .document(uid)
+            .collection(FirebaseConstants.messages)
+            .document(toId)
+        
+        let data = [
+            FirebaseConstants.timestamp: Timestamp(),
+            FirebaseConstants.text: persistThis,
+            FirebaseConstants.fromId: uid,
+            FirebaseConstants.toId: toId,
+            FirebaseConstants.profileImageUrl: chatUser.profileImageUrl,
+            FirebaseConstants.email: chatUser.email
+        ] as [String : Any]
+        
+        // you'll need to save another very similar dictionary for the recipient of this message...how?
+        
+        document.setData(data) { error in
+            if let error = error {
+                //               print("Failed to save recent message: \(error)")
+                print("Failed to save recent message: \(error)")
+                return
+            }
+        }
+        
+        guard let currentUser = FirebaseManager.shared.currentUser else { return }
+        let recipientRecentMessageDictionary = [
+            FirebaseConstants.timestamp: Timestamp(),
+            FirebaseConstants.text: persistThis,
+            FirebaseConstants.fromId: uid,
+            FirebaseConstants.toId: toId,
+            FirebaseConstants.profileImageUrl: currentUser.profileImageUrl,
+            FirebaseConstants.email: currentUser.email
+        ] as [String : Any]
+        
+        FirebaseManager.shared.firestore
+            .collection(FirebaseConstants.recentMessages)
+            .document(toId)
+            .collection(FirebaseConstants.messages)
+            .document(currentUser.uid)
+            .setData(recipientRecentMessageDictionary) { error in
+                if let error = error {
+                    print("Failed to save recipient recent message: \(error)")
+                    return
+                }
+            }
+    }
+    
+    
+    
+    //MARK: - Persist Recent Messages
+    private func persistRecentNewChatMessage(persistThis: String) {
+        
+        guard let chatUser = newChatThisMessage else { return }
         
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         guard let toId = chatUser.id else { return }
