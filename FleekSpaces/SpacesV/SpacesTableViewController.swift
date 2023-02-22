@@ -15,7 +15,10 @@ class SpacesTableViewController: UITableViewController {
     var feedData: [SpacesFeedElement]?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableView.isHidden = true
+        
+        
         let vc = LoadsViewController()
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
@@ -89,7 +92,8 @@ class SpacesTableViewController: UITableViewController {
         if let spacesData = FinalDataModel.spacesFeedElement?[indexPath.item] {
             
             cell.setupCell(fromData: spacesData )
-            
+            cell.selectionStyle = .none
+            cell.selectedBackgroundView?.backgroundColor = .black
             
         }
        
@@ -115,7 +119,57 @@ class SpacesTableViewController: UITableViewController {
       
         return FinalDataModel.spacesFeedElement?.count ?? 1
     }
+    
+    override func tableView(_ tableView: UITableView,
+                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // ...
+        
+        let action = UIContextualAction(style: .normal,
+                                        title: "Like 👍🏼") { [weak self] (action, view, completionHandler) in
+                                            self?.handleMarkAsFavourite()
+                                            completionHandler(true)
+        }
+        action.backgroundColor = .black
+        
+        return UISwipeActionsConfiguration(actions: [action])
+    }
 
+    
+    override func tableView(_ tableView: UITableView,
+                       trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        
+        // ...
+        
+        
+        let action = UIContextualAction(style: .normal,
+                                        title: "Watchlist 📺") { [weak self] (action, view, completionHandler) in
+                                            self?.handleMarkAsFavourite()
+                                            completionHandler(true)
+        }
+        action.backgroundColor = .black
+        
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+    
+    
+    private func handleMarkAsFavourite() {
+        print("Marked as favourite")
+    }
+
+    private func handleMarkAsUnread() {
+        print("Marked as unread")
+    }
+
+    private func handleMoveToTrash() {
+        print("Moved to trash")
+    }
+
+    private func handleMoveToArchive() {
+        print("Moved to archive")
+    }
+    
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
