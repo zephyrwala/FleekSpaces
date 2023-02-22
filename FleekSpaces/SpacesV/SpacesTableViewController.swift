@@ -6,25 +6,91 @@
 //
 
 import UIKit
+import SDWebImage
+import JGProgressHUD
 
 class SpacesTableViewController: UITableViewController {
 
+    var prog = JGProgressHUD(style: .dark)
+    var feedData: [SpacesFeedElement]?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let vc = LoadsViewController()
+        self.present(vc, animated: true)
+       
+       
         tableView.register(UINib(nibName: "SpacesTableViewCell", bundle: nil), forCellReuseIdentifier: "spacesCell")
 
+        self.title = "Spaces"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        fetchSpacesFeed()
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    @objc
+    func refresh(sender:AnyObject)
+    {
+        // Updating your data here...
 
+        fetchSpacesFeed()
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
+    }
+
+    //MARK: - Fetch Spaces Feed
+    
+    func fetchSpacesFeed() {
+        
+        
+        let network = NetworkURL()
+        let url = URL(string: "https://api-space-dev.getfleek.app/activity/get_feed/")
+        
+        network.theBestNetworkCall([SpacesFeedElement].self, url: url) { myResult, yourMessage in
+            
+            DispatchQueue.main.async {
+                switch myResult {
+                    
+                case .success(let movieData):
+                    print("Movie is here \(movieData)")
+                   
+                    DispatchQueue.main.async {
+                        FinalDataModel.spacesFeedElement = movieData
+                        
+                        self.tableView.reloadData()
+                    }
+                  
+  
+                 
+                    
+                case .failure(let err):
+                    print("Failure in movie fetch")
+   
+                    
+                }
+            }
+      
+            
+        }
+        
+        
+    }
+    
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "spacesCell", for: indexPath) as! SpacesTableViewCell
+        if let spacesData = FinalDataModel.spacesFeedElement?[indexPath.item] {
+            
+            cell.setupCell(fromData: spacesData )
+            
+            
+        }
+       
+//        }
         return cell
     }
 
@@ -33,9 +99,18 @@ class SpacesTableViewController: UITableViewController {
         return 1
     }
 
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let safeModel = FinalDataModel.spacesFeedElement?[indexPath.item].postersURL {
+            print("https://image.tmdb.org/t/p/w500\(safeModel)")
+        }
+       
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 6
+      
+        return FinalDataModel.spacesFeedElement?.count ?? 1
     }
 
     /*

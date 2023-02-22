@@ -34,7 +34,7 @@ class LoginEmailViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func loginBtnTap(_ sender: Any) {
         
-        spinner.show(in: view)
+       
         validateFields()
         spinner.dismiss(animated: true)
         

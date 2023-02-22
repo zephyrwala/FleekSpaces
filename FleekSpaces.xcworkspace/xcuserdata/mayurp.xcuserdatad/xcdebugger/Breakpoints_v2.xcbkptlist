@@ -1363,7 +1363,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6B8FABCF-88F8-42CE-803D-46D31CAC169F - 4e9dbe02284a3b06"
+                  uuid = "6B8FABCF-88F8-42CE-803D-46D31CAC169F - 4e9dbe02284a382f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1373,12 +1373,12 @@
                   urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "710"
-                  endingLineNumber = "710"
-                  offsetFromSymbolStart = "1556">
+                  startingLineNumber = "717"
+                  endingLineNumber = "717"
+                  offsetFromSymbolStart = "1772">
                </Location>
                <Location
-                  uuid = "6B8FABCF-88F8-42CE-803D-46D31CAC169F - cca2a4819a46be45"
+                  uuid = "6B8FABCF-88F8-42CE-803D-46D31CAC169F - cca2a4819a46bd22"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1388,8 +1388,8 @@
                   urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "711"
-                  endingLineNumber = "711"
+                  startingLineNumber = "718"
+                  endingLineNumber = "718"
                   offsetFromSymbolStart = "56">
                </Location>
             </Locations>
@@ -1427,7 +1427,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "69E400A5-BED8-457F-8EF1-9C043DF79D0D - 4e9dbe02284a0450"
+                  uuid = "69E400A5-BED8-457F-8EF1-9C043DF79D0D - 4e9dbe02284a0579"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1437,12 +1437,12 @@
                   urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "688"
-                  endingLineNumber = "688"
-                  offsetFromSymbolStart = "120">
+                  startingLineNumber = "695"
+                  endingLineNumber = "695"
+                  offsetFromSymbolStart = "288">
                </Location>
                <Location
-                  uuid = "69E400A5-BED8-457F-8EF1-9C043DF79D0D - 4e9dbe02284a0450"
+                  uuid = "69E400A5-BED8-457F-8EF1-9C043DF79D0D - 4e9dbe02284a0579"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1452,11 +1452,27 @@
                   urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "688"
-                  endingLineNumber = "688"
-                  offsetFromSymbolStart = "196">
+                  startingLineNumber = "695"
+                  endingLineNumber = "695"
+                  offsetFromSymbolStart = "3384">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F46B5039-499F-44A0-82B1-CAB610CC7B66"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FleekSpaces/SpacesV/SpacesTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

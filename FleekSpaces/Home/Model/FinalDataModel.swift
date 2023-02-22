@@ -55,7 +55,111 @@ class FinalDataModel: NSObject {
     static var fcmToken: FCMToken?
     
     static var updateToken: UpdateToken?
+    
+    static var spacesFeedElement: [SpacesFeedElement]?
 }
+
+
+
+//MARK: - Spaces Feed
+class SpacesFeedElement: Codable {
+    let user: User?
+    let showType: ShowType?
+    let showID, title, postersURL: String?
+    let tmdbRating: Int?
+    let ottDetails: OttDetails?
+    let createdAt: String?
+    let like, dislike: Bool?
+
+    enum CodingKeys: String, CodingKey {
+        case user
+        case showType = "show_type"
+        case showID = "show_id"
+        case title
+        case postersURL = "posters_url"
+        case tmdbRating = "tmdb_rating"
+        case ottDetails = "ott_details"
+        case createdAt = "created_at"
+        case like, dislike
+    }
+
+    init(user: User?, showType: ShowType?, showID: String?, title: String?, postersURL: String?, tmdbRating: Int?, ottDetails: OttDetails?, createdAt: String?, like: Bool?, dislike: Bool?) {
+        self.user = user
+        self.showType = showType
+        self.showID = showID
+        self.title = title
+        self.postersURL = postersURL
+        self.tmdbRating = tmdbRating
+        self.ottDetails = ottDetails
+        self.createdAt = createdAt
+        self.like = like
+        self.dislike = dislike
+    }
+}
+
+// MARK: - OttDetails
+class OttDetails: Codable {
+    let ottDetailsIN, us: In?
+
+    enum CodingKeys: String, CodingKey {
+        case ottDetailsIN = "IN"
+        case us = "US"
+    }
+
+    init(ottDetailsIN: In?, us: In?) {
+        self.ottDetailsIN = ottDetailsIN
+        self.us = us
+    }
+}
+
+
+
+// MARK: - Ad
+class Ad: Codable {
+    let displayPriority: Int?
+    let logoPath: String?
+    let providerID: Int?
+    let providerName: String?
+
+    enum CodingKeys: String, CodingKey {
+        case displayPriority = "display_priority"
+        case logoPath = "logo_path"
+        case providerID = "provider_id"
+        case providerName = "provider_name"
+    }
+
+    init(displayPriority: Int?, logoPath: String?, providerID: Int?, providerName: String?) {
+        self.displayPriority = displayPriority
+        self.logoPath = logoPath
+        self.providerID = providerID
+        self.providerName = providerName
+    }
+}
+
+enum ShowType: String, Codable {
+    case movie = "movie"
+    case tvSeries = "tv_series"
+}
+
+// MARK: - User
+class User: Codable {
+    let userID, name, phoneNumber, avatarURL: String?
+
+    enum CodingKeys: String, CodingKey {
+        case userID = "user_id"
+        case name
+        case phoneNumber = "phone_number"
+        case avatarURL = "avatar_url"
+    }
+
+    init(userID: String?, name: String?, phoneNumber: String?, avatarURL: String?) {
+        self.userID = userID
+        self.name = name
+        self.phoneNumber = phoneNumber
+        self.avatarURL = avatarURL
+    }
+}
+
 
 // MARK: - UpdateToken
 class UpdateToken: Codable {
