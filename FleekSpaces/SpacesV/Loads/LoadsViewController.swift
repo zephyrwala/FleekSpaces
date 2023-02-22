@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import Lottie
 
 class LoadsViewController: UIViewController {
 
+    @IBOutlet weak var loadLots: LottieAnimationView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        lottiePlay()
 
-      dismissDelay()
+//      dismissDelay()
         // Do any additional setup after loading the view.
     }
 
@@ -20,10 +23,35 @@ class LoadsViewController: UIViewController {
     
     func dismissDelay() {
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {  self.dismiss(animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0) {  self.dismiss(animated: true)
         }
        
     }
+    
+    func lottiePlay() {
+        
+        // 1. Set animation content mode
+          
+          loadLots.contentMode = .scaleAspectFit
+          
+          // 2. Set animation loop mode
+          
+        loadLots.loopMode = .playOnce
+          
+          // 3. Adjust animation speed
+          
+        loadLots.animationSpeed = 1.0
+          
+          // 4. Play animation
+        loadLots.play(completion: { _ in
+            
+            self.dismissDelay()
+            
+        })
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 

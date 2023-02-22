@@ -170,6 +170,8 @@
 		69AC5F6429A5E02300C30ECA /* SpacesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69AC5F6229A5E02300C30ECA /* SpacesTableViewCell.xib */; };
 		69AC5F6829A63B3900C30ECA /* LoadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AC5F6629A63B3900C30ECA /* LoadsViewController.swift */; };
 		69AC5F6929A63B3900C30ECA /* LoadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69AC5F6729A63B3900C30ECA /* LoadsViewController.xib */; };
+		69AC5F6B29A65E2700C30ECA /* spaceload.json in Resources */ = {isa = PBXBuildFile; fileRef = 69AC5F6A29A65E2700C30ECA /* spaceload.json */; };
+		69AC5F6D29A661F500C30ECA /* catWatch.json in Resources */ = {isa = PBXBuildFile; fileRef = 69AC5F6C29A661F500C30ECA /* catWatch.json */; };
 		69C4996E28698012000F4394 /* EmailSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C4996C28698012000F4394 /* EmailSignInViewController.swift */; };
 		69C4996F28698012000F4394 /* EmailSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69C4996D28698012000F4394 /* EmailSignInViewController.xib */; };
 		69C499782869BDB4000F4394 /* LoginEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C499762869BDB4000F4394 /* LoginEmailViewController.swift */; };
@@ -387,6 +389,8 @@
 		69AC5F6229A5E02300C30ECA /* SpacesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpacesTableViewCell.xib; sourceTree = "<group>"; };
 		69AC5F6629A63B3900C30ECA /* LoadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadsViewController.swift; sourceTree = "<group>"; };
 		69AC5F6729A63B3900C30ECA /* LoadsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadsViewController.xib; sourceTree = "<group>"; };
+		69AC5F6A29A65E2700C30ECA /* spaceload.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spaceload.json; sourceTree = "<group>"; };
+		69AC5F6C29A661F500C30ECA /* catWatch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = catWatch.json; sourceTree = "<group>"; };
 		69C4996C28698012000F4394 /* EmailSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInViewController.swift; sourceTree = "<group>"; };
 		69C4996D28698012000F4394 /* EmailSignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmailSignInViewController.xib; sourceTree = "<group>"; };
 		69C499762869BDB4000F4394 /* LoginEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailViewController.swift; sourceTree = "<group>"; };
@@ -1223,6 +1227,8 @@
 		69D527D8290280BA001B310C /* Anime */ = {
 			isa = PBXGroup;
 			children = (
+				69AC5F6C29A661F500C30ECA /* catWatch.json */,
+				69AC5F6A29A65E2700C30ECA /* spaceload.json */,
 				69D527DB29028296001B310C /* fire.json */,
 				69D527D9290280C6001B310C /* firework.json */,
 			);
@@ -1412,6 +1418,7 @@
 				69D527D22901B013001B310C /* Halloween.png in Resources */,
 				6924001C28AF99B000DFB033 /* LoginVC.xib in Resources */,
 				6930D5382851B55B0080528D /* TrendingtCollectionReusableView.xib in Resources */,
+				69AC5F6B29A65E2700C30ECA /* spaceload.json in Resources */,
 				6962D91428D8837600CE1B17 /* NewChatsTableViewCell.xib in Resources */,
 				69D9E60C299E43CD000DE3E5 /* MoPopUpViewController.xib in Resources */,
 				6939469C284757BB00FE7574 /* Section2CRV.xib in Resources */,
@@ -1424,6 +1431,7 @@
 				6930D547285319F30080528D /* MoviePlayCollectionViewCell.xib in Resources */,
 				69394675284628D500FE7574 /* LaunchScreen.storyboard in Resources */,
 				692600C6284E203100B6D801 /* ChatCVCell.xib in Resources */,
+				69AC5F6D29A661F500C30ECA /* catWatch.json in Resources */,
 				6930D5342851B53D0080528D /* TrendingWorldCollectionViewCell.xib in Resources */,
 				692600BF284E09A200B6D801 /* Section2HeadersCRV.xib in Resources */,
 				6930D573285899E40080528D /* ActorBioCVC.xib in Resources */,

@@ -204,7 +204,9 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "newsuser", for: indexPath) as! NewChatsTableViewCell
             
-            cell.userNameLabel.text = users[indexPath.item].email
+            cell.userNameLabel.text = users[indexPath.item].email.components(separatedBy: "@").first
+            
+            
             
             //        cell.userNameLabel.text = user[indexPath.item]["name"]
             
@@ -219,11 +221,7 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
             return cell
         }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 450
-        //Choose your custom row height
-    }
-    
+ 
     
     
     }

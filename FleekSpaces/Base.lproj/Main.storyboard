@@ -980,7 +980,7 @@
         <scene sceneID="xY7-hb-8Oa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G9X-7b-Adr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat" image="bubble.left.and.bubble.right" catalog="system" selectedImage="bubble.left.and.bubble.right.fill" id="boT-ie-Qf3"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="text.bubble.rtl" catalog="system" selectedImage="text.bubble.fill" id="boT-ie-Qf3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ZMp-yt-IUa">
                         <rect key="frame" x="0.0" y="47" width="375" height="44"/>
@@ -1011,7 +1011,7 @@
                     <tabBarItem key="tabBarItem" title="Spaces" image="binoculars" catalog="system" selectedImage="binoculars.fill" id="JKC-42-h8k"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="hY9-23-FjK">
-                        <rect key="frame" x="0.0" y="47" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="47" width="375" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1045,6 +1045,8 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="text.bubble.fill" catalog="system" width="128" height="110"/>
+        <image name="text.bubble.rtl" catalog="system" width="128" height="110"/>
         <image name="tv-2 1" width="480" height="480"/>
         <image name="video.fill.badge.checkmark" catalog="system" width="128" height="88"/>
         <namedColor name="BGColor">

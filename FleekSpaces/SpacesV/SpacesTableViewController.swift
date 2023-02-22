@@ -15,8 +15,11 @@ class SpacesTableViewController: UITableViewController {
     var feedData: [SpacesFeedElement]?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.isHidden = true
         let vc = LoadsViewController()
+        vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
+        
        
        
         tableView.register(UINib(nibName: "SpacesTableViewCell", bundle: nil), forCellReuseIdentifier: "spacesCell")
@@ -58,7 +61,7 @@ class SpacesTableViewController: UITableViewController {
                    
                     DispatchQueue.main.async {
                         FinalDataModel.spacesFeedElement = movieData
-                        
+                        self.tableView.isHidden = false
                         self.tableView.reloadData()
                     }
                   
