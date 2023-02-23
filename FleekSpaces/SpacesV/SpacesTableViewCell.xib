@@ -60,6 +60,9 @@
                                                                     <color key="tintColor" name="Fleek_500"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="likeBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="i26-sF-eOa"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNY-R6-aZL">
                                                                     <rect key="frame" x="58" y="0.0" width="58" height="45"/>
@@ -79,12 +82,12 @@
                                                                 <constraint firstAttribute="height" constant="45" id="ZLU-35-XOU"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available on" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PsM-al-bL8">
-                                                            <rect key="frame" x="190.33333333333334" y="12" width="81.666666666666657" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available on" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PsM-al-bL8">
+                                                            <rect key="frame" x="204.33333333333334" y="12" width="67.666666666666657" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="FZW-sK-UzG"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -100,10 +103,22 @@
                                                         <constraint firstItem="86Q-hb-RsW" firstAttribute="leading" secondItem="4HV-ao-l1T" secondAttribute="leading" id="pLR-mt-kyA"/>
                                                     </constraints>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nrr-7p-oqi" customClass="LottieAnimationView" customModule="Lottie">
+                                                    <rect key="frame" x="10" y="478" width="69" height="69"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="69" id="M1k-pU-0cp"/>
+                                                        <constraint firstAttribute="width" constant="69" id="PlE-sm-WKK"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="likeThumb"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Nrr-7p-oqi" secondAttribute="bottom" constant="3" id="1SD-4w-TMf"/>
                                                 <constraint firstItem="61b-lM-MAu" firstAttribute="top" secondItem="xFO-e0-cID" secondAttribute="top" constant="80" id="39Z-Cc-Lx1"/>
                                                 <constraint firstAttribute="trailing" secondItem="4HV-ao-l1T" secondAttribute="trailing" constant="15" id="SlA-8y-uYv"/>
+                                                <constraint firstItem="Nrr-7p-oqi" firstAttribute="leading" secondItem="xFO-e0-cID" secondAttribute="leading" constant="10" id="cmu-NO-Vea"/>
                                                 <constraint firstItem="4HV-ao-l1T" firstAttribute="top" secondItem="61b-lM-MAu" secondAttribute="bottom" constant="12" id="qzJ-hb-3J6"/>
                                                 <constraint firstItem="61b-lM-MAu" firstAttribute="leading" secondItem="xFO-e0-cID" secondAttribute="leading" constant="15" id="rZM-Me-5jy"/>
                                                 <constraint firstItem="4HV-ao-l1T" firstAttribute="leading" secondItem="xFO-e0-cID" secondAttribute="leading" constant="15" id="wuX-lq-pxE"/>
@@ -123,40 +138,42 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zsZ-Ze-37D">
-                                                <rect key="frame" x="62" y="2" width="230" height="48"/>
+                                                <rect key="frame" x="62" y="2" width="198" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Mayur likes Kabhi khushi kabhi gam tere karam," textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAE-5H-GWr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="230" height="33.666666666666664"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="33.666666666666664"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3d" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f45-Fu-jtb">
-                                                        <rect key="frame" x="0.0" y="33.666666666666664" width="230" height="14.333333333333336"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3d" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f45-Fu-jtb">
+                                                        <rect key="frame" x="0.0" y="33.666666666666664" width="198" height="14.333333333333336"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="230" id="SZm-Ii-hTp"/>
+                                                    <constraint firstAttribute="width" constant="198" id="Zrs-Ku-xg8"/>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFt-UP-SdH">
-                                                <rect key="frame" x="280.66666666666669" y="9" width="48.333333333333314" height="34.333333333333336"/>
+                                                <rect key="frame" x="269" y="11.333333333333337" width="60" height="29.666666666666671"/>
                                                 <color key="tintColor" name="Info_300"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="person.badge.plus" catalog="system"/>
+                                                <buttonConfiguration key="configuration" style="tinted" subtitle="follow"/>
                                             </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="zsZ-Ze-37D" firstAttribute="top" secondItem="dbF-uc-4J7" secondAttribute="top" constant="2" id="11k-AO-yRi"/>
                                             <constraint firstItem="zsZ-Ze-37D" firstAttribute="leading" secondItem="DY2-9D-3Rr" secondAttribute="trailing" constant="9" id="JlP-6C-ipr"/>
                                             <constraint firstItem="DY2-9D-3Rr" firstAttribute="centerY" secondItem="dbF-uc-4J7" secondAttribute="centerY" id="T5a-we-ij1"/>
+                                            <constraint firstItem="LFt-UP-SdH" firstAttribute="leading" secondItem="zsZ-Ze-37D" secondAttribute="trailing" constant="9" id="Xwb-sU-dYJ"/>
                                             <constraint firstItem="DY2-9D-3Rr" firstAttribute="leading" secondItem="dbF-uc-4J7" secondAttribute="leading" constant="3" id="ccH-vI-2kP"/>
                                             <constraint firstItem="LFt-UP-SdH" firstAttribute="centerY" secondItem="dbF-uc-4J7" secondAttribute="centerY" id="cdS-3V-EB3"/>
                                             <constraint firstAttribute="trailing" secondItem="LFt-UP-SdH" secondAttribute="trailing" id="geZ-od-qIu"/>
                                             <constraint firstAttribute="height" constant="52" id="lpK-uG-qtt"/>
+                                            <constraint firstItem="LFt-UP-SdH" firstAttribute="leading" secondItem="zsZ-Ze-37D" secondAttribute="trailing" constant="9" id="wGN-Qx-gew"/>
                                             <constraint firstAttribute="bottom" secondItem="zsZ-Ze-37D" secondAttribute="bottom" constant="2" id="xp0-EC-eev"/>
                                         </constraints>
                                     </view>
@@ -198,6 +215,9 @@
                 <outlet property="baseBackground" destination="hGN-Mh-MCo" id="Vrd-Fo-oDm"/>
                 <outlet property="bgPosterImage" destination="nqL-6T-DRU" id="aJx-hz-cVD"/>
                 <outlet property="cardBG" destination="c8S-wn-feC" id="HAj-PA-kqg"/>
+                <outlet property="datesTime" destination="f45-Fu-jtb" id="SE1-Bf-x5h"/>
+                <outlet property="likeAnim" destination="Nrr-7p-oqi" id="CjF-gi-bUM"/>
+                <outlet property="likeBtn" destination="0qd-0X-EHQ" id="Zm1-36-B5F"/>
                 <outlet property="mainPoster" destination="otL-lh-2uO" id="OTb-CK-oiB"/>
                 <outlet property="platformIcon" destination="Zn5-js-DWR" id="2VL-Qr-L6n"/>
                 <outlet property="posterShadowCast" destination="61b-lM-MAu" id="Skg-LI-G7v"/>
@@ -213,7 +233,6 @@
         <image name="bo1" width="799" height="1036"/>
         <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
         <image name="netf" width="1024" height="1024"/>
-        <image name="person.badge.plus" catalog="system" width="128" height="125"/>
         <image name="video.badge.plus" catalog="system" width="128" height="92"/>
         <namedColor name="Background">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

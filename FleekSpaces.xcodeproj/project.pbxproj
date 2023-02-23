@@ -172,6 +172,7 @@
 		69AC5F6929A63B3900C30ECA /* LoadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69AC5F6729A63B3900C30ECA /* LoadsViewController.xib */; };
 		69AC5F6B29A65E2700C30ECA /* spaceload.json in Resources */ = {isa = PBXBuildFile; fileRef = 69AC5F6A29A65E2700C30ECA /* spaceload.json */; };
 		69AC5F6D29A661F500C30ECA /* catWatch.json in Resources */ = {isa = PBXBuildFile; fileRef = 69AC5F6C29A661F500C30ECA /* catWatch.json */; };
+		69AC5F6F29A745E700C30ECA /* likeThumb.json in Resources */ = {isa = PBXBuildFile; fileRef = 69AC5F6E29A745E700C30ECA /* likeThumb.json */; };
 		69C4996E28698012000F4394 /* EmailSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C4996C28698012000F4394 /* EmailSignInViewController.swift */; };
 		69C4996F28698012000F4394 /* EmailSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69C4996D28698012000F4394 /* EmailSignInViewController.xib */; };
 		69C499782869BDB4000F4394 /* LoginEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C499762869BDB4000F4394 /* LoginEmailViewController.swift */; };
@@ -391,6 +392,7 @@
 		69AC5F6729A63B3900C30ECA /* LoadsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadsViewController.xib; sourceTree = "<group>"; };
 		69AC5F6A29A65E2700C30ECA /* spaceload.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spaceload.json; sourceTree = "<group>"; };
 		69AC5F6C29A661F500C30ECA /* catWatch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = catWatch.json; sourceTree = "<group>"; };
+		69AC5F6E29A745E700C30ECA /* likeThumb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = likeThumb.json; sourceTree = "<group>"; };
 		69C4996C28698012000F4394 /* EmailSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInViewController.swift; sourceTree = "<group>"; };
 		69C4996D28698012000F4394 /* EmailSignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmailSignInViewController.xib; sourceTree = "<group>"; };
 		69C499762869BDB4000F4394 /* LoginEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailViewController.swift; sourceTree = "<group>"; };
@@ -1227,6 +1229,7 @@
 		69D527D8290280BA001B310C /* Anime */ = {
 			isa = PBXGroup;
 			children = (
+				69AC5F6E29A745E700C30ECA /* likeThumb.json */,
 				69AC5F6C29A661F500C30ECA /* catWatch.json */,
 				69AC5F6A29A65E2700C30ECA /* spaceload.json */,
 				69D527DB29028296001B310C /* fire.json */,
@@ -1437,6 +1440,7 @@
 				6930D573285899E40080528D /* ActorBioCVC.xib in Resources */,
 				69C499792869BDB4000F4394 /* LoginEmailViewController.xib in Resources */,
 				693946C52848D15800FE7574 /* SelectedSubCRV.xib in Resources */,
+				69AC5F6F29A745E700C30ECA /* likeThumb.json in Resources */,
 				693357D92893F66700C49506 /* SeasonCardCVC.xib in Resources */,
 				693946922847548500FE7574 /* Section3CollectionViewCell.xib in Resources */,
 				69C4996F28698012000F4394 /* EmailSignInViewController.xib in Resources */,

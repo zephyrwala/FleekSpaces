@@ -9,7 +9,20 @@ import UIKit
 import SDWebImage
 import JGProgressHUD
 
-class SpacesTableViewController: UITableViewController {
+class SpacesTableViewController: UITableViewController, PassLikesData {
+  
+    func spacesLikeBtnTap(_ cell: SpacesTableViewCell) {
+        cell.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+        cell.lottiePlay()
+        cell.likeBtn.tintColor = .systemTeal
+       
+            
+        
+       
+       
+        
+    }
+    
 
     var prog = JGProgressHUD(style: .dark)
     var feedData: [SpacesFeedElement]?
@@ -91,6 +104,7 @@ class SpacesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "spacesCell", for: indexPath) as! SpacesTableViewCell
         if let spacesData = FinalDataModel.spacesFeedElement?[indexPath.item] {
             
+            cell.likeBtnDelegate = self
             cell.setupCell(fromData: spacesData )
             cell.selectionStyle = .none
             cell.selectedBackgroundView?.backgroundColor = .black
