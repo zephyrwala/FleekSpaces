@@ -16,10 +16,16 @@ struct RecentUsersModel {
     var emailID: String
 }
 
-class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
+class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
+    
+    
+    @IBOutlet weak var chatLabels: UILabel!
+    
     func updateSearchResults(for searchController: UISearchController) {
-        print("saerch tap")
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
     }
+    @IBOutlet weak var chatdialog: UILabel!
     
     
     var recentUID = [String]()
@@ -38,21 +44,32 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var testTable: UITableView!
     
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
     var users = [ChatUser]()
+    var searchusers = [ChatUser]()
+    var searching: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
     
     var errorMessage = ""
     //    let didSelectnewUser: (ChatUser) -> ()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        self.title = "New Chat"
+//                self.title = "New Chats"
+        
+       
+        self.chatLabels.text = "New Chat [\(users.count)] 👥"
+        searchController.searchResultsUpdater = self
         
         //        spinny.show(in: view)
         fetchAllUsers()
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
-        testTable.tableHeaderView = searchController.searchBar
+//        testTable.tableHeaderView = searchController.searchBar
         //        testTable.tableHeaderView?.constraints =
         
         self.navigationController?.navigationBar.isHidden = true
@@ -75,7 +92,18 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
+    func filterContentForSearchText(_ searchText: String) {
+      searchusers = users.filter { (user: ChatUser) -> Bool in
+        return user.email.lowercased().contains(searchText.lowercased())
+      }
+      
+       
+      testTable.reloadData()
+    }
     
+ 
+    
+   
     //    MARK: - users fetch firestore
     private func fetchAllUsers() {
         
@@ -98,6 +126,8 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
                         self.users.append(user!)
                         DispatchQueue.main.async {
                             self.testTable.reloadData()
+                            self.chatLabels.text = "New Chat 👥"
+                            self.chatdialog.text = "Chat with \(self.users.count) users during this beta build. Soon we will have private friend list."
                             //                            self.spinny.dismiss(animated: true)
                         }
                         
@@ -175,47 +205,86 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
         
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            users.count
+            if searching  {
+                return searchusers.count
+            }
+                
+                return users.count
+            
+           
         }
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            //start conversation
-            //        let targetuserData = dbUsers[indexPath.row]
-            //        dismiss(animated: true) { [weak self] in
-            //        self?.completion?(targetuserData)
-            //        }
+         
             
-            
-            let numbers = recentUID
-            let safeUsers = users[indexPath.item]
-            let contains = numbers.contains(where: { $0 == safeUsers.uid })
-            
-//            print("contains \(contains)")
-            print("This has been selected email \(safeUsers.email) and id \(safeUsers.uid) - does it exists: \(contains)")
-            
-            let targetuserData = safeUsers
-            self.dismiss(animated: true) {
-                self.completion?(targetuserData)
-            
+            if searching {
+                
+                let numbers = recentUID
+                print("recent uid \(numbers)")
+                let safeUsers = searchusers[indexPath.item]
+                let contains = numbers.contains(where: { $0 == safeUsers.uid })
+
+                print("THISELECTED")
+//    //            print("contains \(contains)")
+//                print("This searching been selected email \(safeUsers.email) and id \(safeUsers.uid) - does it exists: \(contains)")
+//
+                let targetuserData = safeUsers
+                self.dismiss(animated: true) {
+                    self.completion?(targetuserData)
+                
+                }
+            } else {
+                
+                let numbers = recentUID
+                let safeUsers = users[indexPath.item]
+                let contains = numbers.contains(where: { $0 == safeUsers.uid })
+                print("UNSELECTED")
+                //            print("contains \(contains)")
+                print("This has been selected email \(safeUsers.email) and id \(safeUsers.uid) - does it exists: \(contains)")
+                
+                let targetuserData = safeUsers
+                self.dismiss(animated: true) {
+                    self.completion?(targetuserData)
+                    
+                }
+                
             }
+          
             //dismiss and start the conversation
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "newsuser", for: indexPath) as! NewChatsTableViewCell
             
-            cell.userNameLabel.text = users[indexPath.item].email.components(separatedBy: "@").first
             
-            
-            
-            //        cell.userNameLabel.text = user[indexPath.item]["name"]
-            
-            
-            if let imageURL = URL(string: users[indexPath.item].profileImageUrl) {
+            if searching {
                 
-                print("image url is \(imageURL)")
-                cell.profiles.sd_setImage(with: imageURL)
+                cell.userNameLabel.text = searchusers[indexPath.item].email.components(separatedBy: "@").first
+                
+                
+                if let imageURL = URL(string: searchusers[indexPath.item].profileImageUrl) {
+                    
+                    print("image url is \(imageURL)")
+                    cell.profiles.sd_setImage(with: imageURL)
+                }
+                
+            } else {
+                
+                
+                cell.userNameLabel.text = users[indexPath.item].email.components(separatedBy: "@").first
+                
+                
+                if let imageURL = URL(string: users[indexPath.item].profileImageUrl) {
+                    
+                    print("image url is \(imageURL)")
+                    cell.profiles.sd_setImage(with: imageURL)
+                }
+                
+                
             }
+        
+            
+            
             
             
             return cell

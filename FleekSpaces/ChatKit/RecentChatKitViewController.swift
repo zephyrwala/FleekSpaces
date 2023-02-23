@@ -144,7 +144,7 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
         //FIXME: - Id is nil over here???
 //        controllers.modalPresentationStyle = .fullScreen
         vc.isNewConversation = true
-        vc.title = email
+        vc.title = email.components(separatedBy: "@").first
         navigationController?.pushViewController(vc, animated: true)
         
     }

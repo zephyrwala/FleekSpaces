@@ -69,6 +69,7 @@ class SpacesFeedElement: Codable {
     let tmdbRating: Int?
     let ottDetails: OttDetails?
     let createdAt: String?
+    let isWatchlist: Bool?
     let like, dislike: Bool?
 
     enum CodingKeys: String, CodingKey {
@@ -79,11 +80,12 @@ class SpacesFeedElement: Codable {
         case postersURL = "posters_url"
         case tmdbRating = "tmdb_rating"
         case ottDetails = "ott_details"
+        case isWatchlist = "is_watchlist"
         case createdAt = "created_at"
         case like, dislike
     }
 
-    init(user: User?, showType: ShowType?, showID: String?, title: String?, postersURL: String?, tmdbRating: Int?, ottDetails: OttDetails?, createdAt: String?, like: Bool?, dislike: Bool?) {
+    init(user: User?, showType: ShowType?, showID: String?, title: String?, postersURL: String?, tmdbRating: Int?, ottDetails: OttDetails?, createdAt: String?, isWatchlist: Bool?, like: Bool?, dislike: Bool?) {
         self.user = user
         self.showType = showType
         self.showID = showID
@@ -91,6 +93,7 @@ class SpacesFeedElement: Codable {
         self.postersURL = postersURL
         self.tmdbRating = tmdbRating
         self.ottDetails = ottDetails
+        self.isWatchlist = isWatchlist
         self.createdAt = createdAt
         self.like = like
         self.dislike = dislike

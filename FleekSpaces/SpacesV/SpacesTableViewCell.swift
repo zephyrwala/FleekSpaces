@@ -95,8 +95,15 @@ class SpacesTableViewCell: UITableViewCell {
         if let safename = fromData.user?.name {
             
             if let safeMovieName = fromData.title {
-                
-                self.userActivityLabels.text = "\(safename) liked \(safeMovieName)"
+                if fromData.isWatchlist == false {
+                    
+                    self.userActivityLabels.text = "\(safename) liked \(safeMovieName)"
+                } else {
+                    
+                    self.userActivityLabels.text = "\(safename) watchlisted \(safeMovieName)"
+                    
+                }
+               
             }
            
         }

@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewChatUsersVC" customModule="FleekSpaces" customModuleProvider="target">
             <connections>
+                <outlet property="chatLabels" destination="DDv-TM-cbk" id="fpQ-f0-EP2"/>
+                <outlet property="chatdialog" destination="YXN-3S-biw" id="ZQd-fN-Mp4"/>
                 <outlet property="testTable" destination="wVK-Ys-9sM" id="sMr-pQ-BTd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" sectionIndexMinimumDisplayRowCount="1" rowHeight="72" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wVK-Ys-9sM">
-                    <rect key="frame" x="0.0" y="97" width="375" height="681"/>
+                    <rect key="frame" x="0.0" y="137" width="375" height="641"/>
                     <color key="backgroundColor" name="TabBar"/>
                     <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="sectionIndexBackgroundColor" name="TabBar"/>
@@ -35,6 +37,12 @@
                     <color key="textColor" name="CoinMessageColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXN-3S-biw">
+                    <rect key="frame" x="21" y="99" width="333" height="38"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" name="Fleek_600"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="TabBar"/>
@@ -42,10 +50,14 @@
                 <constraint firstItem="wVK-Ys-9sM" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="0NS-2O-n3f"/>
                 <constraint firstItem="wVK-Ys-9sM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7k5-TF-dLc"/>
                 <constraint firstAttribute="trailing" secondItem="wVK-Ys-9sM" secondAttribute="trailing" id="8Ly-uD-6wC"/>
-                <constraint firstItem="wVK-Ys-9sM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="Lky-5S-fqH"/>
+                <constraint firstItem="YXN-3S-biw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="21" id="HNc-h0-l9D"/>
+                <constraint firstItem="wVK-Ys-9sM" firstAttribute="top" secondItem="YXN-3S-biw" secondAttribute="bottom" id="LeS-q5-AWN"/>
+                <constraint firstItem="wVK-Ys-9sM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="90" id="Lky-5S-fqH"/>
                 <constraint firstItem="DDv-TM-cbk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="21" id="WoR-eI-AG7"/>
                 <constraint firstItem="DDv-TM-cbk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="21" id="XlH-Hz-FXG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YXN-3S-biw" secondAttribute="trailing" constant="21" id="dfS-s1-ypd"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DDv-TM-cbk" secondAttribute="trailing" constant="21" id="fFa-MM-l1s"/>
+                <constraint firstItem="YXN-3S-biw" firstAttribute="top" secondItem="DDv-TM-cbk" secondAttribute="bottom" constant="1" id="s6L-0g-y7C"/>
             </constraints>
             <point key="canvasLocation" x="-26.399999999999999" y="20.689655172413794"/>
         </view>
@@ -53,6 +65,9 @@
     <resources>
         <namedColor name="CoinMessageColor">
             <color red="0.85900002717971802" green="0.91399997472763062" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Fleek_600">
+            <color red="0.0" green="0.67500001192092896" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TabBar">
             <color red="0.12200000137090683" green="0.12200000137090683" blue="0.12200000137090683" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

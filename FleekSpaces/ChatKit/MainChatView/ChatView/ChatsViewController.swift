@@ -90,21 +90,19 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         
 //        fetchMessages()
         
+        configureMessageInputBar()
+//        messageInputBar.inputTextView.becomeFirstResponder()
         let secondVC = RecommendChatViewController()
               secondVC.movieDelegate = self
         
-//        fireTest()
+        setupInputButton()
         setupUIStuff()
-      
-      
-//        messageInputBar.inputTextView.becomeFirstResponder()
-//        if let conversationId = conversationId {
-//            listenForMessages(id: conversationId, shouldScrollToBottom: true)
-//        }
+//        fireTest()
+       
      
-//        print("The transfered IDs are \()")
-        
-//        messagesCollectionView.backgroundColor = .lightGray
+      
+      
+
         
     }
     
@@ -114,28 +112,14 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let secondVC = RecommendChatViewController()
+        secondVC.movieDelegate = self
         fireTest()
         setupInputButton()
+        setupUIStuff()
       
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
-       
-                    
-        print("passed message \(thisMessage) and message id \(thisMessage?.id) ")
-      setupUIStuff()
-      
-//      fetchMessages()
-        print("Chat object \(ChatDataObject.chatMessagesAreHere)")
-       
 
-        
-        
-//        messages.append(Message(sender: selfSender, messageId: "1", sentDate: Date(), kind: .text("hellow world")))
-//
-//        messages.append(Message(sender: selfSender, messageId: "2", sentDate: Date(), kind: .text("This is going to be awesome and everyone loves the chat")))
-//
-//        messages.append(Message(sender: otherUser, messageId: "3", sentDate: Date(), kind: .text("This is cool guys, lets rock")))
-     
-        
      
        
     }

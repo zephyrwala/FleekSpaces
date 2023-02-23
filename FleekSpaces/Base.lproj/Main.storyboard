@@ -1011,7 +1011,7 @@
                     <tabBarItem key="tabBarItem" title="Spaces" image="popcorn" catalog="system" selectedImage="popcorn.fill" id="JKC-42-h8k"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="hY9-23-FjK">
-                        <rect key="frame" x="0.0" y="47" width="375" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="47" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
