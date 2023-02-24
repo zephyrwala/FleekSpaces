@@ -9,7 +9,21 @@ import UIKit
 import SDWebImage
 import JGProgressHUD
 
-class SpacesTableViewController: UITableViewController, PassLikesData {
+class SpacesTableViewController: UITableViewController, PassLikesData, FollowBtnTap {
+    func followBtnTap(sender: UIButton) {
+        let alert = UIAlertController(title: "Oops! 🥹", message: "I'm still working on this feature, please be patient.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { alerts in
+            
+           
+            self.navigationController?.popToRootViewController(animated: true)
+            
+//            self.dismiss(animated: true) {
+//                NotificationCenter.default.post(name: NSNotification.Name("startSwiftUI"), object: nil)
+//            }
+        }))
+        present(alert, animated: true)
+    }
+    
   
     func spacesLikeBtnTap(_ cell: SpacesTableViewCell) {
         cell.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
@@ -33,6 +47,7 @@ class SpacesTableViewController: UITableViewController, PassLikesData {
         
         
         let vc = LoadsViewController()
+        vc.loadmeText = "Spaces (alpha) is loading . . .                               This is an alpha build and work in progress, stay tuned for further updates"
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
         
@@ -105,6 +120,7 @@ class SpacesTableViewController: UITableViewController, PassLikesData {
         if let spacesData = FinalDataModel.spacesFeedElement?[indexPath.item] {
             
             cell.likeBtnDelegate = self
+            cell.followBtnDelegate = self
             cell.setupCell(fromData: spacesData )
             cell.selectionStyle = .none
             cell.selectedBackgroundView?.backgroundColor = .black

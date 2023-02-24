@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,6 +13,7 @@
             <connections>
                 <outlet property="postersCollectionView" destination="nDU-qk-wku" id="cSY-Jz-pd5"/>
                 <outlet property="segmentButtons" destination="j7J-sW-qt2" id="41P-pM-Mdi"/>
+                <outlet property="shareTitle" destination="OHc-xg-Apf" id="FFG-HQ-Qg7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -49,7 +51,7 @@
                                     <constraint firstAttribute="height" constant="300" id="i4p-87-oWy"/>
                                 </constraints>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j7J-sW-qt2">
+                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j7J-sW-qt2">
                                 <rect key="frame" x="75" y="50" width="243" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="MGY-db-tdT"/>
@@ -62,13 +64,34 @@
                                     <action selector="segmentTapped:" destination="-1" eventType="valueChanged" id="qLj-34-Rh0"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHc-xg-Apf">
+                                <rect key="frame" x="24" y="72" width="345" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watchlist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuB-eY-qor">
+                                <rect key="frame" x="24" y="30" width="345" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Qx7-wP-2RS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <color key="textColor" name="BtnGreenColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="j7J-sW-qt2" firstAttribute="top" secondItem="8Jl-tM-Fcw" secondAttribute="top" constant="50" id="AlH-O3-nBI"/>
+                            <constraint firstItem="OHc-xg-Apf" firstAttribute="top" secondItem="8Jl-tM-Fcw" secondAttribute="top" constant="72" id="DeY-xB-GU4"/>
                             <constraint firstAttribute="trailing" secondItem="j7J-sW-qt2" secondAttribute="trailing" constant="75" id="LK4-lk-K3Z"/>
                             <constraint firstItem="Uew-ZQ-Hjs" firstAttribute="top" secondItem="j7J-sW-qt2" secondAttribute="bottom" constant="12" id="P1a-UR-Pc1"/>
+                            <constraint firstItem="DuB-eY-qor" firstAttribute="top" secondItem="8Jl-tM-Fcw" secondAttribute="top" constant="30" id="QQr-QD-hcL"/>
                             <constraint firstItem="j7J-sW-qt2" firstAttribute="leading" secondItem="8Jl-tM-Fcw" secondAttribute="leading" constant="75" id="SEv-MJ-mQV"/>
+                            <constraint firstItem="DuB-eY-qor" firstAttribute="leading" secondItem="8Jl-tM-Fcw" secondAttribute="leading" constant="24" id="VbK-9n-cth"/>
+                            <constraint firstAttribute="trailing" secondItem="OHc-xg-Apf" secondAttribute="trailing" constant="24" id="aUc-SB-iqS"/>
                             <constraint firstItem="Uew-ZQ-Hjs" firstAttribute="leading" secondItem="8Jl-tM-Fcw" secondAttribute="leading" constant="10" id="kuc-EG-LAZ"/>
+                            <constraint firstItem="OHc-xg-Apf" firstAttribute="leading" secondItem="8Jl-tM-Fcw" secondAttribute="leading" constant="24" id="laB-zr-FI4"/>
+                            <constraint firstAttribute="trailing" secondItem="DuB-eY-qor" secondAttribute="trailing" constant="24" id="tTJ-vO-8e1"/>
                             <constraint firstAttribute="trailing" secondItem="Uew-ZQ-Hjs" secondAttribute="trailing" constant="10" id="xX1-uv-ker"/>
                         </constraints>
                     </view>
@@ -85,4 +108,9 @@
             <point key="canvasLocation" x="26.717557251908396" y="-1.4084507042253522"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="BtnGreenColor">
+            <color red="0.0" green="0.67500001192092896" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

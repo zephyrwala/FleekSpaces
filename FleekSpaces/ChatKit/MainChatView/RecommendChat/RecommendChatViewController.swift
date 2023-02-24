@@ -13,6 +13,7 @@ protocol PassMovieDelegate:AnyObject {
 
 class RecommendChatViewController: UIViewController {
 
+    @IBOutlet weak var shareTitle: UILabel!
     @IBOutlet weak var segmentButtons: UISegmentedControl!
     var selectedOption = 0
     var movieDelegate: PassMovieDelegate?
@@ -23,6 +24,7 @@ class RecommendChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        selectionLogin()
         setupCollectionView()
         fetchUserMovieData()
         fetchUserWatchlistData()
@@ -103,6 +105,17 @@ class RecommendChatViewController: UIViewController {
         }
     }
     
+    func selectionLogin() {
+        
+        if selectedOption == 0 {
+            
+            self.shareTitle.text = "Share from your Watchlist!"
+        } else {
+            
+            self.shareTitle.text = "Share from your Likes!"
+        }
+        
+    }
     
     //MARK: - Fetch watchlist
     

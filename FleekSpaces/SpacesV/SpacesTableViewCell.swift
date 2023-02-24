@@ -16,13 +16,19 @@ protocol PassLikesData: AnyObject {
     
 }
 
+protocol FollowBtnTap: AnyObject {
+    func followBtnTap(sender: UIButton)
+}
+
 
 class SpacesTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var followBtn: UIButton!
     @IBOutlet weak var datesTime: UILabel!
     @IBOutlet weak var likeAnim: LottieAnimationView!
     @IBOutlet weak var cardBG: UIView!
     var likeBtnDelegate: PassLikesData?
+    var followBtnDelegate: FollowBtnTap?
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var posterShadowCast: UIView!
     @IBOutlet weak var userActivityLabels: UILabel!
@@ -37,6 +43,7 @@ class SpacesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
         likeAnim.isHidden = true
         mainPoster.layer.cornerRadius = 9
         mainPoster.layer.cornerCurve = .continuous
@@ -59,6 +66,11 @@ class SpacesTableViewCell: UITableViewCell {
         
     }
 
+    @IBAction func followBtnTap(_ sender: UIButton) {
+        
+        followBtnDelegate?.followBtnTap(sender: sender)
+    }
+    
     @IBAction func likeBtnTapped(_ sender: UIButton) {
         
         likeBtnDelegate?.spacesLikeBtnTap(self)

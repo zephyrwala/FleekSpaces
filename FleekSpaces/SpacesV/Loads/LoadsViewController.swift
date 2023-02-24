@@ -10,11 +10,14 @@ import Lottie
 
 class LoadsViewController: UIViewController {
 
+    @IBOutlet weak var loadTexting: UILabel!
+    var loadmeText = ""
     @IBOutlet weak var loadLots: LottieAnimationView!
     override func viewDidLoad() {
         super.viewDidLoad()
         lottiePlay()
 
+        loadTexting.text = loadmeText
 //      dismissDelay()
         // Do any additional setup after loading the view.
     }

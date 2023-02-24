@@ -232,15 +232,18 @@ class Movies: Codable {
 
 // MARK: - FetchWatchList
 class WatchlistedData: Codable {
-    let watchlisted: Bool?
+    let id: Int?
+        let watchlisted: Bool?
 
-    enum CodingKeys: String, CodingKey {
-        case watchlisted = "Watchlisted"
-    }
+        enum CodingKeys: String, CodingKey {
+            case id
+            case watchlisted = "Watchlisted"
+        }
 
-    init(watchlisted: Bool?) {
-        self.watchlisted = watchlisted
-    }
+        init(id: Int?, watchlisted: Bool?) {
+            self.id = id
+            self.watchlisted = watchlisted
+        }
 }
 
 

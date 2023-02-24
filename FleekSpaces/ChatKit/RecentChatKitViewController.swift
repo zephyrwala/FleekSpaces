@@ -31,6 +31,11 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
 
       
+        let vc = LoadsViewController()
+        vc.loadmeText = "Spaces Chat 2.0 (beta) is loading. This is an overhaul from our previous chat. You can now send and receive your watchlist / liked movies. TV show sharing is in progress."
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: true)
+        
 //        RealTimeDatabaseManager.shared.test()
         
         if FirebaseManager.shared.auth.currentUser?.uid != nil {

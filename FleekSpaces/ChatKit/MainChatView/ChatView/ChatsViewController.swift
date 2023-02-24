@@ -16,6 +16,7 @@ import FirebaseFirestore
 
 
 
+
 class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate  {
    
     
@@ -53,7 +54,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     var chatMessages = [ChatMessage]()
     var firestoreListener: ListenerRegistration?
     
-   
+    
     
     //creating + computing the sender and returning the computed sender
 //    private var selfSender: Sender? {
@@ -132,9 +133,31 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         self.present(vc, animated: true)
     }
     
-    private func presentModal() {
+    private func presentWatchlist() {
         let detailViewController = RecommendChatViewController()
         detailViewController.movieDelegate = self
+        detailViewController.selectedOption = 0
+        let nav = UINavigationController(rootViewController: detailViewController)
+        // 1
+        nav.modalPresentationStyle = .pageSheet
+
+        
+        // 2
+        if let sheet = nav.sheetPresentationController {
+
+            // 3
+            sheet.detents = [.medium()]
+
+        }
+        // 4
+        present(nav, animated: true, completion: nil)
+
+    }
+    
+    private func presentLikeList() {
+        let detailViewController = RecommendChatViewController()
+        detailViewController.movieDelegate = self
+        detailViewController.selectedOption = 1
         let nav = UINavigationController(rootViewController: detailViewController)
         // 1
         nav.modalPresentationStyle = .pageSheet
@@ -153,6 +176,28 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     }
     
     
+    //MARK: - Input action sheet
+    private func presentInputActionSheet() {
+        let actionSheet = UIAlertController(title: "Options",
+                                            message: "What would you like to share?",
+                                            preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "📺 Watchlist", style: .default, handler: { [weak self] _ in
+            self?.presentWatchlist()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "👍🏼 Likes", style: .default, handler: { [weak self]  _ in
+            self?.presentLikeList()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "🎨 Customise", style: .default, handler: {  _ in
+
+        }))
+
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+        
+       
+        present(actionSheet, animated: true)
+    }
+    
     //MARK: - Setup input button
     private func setupInputButton() {
         let button = InputBarButtonItem()
@@ -164,7 +209,10 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
             
 //            self?.addSecondChild()
             
-            self?.presentModal()
+            //FIXME: - uncomment this if things go wrong
+//            self?.presentModal()
+            
+            self?.presentInputActionSheet()
             
             
             
@@ -173,29 +221,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         messageInputBar.setStackViewItems([button], forStack: .left, animated: false)
     }
     
-    //MARK: - Present input Action sheet
-    private func presentInputActionSheet() {
-        let actionSheet = UIAlertController(title: "Attach Media",
-                                            message: "What would you like to attach?",
-                                            preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Photo", style: .default, handler: { [weak self] _ in
-            self?.presentPhotoInputActionsheet()
-        }))
-        actionSheet.addAction(UIAlertAction(title: "Video", style: .default, handler: { [weak self]  _ in
-//            self?.presentVideoInputActionsheet()
-            self?.testPhoto()
-          
-        }))
-        actionSheet.addAction(UIAlertAction(title: "Audio", style: .default, handler: {  _ in
 
-        }))
-        actionSheet.addAction(UIAlertAction(title: "Location", style: .default, handler: { [weak self]  _ in
-//            self?.presentLocationPicker()
-        }))
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
-        present(actionSheet, animated: true)
-    }
     
     func testPhoto() {
         

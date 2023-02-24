@@ -138,30 +138,33 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zsZ-Ze-37D">
-                                                <rect key="frame" x="62" y="2" width="198" height="48"/>
+                                                <rect key="frame" x="62" y="2" width="190" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Mayur likes Kabhi khushi kabhi gam tere karam," textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAE-5H-GWr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="33.666666666666664"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="190" height="33.666666666666664"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3d" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f45-Fu-jtb">
-                                                        <rect key="frame" x="0.0" y="33.666666666666664" width="198" height="14.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="33.666666666666664" width="190" height="14.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="198" id="Zrs-Ku-xg8"/>
+                                                    <constraint firstAttribute="width" constant="190" id="Zrs-Ku-xg8"/>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFt-UP-SdH">
-                                                <rect key="frame" x="269" y="11.333333333333337" width="60" height="29.666666666666671"/>
+                                                <rect key="frame" x="261" y="11.333333333333337" width="68" height="29.666666666666671"/>
                                                 <color key="tintColor" name="Info_300"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="tinted" subtitle="follow"/>
+                                                <connections>
+                                                    <action selector="followBtnTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="x1Y-Yy-Vma"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -216,6 +219,7 @@
                 <outlet property="bgPosterImage" destination="nqL-6T-DRU" id="aJx-hz-cVD"/>
                 <outlet property="cardBG" destination="c8S-wn-feC" id="HAj-PA-kqg"/>
                 <outlet property="datesTime" destination="f45-Fu-jtb" id="SE1-Bf-x5h"/>
+                <outlet property="followBtn" destination="LFt-UP-SdH" id="hpc-WQ-Hqb"/>
                 <outlet property="likeAnim" destination="Nrr-7p-oqi" id="CjF-gi-bUM"/>
                 <outlet property="likeBtn" destination="0qd-0X-EHQ" id="Zm1-36-B5F"/>
                 <outlet property="mainPoster" destination="otL-lh-2uO" id="OTb-CK-oiB"/>

@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadsViewController" customModule="FleekSpaces" customModuleProvider="target">
             <connections>
                 <outlet property="loadLots" destination="AJv-na-4ol" id="Vch-Lw-UQx"/>
+                <outlet property="loadTexting" destination="BzX-5P-dU3" id="j3j-pN-KYm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,18 +27,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzX-5P-dU3">
-                                <rect key="frame" x="27" y="532" width="321" height="60"/>
+                                <rect key="frame" x="27" y="522" width="321" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="f2X-Iw-Ea7"/>
+                                    <constraint firstAttribute="height" constant="90" id="f2X-Iw-Ea7"/>
                                 </constraints>
-                                <string key="text">Spaces (beta) is loading . . .                               This is an alpha build and work in progress, stay tuned for further updates</string>
+                                <string key="text">Spaces (alpha) is loading . . .                               This is an alpha build and work in progress, stay tuned for further updates</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="BzX-5P-dU3" secondAttribute="bottom" constant="220" id="Avo-DV-dOd"/>
+                            <constraint firstAttribute="bottom" secondItem="BzX-5P-dU3" secondAttribute="bottom" constant="200" id="Avo-DV-dOd"/>
                             <constraint firstAttribute="trailing" secondItem="BzX-5P-dU3" secondAttribute="trailing" constant="27" id="XYK-PA-NN0"/>
                             <constraint firstItem="BzX-5P-dU3" firstAttribute="leading" secondItem="zmg-aI-SIk" secondAttribute="leading" constant="27" id="z4i-PB-UUX"/>
                         </constraints>
