@@ -13,6 +13,9 @@ protocol PassMovieDelegate:AnyObject {
 
 class RecommendChatViewController: UIViewController {
 
+    @IBOutlet weak var iconImage: UIImageView!
+    @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var watchLikeLabel: UISegmentedControl!
     @IBOutlet weak var shareTitle: UILabel!
     @IBOutlet weak var segmentButtons: UISegmentedControl!
     var selectedOption = 0
@@ -24,7 +27,7 @@ class RecommendChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        selectionLogin()
+//        selectionLogin()
         setupCollectionView()
         fetchUserMovieData()
         fetchUserWatchlistData()
@@ -91,6 +94,7 @@ class RecommendChatViewController: UIViewController {
                 DispatchQueue.main.async {
                     
 //                    self.likeBtn.setTitle("\(userData.count)", for: .normal)
+                    self.selectionLogin()
                     self.postersCollectionView.reloadData()
                 }
                 for users in userData {
@@ -109,10 +113,24 @@ class RecommendChatViewController: UIViewController {
         
         if selectedOption == 0 {
             
-            self.shareTitle.text = "Share from your Watchlist!"
+            self.shareTitle.text = "What would you like to share from you list? 🤔"
+            if let safeWatchCount = FinalDataModel.fetchWatchList?.count {
+                self.iconImage.image = UIImage(systemName: "video.badge.checkmark")
+                self.iconImage.tintColor = .systemOrange
+                self.mainLabel.textColor = .systemOrange
+                self.mainLabel.text = "Watchlist (\(safeWatchCount))"
+            }
+            
         } else {
             
-            self.shareTitle.text = "Share from your Likes!"
+            self.shareTitle.text = "What would you like to share from you list? 🤔"
+            if let safeLikeCount = FinalDataModel.userLikes?.count {
+                self.iconImage.image = UIImage(systemName: "hand.thumbsup")
+                self.iconImage.tintColor = .systemTeal
+                self.mainLabel.textColor = .systemTeal
+                self.mainLabel.text = "Likes (\(safeLikeCount))"
+            }
+           
         }
         
     }
@@ -142,7 +160,7 @@ class RecommendChatViewController: UIViewController {
                         
 //                    self.watchlistBtn.setTitle("\(userData.count)", for: .normal)
                     
-                    
+                    self.selectionLogin()
                     self.postersCollectionView.reloadData()
                 }
                 for users in userData {

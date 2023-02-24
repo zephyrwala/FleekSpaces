@@ -135,8 +135,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                     
                     if let fcmName = self.defaults.string(forKey: "userFCMtoken") {
                         print("User defaults fcm \(fcmName)")
-                        
+                       
                         self.saveFCM(fcmTokens: fcmName, emails: userName)
+                        self.defaults.set(userName, forKey: "userName")
+                       
                         print("username is \(userName)")
                        
                     }

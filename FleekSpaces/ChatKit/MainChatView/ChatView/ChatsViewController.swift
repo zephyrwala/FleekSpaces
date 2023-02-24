@@ -17,9 +17,20 @@ import FirebaseFirestore
 
 
 
-class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate  {
+class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate, UIColorPickerViewControllerDelegate  {
    
     
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        self.bubbleColor = viewController.selectedColor
+        
+        self.messagesCollectionView.reloadData()
+    }
+    
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        self.bubbleColor = viewController.selectedColor
+        
+        self.messagesCollectionView.reloadData()
+    }
     // date formatter returns date string
     public static let dateFormatter: DateFormatter = {
         
@@ -31,6 +42,9 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         
     }()
     //this is main message
+    var fcmTokenofUser = ""
+    var currentUser = ""
+    
     private var messages = [Message]()
     public let otherUserEmail: String
     private let conversationId: String?
@@ -40,6 +54,8 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     var newChatThisMessage: ChatUser?
     var thisMessage: RecentMessage?
     let secondChild = RecommendChatViewController()
+    var bubbleColor = UIColor.systemTeal
+    let picker = UIColorPickerViewController()
 //    var fetchedMef
     
     var swiftChat = ChatDataObject.chatMessagesAreHere
@@ -51,6 +67,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     private let otherUser = Sender(photoURL: "", senderId: "2", displayName: "Baba Blackshee")
    
     var myMessages = [MessageType]()
+    var chatUser: ChatUser?
     var chatMessages = [ChatMessage]()
     var firestoreListener: ListenerRegistration?
     
@@ -91,6 +108,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         
 //        fetchMessages()
         
+        
         configureMessageInputBar()
 //        messageInputBar.inputTextView.becomeFirstResponder()
         let secondVC = RecommendChatViewController()
@@ -114,12 +132,27 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let safeEmail = defaults.string(forKey: "otherUserEmail") {
+           
+            print("safe email is \(safeEmail)")
+        }
+        
+        print("current user is \(currentUser)")
+//        fetchFCM(userEmail: self.currentUser)
+        fetchCurrentUser()
+        picker.delegate = self
         let secondVC = RecommendChatViewController()
         secondVC.movieDelegate = self
         fireTest()
         setupInputButton()
         setupUIStuff()
       
+        let bgImage = UIImageView();
+            bgImage.image = UIImage(named: "spa_patt");
+        bgImage.contentMode = .scaleToFill
+
+
+        self.messagesCollectionView.backgroundView = bgImage
 
      
        
@@ -132,6 +165,35 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         
         self.present(vc, animated: true)
     }
+    
+    
+    
+    //MARK: - Picker Config
+    
+    func pickerControl() {
+        picker.selectedColor = self.bubbleColor
+       
+       
+        // 1
+        picker.title = "Choose Chat Bubble Color!"
+        picker.modalPresentationStyle = .pageSheet
+
+        
+        // 2
+        if let sheet = picker.sheetPresentationController {
+
+            // 3
+            sheet.detents = [.medium(), .large()]
+
+        }
+        // 4
+        self.present(picker, animated: true, completion: nil)
+
+//        self.present(picker, animated: true)
+    }
+    
+    
+    //MARK: - Watchlist
     
     private func presentWatchlist() {
         let detailViewController = RecommendChatViewController()
@@ -154,6 +216,8 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
 
     }
     
+    
+    //MARK: - Like List
     private func presentLikeList() {
         let detailViewController = RecommendChatViewController()
         detailViewController.movieDelegate = self
@@ -175,6 +239,39 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
 
     }
     
+    //MARK: - Fetch FCM for the other user
+    
+    func fetchFCM(userEmail: String) {
+        
+        let network = NetworkURL()
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/users/get_firebase_token?email=\(userEmail)") else {
+            print("Bad url https://api-space-dev.getfleek.app/users/get_firebase_token?email=\(userEmail)")
+            return}
+        
+                network.loginCalls(FCMToken.self, url: myUrl) { myResult, yourMessage in
+                    
+                    
+                    switch myResult {
+                        
+                    case .success(let fcm):
+                        print("Here is the token of this user \(fcm.fcmToken) and \(fcm)")
+                        guard let safeFCMtoken = fcm.fcmToken else {return}
+                       
+                        self.fcmTokenofUser = safeFCMtoken
+                        
+                        print("user fcm \(self.fcmTokenofUser)")
+                        
+                    case .failure(let err):
+                        print("Failure coz of fcm tok \(err)")
+                        
+                    }
+                    
+                    
+                    
+                }
+        
+    }
+    
     
     //MARK: - Input action sheet
     private func presentInputActionSheet() {
@@ -190,6 +287,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         }))
         actionSheet.addAction(UIAlertAction(title: "🎨 Customise", style: .default, handler: {  _ in
 
+            self.pickerControl()
         }))
 
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
@@ -484,6 +582,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     //MARK: - Setup view did load stuff
     func setupUIStuff() {
         
+        print("current user \(currentUser)")
         scrollsToLastItemOnKeyboardBeginsEditing = true // default false
                 maintainPositionOnKeyboardFrameChanged = true // default false
                 showMessageTimestampOnSwipeLeft = true // default false
@@ -574,8 +673,9 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     }
     
     
+    //MARK: - Chat Bubble Color
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ? UIColor.systemCyan : UIColor.darkGray
+        return isFromCurrentSender(message: message) ? self.bubbleColor : UIColor.darkGray
         }
 
     func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
@@ -591,11 +691,16 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         
         
         
+        let sender = PushNotificationSender()
         
-        
-        
+        sender.sendPushNotification(to: self.fcmTokenofUser, title: "Test 💬" , body: text)
         
         self.handleSend(sendThisText: text)
+       
+//        guard let safeUserName = vm.chatUser?.email.components(separatedBy: "@").first else {return}
+       
+        print("user token is \(fcmTokenofUser)")
+        
         
         inputBar.inputTextView.text = ""
         
@@ -1021,6 +1126,51 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             
         }
     
+    }
+    
+    
+    //MARK: - Fetch Current user
+    func fetchCurrentUser() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
+            self.displayUIAlert(yourMessage: "You need to login to access your profile!")
+            print("COuld not find firebase uid")
+            return
+        }
+        
+        FirebaseManager.shared.firestore.collection("users").document(uid).getDocument { snapshot, error in
+            if let error = error {
+                self.displayUIAlert(yourMessage: "Failed to fetch current user: \(error)")
+                
+                print("Failed to fetch current user:", error)
+                return
+            }
+            
+            self.chatUser = try? snapshot?.data(as: ChatUser.self)
+            print("chat user data is \(self.chatUser)")
+            FirebaseManager.shared.currentUser = self.chatUser
+            print("chat user singleton data is \(self.chatUser)")
+            
+            guard let imageURL = self.chatUser?.profileImageUrl else {return}
+            let userName = self.chatUser?.email.components(separatedBy: "@").first ?? "loading..."
+            
+//            self.defaults.set(userName, forKey: "userName")
+//            if let fcmName = self.defaults.string(forKey: "userFCMtoken") {
+//                print("User defaults fcm \(fcmName)")
+//
+////                self.saveFCM(fcmTokens: fcmName, emails: userName)
+//                print("profileview username is \(userName)")
+//
+//            }
+            
+            guard let safeEmail = self.chatUser?.email else {return}
+            DispatchQueue.main.async {
+                
+                self.fetchFCM(userEmail: safeEmail)
+                self.currentUser = userName
+//                self.profileImage.sd_setImage(with: URL(string: imageURL))
+//                self.myProfileBg.sd_setImage(with: URL(string: imageURL))
+            }
+        }
     }
     
 

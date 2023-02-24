@@ -144,11 +144,13 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
         let vc = ChatViewController(with: email, id: uid)
         //FIXME: - Pass the model
         vc.newChatThisMessage = self.chatUser
+        vc.currentUser = email
 //        vc.thisMessage = self.chatUser
         
         //FIXME: - Id is nil over here???
 //        controllers.modalPresentationStyle = .fullScreen
         vc.isNewConversation = true
+        
         vc.title = email.components(separatedBy: "@").first
         navigationController?.pushViewController(vc, animated: true)
         

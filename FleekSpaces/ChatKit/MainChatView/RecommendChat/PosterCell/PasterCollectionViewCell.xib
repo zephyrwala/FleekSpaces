@@ -11,24 +11,24 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pasters" id="gTV-IL-0wX" customClass="PasterCollectionViewCell" customModule="FleekSpaces" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="184" height="280"/>
+            <rect key="frame" x="0.0" y="0.0" width="184" height="300"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="184" height="280"/>
+                <rect key="frame" x="0.0" y="0.0" width="184" height="300"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XtY-rd-rwH">
-                        <rect key="frame" x="0.0" y="0.0" width="184" height="280"/>
+                        <rect key="frame" x="0.0" y="0.0" width="184" height="300"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UR8-ax-Tlb">
-                                <rect key="frame" x="9" y="9" width="166" height="262"/>
+                                <rect key="frame" x="9" y="9" width="166" height="282"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="166" id="oaC-Ik-8XJ"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="280" id="26o-iM-YrP"/>
+                            <constraint firstAttribute="height" constant="300" id="26o-iM-YrP"/>
                             <constraint firstAttribute="trailing" secondItem="UR8-ax-Tlb" secondAttribute="trailing" constant="9" id="Fab-Nz-tDy"/>
                             <constraint firstAttribute="bottom" secondItem="UR8-ax-Tlb" secondAttribute="bottom" constant="9" id="Gct-cH-Eqh"/>
                             <constraint firstItem="UR8-ax-Tlb" firstAttribute="top" secondItem="XtY-rd-rwH" secondAttribute="top" constant="9" id="kGI-BU-G4E"/>
@@ -44,11 +44,11 @@
                 <constraint firstItem="XtY-rd-rwH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="CiJ-eO-UPm"/>
                 <constraint firstAttribute="trailing" secondItem="XtY-rd-rwH" secondAttribute="trailing" id="eOJ-2z-oOe"/>
             </constraints>
-            <size key="customSize" width="184" height="280"/>
+            <size key="customSize" width="184" height="300"/>
             <connections>
                 <outlet property="posterImage" destination="UR8-ax-Tlb" id="26f-3X-18X"/>
             </connections>
-            <point key="canvasLocation" x="129.7709923664122" y="31.690140845070424"/>
+            <point key="canvasLocation" x="129.7709923664122" y="38.732394366197184"/>
         </collectionViewCell>
     </objects>
 </document>
