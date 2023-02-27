@@ -95,6 +95,16 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     @IBOutlet weak var userNameLabel: UILabel!
     let defaults = UserDefaults.standard
     var names = "My Name"
+    
+    let yourImage = UIImage(named: "your-image")
+
+    override func viewDidLayoutSubviews() { // add to any vc
+        super.viewDidLayoutSubviews()
+
+        if let safeImage = UIImage(named: "bene"){
+        }
+       
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         checkSignIn()
@@ -276,6 +286,9 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
                 
                 self.userNameLabel.text = userName
                 self.profileImage.sd_setImage(with: URL(string: imageURL))
+           
+//                self.tabBarController?.addSubviewToLastTabItem(imageURL)
+
                 self.myProfileBg.sd_setImage(with: URL(string: imageURL))
             }
         }

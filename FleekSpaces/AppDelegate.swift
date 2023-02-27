@@ -61,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatViewController.self)
         IQKeyboardManager.shared.disabledTouchResignedClasses.append(ChatViewController.self)
         IQKeyboardManager.shared.disabledToolbarClasses.append(ChatViewController.self)
+        
         // Override point for customization after application launch.
         return true
     }

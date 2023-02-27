@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+
 import Firebase
 import SDWebImageSwiftUI
 import FirebaseFirestoreSwift
@@ -369,6 +370,7 @@ struct ChatLogView: View {
         .onAppear{
             
             guard let safeEmail = vm.chatUser?.email else {return}
+            print("SAFEEMAIL \(safeEmail)")
             vm.fetchFCM(userEmail: "\(safeEmail)")
             print("EMAILA \(safeEmail)")
             

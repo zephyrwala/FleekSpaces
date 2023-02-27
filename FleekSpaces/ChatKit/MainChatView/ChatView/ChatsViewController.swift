@@ -44,6 +44,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     //this is main message
     var fcmTokenofUser = ""
     var currentUser = ""
+    let sender = PushNotificationSender()
     
     private var messages = [Message]()
     public let otherUserEmail: String
@@ -132,14 +133,11 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let safeEmail = defaults.string(forKey: "otherUserEmail") {
-           
-            print("safe email is \(safeEmail)")
-        }
+       
         
         print("current user is \(currentUser)")
 //        fetchFCM(userEmail: self.currentUser)
-        fetchCurrentUser()
+        fetchFCM(userEmail: otherUserEmail)
         picker.delegate = self
         let secondVC = RecommendChatViewController()
         secondVC.movieDelegate = self
@@ -152,6 +150,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         bgImage.contentMode = .scaleToFill
 
 
+        setupProfileImage()
         self.messagesCollectionView.backgroundView = bgImage
 
      
@@ -159,6 +158,69 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     }
     
     
+    //MARK: - Setup Profile Image
+    func setupProfileImage() {
+        
+        //create a new button
+               let button = UIButton(type: .custom)
+               //set image for button
+       
+        let profileImage = UIImage(named: "a1")
+       
+        let avatarImage = UIImageView()
+                avatarImage.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
+        avatarImage.layer.cornerRadius = 10
+        
+        avatarImage.makeItGolGol()
+        
+        avatarImage.contentMode = .scaleAspectFill
+        avatarImage.clipsToBounds = true
+        if let photoUrl =  thisMessage?.profileImageUrl {
+            if let safeURL = URL(string: photoUrl) {
+            print("safe photo url \(safeURL)")
+            avatarImage.sd_setImage(with: safeURL, placeholderImage: UIImage(named: "a1"), options: [.refreshCached, .retryFailed]) { (image, error, type, url) in
+                if let image = image {
+                   
+                    button.setImage(image, for: .normal)
+                }
+            }
+        }
+        }
+      
+        
+//        button.imageView?.layer.cornerRadius = 20
+//        button.setImage(profileImage, for: .normal)
+      
+        button.imageView?.contentMode = .scaleAspectFill
+            button.imageView?.layer.cornerRadius = 9
+        button.imageView?.layer.borderWidth = 1.5
+        button.imageView?.layer.borderColor = UIColor.black.cgColor
+        button.widthAnchor.constraint(equalToConstant: 36).isActive = true
+        
+        button.heightAnchor.constraint(equalToConstant: 36).isActive = true
+//        button.translatesAutoresizingMaskIntoConstraints = false
+               //add function for button
+               button.addTarget(self, action: #selector(fbButtonPressed), for: .touchUpInside)
+               //set frame
+               button.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
+
+               let barButton = UIBarButtonItem(customView: button)
+               //assign button to navigationbar
+               self.navigationItem.rightBarButtonItem = barButton
+        
+    }
+    
+    //This method will call when you press profile button.
+        @objc func fbButtonPressed() {
+
+            print("Share to fb")
+            let vc = ChatDetailProfileViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+    
+    
+    //MARK: - Recommend pop up
     func addSecondChild() {
         
         let vc = RecommendChatViewController()
@@ -690,10 +752,12 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         
         
-        
-        let sender = PushNotificationSender()
-        
-        sender.sendPushNotification(to: self.fcmTokenofUser, title: "Test 💬" , body: text)
+        print("chat user \(chatUser?.email)")
+       
+        if let safeName = defaults.string(forKey: "userName")?.components(separatedBy: "@").first {
+            sender.sendPushNotification(to: self.fcmTokenofUser, title: "\(safeName) 💬" , body: text)
+        }
+      
         
         self.handleSend(sendThisText: text)
        
@@ -947,7 +1011,9 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     //MARK: - configure input bar
     func configureMessageInputBar() {
         messageInputBar.delegate = self
+        messageInputBar.backgroundView.backgroundColor = UIColor(named: "Neutral_800")?.withAlphaComponent(0)
         messageInputBar.inputTextView.tintColor = .systemTeal
+        messageInputBar.backgroundView.alpha = 0.1
         messageInputBar.sendButton.setTitleColor(.systemTeal, for: .normal)
         messageInputBar.sendButton.setTitleColor(
             UIColor.systemTeal.withAlphaComponent(0.3),
@@ -1129,52 +1195,9 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
     }
     
     
-    //MARK: - Fetch Current user
-    func fetchCurrentUser() {
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
-            self.displayUIAlert(yourMessage: "You need to login to access your profile!")
-            print("COuld not find firebase uid")
-            return
-        }
-        
-        FirebaseManager.shared.firestore.collection("users").document(uid).getDocument { snapshot, error in
-            if let error = error {
-                self.displayUIAlert(yourMessage: "Failed to fetch current user: \(error)")
-                
-                print("Failed to fetch current user:", error)
-                return
-            }
-            
-            self.chatUser = try? snapshot?.data(as: ChatUser.self)
-            print("chat user data is \(self.chatUser)")
-            FirebaseManager.shared.currentUser = self.chatUser
-            print("chat user singleton data is \(self.chatUser)")
-            
-            guard let imageURL = self.chatUser?.profileImageUrl else {return}
-            let userName = self.chatUser?.email.components(separatedBy: "@").first ?? "loading..."
-            
-//            self.defaults.set(userName, forKey: "userName")
-//            if let fcmName = self.defaults.string(forKey: "userFCMtoken") {
-//                print("User defaults fcm \(fcmName)")
-//
-////                self.saveFCM(fcmTokens: fcmName, emails: userName)
-//                print("profileview username is \(userName)")
-//
-//            }
-            
-            guard let safeEmail = self.chatUser?.email else {return}
-            DispatchQueue.main.async {
-                
-                self.fetchFCM(userEmail: safeEmail)
-                self.currentUser = userName
-//                self.profileImage.sd_setImage(with: URL(string: imageURL))
-//                self.myProfileBg.sd_setImage(with: URL(string: imageURL))
-            }
-        }
-    }
-    
 
-   
+
+//MARK: - Present mopop
     private func presentMoPop() {
         let detailViewController = MoPopUpViewController()
 //        detailViewController.movieDelegate = self

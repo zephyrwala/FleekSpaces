@@ -15,6 +15,7 @@ class MainTabBarViewController: UITabBarController {
 
 //        setTabBarProfile()
         // Do any additional setup after loading the view.
+       
     }
     
     
@@ -22,7 +23,10 @@ class MainTabBarViewController: UITabBarController {
         
         
              let myTabBarItem3 = (self.tabBar.items?[2])! as UITabBarItem
-        myTabBarItem3.image = UIImage(named: "bene")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        let tabImage = UIImage(named: "bene")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        
+        
+        myTabBarItem3.image = tabImage
              myTabBarItem3.selectedImage = UIImage(named: "bene")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
              myTabBarItem3.title = "Profile"
              myTabBarItem3.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
@@ -38,4 +42,27 @@ class MainTabBarViewController: UITabBarController {
     }
     */
 
+}
+
+
+
+extension UITabBarController {
+    
+    func addSubviewToLastTabItem(_ imageName: String) {
+        if let lastTabBarButton = self.tabBar.subviews.last, let tabItemImageView = lastTabBarButton.subviews.first {
+            if let accountTabBarItem = self.tabBar.items?.last {
+                accountTabBarItem.selectedImage = nil
+                accountTabBarItem.image = nil
+            }
+            let imgView = UIImageView()
+            imgView.frame = tabItemImageView.frame
+            imgView.layer.cornerRadius = tabItemImageView.frame.height/2
+            imgView.layer.masksToBounds = true
+            imgView.contentMode = .scaleAspectFill
+            imgView.clipsToBounds = true
+//            imgView.image = UIImage(named: imageName)
+            imgView.sd_setImage(with: URL(string: imageName))
+            self.tabBar.subviews.last?.addSubview(imgView)
+        }
+    }
 }

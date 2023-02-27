@@ -79,7 +79,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         setupBtn()
         setupCollectionView()
         setupSubsCollectionView()
-        
+        print("Access token: \(UserDefaults.standard.string(forKey: "userToken"))")
        
        
         
@@ -147,6 +147,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                     
                 }
             
+            DispatchQueue.main.async {
+                self.tabBarController?.addSubviewToLastTabItem(imageURL)
+            }
             
             
             

@@ -94,8 +94,8 @@
             filePath = "FleekSpaces/Profile/ProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
             landmarkName = "fetchCurrentUser()"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +110,8 @@
             filePath = "FleekSpaces/Profile/ProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
             landmarkName = "fetchCurrentUser()"
             landmarkType = "7">
          </BreakpointContent>
@@ -989,8 +989,8 @@
             filePath = "FleekSpaces/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "messaging(_:didReceiveRegistrationToken:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1005,8 +1005,8 @@
             filePath = "FleekSpaces/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "messaging(_:didReceiveRegistrationToken:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1293,8 +1293,8 @@
             filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "772"
-            endingLineNumber = "772"
+            startingLineNumber = "836"
+            endingLineNumber = "836"
             landmarkName = "handleSend(sendThisText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1309,8 +1309,8 @@
             filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "763"
-            endingLineNumber = "763"
+            startingLineNumber = "827"
+            endingLineNumber = "827"
             landmarkName = "handleSend(sendThisText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1325,8 +1325,8 @@
             filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "788"
-            endingLineNumber = "788"
+            startingLineNumber = "852"
+            endingLineNumber = "852"
             landmarkName = "handleSend(sendThisText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1341,8 +1341,8 @@
             filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "815"
-            endingLineNumber = "815"
+            startingLineNumber = "879"
+            endingLineNumber = "879"
             landmarkName = "persistRecentMessage(persistThis:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1357,8 +1357,8 @@
             filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "832"
-            endingLineNumber = "832"
+            startingLineNumber = "896"
+            endingLineNumber = "896"
             landmarkName = "persistRecentMessage(persistThis:)"
             landmarkType = "7">
             <Locations>
@@ -1405,8 +1405,8 @@
             filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "850"
-            endingLineNumber = "850"
+            startingLineNumber = "914"
+            endingLineNumber = "914"
             landmarkName = "persistRecentMessage(persistThis:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1421,8 +1421,8 @@
             filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "810"
-            endingLineNumber = "810"
+            startingLineNumber = "874"
+            endingLineNumber = "874"
             landmarkName = "persistRecentMessage(persistThis:)"
             landmarkType = "7">
             <Locations>
@@ -1581,8 +1581,8 @@
             filePath = "FleekSpaces/ChatKit/RecentChatKitViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "createnewConversation(result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1597,8 +1597,8 @@
             filePath = "FleekSpaces/ChatKit/RecentChatKitViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "createnewConversation(result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1613,8 +1613,8 @@
             filePath = "FleekSpaces/ChatKit/RecentChatKitViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "createnewConversation(result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1629,8 +1629,8 @@
             filePath = "FleekSpaces/ChatKit/RecentChatKitViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "createnewConversation(result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1645,8 +1645,8 @@
             filePath = "FleekSpaces/ChatKit/RecentChatKitViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "createnewConversation(result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1693,8 +1693,8 @@
             filePath = "FleekSpaces/ChatKit/RecentChatKitViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "createnewConversation(result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1709,8 +1709,8 @@
             filePath = "FleekSpaces/ChatKit/RecentChatKitViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "createnewConversation(result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1725,8 +1725,8 @@
             filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "407"
-            endingLineNumber = "407"
+            startingLineNumber = "469"
+            endingLineNumber = "469"
             landmarkName = "fireTest()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1741,8 +1741,8 @@
             filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "403"
-            endingLineNumber = "403"
+            startingLineNumber = "465"
+            endingLineNumber = "465"
             landmarkName = "fireTest()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1757,8 +1757,8 @@
             filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "401"
-            endingLineNumber = "401"
+            startingLineNumber = "463"
+            endingLineNumber = "463"
             landmarkName = "fireTest()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1773,8 +1773,8 @@
             filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "398"
-            endingLineNumber = "398"
+            startingLineNumber = "460"
+            endingLineNumber = "460"
             landmarkName = "fireTest()"
             landmarkType = "7">
             <Locations>
@@ -1821,73 +1821,9 @@
             filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A1EF246D-7AC8-4C92-9037-AF58843DE3B9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A1EF246D-7AC8-4C92-9037-AF58843DE3B9 - c165a03dab43b30a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FleekSpaces.ChatViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "FleekSpaces"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "134"
-                  endingLineNumber = "134"
-                  offsetFromSymbolStart = "168">
-               </Location>
-               <Location
-                  uuid = "A1EF246D-7AC8-4C92-9037-AF58843DE3B9 - c165a03dab43b30a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FleekSpaces.ChatViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "FleekSpaces"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "134"
-                  endingLineNumber = "134"
-                  offsetFromSymbolStart = "324">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "532B84E1-9E79-4166-A3C1-53C3F5F178B3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

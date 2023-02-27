@@ -8,11 +8,13 @@
 import UIKit
 import Firebase
 import FirebaseFirestoreSwift
+import SwiftUI
 
 class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
     
 
 
+    @IBOutlet weak var chaBotBtn: UIBarButtonItem!
     private var dbUsers = [[String: String]]()
     @IBOutlet weak var newChatButton: UIButton!
     var recentMessages = [RecentMessage]()
@@ -68,6 +70,11 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
     
     
     
+    @IBAction func chaBotBtnTap(_ sender: Any) {
+        let hostingController = UIHostingController(rootView: ChaBotsView())
+        hostingController.title = "Spaces Bot 🤖"
+        navigationController?.pushViewController(hostingController, animated: true)
+    }
     
     
     func handleSignOut() {
