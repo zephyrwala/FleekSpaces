@@ -38,6 +38,7 @@ class SpacesTableViewController: UITableViewController, PassLikesData, FollowBtn
     }
     
 
+    var users = [ChatUser]()
     var prog = JGProgressHUD(style: .dark)
     var feedData: [SpacesFeedElement]?
     override func viewDidLoad() {
@@ -97,6 +98,13 @@ class SpacesTableViewController: UITableViewController, PassLikesData, FollowBtn
                     }
                   
   
+                    for eachMovie in movieData {
+                        
+                        for eachAllusers in users {
+                            
+                           
+                        }
+                    }
                  
                     
                 case .failure(let err):
@@ -109,6 +117,41 @@ class SpacesTableViewController: UITableViewController, PassLikesData, FollowBtn
             
         }
         
+        
+    }
+    
+    
+    
+    //    MARK: - users fetch firestore
+    private func fetchAllUsers() {
+        
+        FirebaseManager.shared.firestore.collection("users")
+            .getDocuments { documentsSnapshot, error in
+                
+                if let error = error {
+                    
+//                    self.errorMessage = "Failed to fetch users: \(error)"
+                    print("Failed to fetch users: \(error)")
+                    return
+                }
+                
+//                self.errorMessage = "Fetched users succesfully"
+                
+                
+                documentsSnapshot?.documents.forEach({ snapshot in
+                    let user = try? snapshot.data(as: ChatUser.self)
+                    if user?.uid != FirebaseManager.shared.auth.currentUser?.uid {
+                        self.users.append(user!)
+                        DispatchQueue.main.async {
+//                            self.testTable.reloadData()
+                          
+                            //                            self.spinny.dismiss(animated: true)
+                        }
+                        
+                    }
+                    
+                })
+            }
         
     }
     
