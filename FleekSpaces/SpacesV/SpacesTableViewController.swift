@@ -100,10 +100,7 @@ class SpacesTableViewController: UITableViewController, PassLikesData, FollowBtn
   
                     for eachMovie in movieData {
                         
-                        for eachAllusers in users {
-                            
-                           
-                        }
+                       print("testing user relate")
                     }
                  
                     
