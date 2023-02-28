@@ -514,7 +514,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
                          }
                     } else {
                         guard let safeURL = URL(string: eachChatMessage.posterURL) else {return}
-                        let newMes = Message(sender: self.selfSender, messageId: eachChatMessage.documentId, sentDate: eachChatMessage.timestamps, kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300))), showID: eachChatMessage.showId)
+                        let newMes = Message(sender: self.selfSender, messageId: eachChatMessage.documentId, sentDate: eachChatMessage.timestamps, kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300))), showID: eachChatMessage.showId, showType: eachChatMessage.showType)
                         
                      
                         
@@ -551,7 +551,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
                         
                         guard let safeURL = URL(string: eachChatMessage.posterURL) else {return}
                         
-                        let otherMes = Message(sender: self.otherUser, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300), showID: eachChatMessage.showId)))
+                        let otherMes = Message(sender: self.otherUser, messageId: eachChatMessage.documentId, sentDate: Date(), kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300), showID: eachChatMessage.showId, showType: eachChatMessage.showType)))
                         
                         if self.messages.contains(where: { $0.messageId == eachChatMessage.documentId }) {
                            
@@ -1075,7 +1075,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         print("dismiss not here")
         let message = messages[indexPath.section]
         print(messages[indexPath.section].sender.displayName)
-        print(messages[indexPath.section].showID)
+        print("Show id \(messages[indexPath.section].showID)")
 
         if message.sender.senderId == "1" {
             
@@ -1083,11 +1083,12 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             case .photo(let media):
                 
                 print("this comes \(media.showID)")
+                print("this also comes \(media.showType)")
                 guard let imageUrl = media.url else {
                     print("dismiss in here")
                     return
                 }
-                print("dismiss iver here")
+                print("dismiss over here - sender 1 loop")
                 
                 //FIXME: - Uncomment this once done
     //            let vc = MovieDetailViewController()
@@ -1095,28 +1096,64 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 //TODO: - Pass the show ID BELOW!!!
               
                     guard let safeIndexID = messages[indexPath.section].showID else {return}
-                      let detailViewController = MoPopUpViewController()
-                      detailViewController.movieId = safeIndexID
-                    detailViewController.fetchMovieDetails(movieID: safeIndexID)
-    //                vc.movieId = movieIDS
-
-                print("safe in")
-              //        detailViewController.movieDelegate = self
-                      let nav = UINavigationController(rootViewController: detailViewController)
-                      // 1
-                      nav.modalPresentationStyle = .pageSheet
-
-                      
-                      // 2
-                      if let sheet = nav.sheetPresentationController {
-
-                          // 3
-                          sheet.detents = [.medium()]
-
-                      }
-                      // 4
-                      present(nav, animated: true, completion: nil)
+                print("showtype is \(messages[indexPath.section].showType)")
+                guard let showType = messages[indexPath.section].showType else {return}
+                
+                if showType == "movie" {
                     
+                    print("THis is taped \(safeIndexID) and show type \(showType)")
+                    let detailViewController = MoPopUpViewController()
+                    detailViewController.movieId = safeIndexID
+                  detailViewController.fetchMovieDetails(movieID: safeIndexID)
+  //                vc.movieId = movieIDS
+
+              print("safe in")
+            //        detailViewController.movieDelegate = self
+                    let nav = UINavigationController(rootViewController: detailViewController)
+                    // 1
+                    nav.modalPresentationStyle = .pageSheet
+
+                    
+                    // 2
+                    if let sheet = nav.sheetPresentationController {
+
+                        // 3
+                        sheet.detents = [.medium()]
+
+                    }
+                    // 4
+                    present(nav, animated: true, completion: nil)
+                    
+                } else {
+                    
+                    
+                    let detailViewController = MoPopUpViewController()
+                    detailViewController.movieId = safeIndexID
+                  detailViewController.fetchTVDetails(movieID: safeIndexID)
+                    
+                  
+  //                vc.movieId = movieIDS
+
+              print("safe in")
+            //        detailViewController.movieDelegate = self
+                    let nav = UINavigationController(rootViewController: detailViewController)
+                    // 1
+                    nav.modalPresentationStyle = .pageSheet
+
+                    
+                    // 2
+                    if let sheet = nav.sheetPresentationController {
+
+                        // 3
+                        sheet.detents = [.medium()]
+
+                    }
+                    // 4
+                    present(nav, animated: true, completion: nil)
+                  
+                    
+                }
+                     
     ////                vc.fetchMovieDetailswithTMDBid(tmdbID: movieIDS)
                 
                 
@@ -1140,6 +1177,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 
                 print("Other user tapped \(message.showID)")
                 print("this comes \(media.showID)")
+                print("This comes is other user \(media.showType)")
                 guard let imageUrl = media.url else {
                     print("dismiss in here")
                     return
@@ -1151,29 +1189,64 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 
                 guard let safeMediaShowID = media.showID else {return}
                 //TODO: - Pass the show ID BELOW!!!
+               
+                guard let safeShowType = media.showType else {return}
               
                 print("Safe media show id \(safeMediaShowID)")
 //                    guard let safeIndexID = messages[indexPath.section].showID else {return}
-                      let detailViewController = MoPopUpViewController()
-                      detailViewController.movieId = safeMediaShowID
-                    detailViewController.fetchMovieDetails(movieID: safeMediaShowID)
-    //                vc.movieId = movieIDS
+                
+                if media.showType == "movie" {
+                    
+                    let detailViewController = MoPopUpViewController()
+                    detailViewController.movieId = safeMediaShowID
+                  detailViewController.fetchMovieDetails(movieID: safeMediaShowID)
+  //                vc.movieId = movieIDS
 
-              //        detailViewController.movieDelegate = self
-                      let nav = UINavigationController(rootViewController: detailViewController)
-                      // 1
-                      nav.modalPresentationStyle = .pageSheet
+            //        detailViewController.movieDelegate = self
+                    let nav = UINavigationController(rootViewController: detailViewController)
+                    // 1
+                    nav.modalPresentationStyle = .pageSheet
 
-                      
-                      // 2
-                      if let sheet = nav.sheetPresentationController {
+                    
+                    // 2
+                    if let sheet = nav.sheetPresentationController {
 
-                          // 3
-                          sheet.detents = [.medium()]
+                        // 3
+                        sheet.detents = [.medium()]
 
-                      }
-                      // 4
-                      present(nav, animated: true, completion: nil)
+                    }
+                    // 4
+                    present(nav, animated: true, completion: nil)
+                    
+                    
+                    
+                } else {
+                    
+                    
+                    let detailViewController = MoPopUpViewController()
+//                    detailViewController.showType = media.showType
+                    detailViewController.movieId = safeMediaShowID
+                  detailViewController.fetchTVDetails(movieID: safeMediaShowID)
+  //                vc.movieId = movieIDS
+
+            //        detailViewController.movieDelegate = self
+                    let nav = UINavigationController(rootViewController: detailViewController)
+                    // 1
+                    nav.modalPresentationStyle = .pageSheet
+
+                    
+                    // 2
+                    if let sheet = nav.sheetPresentationController {
+
+                        // 3
+                        sheet.detents = [.medium()]
+
+                    }
+                    // 4
+                    present(nav, animated: true, completion: nil)
+                    
+                }
+                 
                     
     ////                vc.fetchMovieDetailswithTMDBid(tmdbID: movieIDS)
                 
@@ -1264,6 +1337,7 @@ struct Media: MediaItem {
     var placeholderImage: UIImage
     var size: CGSize
     var showID: String?
+    var showType: String?
 }
 
 
@@ -1276,6 +1350,7 @@ struct Message: MessageType {
    public var sentDate: Date
    public var kind: MessageKind
     public var showID: String?
+    public var showType: String?
 }
 
 
@@ -1334,7 +1409,7 @@ extension ChatViewController: PassMovieDelegate {
     
     
   
-    func cellTapped(posterString: String, showID: String) {
+    func cellTapped(posterString: String, showID: String, showType: String) {
         
 //                self.messages.append(Message(sender: self.selfSender, messageId: "1", sentDate: Date(), kind: .photo(Media(placeholderImage: UIImage(named: "a2")!, size: CGSize(width: 200, height: 200)))))
 ////
@@ -1352,12 +1427,12 @@ extension ChatViewController: PassMovieDelegate {
                     print("test photo 3")
                 }
         
-        handlePhotoSend(posterURL: posterString, showID: showID)
+        handlePhotoSend(posterURL: posterString, showID: showID, showType: showType)
         
         //need a function to save this
     }
     
-    func handlePhotoSend(posterURL: String, showID: String) {
+    func handlePhotoSend(posterURL: String, showID: String, showType: String) {
         
         
         
@@ -1370,7 +1445,7 @@ extension ChatViewController: PassMovieDelegate {
         
         let messageData = [
             FirebaseConstants.fromId: fromId, FirebaseConstants.toId: toId, FirebaseConstants.text: "Check this out", "posterURL":posterURL,
-            "timeStamp": Timestamp(), "showID": showID] as [String : Any]
+            "timeStamp": Timestamp(), "showID": showID, "showType": showType] as [String : Any]
         
         document.setData(messageData) { error in
             if let error = error {

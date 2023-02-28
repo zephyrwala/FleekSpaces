@@ -41,5 +41,7 @@ public protocol MediaItem {
     var size: CGSize { get }
     
     var showID: String? { get }
+    
+    var showType: String? { get }
 
 }
