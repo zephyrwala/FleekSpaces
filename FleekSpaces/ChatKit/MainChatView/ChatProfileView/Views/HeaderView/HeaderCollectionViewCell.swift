@@ -9,9 +9,13 @@ import UIKit
 
 class HeaderCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var userProfile: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    
+    
+    
 }

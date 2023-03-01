@@ -215,6 +215,14 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
 
             print("Share to fb")
             let vc = ChatDetailProfileViewController()
+            if let safeURL = thisMessage?.profileImageUrl {
+                vc.profileImageUrls = safeURL
+            }
+           
+            if let safeID = conversationId {
+                vc.otherUserIDis = safeID
+            }
+           
             self.navigationController?.pushViewController(vc, animated: true)
             
         }
@@ -259,6 +267,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     
     private func presentWatchlist() {
         let detailViewController = RecommendChatViewController()
+        detailViewController.recommendToUid = conversationId
         detailViewController.movieDelegate = self
         detailViewController.selectedOption = 0
         let nav = UINavigationController(rootViewController: detailViewController)

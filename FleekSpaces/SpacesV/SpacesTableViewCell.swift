@@ -109,6 +109,8 @@ class SpacesTableViewCell: UITableViewCell {
             if let safeMovieName = fromData.title {
                 if fromData.isWatchlist == false {
                     
+                  
+                    
                     self.userActivityLabels.text = "\(safename) liked \(safeMovieName)"
                 } else {
                     
@@ -125,6 +127,13 @@ class SpacesTableViewCell: UITableViewCell {
             let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(postersURL)")
             self.mainPoster.sd_setImage(with: newURL)
             self.bgPosterImage.sd_setImage(with: newURL)
+        }
+        
+        if let safeUserProfilePic = fromData.user?.avatarURL {
+            print("user profile pic = \(safeUserProfilePic)")
+            let newURL = URL(string: safeUserProfilePic)
+            self.userProfilePic.sd_setImage(with: newURL, placeholderImage: UIImage(systemName: "person.circle"))
+            
         }
             
         

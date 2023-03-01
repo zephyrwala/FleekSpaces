@@ -164,6 +164,8 @@
 		6963B3FA29ACC7E0007C4DEF /* recByUserposterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6963B3F829ACC7E0007C4DEF /* recByUserposterCollectionViewCell.xib */; };
 		6963B3FE29ACDBC9007C4DEF /* ProfileTitlesCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6963B3FC29ACDBC9007C4DEF /* ProfileTitlesCollectionReusableView.swift */; };
 		6963B3FF29ACDBC9007C4DEF /* ProfileTitlesCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6963B3FD29ACDBC9007C4DEF /* ProfileTitlesCollectionReusableView.xib */; };
+		6963B40329AF54FD007C4DEF /* header2CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6963B40129AF54FD007C4DEF /* header2CollectionReusableView.swift */; };
+		6963B40429AF54FD007C4DEF /* header2CollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6963B40229AF54FD007C4DEF /* header2CollectionReusableView.xib */; };
 		6963C5DA2954BE40000E6C45 /* xmas0.png in Resources */ = {isa = PBXBuildFile; fileRef = 6963C5D72954BE3E000E6C45 /* xmas0.png */; };
 		6963C5DB2954BE40000E6C45 /* xmas1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6963C5D82954BE3F000E6C45 /* xmas1.png */; };
 		6963C5DC2954BE40000E6C45 /* xmas2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6963C5D92954BE40000E6C45 /* xmas2.png */; };
@@ -397,6 +399,8 @@
 		6963B3F829ACC7E0007C4DEF /* recByUserposterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = recByUserposterCollectionViewCell.xib; sourceTree = "<group>"; };
 		6963B3FC29ACDBC9007C4DEF /* ProfileTitlesCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitlesCollectionReusableView.swift; sourceTree = "<group>"; };
 		6963B3FD29ACDBC9007C4DEF /* ProfileTitlesCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTitlesCollectionReusableView.xib; sourceTree = "<group>"; };
+		6963B40129AF54FD007C4DEF /* header2CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = header2CollectionReusableView.swift; sourceTree = "<group>"; };
+		6963B40229AF54FD007C4DEF /* header2CollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = header2CollectionReusableView.xib; sourceTree = "<group>"; };
 		6963C5D72954BE3E000E6C45 /* xmas0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xmas0.png; sourceTree = "<group>"; };
 		6963C5D82954BE3F000E6C45 /* xmas1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xmas1.png; sourceTree = "<group>"; };
 		6963C5D92954BE40000E6C45 /* xmas2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xmas2.png; sourceTree = "<group>"; };
@@ -1144,6 +1148,7 @@
 		6963B3EB29ACC70C007C4DEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6963B40029AF54E1007C4DEF /* header2 */,
 				6963B3FB29ACDB7C007C4DEF /* header */,
 				6963B3EE29ACC73F007C4DEF /* recommendedByuser */,
 				6963B3ED29ACC729007C4DEF /* youRecommended */,
@@ -1186,6 +1191,15 @@
 				6963B3FD29ACDBC9007C4DEF /* ProfileTitlesCollectionReusableView.xib */,
 			);
 			path = header;
+			sourceTree = "<group>";
+		};
+		6963B40029AF54E1007C4DEF /* header2 */ = {
+			isa = PBXGroup;
+			children = (
+				6963B40129AF54FD007C4DEF /* header2CollectionReusableView.swift */,
+				6963B40229AF54FD007C4DEF /* header2CollectionReusableView.xib */,
+			);
+			path = header2;
 			sourceTree = "<group>";
 		};
 		69643BF8287068EA007128C0 /* ConversationCell */ = {
@@ -1540,6 +1554,7 @@
 				693357D92893F66700C49506 /* SeasonCardCVC.xib in Resources */,
 				693946922847548500FE7574 /* Section3CollectionViewCell.xib in Resources */,
 				69C4996F28698012000F4394 /* EmailSignInViewController.xib in Resources */,
+				6963B40429AF54FD007C4DEF /* header2CollectionReusableView.xib in Resources */,
 				69D527EA2902C02F001B310C /* default.png in Resources */,
 				69D527D12901B013001B310C /* Diwali2.png in Resources */,
 				69D527E82902AB69001B310C /* Diwali9.png in Resources */,
@@ -1736,6 +1751,7 @@
 				693946A0284757EA00FE7574 /* Section3CRV.swift in Sources */,
 				693946AC28487D9500FE7574 /* OfflineModel.swift in Sources */,
 				69D9E610299F013E000DE3E5 /* ChatExtensions.swift in Sources */,
+				6963B40329AF54FD007C4DEF /* header2CollectionReusableView.swift in Sources */,
 				6930D5372851B55B0080528D /* TrendingtCollectionReusableView.swift in Sources */,
 				6930D5762858AA850080528D /* filmographyHeader.swift in Sources */,
 				69D9E60B299E43CD000DE3E5 /* MoPopUpViewController.swift in Sources */,
@@ -1905,7 +1921,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;
@@ -1942,7 +1958,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;

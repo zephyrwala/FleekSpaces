@@ -22,11 +22,13 @@ class RecommendChatViewController: UIViewController {
     var movieDelegate: PassMovieDelegate?
     var recommendCount = [Int]()
     let defaults = UserDefaults.standard
+    var recommendToUid: String?
     @IBOutlet weak var postersCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("Recommend ID is \(recommendToUid)")
 //        selectionLogin()
         setupCollectionView()
         fetchUserMovieData()
@@ -35,6 +37,8 @@ class RecommendChatViewController: UIViewController {
     }
 
     
+    
+
     
     
     
@@ -73,6 +77,9 @@ class RecommendChatViewController: UIViewController {
         
         
     }
+    
+    
+    
     
     //MARK: - Fetch Like Movies
     func fetchUserMovieData() {
@@ -175,6 +182,58 @@ class RecommendChatViewController: UIViewController {
         }
     }
     
+    func addtoRecommend(showType: String, showID: String, recommendToId: String) {
+        //https://api-space-dev.getfleek.app/activity/recommendations/?show_type=20eb3286-1981-41fa-910c-1cd039cec69e&show_id=tv_series&recommended_to_firebase_uid=TBUBN5PTvEPYQb6ZKetxP1B55ms1"
+        
+        //https://api-space-dev.getfleek.app/activity/recommendations/?show_type=tv_series&show_id=374f846f-e7a6-49ee-85a3-84ec45fccbd8&recommended_to_firebase_uid=TBUBN5PTvEPYQb6ZKetxP1B55ms1
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api-space-dev.getfleek.app"
+        urlComponents.path = "/activity/recommendations/"
+        urlComponents.queryItems = [
+        
+            URLQueryItem(name: "show_type", value: showType),
+            URLQueryItem(name: "show_id", value: showID),
+            URLQueryItem(name: "recommended_to_firebase_uid", value: recommendToId)
+        
+        ]
+        
+        print("recommend url is : -")
+        print(urlComponents.url?.absoluteString)
+        
+        guard let myTOken = defaults.string(forKey: "userToken") else {return}
+        
+        guard let myUrl = urlComponents.url else {return}
+        
+        
+        
+        let network = NetworkURL()
+        network.tokenCalls(AddRecommend.self, url: myUrl, token: myTOken, methodType: "POST") { myResults, yourMessage in
+                
+            
+            switch myResults {
+                
+                
+                
+            case .success(let likes):
+                print("Recommended \(likes.recommended) and it is recommended to  \(likes.recommendedTo?.name) \(yourMessage) \(likes)")
+//                self.checkLikes()
+                
+            case .failure(let err):
+                print("We have error \(err)")
+                
+                
+                
+                
+            }
+            
+            
+        }
+        
+        
+    }
+    
+    
     //MARK: - Setup Collection View
     
     
@@ -253,6 +312,10 @@ extension RecommendChatViewController: UICollectionViewDelegate, UICollectionVie
                             
                             if let theShowType = FinalDataModel.fetchWatchList?[indexPath.item].showType {
                                 //pass show type here
+                                
+                                //FIXME: - Pass the movie item here
+                                
+                                self.addtoRecommend(showType: theShowType, showID: safeTMDBID, recommendToId: self.recommendToUid!)
                                 
                                 self.movieDelegate?.cellTapped(posterString: "https://image.tmdb.org/t/p/w500/\(posterURL)", showID: safeTMDBID, showType: theShowType)
                             }

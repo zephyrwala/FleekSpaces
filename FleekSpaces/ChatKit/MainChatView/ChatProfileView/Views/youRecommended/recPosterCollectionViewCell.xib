@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yh8-O3-V3D">
                         <rect key="frame" x="0.0" y="0.0" width="156" height="220"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="show 3" translatesAutoresizingMaskIntoConstraints="NO" id="IXO-4p-eQp">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="show 3" translatesAutoresizingMaskIntoConstraints="NO" id="IXO-4p-eQp">
                                 <rect key="frame" x="0.0" y="0.0" width="156" height="220"/>
                             </imageView>
                         </subviews>
@@ -43,6 +43,9 @@
                 <constraint firstAttribute="bottom" secondItem="yh8-O3-V3D" secondAttribute="bottom" id="pn9-hA-n7o"/>
             </constraints>
             <size key="customSize" width="156" height="220"/>
+            <connections>
+                <outlet property="posterView" destination="IXO-4p-eQp" id="Pnu-Zn-Wpw"/>
+            </connections>
             <point key="canvasLocation" x="164.8854961832061" y="58.450704225352112"/>
         </collectionViewCell>
     </objects>

@@ -57,8 +57,121 @@ class FinalDataModel: NSObject {
     static var updateToken: UpdateToken?
     
     static var spacesFeedElement: [SpacesFeedElement]?
+    
+    static var addRecommend: AddRecommend?
+    static var recommendedTo: RecommendedToUID?
+    
+    static var recommendedBy: RecommendedByUID?
+    
 }
 
+// MARK: - RecommendedBy
+class RecommendedByUID: Codable {
+    let recommendedBy, recommendedTo: Recommended?
+    let recommendedList: [RecommendedList]?
+
+    enum CodingKeys: String, CodingKey {
+        case recommendedBy = "recommended_by"
+        case recommendedTo = "recommended_to"
+        case recommendedList = "recommended_list"
+    }
+
+    init(recommendedBy: Recommended?, recommendedTo: Recommended?, recommendedList: [RecommendedList]?) {
+        self.recommendedBy = recommendedBy
+        self.recommendedTo = recommendedTo
+        self.recommendedList = recommendedList
+    }
+}
+
+
+
+
+
+
+
+// MARK: - RecommendedTo
+class RecommendedToUID: Codable {
+    let recommendedBy, recommendedTo: Recommended?
+    let recommendedList: [RecommendedList]?
+
+    enum CodingKeys: String, CodingKey {
+        case recommendedBy = "recommended_by"
+        case recommendedTo = "recommended_to"
+        case recommendedList = "recommended_list"
+    }
+
+    init(recommendedBy: Recommended?, recommendedTo: Recommended?, recommendedList: [RecommendedList]?) {
+        self.recommendedBy = recommendedBy
+        self.recommendedTo = recommendedTo
+        self.recommendedList = recommendedList
+    }
+}
+
+// MARK: - Recommended
+class Recommended: Codable {
+    let userID, firebaseUid, name, phoneNumber: String?
+    let avatarURL: String?
+
+    enum CodingKeys: String, CodingKey {
+        case userID = "user_id"
+        case firebaseUid = "firebase_uid"
+        case name
+        case phoneNumber = "phone_number"
+        case avatarURL = "avatar_url"
+    }
+
+    init(userID: String?, firebaseUid: String?, name: String?, phoneNumber: String?, avatarURL: String?) {
+        self.userID = userID
+        self.firebaseUid = firebaseUid
+        self.name = name
+        self.phoneNumber = phoneNumber
+        self.avatarURL = avatarURL
+    }
+}
+
+// MARK: - RecommendedList
+class RecommendedList: Codable {
+    let showType, showID, title, postersURL: String?
+    let showDetails: ShowDetails?
+    let createdAt: String?
+
+    enum CodingKeys: String, CodingKey {
+        case showType = "show_type"
+        case showID = "show_id"
+        case title
+        case postersURL = "posters_url"
+        case showDetails = "show_details"
+        case createdAt = "created_at"
+    }
+
+    init(showType: String?, showID: String?, title: String?, postersURL: String?, showDetails: ShowDetails?, createdAt: String?) {
+        self.showType = showType
+        self.showID = showID
+        self.title = title
+        self.postersURL = postersURL
+        self.showDetails = showDetails
+        self.createdAt = createdAt
+    }
+}
+
+// MARK: - ShowDetails
+class ShowDetails: Codable {
+    let ottDetails: OttDetails?
+
+    enum CodingKeys: String, CodingKey {
+        case ottDetails = "ott_details"
+    }
+
+    init(ottDetails: OttDetails?) {
+        self.ottDetails = ottDetails
+    }
+}
+
+
+
+
+
+// MARK: - Us
 
 
 //MARK: - Spaces Feed
@@ -142,6 +255,42 @@ class Ad: Codable {
 enum ShowType: String, Codable {
     case movie = "movie"
     case tvSeries = "tv_series"
+}
+
+
+// MARK: - AddRecommend
+class AddRecommend: Codable {
+    let recommendedTo: RecommendedTo?
+    let recommended: Bool?
+
+    enum CodingKeys: String, CodingKey {
+        case recommendedTo = "recommended_to"
+        case recommended
+    }
+
+    init(recommendedTo: RecommendedTo?, recommended: Bool?) {
+        self.recommendedTo = recommendedTo
+        self.recommended = recommended
+    }
+}
+
+// MARK: - RecommendedTo
+class RecommendedTo: Codable {
+    let userID, name, phoneNumber, avatarURL: String?
+
+    enum CodingKeys: String, CodingKey {
+        case userID = "user_id"
+        case name
+        case phoneNumber = "phone_number"
+        case avatarURL = "avatar_url"
+    }
+
+    init(userID: String?, name: String?, phoneNumber: String?, avatarURL: String?) {
+        self.userID = userID
+        self.name = name
+        self.phoneNumber = phoneNumber
+        self.avatarURL = avatarURL
+    }
 }
 
 // MARK: - User
