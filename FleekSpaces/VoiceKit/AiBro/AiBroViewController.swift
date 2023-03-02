@@ -42,7 +42,7 @@ class AiBroViewController: UIViewController, SFSpeechRecognizerDelegate {
         
         if isStart {
             startSpeechRecognization()
-            self.tapToSpeakLabel.text = "Listening"
+            self.tapToSpeakLabel.text = "Listening..."
             self.micImage.tintColor = .red
         } else {
             cancelSpeechrecognization()
