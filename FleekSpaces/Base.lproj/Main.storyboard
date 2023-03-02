@@ -98,7 +98,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObH-yZ-kuE">
                                                 <rect key="frame" x="0.0" y="30" width="345" height="50"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oDg-YP-CFy">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDg-YP-CFy">
                                                         <rect key="frame" x="0.0" y="0.0" width="169" height="50"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disco" translatesAutoresizingMaskIntoConstraints="NO" id="Cor-GM-feK">
@@ -114,11 +114,33 @@
                                                             <constraint firstAttribute="bottom" secondItem="Cor-GM-feK" secondAttribute="bottom" id="qVU-gH-uwk"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vwq-HN-BFf">
-                                                        <rect key="frame" x="169" y="0.0" width="126.33333333333331" height="50"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vwq-HN-BFf">
+                                                        <rect key="frame" x="169" y="0.0" width="116" height="50"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSL-eZ-oaM">
+                                                                <rect key="frame" x="67" y="0.0" width="49" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="49" id="1tV-ZU-b63"/>
+                                                                </constraints>
+                                                                <color key="tintColor" name="BtnGreenColor"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="mic.badge.plus" catalog="system">
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="aiBroBtnTap:" destination="f0F-g1-Vab" eventType="touchUpInside" id="ZMV-GN-tkM"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="OSL-eZ-oaM" secondAttribute="bottom" id="BfN-f8-CZb"/>
+                                                            <constraint firstItem="OSL-eZ-oaM" firstAttribute="top" secondItem="vwq-HN-BFf" secondAttribute="top" id="X7t-93-CPd"/>
+                                                            <constraint firstItem="OSL-eZ-oaM" firstAttribute="leading" secondItem="vwq-HN-BFf" secondAttribute="leading" constant="67" id="joE-0b-C1c"/>
+                                                            <constraint firstAttribute="trailing" secondItem="OSL-eZ-oaM" secondAttribute="trailing" id="pSc-8D-18e"/>
+                                                        </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yl0-S4-jH1">
-                                                        <rect key="frame" x="295.33333333333331" y="0.0" width="49.666666666666686" height="50"/>
+                                                        <rect key="frame" x="285" y="0.0" width="60" height="50"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
@@ -173,6 +195,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addBtnChoose" destination="p1P-KF-6h4" id="68T-f8-zFg"/>
+                        <outlet property="aiBtoBtn" destination="OSL-eZ-oaM" id="Me9-fx-Ibt"/>
                         <outlet property="collectionHt" destination="x8F-IH-N4v" id="cFV-Y0-s3J"/>
                         <outlet property="discoverView" destination="QAQ-Ts-I3H" id="yWZ-T7-SyI"/>
                         <outlet property="homeCollectionViews" destination="azB-z3-gzd" id="ngQ-TP-C0A"/>
@@ -1020,7 +1043,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="hY9-23-FjK">
-                        <rect key="frame" x="0.0" y="47" width="375" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="47" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1046,6 +1069,7 @@
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="mic.badge.plus" catalog="system" width="121" height="128"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.badge.plus" catalog="system" width="128" height="125"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>

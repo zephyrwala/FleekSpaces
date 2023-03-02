@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    
 <dict>
 	<key>CFBundleIcons</key>
 	<dict>
-        <key>CFBundlePrimaryIcon</key>
-        <dict>
-            <key>CFBundleIconFiles</key>
-            <array>
-                <string>xmas0</string>
-            </array>
-            <key>UIPrerenderedIcon</key>
-            <false/>
-        </dict>
 		<key>CFBundleAlternateIcons</key>
 		<dict>
 			<key>Default</key>
@@ -23,27 +13,6 @@
 					<string>default</string>
 				</array>
 			</dict>
-            <key>xmas0</key>
-            <dict>
-                <key>CFBundleIconFiles</key>
-                <array>
-                    <string>xmas0</string>
-                </array>
-            </dict>
-            <key>xmas1</key>
-            <dict>
-                <key>CFBundleIconFiles</key>
-                <array>
-                    <string>xmas1</string>
-                </array>
-            </dict>
-            <key>xmas2</key>
-            <dict>
-                <key>CFBundleIconFiles</key>
-                <array>
-                    <string>xmas2</string>
-                </array>
-            </dict>
 			<key>Diwali</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
@@ -100,6 +69,36 @@
 					<string>Diwali9</string>
 				</array>
 			</dict>
+			<key>xmas0</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>xmas0</string>
+				</array>
+			</dict>
+			<key>xmas1</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>xmas1</string>
+				</array>
+			</dict>
+			<key>xmas2</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>xmas2</string>
+				</array>
+			</dict>
+		</dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>xmas0</string>
+			</array>
+			<key>UIPrerenderedIcon</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>CFBundleURLTypes</key>

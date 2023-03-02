@@ -6,16 +6,28 @@
 //
 
 import UIKit
+import InstantSearchVoiceOverlay
+
 enum DeepLink: String {
     case home
     case profile
 }
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollViewDelegate {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollViewDelegate, VoiceOverlayDelegate {
+    
+    //MARK: - Over lay delegate
+    func recording(text: String?, final: Bool?, error: Error?) {
+        
+        
+        
+        
+    }
+    
 
    
     @IBOutlet weak var subsCollectionHts: NSLayoutConstraint!
 
+    let voiceOverlay = VoiceOverlayController()
     var scrollSize = 0.0
     var isMovieSelected = true
     var isIndiaSelected = true
@@ -23,6 +35,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
     var indiaMovies: [Movies]?
     var usaMovies: [Movies]?
     
+    @IBOutlet weak var aiBtoBtn: UIButton!
     @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var visualBlurHt: NSLayoutConstraint!
     @IBOutlet weak var visualBlurLayer: UIVisualEffectView!
@@ -63,6 +76,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        voiceOverlay.delegate = self
+           
+           // If you want to start recording as soon as modal view pops up, change to true
+        voiceOverlay.settings.autoStart = true
+        voiceOverlay.settings.autoStop = true
+        voiceOverlay.settings.showResultScreen = true
         fetchCurrentUser()
         self.testViewHt.constant = 250
         self.collectionHt.constant = 250
@@ -91,8 +111,35 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 // Do any additional setup after loading the view.
     }
     
- 
+    //Ai Bro button tap
     
+    @IBAction func aiBroBtnTap(_ sender: Any) {
+        
+//        // First way to listen to recording through callbacks
+//           voiceOverlay.start(on: self, textHandler: { (text, finals, extraInfo) in
+//             print("callback: getting \(String(describing: text))")
+//             print("callback: is it final? \(String(describing: finals))")
+//
+//             if finals {
+////
+//             }
+//           }, errorHandler: { (error) in
+//             print("callback: error \(String(describing: error))")
+//           }, resultScreenHandler: { (text) in
+//             print("Result Screen: \(text)")
+//           }
+//           )
+//
+//
+        
+        let vc = AiBroViewController()
+        self.present(vc, animated: true)
+        
+    }
+    
+ 
+ 
+    //MARK: - Search button tapped
     @IBAction func searchBtnTapped(_ sender: Any) {
         let controller = SearchViewController()
         navigationController?.pushViewController(controller, animated: true)

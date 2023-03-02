@@ -64,6 +64,15 @@
       }
     },
     {
+      "identity" : "voice-overlay-ios#:~:text=instantsearch%20voiceoverlay%20repo%27s%20url",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/algolia/voice-overlay-ios#:~:text=InstantSearch%20VoiceOverlay%20repo%27s%20URL",
+      "state" : {
+        "revision" : "55a1047be9e0d9e4d4295ef127cc31b3ef7b8b54",
+        "version" : "1.2.0"
+      }
+    },
+    {
       "identity" : "youtube-ios-player-helper",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/youtube/youtube-ios-player-helper.git",
