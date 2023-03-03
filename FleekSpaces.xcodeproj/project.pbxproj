@@ -177,9 +177,13 @@
 		69691DAB28F5696400CE8B36 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 69691DAA28F5696400CE8B36 /* IQKeyboardManagerSwift */; };
 		69691DAE28F56AF400CE8B36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69691DAC28F56AF400CE8B36 /* RegisterViewController.swift */; };
 		69691DAF28F56AF400CE8B36 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69691DAD28F56AF400CE8B36 /* RegisterViewController.xib */; };
+		6970641229B1F44200B4A26E /* bluewave.json in Resources */ = {isa = PBXBuildFile; fileRef = 6970641129B1F44200B4A26E /* bluewave.json */; };
 		6990E5E429B0677D007F8499 /* InstantSearchVoiceOverlay in Frameworks */ = {isa = PBXBuildFile; productRef = 6990E5E329B0677D007F8499 /* InstantSearchVoiceOverlay */; };
 		6990E60D29B0B239007F8499 /* AiBroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990E60B29B0B239007F8499 /* AiBroViewController.swift */; };
 		6990E60E29B0B239007F8499 /* AiBroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6990E60C29B0B239007F8499 /* AiBroViewController.xib */; };
+		6990E61029B1BE96007F8499 /* recording.json in Resources */ = {isa = PBXBuildFile; fileRef = 6990E60F29B1BE96007F8499 /* recording.json */; };
+		6990E61329B1CCF0007F8499 /* SwiftSiriWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990E61229B1CCF0007F8499 /* SwiftSiriWaveformView.swift */; };
+		6990E61529B1CEE2007F8499 /* waves.json in Resources */ = {isa = PBXBuildFile; fileRef = 6990E61429B1CEE1007F8499 /* waves.json */; };
 		6995FED8297913E800190253 /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = 6995FED7297913E800190253 /* ActivityView */; };
 		6995FEDB297DAC9A00190253 /* RealTimeDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6995FEDA297DAC9A00190253 /* RealTimeDatabaseManager.swift */; };
 		69AC5F6029A5DFA100C30ECA /* SpacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AC5F5F29A5DFA100C30ECA /* SpacesTableViewController.swift */; };
@@ -414,8 +418,12 @@
 		69643C0F2872D4D5007128C0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		69691DAC28F56AF400CE8B36 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		69691DAD28F56AF400CE8B36 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		6970641129B1F44200B4A26E /* bluewave.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bluewave.json; sourceTree = "<group>"; };
 		6990E60B29B0B239007F8499 /* AiBroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AiBroViewController.swift; sourceTree = "<group>"; };
 		6990E60C29B0B239007F8499 /* AiBroViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AiBroViewController.xib; sourceTree = "<group>"; };
+		6990E60F29B1BE96007F8499 /* recording.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = recording.json; sourceTree = "<group>"; };
+		6990E61229B1CCF0007F8499 /* SwiftSiriWaveformView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSiriWaveformView.swift; sourceTree = "<group>"; };
+		6990E61429B1CEE1007F8499 /* waves.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waves.json; sourceTree = "<group>"; };
 		6995FEDA297DAC9A00190253 /* RealTimeDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeDatabaseManager.swift; sourceTree = "<group>"; };
 		69AC5F5F29A5DFA100C30ECA /* SpacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesTableViewController.swift; sourceTree = "<group>"; };
 		69AC5F6129A5E02300C30ECA /* SpacesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesTableViewCell.swift; sourceTree = "<group>"; };
@@ -1254,10 +1262,19 @@
 		6990E60A29B0B1F3007F8499 /* AiBro */ = {
 			isa = PBXGroup;
 			children = (
+				6990E61129B1CCDC007F8499 /* Waveform */,
 				6990E60B29B0B239007F8499 /* AiBroViewController.swift */,
 				6990E60C29B0B239007F8499 /* AiBroViewController.xib */,
 			);
 			path = AiBro;
+			sourceTree = "<group>";
+		};
+		6990E61129B1CCDC007F8499 /* Waveform */ = {
+			isa = PBXGroup;
+			children = (
+				6990E61229B1CCF0007F8499 /* SwiftSiriWaveformView.swift */,
+			);
+			path = Waveform;
 			sourceTree = "<group>";
 		};
 		6995FED9297DAC1200190253 /* RealtimeDB */ = {
@@ -1358,7 +1375,10 @@
 		69D527D8290280BA001B310C /* Anime */ = {
 			isa = PBXGroup;
 			children = (
+				6970641129B1F44200B4A26E /* bluewave.json */,
+				6990E61429B1CEE1007F8499 /* waves.json */,
 				69AC5F6E29A745E700C30ECA /* likeThumb.json */,
+				6990E60F29B1BE96007F8499 /* recording.json */,
 				69AC5F6C29A661F500C30ECA /* catWatch.json */,
 				69AC5F6A29A65E2700C30ECA /* spaceload.json */,
 				69D527DB29028296001B310C /* fire.json */,
@@ -1576,6 +1596,7 @@
 				692600BF284E09A200B6D801 /* Section2HeadersCRV.xib in Resources */,
 				6930D573285899E40080528D /* ActorBioCVC.xib in Resources */,
 				69C499792869BDB4000F4394 /* LoginEmailViewController.xib in Resources */,
+				6970641229B1F44200B4A26E /* bluewave.json in Resources */,
 				693946C52848D15800FE7574 /* SelectedSubCRV.xib in Resources */,
 				69AC5F6F29A745E700C30ECA /* likeThumb.json in Resources */,
 				693357D92893F66700C49506 /* SeasonCardCVC.xib in Resources */,
@@ -1615,9 +1636,11 @@
 				695EBBF22862DF3B00557D69 /* DetailEpisodeViewController.xib in Resources */,
 				69D527E32902AB69001B310C /* Diwali5.png in Resources */,
 				6930D5592856FBD40080528D /* MoreLikeThisCollectionViewCell.xib in Resources */,
+				6990E61529B1CEE2007F8499 /* waves.json in Resources */,
 				6930D550285346A60080528D /* MovieCastCell.xib in Resources */,
 				693946A1284757EA00FE7574 /* Section3CRV.xib in Resources */,
 				694393C7287D5EF700CEC3C4 /* SignInEmbedViewController.xib in Resources */,
+				6990E61029B1BE96007F8499 /* recording.json in Resources */,
 				6930D54B285330BE0080528D /* YourHeaderCRV2.xib in Resources */,
 				6963C5DA2954BE40000E6C45 /* xmas0.png in Resources */,
 				6938499A2881B2A500EC5C61 /* BookCollectionViewCell.xib in Resources */,
@@ -1725,6 +1748,7 @@
 				6939468D2847546C00FE7574 /* Section2CollectionViewCell.swift in Sources */,
 				6930D5332851B53D0080528D /* TrendingWorldCollectionViewCell.swift in Sources */,
 				694393BE2875571600CEC3C4 /* ChatUser.swift in Sources */,
+				6990E61329B1CCF0007F8499 /* SwiftSiriWaveformView.swift in Sources */,
 				692600C5284E203100B6D801 /* ChatCVCell.swift in Sources */,
 				693946892847545900FE7574 /* Section1CollectionViewCell.swift in Sources */,
 				6942107F28EC4D620065EB3C /* UserDataCollectionViewCell.swift in Sources */,

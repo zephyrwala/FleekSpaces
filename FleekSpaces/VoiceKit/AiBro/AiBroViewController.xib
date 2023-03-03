@@ -6,17 +6,23 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AiBroViewController" customModule="FleekSpaces" customModuleProvider="target">
             <connections>
+                <outlet property="aiGreetingLabel" destination="edZ-dd-eF4" id="rog-Fr-ChK"/>
                 <outlet property="answerText" destination="uqw-wJ-REQ" id="XQG-sK-LBK"/>
+                <outlet property="cahtLottieView" destination="UuG-rc-4eS" id="FxP-zS-9m3"/>
+                <outlet property="lottieStuff" destination="YYY-32-UgT" id="8GA-iP-uRh"/>
                 <outlet property="mainMicBtn" destination="jKK-HL-hI0" id="JdM-4q-a6N"/>
                 <outlet property="micImage" destination="sb5-n0-j0R" id="5KN-EK-iQJ"/>
+                <outlet property="muteBtn" destination="D57-Ip-gAa" id="wWh-0b-sKU"/>
                 <outlet property="questionText" destination="UO8-Tf-Awt" id="L5S-2c-RwG"/>
                 <outlet property="tapToSpeakLabel" destination="z6a-HZ-xKO" id="nHN-6a-10Z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="waveforms" destination="W75-Vi-nRu" id="70Y-Un-WaJ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -27,6 +33,26 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7y-GR-irP">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W75-Vi-nRu" customClass="LottieAnimationView" customModule="Lottie">
+                            <rect key="frame" x="0.0" y="312" width="375" height="200"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="200" id="NJ6-ym-lbG"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="bluewave"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuG-rc-4eS" customClass="LottieAnimationView" customModule="Lottie">
+                            <rect key="frame" x="0.0" y="572" width="375" height="240"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="240" id="HP5-YL-zjg"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="waves"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HiD-6B-McK">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pZ2-sh-b5J">
@@ -39,18 +65,18 @@
                                             <constraint firstAttribute="height" constant="136" id="0D8-xA-yYQ"/>
                                         </constraints>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uqw-wJ-REQ">
-                                        <rect key="frame" x="21" y="316" width="333" height="275"/>
+                                        <rect key="frame" x="21" y="272" width="333" height="275"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="275" id="cq7-aT-YJR"/>
                                         </constraints>
-                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" name="DealsGradient1"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey, I'm your AI Bro! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edZ-dd-eF4">
@@ -71,8 +97,17 @@
                                         <color key="textColor" name="DealsGradient1"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYY-32-UgT" customClass="LottieAnimationView" customModule="Lottie">
+                                        <rect key="frame" x="120" y="597" width="135" height="110"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="110" id="10u-Ev-S0e"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="recording"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlG-2Z-4SG">
-                                        <rect key="frame" x="128" y="612" width="119" height="100"/>
+                                        <rect key="frame" x="128" y="607" width="119" height="100"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sb5-n0-j0R">
                                                 <rect key="frame" x="10" y="11" width="99" height="78.666666666666671"/>
@@ -100,7 +135,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Speak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6a-HZ-xKO">
-                                        <rect key="frame" x="100" y="712" width="175" height="21"/>
+                                        <rect key="frame" x="100" y="707" width="175" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="wbd-ci-Bku"/>
                                         </constraints>
@@ -108,10 +143,28 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D57-Ip-gAa">
+                                        <rect key="frame" x="311" y="76" width="41" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="41" id="0VN-eN-R15"/>
+                                            <constraint firstAttribute="height" constant="35" id="omL-Wg-5Gb"/>
+                                        </constraints>
+                                        <color key="tintColor" name="BtnGreenColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="mic.slash" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="medium"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="muteBtnTap:" destination="-1" eventType="touchUpInside" id="J9j-rg-6oG"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="YYY-32-UgT" firstAttribute="top" secondItem="uqw-wJ-REQ" secondAttribute="bottom" constant="50" id="02I-Nw-Br5"/>
+                                    <constraint firstItem="D57-Ip-gAa" firstAttribute="top" secondItem="pZ2-sh-b5J" secondAttribute="top" constant="76" id="56y-fE-O6Z"/>
                                     <constraint firstAttribute="trailing" secondItem="UO8-Tf-Awt" secondAttribute="trailing" constant="21" id="5A9-qe-fps"/>
-                                    <constraint firstItem="uqw-wJ-REQ" firstAttribute="top" secondItem="UO8-Tf-Awt" secondAttribute="bottom" constant="50" id="B7r-3x-Oix"/>
+                                    <constraint firstItem="uqw-wJ-REQ" firstAttribute="top" secondItem="UO8-Tf-Awt" secondAttribute="bottom" constant="6" id="B7r-3x-Oix"/>
+                                    <constraint firstItem="YYY-32-UgT" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="120" id="Ian-n0-vSc"/>
                                     <constraint firstAttribute="trailing" secondItem="edZ-dd-eF4" secondAttribute="trailing" constant="25" id="LYr-hc-LkM"/>
                                     <constraint firstItem="edZ-dd-eF4" firstAttribute="top" secondItem="pZ2-sh-b5J" secondAttribute="top" constant="75" id="NUk-VD-ATA"/>
                                     <constraint firstAttribute="trailing" secondItem="uqw-wJ-REQ" secondAttribute="trailing" constant="21" id="PUx-hA-VVN"/>
@@ -119,9 +172,11 @@
                                     <constraint firstItem="3pB-Dr-5Le" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="25" id="SeE-9U-XgG"/>
                                     <constraint firstItem="3pB-Dr-5Le" firstAttribute="top" secondItem="edZ-dd-eF4" secondAttribute="bottom" constant="1" id="WoQ-tE-x5x"/>
                                     <constraint firstItem="uqw-wJ-REQ" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="21" id="dKv-CC-Xm7"/>
+                                    <constraint firstAttribute="trailing" secondItem="D57-Ip-gAa" secondAttribute="trailing" constant="23" id="eYl-hJ-4wa"/>
                                     <constraint firstAttribute="trailing" secondItem="MlG-2Z-4SG" secondAttribute="trailing" constant="128" id="evp-DH-5Vq"/>
                                     <constraint firstItem="z6a-HZ-xKO" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="100" id="i0v-Zg-Ni3"/>
-                                    <constraint firstItem="MlG-2Z-4SG" firstAttribute="top" secondItem="uqw-wJ-REQ" secondAttribute="bottom" constant="21" id="nn9-4y-At9"/>
+                                    <constraint firstAttribute="trailing" secondItem="YYY-32-UgT" secondAttribute="trailing" constant="120" id="iqn-2L-sDz"/>
+                                    <constraint firstItem="MlG-2Z-4SG" firstAttribute="top" secondItem="uqw-wJ-REQ" secondAttribute="bottom" constant="60" id="nn9-4y-At9"/>
                                     <constraint firstAttribute="trailing" secondItem="3pB-Dr-5Le" secondAttribute="trailing" constant="25" id="oec-eQ-C3h"/>
                                     <constraint firstItem="UO8-Tf-Awt" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="21" id="pm7-kT-2l3"/>
                                     <constraint firstItem="edZ-dd-eF4" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="25" id="rsD-q2-Bo6"/>
@@ -130,13 +185,19 @@
                                     <constraint firstAttribute="trailing" secondItem="z6a-HZ-xKO" secondAttribute="trailing" constant="100" id="yGQ-lT-gb6"/>
                                 </constraints>
                             </view>
-                            <blurEffect style="systemMaterialDark"/>
+                            <blurEffect style="systemThinMaterialDark"/>
                         </visualEffectView>
                     </subviews>
                     <constraints>
                         <constraint firstItem="HiD-6B-McK" firstAttribute="top" secondItem="f7y-GR-irP" secondAttribute="top" id="8Bu-OZ-P15"/>
+                        <constraint firstItem="W75-Vi-nRu" firstAttribute="leading" secondItem="f7y-GR-irP" secondAttribute="leading" id="IyS-AQ-Ych"/>
+                        <constraint firstAttribute="bottom" secondItem="UuG-rc-4eS" secondAttribute="bottom" id="IzA-7f-5jW"/>
                         <constraint firstAttribute="trailing" secondItem="HiD-6B-McK" secondAttribute="trailing" id="Nlb-GC-ygV"/>
+                        <constraint firstAttribute="trailing" secondItem="UuG-rc-4eS" secondAttribute="trailing" id="bQW-cS-Zbq"/>
+                        <constraint firstItem="UuG-rc-4eS" firstAttribute="leading" secondItem="f7y-GR-irP" secondAttribute="leading" id="omX-ZG-GUt"/>
+                        <constraint firstAttribute="trailing" secondItem="W75-Vi-nRu" secondAttribute="trailing" id="sUI-lJ-5fn"/>
                         <constraint firstItem="HiD-6B-McK" firstAttribute="leading" secondItem="f7y-GR-irP" secondAttribute="leading" id="soD-Ns-dST"/>
+                        <constraint firstAttribute="bottom" secondItem="W75-Vi-nRu" secondAttribute="bottom" constant="300" id="uCy-UZ-sKJ"/>
                         <constraint firstAttribute="bottom" secondItem="HiD-6B-McK" secondAttribute="bottom" id="uV4-XT-XmV"/>
                     </constraints>
                 </view>
@@ -161,11 +222,18 @@
     </objects>
     <resources>
         <image name="mic.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="mic.slash" catalog="system" width="108" height="128"/>
+        <namedColor name="BtnGreenColor">
+            <color red="0.0" green="0.67500001192092896" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="DealsGradient1">
             <color red="0.36500000953674316" green="0.63899999856948853" blue="0.72899997234344482" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Fleek_400">
             <color red="0.21600000560283661" green="0.87099999189376831" blue="0.68999999761581421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
