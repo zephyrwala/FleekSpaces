@@ -38,6 +38,26 @@ class SpacesTableViewController: UITableViewController, PassLikesData, FollowBtn
     }
     
 
+    @IBAction func notificationBtn(_ sender: Any) {
+        
+        let detailViewController = NotificationsTable()
+        let nav = UINavigationController(rootViewController: detailViewController)
+        // 1
+        nav.modalPresentationStyle = .pageSheet
+
+        
+        // 2
+        if let sheet = nav.sheetPresentationController {
+
+            // 3
+            sheet.detents = [.medium(), .large()]
+
+        }
+        // 4
+        present(nav, animated: true, completion: nil)
+
+        
+    }
     var users = [ChatUser]()
     var prog = JGProgressHUD(style: .dark)
     var feedData: [SpacesFeedElement]?
