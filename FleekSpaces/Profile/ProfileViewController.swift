@@ -69,6 +69,13 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
                 self.present(controller, animated: true)
 
 //                self.movieDelegate?.tvShowSelected()
+            }),
+            UIAction(title: "Followers", image: UIImage(systemName: "person"),  attributes: .destructive, handler: { (_) in
+                
+                let controller = FollowersViewController()
+                self.present(controller, animated: true)
+
+//                self.movieDelegate?.tvShowSelected()
             })
             
         ]
@@ -510,6 +517,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
                 self.likeBtn.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
                 self.recommendBtn.setImage(UIImage(systemName: "person.badge.plus"), for: .normal)
                 self.segmentTabsSelection.selectedSegmentTintColor = .systemOrange
+               
                 self.watchlistBtn.tintColor = .systemYellow
                 self.likeBtn.tintColor = .darkGray
             }

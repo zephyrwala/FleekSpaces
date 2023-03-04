@@ -94,7 +94,7 @@ class AiBroViewController: UIViewController, SFSpeechRecognizerDelegate {
 //        utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
         utterance.voice =  AVSpeechSynthesisVoice( identifier: "com.apple.ttsbundle.Samantha-compact")
         utterance.rate = 0.5
-        utterance.volume = 50.0
+        utterance.volume = 100.0
 
        
         synthesizer.speak(utterance)
