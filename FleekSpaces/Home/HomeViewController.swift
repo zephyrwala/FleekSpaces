@@ -1483,8 +1483,8 @@ extension HomeViewController: UICollectionViewDataSource {
             
         case subsCollectionView:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sec2Header", for: indexPath) as! Section2CRV
-            header.headerText.text = "OTT Platforms"
-           
+            header.headerText.text = "🫧 Select One"
+            
             return header
             
         
