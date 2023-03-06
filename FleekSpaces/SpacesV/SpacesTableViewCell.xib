@@ -37,7 +37,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="61b-lM-MAu">
                                                     <rect key="frame" x="15" y="80" width="329" height="400"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bo1" translatesAutoresizingMaskIntoConstraints="NO" id="otL-lh-2uO">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="show 3" translatesAutoresizingMaskIntoConstraints="NO" id="otL-lh-2uO">
                                                             <rect key="frame" x="0.0" y="0.0" width="329" height="400"/>
                                                         </imageView>
                                                     </subviews>
@@ -130,6 +130,46 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbF-uc-4J7">
                                         <rect key="frame" x="15" y="15" width="329" height="52"/>
                                         <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jls-kq-9Oc">
+                                                <rect key="frame" x="65" y="0.0" width="264" height="52"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="zsZ-Ze-37D">
+                                                        <rect key="frame" x="0.0" y="0.0" width="180" height="52"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Mayur likes Kabhi khushi kabhi gam tere karam," lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAE-5H-GWr">
+                                                                <rect key="frame" x="0.0" y="0.0" width="180" height="34.666666666666664"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3d" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f45-Fu-jtb">
+                                                                <rect key="frame" x="0.0" y="34.666666666666664" width="180" height="17.333333333333336"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="180" id="Nxy-YS-lWH"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFt-UP-SdH">
+                                                        <rect key="frame" x="195" y="9" width="54" height="34"/>
+                                                        <color key="tintColor" name="Info_300"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" subtitle="follow"/>
+                                                        <connections>
+                                                            <action selector="followBtnTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="x1Y-Yy-Vma"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="LFt-UP-SdH" secondAttribute="trailing" constant="15" id="Tlo-Wr-r55"/>
+                                                    <constraint firstItem="LFt-UP-SdH" firstAttribute="top" secondItem="jls-kq-9Oc" secondAttribute="top" constant="9" id="gbN-XB-RkQ"/>
+                                                    <constraint firstItem="LFt-UP-SdH" firstAttribute="leading" secondItem="zsZ-Ze-37D" secondAttribute="trailing" constant="15" id="rJO-pm-cuY"/>
+                                                    <constraint firstAttribute="bottom" secondItem="LFt-UP-SdH" secondAttribute="bottom" constant="9" id="wHC-np-N8u"/>
+                                                </constraints>
+                                            </stackView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bene" translatesAutoresizingMaskIntoConstraints="NO" id="DY2-9D-3Rr">
                                                 <rect key="frame" x="3" y="1" width="50" height="50"/>
                                                 <constraints>
@@ -137,47 +177,15 @@
                                                     <constraint firstAttribute="width" constant="50" id="cSo-gX-0pb"/>
                                                 </constraints>
                                             </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zsZ-Ze-37D">
-                                                <rect key="frame" x="62" y="2" width="190" height="48"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Mayur likes Kabhi khushi kabhi gam tere karam," textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAE-5H-GWr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="190" height="33.666666666666664"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3d" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f45-Fu-jtb">
-                                                        <rect key="frame" x="0.0" y="33.666666666666664" width="190" height="14.333333333333336"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="190" id="Zrs-Ku-xg8"/>
-                                                </constraints>
-                                            </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFt-UP-SdH">
-                                                <rect key="frame" x="261" y="11.333333333333337" width="68" height="29.666666666666671"/>
-                                                <color key="tintColor" name="Info_300"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted" subtitle="follow"/>
-                                                <connections>
-                                                    <action selector="followBtnTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="x1Y-Yy-Vma"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="zsZ-Ze-37D" firstAttribute="top" secondItem="dbF-uc-4J7" secondAttribute="top" constant="2" id="11k-AO-yRi"/>
-                                            <constraint firstItem="zsZ-Ze-37D" firstAttribute="leading" secondItem="DY2-9D-3Rr" secondAttribute="trailing" constant="9" id="JlP-6C-ipr"/>
+                                            <constraint firstItem="jls-kq-9Oc" firstAttribute="top" secondItem="dbF-uc-4J7" secondAttribute="top" id="GBh-d4-7OG"/>
                                             <constraint firstItem="DY2-9D-3Rr" firstAttribute="centerY" secondItem="dbF-uc-4J7" secondAttribute="centerY" id="T5a-we-ij1"/>
-                                            <constraint firstItem="LFt-UP-SdH" firstAttribute="leading" secondItem="zsZ-Ze-37D" secondAttribute="trailing" constant="9" id="Xwb-sU-dYJ"/>
+                                            <constraint firstItem="jls-kq-9Oc" firstAttribute="leading" secondItem="DY2-9D-3Rr" secondAttribute="trailing" constant="12" id="bJM-Ew-3IW"/>
+                                            <constraint firstAttribute="bottom" secondItem="jls-kq-9Oc" secondAttribute="bottom" id="bWQ-s6-2nS"/>
                                             <constraint firstItem="DY2-9D-3Rr" firstAttribute="leading" secondItem="dbF-uc-4J7" secondAttribute="leading" constant="3" id="ccH-vI-2kP"/>
-                                            <constraint firstItem="LFt-UP-SdH" firstAttribute="centerY" secondItem="dbF-uc-4J7" secondAttribute="centerY" id="cdS-3V-EB3"/>
-                                            <constraint firstAttribute="trailing" secondItem="LFt-UP-SdH" secondAttribute="trailing" id="geZ-od-qIu"/>
                                             <constraint firstAttribute="height" constant="52" id="lpK-uG-qtt"/>
-                                            <constraint firstItem="LFt-UP-SdH" firstAttribute="leading" secondItem="zsZ-Ze-37D" secondAttribute="trailing" constant="9" id="wGN-Qx-gew"/>
-                                            <constraint firstAttribute="bottom" secondItem="zsZ-Ze-37D" secondAttribute="bottom" constant="2" id="xp0-EC-eev"/>
+                                            <constraint firstAttribute="trailing" secondItem="jls-kq-9Oc" secondAttribute="trailing" id="of7-QI-l0V"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -237,6 +245,7 @@
         <image name="bo1" width="799" height="1036"/>
         <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
         <image name="netf" width="1024" height="1024"/>
+        <image name="show 3" width="624" height="880"/>
         <image name="video.badge.plus" catalog="system" width="128" height="92"/>
         <namedColor name="Background">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

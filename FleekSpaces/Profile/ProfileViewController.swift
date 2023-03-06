@@ -72,8 +72,25 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             }),
             UIAction(title: "Followers", image: UIImage(systemName: "person"),  attributes: .destructive, handler: { (_) in
                 
-                let controller = FollowersViewController()
-                self.present(controller, animated: true)
+                let detailViewController = FollowersViewController()
+                
+                let nav = UINavigationController(rootViewController: detailViewController)
+                // 1
+                nav.modalPresentationStyle = .pageSheet
+
+                
+                // 2
+                if let sheet = nav.sheetPresentationController {
+
+                    // 3
+                    sheet.detents = [.medium(), .large()]
+
+                }
+                // 4
+                self.present(nav, animated: true, completion: nil)
+
+                
+                
 
 //                self.movieDelegate?.tvShowSelected()
             })

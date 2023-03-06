@@ -10,8 +10,27 @@ import SDWebImage
 import JGProgressHUD
 
 class SpacesTableViewController: UITableViewController, PassLikesData, FollowBtnTap {
-    func followBtnTap(sender: UIButton) {
-        let alert = UIAlertController(title: "Oops! 🥹", message: "I'm still working on this feature, please be patient.", preferredStyle: .alert)
+   
+    
+    func followBtnTap(sender: UIButton,  cell: SpacesTableViewCell) {
+        
+        
+//        sendFollowRequest(firebaseUID: <#String#>)
+        
+        if let indexPath = self.tableView.indexPath(for: cell) {
+            if let safeFirebaseUID =  FinalDataModel.spacesFeedElement?[indexPath.row].user?.firebaseUid {
+                
+                sendFollowRequest(firebaseUID: safeFirebaseUID)
+                print("\(FinalDataModel.spacesFeedElement?[indexPath.row].user?.firebaseUid)")
+            }
+            
+           
+        }
+       
+       
+        
+        let alert = UIAlertController(title: "Awesome! 🥹", message: self.followMessage, preferredStyle: .alert)
+//        cell.followBtn.isHidden = true
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { alerts in
             
            
@@ -58,9 +77,11 @@ class SpacesTableViewController: UITableViewController, PassLikesData, FollowBtn
 
         
     }
+    var sendFollowers: FollowersRequest?
     var users = [ChatUser]()
     var prog = JGProgressHUD(style: .dark)
     var feedData: [SpacesFeedElement]?
+    var followMessage = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -139,40 +160,54 @@ class SpacesTableViewController: UITableViewController, PassLikesData, FollowBtn
     }
     
     
+    //MARK: - Send Follow Request
     
-    //    MARK: - users fetch firestore
-    private func fetchAllUsers() {
+    func sendFollowRequest(firebaseUID: String) {
         
-        FirebaseManager.shared.firestore.collection("users")
-            .getDocuments { documentsSnapshot, error in
+        //https://api-space-dev.getfleek.app/users/follow_user?firebase_uid=0HxLkjzkAiSR0OPUzEs3MeoBjw52
+        
+        
+        let network = NetworkURL()
+        
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/users/follow_user?firebase_uid=\(firebaseUID)") else {return}
+        
+        guard let myToken = UserDefaults.standard.string(forKey: "userToken") else {return}
+        
+        
+        network.tokenCalls(FollowersRequest.self, url: myUrl, token: myToken, methodType: "POST") { myResult, yourMessage in
+            
+            
+            switch myResult {
                 
-                if let error = error {
+                
+            case .success(let userData):
+                FinalDataModel.followerRequest = userData
+                self.sendFollowers = userData
+                DispatchQueue.main.async {
                     
-//                    self.errorMessage = "Failed to fetch users: \(error)"
-                    print("Failed to fetch users: \(error)")
-                    return
+                   
+                    self.followMessage = userData.message ?? "You have succesfully followed."
+                       //save in variable
+//                    self.watchlistBtn.setTitle("\(userData.count)", for: .normal)
+//
+                    
+                    self.tableView.reloadData()
                 }
+             
+            case .failure(let err):
+                print("Error is \(err)")
                 
-//                self.errorMessage = "Fetched users succesfully"
                 
-                
-                documentsSnapshot?.documents.forEach({ snapshot in
-                    let user = try? snapshot.data(as: ChatUser.self)
-                    if user?.uid != FirebaseManager.shared.auth.currentUser?.uid {
-                        self.users.append(user!)
-                        DispatchQueue.main.async {
-//                            self.testTable.reloadData()
-                          
-                            //                            self.spinny.dismiss(animated: true)
-                        }
-                        
-                    }
-                    
-                })
             }
+        }
+        
+        
+        
         
     }
     
+    
+ 
     
     // MARK: - Table view data source
     
@@ -199,6 +234,10 @@ class SpacesTableViewController: UITableViewController, PassLikesData, FollowBtn
 
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        print("this is UID \(FinalDataModel.spacesFeedElement?[indexPath.item].user?.firebaseUid)")
+        
         if let safeModel = FinalDataModel.spacesFeedElement?[indexPath.item].postersURL {
             print("https://image.tmdb.org/t/p/w500\(safeModel)")
         }
@@ -260,6 +299,8 @@ class SpacesTableViewController: UITableViewController, PassLikesData, FollowBtn
         print("Moved to archive")
     }
     
+    
+   
     
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

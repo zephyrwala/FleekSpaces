@@ -11,36 +11,42 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="followersa" rowHeight="94" id="KGk-i7-Jjw" customClass="FollowersFollowingTableViewCell" customModule="FleekSpaces" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="330" height="94"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="followersa" rowHeight="85" id="KGk-i7-Jjw" customClass="FollowersFollowingTableViewCell" customModule="FleekSpaces" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="85"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="330" height="94"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="330" height="85"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqv-gu-JFS">
-                        <rect key="frame" x="6" y="6" width="318" height="82"/>
+                        <rect key="frame" x="6" y="6" width="318" height="72"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bene" translatesAutoresizingMaskIntoConstraints="NO" id="lyi-7k-f0U">
+                                <rect key="frame" x="0.0" y="0.0" width="318" height="72"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bene" translatesAutoresizingMaskIntoConstraints="NO" id="mSP-7a-r8C">
-                                <rect key="frame" x="8" y="11" width="60" height="60"/>
+                                <rect key="frame" x="15" y="8.6666666666666643" width="55" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="MVI-PI-GP8"/>
-                                    <constraint firstAttribute="height" constant="60" id="XYl-gU-oP9"/>
+                                    <constraint firstAttribute="width" constant="55" id="MVI-PI-GP8"/>
+                                    <constraint firstAttribute="height" constant="55" id="XYl-gU-oP9"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amar Akhbar Anthony" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoW-50-Kq8">
-                                <rect key="frame" x="83" y="10" width="220" height="62"/>
+                                <rect key="frame" x="85" y="10" width="218" height="52"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" name="collectionViewBackground"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="Gradient_6"/>
                         <constraints>
+                            <constraint firstItem="lyi-7k-f0U" firstAttribute="top" secondItem="gqv-gu-JFS" secondAttribute="top" id="9lo-UM-euM"/>
+                            <constraint firstAttribute="trailing" secondItem="lyi-7k-f0U" secondAttribute="trailing" id="Sco-dU-X4U"/>
+                            <constraint firstItem="lyi-7k-f0U" firstAttribute="leading" secondItem="gqv-gu-JFS" secondAttribute="leading" id="Xz4-Pc-dXw"/>
+                            <constraint firstAttribute="bottom" secondItem="lyi-7k-f0U" secondAttribute="bottom" id="YZN-TW-rgw"/>
                             <constraint firstAttribute="trailing" secondItem="VoW-50-Kq8" secondAttribute="trailing" constant="15" id="ZM3-qD-Wnb"/>
                             <constraint firstAttribute="bottom" secondItem="VoW-50-Kq8" secondAttribute="bottom" constant="10" id="icb-gT-uNg"/>
-                            <constraint firstAttribute="height" constant="82" id="ils-Dq-4X1"/>
-                            <constraint firstItem="mSP-7a-r8C" firstAttribute="leading" secondItem="gqv-gu-JFS" secondAttribute="leading" constant="8" id="pPX-bg-Wmo"/>
+                            <constraint firstAttribute="height" constant="72" id="ils-Dq-4X1"/>
+                            <constraint firstItem="mSP-7a-r8C" firstAttribute="leading" secondItem="gqv-gu-JFS" secondAttribute="leading" constant="15" id="pPX-bg-Wmo"/>
                             <constraint firstItem="mSP-7a-r8C" firstAttribute="centerY" secondItem="gqv-gu-JFS" secondAttribute="centerY" id="qc2-Xg-caR"/>
                             <constraint firstItem="VoW-50-Kq8" firstAttribute="leading" secondItem="mSP-7a-r8C" secondAttribute="trailing" constant="15" id="sIx-50-IEm"/>
                             <constraint firstItem="VoW-50-Kq8" firstAttribute="top" secondItem="gqv-gu-JFS" secondAttribute="top" constant="10" id="uzD-iD-DEE"/>
@@ -58,19 +64,17 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="followBg" destination="gqv-gu-JFS" id="pfI-tL-4Xy"/>
+                <outlet property="followBlurBg" destination="lyi-7k-f0U" id="v3R-ZT-Amj"/>
                 <outlet property="followersName" destination="VoW-50-Kq8" id="wh9-As-U57"/>
                 <outlet property="followersProfileImage" destination="mSP-7a-r8C" id="Tfh-Bx-t7g"/>
             </connections>
-            <point key="canvasLocation" x="36.641221374045799" y="33.802816901408455"/>
+            <point key="canvasLocation" x="36.641221374045799" y="30.633802816901412"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="bene" width="500" height="750"/>
         <namedColor name="BGColor">
             <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Gradient_6">
-            <color red="0.13699999451637268" green="0.14499999582767487" blue="0.16500000655651093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="collectionViewBackground">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

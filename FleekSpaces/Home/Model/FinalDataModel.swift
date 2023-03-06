@@ -63,7 +63,63 @@ class FinalDataModel: NSObject {
     
     static var recommendedBy: RecommendedByUID?
     
+    static var myFollowers: [GetFollower]?
+    
+    static var followerRequest: FollowersRequest?
 }
+
+
+// MARK: - FollowersRequest
+class FollowersRequest: Codable {
+    let success: Bool?
+    let message: String?
+
+    init(success: Bool?, message: String?) {
+        self.success = success
+        self.message = message
+    }
+}
+
+
+// MARK: - GetFollower
+class GetFollower: Codable {
+    let userDetails: UserDetails?
+    let status, createdAt: String?
+
+    enum CodingKeys: String, CodingKey {
+        case userDetails = "user_details"
+        case status
+        case createdAt = "created_at"
+    }
+
+    init(userDetails: UserDetails?, status: String?, createdAt: String?) {
+        self.userDetails = userDetails
+        self.status = status
+        self.createdAt = createdAt
+    }
+}
+
+// MARK: - UserDetails
+class UserDetails: Codable {
+    let userID, firebaseUid, name, email: String?
+    let avatarURL: String?
+
+    enum CodingKeys: String, CodingKey {
+        case userID = "user_id"
+        case firebaseUid = "firebase_uid"
+        case name, email
+        case avatarURL = "avatar_url"
+    }
+
+    init(userID: String?, firebaseUid: String?, name: String?, email: String?, avatarURL: String?) {
+        self.userID = userID
+        self.firebaseUid = firebaseUid
+        self.name = name
+        self.email = email
+        self.avatarURL = avatarURL
+    }
+}
+
 
 // MARK: - RecommendedBy
 class RecommendedByUID: Codable {
@@ -295,16 +351,18 @@ class RecommendedTo: Codable {
 
 // MARK: - User
 class User: Codable {
-    let userID, name, phoneNumber, avatarURL: String?
+    let userID, name, phoneNumber, avatarURL, firebaseUid: String?
 
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"
         case name
+        case firebaseUid = "firebase_uid"
         case phoneNumber = "phone_number"
         case avatarURL = "avatar_url"
     }
 
-    init(userID: String?, name: String?, phoneNumber: String?, avatarURL: String?) {
+    init(userID: String?, firebaseUid: String?, name: String?, phoneNumber: String?, avatarURL: String?) {
+        self.firebaseUid = firebaseUid
         self.userID = userID
         self.name = name
         self.phoneNumber = phoneNumber

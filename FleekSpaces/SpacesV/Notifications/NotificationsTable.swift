@@ -9,6 +9,9 @@ import UIKit
 
 class NotificationsTable: UITableViewController {
         
+    
+    var myFollowers : [GetFollower]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,12 +20,59 @@ class NotificationsTable: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+        fetchFollowers()
         self.tableView.register(UINib(nibName: "NotificationsCell", bundle: nil), forCellReuseIdentifier: "notifa")
         self.title = "Notifications 🫧"
         
     }
 
+    
+    //MARK: - Fetch Followers
+    
+    func fetchFollowers() {
+        
+        //https://api-space-dev.getfleek.app/users/get_followers
+        
+        
+        let network = NetworkURL()
+        
+        guard let myURL = URL(string: "https://api-space-dev.getfleek.app/users/get_followers") else {return}
+        
+        
+        guard let myToken = UserDefaults.standard.string(forKey: "userToken") else {return}
+        
+        
+        network.tokenCalls([GetFollower].self, url: myURL, token: myToken, methodType: "GET") { myResult, yourMessage in
+            
+            
+            switch myResult {
+                
+                
+            case .success(let userData):
+                FinalDataModel.myFollowers = userData
+                self.myFollowers = userData
+                DispatchQueue.main.async {
+                    
+                   
+                       //save in variable
+//                    self.watchlistBtn.setTitle("\(userData.count)", for: .normal)
+//
+                    
+                    self.tableView.reloadData()
+                }
+             
+            case .failure(let err):
+                print("Error is \(err)")
+                
+                
+            }
+        }
+        
+        
+        
+    }
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -32,15 +82,23 @@ class NotificationsTable: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 15
+        return myFollowers?.count ?? 1
+        
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notifa", for: indexPath) as! NotificationsCell
         
+        if let safeIndex = myFollowers?[indexPath.row] {
+            cell.setupCell(fromData: safeIndex)
+        }
+        
         return cell
     }
+    
+    
+   
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

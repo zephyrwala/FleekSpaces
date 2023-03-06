@@ -17,7 +17,7 @@ protocol PassLikesData: AnyObject {
 }
 
 protocol FollowBtnTap: AnyObject {
-    func followBtnTap(sender: UIButton)
+    func followBtnTap(sender: UIButton, cell: SpacesTableViewCell)
 }
 
 
@@ -68,7 +68,7 @@ class SpacesTableViewCell: UITableViewCell {
 
     @IBAction func followBtnTap(_ sender: UIButton) {
         
-        followBtnDelegate?.followBtnTap(sender: sender)
+        followBtnDelegate?.followBtnTap(sender: sender, cell: self)
     }
     
     @IBAction func likeBtnTapped(_ sender: UIButton) {

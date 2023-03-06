@@ -24,4 +24,23 @@ class NotificationsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    func setupCell(fromData: GetFollower) {
+        if let safeName = fromData.userDetails?.name {
+            self.notificationLabel.text = "\(safeName) has started following you"
+        }
+        
+        
+        
+        if let safeProfilePic = fromData.userDetails?.avatarURL {
+            
+            let newURL = URL(string: safeProfilePic)
+            self.notificationImage.sd_setImage(with: newURL)
+          
+        }
+        
+        
+        
+    }
+    
 }

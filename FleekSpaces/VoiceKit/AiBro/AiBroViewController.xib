@@ -98,7 +98,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYY-32-UgT" customClass="LottieAnimationView" customModule="Lottie">
-                                        <rect key="frame" x="120" y="597" width="135" height="110"/>
+                                        <rect key="frame" x="120" y="577" width="135" height="110"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="10u-Ev-S0e"/>
                                         </constraints>
@@ -107,7 +107,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlG-2Z-4SG">
-                                        <rect key="frame" x="128" y="607" width="119" height="100"/>
+                                        <rect key="frame" x="128" y="587" width="119" height="100"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sb5-n0-j0R">
                                                 <rect key="frame" x="10" y="11" width="99" height="78.666666666666671"/>
@@ -135,7 +135,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Speak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6a-HZ-xKO">
-                                        <rect key="frame" x="100" y="707" width="175" height="21"/>
+                                        <rect key="frame" x="100" y="687" width="175" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="wbd-ci-Bku"/>
                                         </constraints>
@@ -160,7 +160,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="YYY-32-UgT" firstAttribute="top" secondItem="uqw-wJ-REQ" secondAttribute="bottom" constant="50" id="02I-Nw-Br5"/>
+                                    <constraint firstItem="YYY-32-UgT" firstAttribute="top" secondItem="uqw-wJ-REQ" secondAttribute="bottom" constant="30" id="02I-Nw-Br5"/>
                                     <constraint firstItem="D57-Ip-gAa" firstAttribute="top" secondItem="pZ2-sh-b5J" secondAttribute="top" constant="76" id="56y-fE-O6Z"/>
                                     <constraint firstAttribute="trailing" secondItem="UO8-Tf-Awt" secondAttribute="trailing" constant="21" id="5A9-qe-fps"/>
                                     <constraint firstItem="uqw-wJ-REQ" firstAttribute="top" secondItem="UO8-Tf-Awt" secondAttribute="bottom" constant="6" id="B7r-3x-Oix"/>
@@ -176,7 +176,7 @@
                                     <constraint firstAttribute="trailing" secondItem="MlG-2Z-4SG" secondAttribute="trailing" constant="128" id="evp-DH-5Vq"/>
                                     <constraint firstItem="z6a-HZ-xKO" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="100" id="i0v-Zg-Ni3"/>
                                     <constraint firstAttribute="trailing" secondItem="YYY-32-UgT" secondAttribute="trailing" constant="120" id="iqn-2L-sDz"/>
-                                    <constraint firstItem="MlG-2Z-4SG" firstAttribute="top" secondItem="uqw-wJ-REQ" secondAttribute="bottom" constant="60" id="nn9-4y-At9"/>
+                                    <constraint firstItem="MlG-2Z-4SG" firstAttribute="top" secondItem="uqw-wJ-REQ" secondAttribute="bottom" constant="40" id="nn9-4y-At9"/>
                                     <constraint firstAttribute="trailing" secondItem="3pB-Dr-5Le" secondAttribute="trailing" constant="25" id="oec-eQ-C3h"/>
                                     <constraint firstItem="UO8-Tf-Awt" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="21" id="pm7-kT-2l3"/>
                                     <constraint firstItem="edZ-dd-eF4" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="25" id="rsD-q2-Bo6"/>
