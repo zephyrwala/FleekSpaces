@@ -53,10 +53,10 @@
                                                     <rect key="frame" x="15" y="492" width="329" height="45"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="86Q-hb-RsW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="116" height="45"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="45"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qd-0X-EHQ">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="58" height="45"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="65" height="45"/>
                                                                     <color key="tintColor" name="Fleek_500"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup" catalog="system"/>
@@ -65,14 +65,17 @@
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNY-R6-aZL">
-                                                                    <rect key="frame" x="58" y="0.0" width="58" height="45"/>
+                                                                    <rect key="frame" x="65" y="0.0" width="65" height="45"/>
                                                                     <color key="tintColor" systemColor="systemYellowColor"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="video.badge.plus" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="watchlistBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lcv-VH-djN"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="116" id="qrq-3T-L8k"/>
+                                                                <constraint firstAttribute="width" constant="130" id="qrq-3T-L8k"/>
                                                             </constraints>
                                                         </stackView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="netf" translatesAutoresizingMaskIntoConstraints="NO" id="Zn5-js-DWR">
@@ -236,6 +239,7 @@
                 <outlet property="userActivityLabels" destination="NAE-5H-GWr" id="Tl6-d1-fuF"/>
                 <outlet property="userProfilePic" destination="DY2-9D-3Rr" id="H08-ht-Wjr"/>
                 <outlet property="visBlur" destination="DXE-iD-5gi" id="LcB-i7-oGc"/>
+                <outlet property="watchlistBtn" destination="XNY-R6-aZL" id="izW-fj-nzP"/>
             </connections>
             <point key="canvasLocation" x="129.00763358778624" y="65.140845070422543"/>
         </tableViewCell>

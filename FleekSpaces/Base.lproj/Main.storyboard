@@ -571,7 +571,7 @@
                         <color key="backgroundColor" name="AccentColor"/>
                         <color key="tintColor" name="Primary_600"/>
                         <color key="selectedImageTintColor" name="Neutral_400"/>
-                        <tabBarAppearance key="standardAppearance" backgroundEffect="systemMaterialDark">
+                        <tabBarAppearance key="standardAppearance" backgroundEffect="systemUltraThinMaterialDark">
                             <color key="backgroundColor" name="Background"/>
                             <color key="selectionIndicatorTintColor" name="Fleek_600"/>
                         </tabBarAppearance>
@@ -1057,7 +1057,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="hY9-23-FjK">
-                        <rect key="frame" x="0.0" y="47" width="375" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="47" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

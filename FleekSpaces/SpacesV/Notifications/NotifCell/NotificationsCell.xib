@@ -22,14 +22,14 @@
                         <rect key="frame" x="6" y="6" width="312" height="87"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="benedict" translatesAutoresizingMaskIntoConstraints="NO" id="Cqm-V3-Uh5">
-                                <rect key="frame" x="8" y="13.666666666666671" width="60" height="60"/>
+                                <rect key="frame" x="15" y="18.666666666666671" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="1Pl-4x-SKb"/>
-                                    <constraint firstAttribute="width" constant="60" id="Bb8-Oc-a1p"/>
+                                    <constraint firstAttribute="height" constant="50" id="1Pl-4x-SKb"/>
+                                    <constraint firstAttribute="width" constant="50" id="Bb8-Oc-a1p"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manoj Babu Laal has started following you" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUp-ZU-bLw">
-                                <rect key="frame" x="80" y="12" width="220" height="63"/>
+                                <rect key="frame" x="77" y="12" width="223" height="63"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" name="Neutral_300"/>
                                 <nil key="highlightedColor"/>
@@ -42,11 +42,11 @@
                             <constraint firstItem="pUp-ZU-bLw" firstAttribute="top" secondItem="9Xt-ih-vB4" secondAttribute="top" constant="12" id="MS5-hn-HR9"/>
                             <constraint firstAttribute="bottom" secondItem="pUp-ZU-bLw" secondAttribute="bottom" constant="12" id="XVT-2H-rGJ"/>
                             <constraint firstItem="Cqm-V3-Uh5" firstAttribute="centerY" secondItem="9Xt-ih-vB4" secondAttribute="centerY" id="g26-Ly-AcS"/>
-                            <constraint firstItem="Cqm-V3-Uh5" firstAttribute="leading" secondItem="9Xt-ih-vB4" secondAttribute="leading" constant="8" id="jt3-Fg-CKb"/>
+                            <constraint firstItem="Cqm-V3-Uh5" firstAttribute="leading" secondItem="9Xt-ih-vB4" secondAttribute="leading" constant="15" id="jt3-Fg-CKb"/>
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" name="Neutral_110"/>
+                <color key="backgroundColor" name="BGColor"/>
                 <constraints>
                     <constraint firstItem="9Xt-ih-vB4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="QlG-1L-cvs"/>
                     <constraint firstAttribute="bottom" secondItem="9Xt-ih-vB4" secondAttribute="bottom" constant="6" id="REf-89-1aq"/>
@@ -65,8 +65,8 @@
     </objects>
     <resources>
         <image name="benedict" width="1414" height="2048"/>
-        <namedColor name="Neutral_110">
-            <color red="0.11800000071525574" green="0.13699999451637268" blue="0.15299999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="BGColor">
+            <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Neutral_300">
             <color red="0.79600000381469727" green="0.79600000381469727" blue="0.79600000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

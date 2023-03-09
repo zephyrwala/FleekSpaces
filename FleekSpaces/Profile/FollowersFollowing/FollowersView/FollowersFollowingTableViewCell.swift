@@ -13,7 +13,9 @@ class FollowersFollowingTableViewCell: UITableViewCell {
     @IBOutlet weak var followBg: UIView!
     @IBOutlet weak var followersProfileImage: UIImageView!
     
-  
+    
+    @IBOutlet weak var blurViews: UIVisualEffectView!
+    
     @IBOutlet weak var followersName: UILabel!
     
     override func awakeFromNib() {
@@ -28,6 +30,9 @@ class FollowersFollowingTableViewCell: UITableViewCell {
         self.followBlurBg.layer.borderWidth = 1
         self.followBlurBg.layer.borderColor = UIColor.lightGray.cgColor
        
+        self.blurViews.clipsToBounds = true
+        self.blurViews.layer.cornerRadius = 10
+        self.blurViews.layer.cornerCurve = .continuous
         
     }
 

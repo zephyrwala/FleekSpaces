@@ -10,25 +10,37 @@ import SDWebImage
 import Lottie
 
 
+
+//likes del
 protocol PassLikesData: AnyObject {
     
     func spacesLikeBtnTap(_ cell: SpacesTableViewCell)
     
 }
 
+
+//follow btn del
 protocol FollowBtnTap: AnyObject {
     func followBtnTap(sender: UIButton, cell: SpacesTableViewCell)
 }
 
 
+//watchlist del
+protocol WatchlistBtnTap: AnyObject {
+    
+    func watchlistBtnTap (sender: UIButton, cell: SpacesTableViewCell)
+}
+
 class SpacesTableViewCell: UITableViewCell {
 
+    
     @IBOutlet weak var followBtn: UIButton!
     @IBOutlet weak var datesTime: UILabel!
     @IBOutlet weak var likeAnim: LottieAnimationView!
     @IBOutlet weak var cardBG: UIView!
     var likeBtnDelegate: PassLikesData?
     var followBtnDelegate: FollowBtnTap?
+    var watchlistbtnDelegate: WatchlistBtnTap?
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var posterShadowCast: UIView!
     @IBOutlet weak var userActivityLabels: UILabel!
@@ -38,6 +50,7 @@ class SpacesTableViewCell: UITableViewCell {
     @IBOutlet weak var visBlur: UIVisualEffectView!
     @IBOutlet weak var bgPosterImage: UIImageView!
     @IBOutlet weak var baseBackground: UIView!
+    @IBOutlet weak var watchlistBtn: UIButton!
     
     
     override func awakeFromNib() {
@@ -63,14 +76,31 @@ class SpacesTableViewCell: UITableViewCell {
         posterShadowCast.layer.shadowOffset = .zero
         posterShadowCast.layer.shadowRadius = 10
         
+        platformIcon.layer.borderWidth = 1
+        platformIcon.layer.borderColor = UIColor.black.cgColor
+        
         
     }
 
+    
+    //follow btn tap
     @IBAction func followBtnTap(_ sender: UIButton) {
         
         followBtnDelegate?.followBtnTap(sender: sender, cell: self)
     }
     
+    
+    
+    //watchlist btn tap
+    @IBAction func watchlistBtnTapped(_ sender: UIButton) {
+        
+        watchlistbtnDelegate?.watchlistBtnTap(sender: sender, cell: self)
+
+    }
+    
+    
+    
+    //like btn tapped
     @IBAction func likeBtnTapped(_ sender: UIButton) {
         
         likeBtnDelegate?.spacesLikeBtnTap(self)
@@ -79,6 +109,11 @@ class SpacesTableViewCell: UITableViewCell {
     }
     
     
+    
+    
+    
+    
+    //setup cell
     func setupCell(fromData: SpacesFeedElement) {
    
         
@@ -93,10 +128,57 @@ class SpacesTableViewCell: UITableViewCell {
         let imageAttachment = NSTextAttachment()
         imageAttachment.image = UIImage(systemName: "checkmark.circle")
 
+        if let safeCount = fromData.totalLikeCount {
+            if safeCount != 0 {
+                self.likeBtn.setTitle("\(safeCount)", for: .normal)
+            }
+            
+        }
+        
+        if let safeLikes = fromData.isLikedByMe {
+           if safeLikes == true {
+               self.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+           } else {
+               self.likeBtn.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+               
+           }
+        }
+        
+        
+        if let safeWatchCount = fromData.totalWatchlistCount {
+            if safeWatchCount != 0 {
+                self.watchlistBtn.setTitle("\(safeWatchCount)", for: .normal)
+            }
+        }
+        
+        if let safeWatch = fromData.isWatchlistedByMe {
+            
+            if safeWatch == true {
+                self.watchlistBtn.setImage(UIImage(systemName: "video.fill.badge.checkmark"), for: .normal)
+            } else {
+                self.watchlistBtn.setImage(UIImage(systemName: "video.badge.plus"), for: .normal)
+            }
+            
+        }
         // If you want to enable Color in the SF Symbols.
        
 
+        if let pathWay = fromData.ottDetails?.ottDetailsIN?.flatrate?[0].logoPath {
+            
+            let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(pathWay)")
+            self.platformIcon.sd_setImage(with: newURL)
+//            self.platformIcon.layer
+//           self.plat self.subsLogo.layer.cornerRadius = 12
+        }
        
+        if let isFollowing = fromData.user?.following {
+            if fromData.user?.following == true {
+                self.followBtn.isHidden = true
+            } else {
+                self.followBtn.isHidden = false
+            }
+            
+        }
         
         print("Date is \(dayOfTheWeekString)")
         
@@ -141,6 +223,11 @@ class SpacesTableViewCell: UITableViewCell {
         
     }
     
+    
+    
+    
+    
+    //lottie play
     func lottiePlay() {
         
         self.likeBtn.alpha = 0

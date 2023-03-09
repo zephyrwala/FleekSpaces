@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MoPopUpViewController" customModule="FleekSpaces" customModuleProvider="target">
             <connections>
                 <outlet property="backdropImage" destination="oiX-b3-rjQ" id="PsE-Vj-GPu"/>
+                <outlet property="likeBtn" destination="FSN-U7-oUv" id="sA1-cV-O4b"/>
                 <outlet property="movieBio" destination="REn-LE-ExX" id="mfy-Y7-fqp"/>
                 <outlet property="movieName" destination="UDC-vS-Na6" id="GJx-hN-lEH"/>
                 <outlet property="movieRating" destination="C2D-X9-auv" id="9Kc-3n-ldV"/>
@@ -28,7 +29,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11K-4Y-fh7">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="500"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oiX-b3-rjQ">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oiX-b3-rjQ">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="500"/>
                         </imageView>
                         <visualEffectView hidden="YES" opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xel-Ll-oM3">
@@ -121,6 +122,9 @@
                                             <color key="tintColor" name="Fleek_500"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup" catalog="system"/>
+                                            <connections>
+                                                <action selector="likeBtnTapped:" destination="-1" eventType="touchUpInside" id="79d-d0-xli"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Like" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAU-mL-CQK">
                                             <rect key="frame" x="0.0" y="76.666666666666686" width="80.333333333333329" height="13.333333333333329"/>

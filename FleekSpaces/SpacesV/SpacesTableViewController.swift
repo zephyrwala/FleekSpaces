@@ -9,54 +9,14 @@ import UIKit
 import SDWebImage
 import JGProgressHUD
 
-class SpacesTableViewController: UITableViewController, PassLikesData, FollowBtnTap {
+class SpacesTableViewController: UITableViewController {
    
     
-    func followBtnTap(sender: UIButton,  cell: SpacesTableViewCell) {
-        
-        
-//        sendFollowRequest(firebaseUID: <#String#>)
-        
-        if let indexPath = self.tableView.indexPath(for: cell) {
-            if let safeFirebaseUID =  FinalDataModel.spacesFeedElement?[indexPath.row].user?.firebaseUid {
-                
-                sendFollowRequest(firebaseUID: safeFirebaseUID)
-                print("\(FinalDataModel.spacesFeedElement?[indexPath.row].user?.firebaseUid)")
-            }
-            
-           
-        }
-       
-       
-        
-        let alert = UIAlertController(title: "Awesome! 🥹", message: self.followMessage, preferredStyle: .alert)
-//        cell.followBtn.isHidden = true
-        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { alerts in
-            
-           
-            self.navigationController?.popToRootViewController(animated: true)
-            
-//            self.dismiss(animated: true) {
-//                NotificationCenter.default.post(name: NSNotification.Name("startSwiftUI"), object: nil)
-//            }
-        }))
-        present(alert, animated: true)
-    }
-    
-  
-    func spacesLikeBtnTap(_ cell: SpacesTableViewCell) {
-        cell.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
-        cell.lottiePlay()
-        cell.likeBtn.tintColor = .systemTeal
-       
-            
-        
-       
-       
-        
-    }
     
 
+    
+    
+    //MARK: - Notifications tap
     @IBAction func notificationBtn(_ sender: Any) {
         
         let detailViewController = NotificationsTable()
@@ -122,9 +82,12 @@ class SpacesTableViewController: UITableViewController, PassLikesData, FollowBtn
         
         
         let network = NetworkURL()
-        let url = URL(string: "https://api-space-dev.getfleek.app/activity/get_feed/")
+        let myURL = URL(string: "https://api-space-dev.getfleek.app/activity/get_feed/")
         
-        network.theBestNetworkCall([SpacesFeedElement].self, url: url) { myResult, yourMessage in
+        guard let myToken = UserDefaults.standard.string(forKey: "userToken") else {return}
+        
+        network.tokenCalls([SpacesFeedElement].self, url: myURL, token: myToken, methodType: "GET") { myResult, yourMessage in
+            
             
             DispatchQueue.main.async {
                 switch myResult {
@@ -217,7 +180,9 @@ class SpacesTableViewController: UITableViewController, PassLikesData, FollowBtn
             
             cell.likeBtnDelegate = self
             cell.followBtnDelegate = self
+            cell.watchlistbtnDelegate = self
             cell.setupCell(fromData: spacesData )
+           
             cell.selectionStyle = .none
             cell.selectedBackgroundView?.backgroundColor = .black
             

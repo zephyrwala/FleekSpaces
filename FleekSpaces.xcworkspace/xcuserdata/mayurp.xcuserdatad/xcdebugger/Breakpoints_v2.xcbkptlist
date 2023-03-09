@@ -112,8 +112,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "311"
             endingLineNumber = "311"
-            landmarkName = "ProfileViewController"
-            landmarkType = "3">
+            landmarkName = "fetchCurrentUser()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -336,7 +336,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "560"
                   endingLineNumber = "560"
-                  offsetFromSymbolStart = "4264">
+                  offsetFromSymbolStart = "3976">
                </Location>
                <Location
                   uuid = "1C89FACA-6C74-41E0-B0CB-F3A63F14EED8 - cf11b01dfca423af"
@@ -464,7 +464,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "557"
                   endingLineNumber = "557"
-                  offsetFromSymbolStart = "4104">
+                  offsetFromSymbolStart = "3816">
                </Location>
                <Location
                   uuid = "BE490FE4-24FA-4D13-92E8-C7BE394C27BE - ddd06fbac938cd24"
@@ -479,7 +479,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "557"
                   endingLineNumber = "557"
-                  offsetFromSymbolStart = "4184">
+                  offsetFromSymbolStart = "3896">
                </Location>
                <Location
                   uuid = "BE490FE4-24FA-4D13-92E8-C7BE394C27BE - ddd06fbac938cd24"
@@ -494,7 +494,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "557"
                   endingLineNumber = "557"
-                  offsetFromSymbolStart = "4576">
+                  offsetFromSymbolStart = "4288">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -527,7 +527,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "754"
                   endingLineNumber = "754"
-                  offsetFromSymbolStart = "1180">
+                  offsetFromSymbolStart = "1024">
                </Location>
                <Location
                   uuid = "BBEA6059-3F44-494A-B37F-13E9505571D1 - 268e639c1c36d4f"
@@ -542,7 +542,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "754"
                   endingLineNumber = "754"
-                  offsetFromSymbolStart = "1392">
+                  offsetFromSymbolStart = "1224">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -687,7 +687,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "814"
                   endingLineNumber = "814"
-                  offsetFromSymbolStart = "2156">
+                  offsetFromSymbolStart = "1980">
                </Location>
                <Location
                   uuid = "CD395C64-EA05-4AFB-9644-FE5DA2086E2F - b7a0fef3afb3ce42"
@@ -702,7 +702,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "814"
                   endingLineNumber = "814"
-                  offsetFromSymbolStart = "2764">
+                  offsetFromSymbolStart = "2580">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -879,7 +879,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
                   endingLineNumber = "24"
-                  offsetFromSymbolStart = "2788">
+                  offsetFromSymbolStart = "2756">
                </Location>
                <Location
                   uuid = "7E61F825-C925-4642-A4B1-4E1167C4A2A9 - 1daa1c6088777e4f"
@@ -894,7 +894,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "25"
                   endingLineNumber = "25"
-                  offsetFromSymbolStart = "356">
+                  offsetFromSymbolStart = "328">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -927,7 +927,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
                   endingLineNumber = "28"
-                  offsetFromSymbolStart = "1536">
+                  offsetFromSymbolStart = "1508">
                </Location>
                <Location
                   uuid = "4DB89072-EC5F-4A13-B9E9-F1DEA1E7FB59 - 1daa1c6088777eaa"
@@ -942,7 +942,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
                   endingLineNumber = "28"
-                  offsetFromSymbolStart = "1596">
+                  offsetFromSymbolStart = "1568">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1469,8 +1469,8 @@
             filePath = "FleekSpaces/SpacesV/SpacesTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1853,8 +1853,8 @@
             filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1187"
-            endingLineNumber = "1187"
+            startingLineNumber = "1190"
+            endingLineNumber = "1190"
             landmarkName = "didTapImage(in:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1901,8 +1901,8 @@
             filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1139"
-            endingLineNumber = "1139"
+            startingLineNumber = "1141"
+            endingLineNumber = "1141"
             landmarkName = "didTapImage(in:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1917,8 +1917,8 @@
             filePath = "FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1140"
-            endingLineNumber = "1140"
+            startingLineNumber = "1142"
+            endingLineNumber = "1142"
             landmarkName = "didTapImage(in:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1952,6 +1952,70 @@
             startingLineNumber = "32"
             endingLineNumber = "32"
             landmarkName = "theBestNetworkCall(_:url:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9FFD934-AD2F-4F72-B6A7-EB443F8AC660"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FleekSpaces/ChatKit/MainChatView/MoviePopUp/MoPopUpViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
+            landmarkName = "checkLikes(thisShowType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4D4891B7-7C79-4EF4-83AB-B5BD3DF8EC85"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FleekSpaces/ChatKit/MainChatView/MoviePopUp/MoPopUpViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
+            landmarkName = "checkLikes(thisShowType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49BCA766-4F47-483B-A134-545F09410231"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FleekSpaces/ChatKit/MainChatView/MoviePopUp/MoPopUpViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
+            landmarkName = "checkLikes(thisShowType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51C448C3-19FA-41BC-BE73-828F0A07FFC3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FleekSpaces/ChatKit/MainChatView/MoviePopUp/MoPopUpViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
+            landmarkName = "checkLikes(thisShowType:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -231,6 +231,7 @@
 		69D9E60B299E43CD000DE3E5 /* MoPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D9E609299E43CC000DE3E5 /* MoPopUpViewController.swift */; };
 		69D9E60C299E43CD000DE3E5 /* MoPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D9E60A299E43CC000DE3E5 /* MoPopUpViewController.xib */; };
 		69D9E610299F013E000DE3E5 /* ChatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D9E60F299F013E000DE3E5 /* ChatExtensions.swift */; };
+		69E0679C29B73994008AC2A0 /* Likes+Watchlist+Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E0679B29B73994008AC2A0 /* Likes+Watchlist+Follow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -477,6 +478,7 @@
 		69D9E609299E43CC000DE3E5 /* MoPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoPopUpViewController.swift; sourceTree = "<group>"; };
 		69D9E60A299E43CC000DE3E5 /* MoPopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoPopUpViewController.xib; sourceTree = "<group>"; };
 		69D9E60F299F013E000DE3E5 /* ChatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatExtensions.swift; sourceTree = "<group>"; };
+		69E0679B29B73994008AC2A0 /* Likes+Watchlist+Follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Likes+Watchlist+Follow.swift"; sourceTree = "<group>"; };
 		B074456520EDC420251F3A55 /* Pods_FleekSpaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FleekSpaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD892A40D7B9C0EAB09C348E /* Pods-FleekSpaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FleekSpaces.release.xcconfig"; path = "Target Support Files/Pods-FleekSpaces/Pods-FleekSpaces.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1343,6 +1345,7 @@
 		69AC5F5E29A5DF6000C30ECA /* SpacesV */ = {
 			isa = PBXGroup;
 			children = (
+				69E0679A29B738FB008AC2A0 /* SpacesExtensions */,
 				6919332429B32D1C006CA14B /* Notifications */,
 				69AC5F6529A63B0E00C30ECA /* Loads */,
 				69AC5F5F29A5DFA100C30ECA /* SpacesTableViewController.swift */,
@@ -1486,6 +1489,14 @@
 				69D9E60F299F013E000DE3E5 /* ChatExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		69E0679A29B738FB008AC2A0 /* SpacesExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				69E0679B29B73994008AC2A0 /* Likes+Watchlist+Follow.swift */,
+			);
+			path = SpacesExtensions;
 			sourceTree = "<group>";
 		};
 		CECA015D65819323CA5FC61B /* Frameworks */ = {
@@ -1764,6 +1775,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69E0679C29B73994008AC2A0 /* Likes+Watchlist+Follow.swift in Sources */,
 				693946852847518C00FE7574 /* NavCollectionViewCell.swift in Sources */,
 				693357DD2894088000C49506 /* EpisodeCardsViewController.swift in Sources */,
 				695EBBE22861AAD400557D69 /* SeasonsViewController.swift in Sources */,
@@ -2037,7 +2049,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;
@@ -2076,7 +2088,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;

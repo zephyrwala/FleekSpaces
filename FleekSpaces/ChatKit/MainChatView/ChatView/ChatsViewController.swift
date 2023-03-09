@@ -1112,6 +1112,8 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                     
                     print("THis is taped \(safeIndexID) and show type \(showType)")
                     let detailViewController = MoPopUpViewController()
+                    detailViewController.showType = showType
+                    
                     detailViewController.movieId = safeIndexID
                   detailViewController.fetchMovieDetails(movieID: safeIndexID)
   //                vc.movieId = movieIDS
@@ -1138,6 +1140,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                     
                     let detailViewController = MoPopUpViewController()
                     detailViewController.movieId = safeIndexID
+                    detailViewController.showType = showType
                   detailViewController.fetchTVDetails(movieID: safeIndexID)
                     
                   
@@ -1208,6 +1211,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                     
                     let detailViewController = MoPopUpViewController()
                     detailViewController.movieId = safeMediaShowID
+                    detailViewController.showType = media.showType
                   detailViewController.fetchMovieDetails(movieID: safeMediaShowID)
   //                vc.movieId = movieIDS
 
@@ -1231,10 +1235,11 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                     
                 } else {
                     
-                    
+                    //tv stuff
                     let detailViewController = MoPopUpViewController()
 //                    detailViewController.showType = media.showType
                     detailViewController.movieId = safeMediaShowID
+                    detailViewController.showType = media.showType
                   detailViewController.fetchTVDetails(movieID: safeMediaShowID)
   //                vc.movieId = movieIDS
 

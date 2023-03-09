@@ -240,6 +240,10 @@ class SpacesFeedElement: Codable {
     let createdAt: String?
     let isWatchlist: Bool?
     let like, dislike: Bool?
+    let isLikedByMe: Bool?
+    let totalLikeCount: Int?
+    let isWatchlistedByMe: Bool?
+    let totalWatchlistCount: Int?
 
     enum CodingKeys: String, CodingKey {
         case user
@@ -252,9 +256,13 @@ class SpacesFeedElement: Codable {
         case isWatchlist = "is_watchlist"
         case createdAt = "created_at"
         case like, dislike
+        case isLikedByMe = "is_liked_by_me"
+        case totalLikeCount = "total_like_count"
+        case isWatchlistedByMe = "is_watchlisted_by_me"
+        case totalWatchlistCount = "total_watchlist_count"
     }
 
-    init(user: User?, showType: ShowType?, showID: String?, title: String?, postersURL: String?, tmdbRating: Int?, ottDetails: OttDetails?, createdAt: String?, isWatchlist: Bool?, like: Bool?, dislike: Bool?) {
+    init(user: User?, showType: ShowType?, showID: String?, title: String?, postersURL: String?, tmdbRating: Int?, ottDetails: OttDetails?, createdAt: String?, isWatchlist: Bool?, like: Bool?, dislike: Bool?, isLikedByMe: Bool?, totalLikeCount: Int?, isWatchlistedByMe: Bool?, totalWatchlistCount: Int?) {
         self.user = user
         self.showType = showType
         self.showID = showID
@@ -266,6 +274,10 @@ class SpacesFeedElement: Codable {
         self.createdAt = createdAt
         self.like = like
         self.dislike = dislike
+        self.isLikedByMe = isLikedByMe
+        self.totalLikeCount = totalLikeCount
+        self.isWatchlistedByMe = isWatchlistedByMe
+        self.totalWatchlistCount = totalWatchlistCount
     }
 }
 
@@ -352,6 +364,7 @@ class RecommendedTo: Codable {
 // MARK: - User
 class User: Codable {
     let userID, name, phoneNumber, avatarURL, firebaseUid: String?
+    let following: Bool?
 
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"
@@ -359,14 +372,16 @@ class User: Codable {
         case firebaseUid = "firebase_uid"
         case phoneNumber = "phone_number"
         case avatarURL = "avatar_url"
+        case following
     }
 
-    init(userID: String?, firebaseUid: String?, name: String?, phoneNumber: String?, avatarURL: String?) {
+    init(userID: String?, firebaseUid: String?, name: String?, phoneNumber: String?, avatarURL: String?, following: Bool?) {
         self.firebaseUid = firebaseUid
         self.userID = userID
         self.name = name
         self.phoneNumber = phoneNumber
         self.avatarURL = avatarURL
+        self.following = following
     }
 }
 

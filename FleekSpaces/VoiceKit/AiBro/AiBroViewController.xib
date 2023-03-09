@@ -60,9 +60,9 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UO8-Tf-Awt">
-                                        <rect key="frame" x="21" y="130" width="333" height="136"/>
+                                        <rect key="frame" x="21" y="130" width="333" height="100"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="136" id="0D8-xA-yYQ"/>
+                                            <constraint firstAttribute="height" constant="100" id="0D8-xA-yYQ"/>
                                         </constraints>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,7 +70,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uqw-wJ-REQ">
-                                        <rect key="frame" x="21" y="272" width="333" height="275"/>
+                                        <rect key="frame" x="21" y="236" width="333" height="275"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="275" id="cq7-aT-YJR"/>
                                         </constraints>
@@ -98,7 +98,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYY-32-UgT" customClass="LottieAnimationView" customModule="Lottie">
-                                        <rect key="frame" x="120" y="577" width="135" height="110"/>
+                                        <rect key="frame" x="120" y="657" width="135" height="110"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="10u-Ev-S0e"/>
                                         </constraints>
@@ -107,7 +107,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlG-2Z-4SG">
-                                        <rect key="frame" x="128" y="587" width="119" height="100"/>
+                                        <rect key="frame" x="128" y="667" width="119" height="100"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sb5-n0-j0R">
                                                 <rect key="frame" x="10" y="11" width="99" height="78.666666666666671"/>
@@ -135,7 +135,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Speak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6a-HZ-xKO">
-                                        <rect key="frame" x="100" y="687" width="175" height="21"/>
+                                        <rect key="frame" x="100" y="767" width="175" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="wbd-ci-Bku"/>
                                         </constraints>
@@ -160,9 +160,9 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="YYY-32-UgT" firstAttribute="top" secondItem="uqw-wJ-REQ" secondAttribute="bottom" constant="30" id="02I-Nw-Br5"/>
                                     <constraint firstItem="D57-Ip-gAa" firstAttribute="top" secondItem="pZ2-sh-b5J" secondAttribute="top" constant="76" id="56y-fE-O6Z"/>
                                     <constraint firstAttribute="trailing" secondItem="UO8-Tf-Awt" secondAttribute="trailing" constant="21" id="5A9-qe-fps"/>
+                                    <constraint firstAttribute="bottom" secondItem="MlG-2Z-4SG" secondAttribute="bottom" constant="45" id="8PA-rS-aPr"/>
                                     <constraint firstItem="uqw-wJ-REQ" firstAttribute="top" secondItem="UO8-Tf-Awt" secondAttribute="bottom" constant="6" id="B7r-3x-Oix"/>
                                     <constraint firstItem="YYY-32-UgT" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="120" id="Ian-n0-vSc"/>
                                     <constraint firstAttribute="trailing" secondItem="edZ-dd-eF4" secondAttribute="trailing" constant="25" id="LYr-hc-LkM"/>
@@ -176,13 +176,13 @@
                                     <constraint firstAttribute="trailing" secondItem="MlG-2Z-4SG" secondAttribute="trailing" constant="128" id="evp-DH-5Vq"/>
                                     <constraint firstItem="z6a-HZ-xKO" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="100" id="i0v-Zg-Ni3"/>
                                     <constraint firstAttribute="trailing" secondItem="YYY-32-UgT" secondAttribute="trailing" constant="120" id="iqn-2L-sDz"/>
-                                    <constraint firstItem="MlG-2Z-4SG" firstAttribute="top" secondItem="uqw-wJ-REQ" secondAttribute="bottom" constant="40" id="nn9-4y-At9"/>
                                     <constraint firstAttribute="trailing" secondItem="3pB-Dr-5Le" secondAttribute="trailing" constant="25" id="oec-eQ-C3h"/>
                                     <constraint firstItem="UO8-Tf-Awt" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="21" id="pm7-kT-2l3"/>
                                     <constraint firstItem="edZ-dd-eF4" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="25" id="rsD-q2-Bo6"/>
                                     <constraint firstItem="MlG-2Z-4SG" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="128" id="rzv-Ow-JdY"/>
                                     <constraint firstItem="z6a-HZ-xKO" firstAttribute="top" secondItem="MlG-2Z-4SG" secondAttribute="bottom" id="ugS-eT-d0a"/>
                                     <constraint firstAttribute="trailing" secondItem="z6a-HZ-xKO" secondAttribute="trailing" constant="100" id="yGQ-lT-gb6"/>
+                                    <constraint firstAttribute="bottom" secondItem="YYY-32-UgT" secondAttribute="bottom" constant="45" id="zLL-ME-r9L"/>
                                 </constraints>
                             </view>
                             <blurEffect style="systemThinMaterialDark"/>
