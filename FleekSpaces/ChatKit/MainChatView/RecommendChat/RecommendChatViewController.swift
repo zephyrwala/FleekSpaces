@@ -346,6 +346,8 @@ extension RecommendChatViewController: UICollectionViewDelegate, UICollectionVie
                             
                             if let theShowType = FinalDataModel.userLikes?[indexPath.item].showType {
                                 
+                                self.addtoRecommend(showType: theShowType, showID: safeTMDBID, recommendToId: self.recommendToUid!)
+                                
                                 self.movieDelegate?.cellTapped(posterString: "https://image.tmdb.org/t/p/w500/\(posterURL)", showID: safeTMDBID, showType: theShowType)
                                 
                             }

@@ -137,6 +137,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
      
         fetchUserMovieData()
         fetchUserWatchlistData()
+        fetchRecommendData()
         setupButtons()
 
         changeProfile.setTitle("", for: .normal)
@@ -241,6 +242,10 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             if let safeWatchlist = FinalDataModel.fetchWatchList?.count {
                 
                 self.likeBtn.setTitle("\(safeWatchlist)", for: .normal)
+            }
+            
+            if let safeRecommendCOunt = FinalDataModel.recommendedProfile?.recommendedList?.count {
+                self.watchlistBtn.setTitle("\(safeRecommendCOunt)", for: .normal)
             }
         }
        
@@ -375,6 +380,12 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
         }
     }
     
+    
+    func fetchRecommendData() {
+        
+        
+        
+    }
     
     //MARK: - Fetch user data
     
@@ -534,7 +545,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
                 self.likeBtn.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
                 self.recommendBtn.setImage(UIImage(systemName: "person.badge.plus"), for: .normal)
                 self.segmentTabsSelection.selectedSegmentTintColor = .systemOrange
-               
+                self.recommendBtn.tintColor = .darkGray
                 self.watchlistBtn.tintColor = .systemYellow
                 self.likeBtn.tintColor = .darkGray
             }
@@ -550,12 +561,13 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             self.likeBtn.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
             self.recommendBtn.setImage(UIImage(systemName: "person.badge.plus"), for: .normal)
             self.watchlistBtn.tintColor = .darkGray
+            self.recommendBtn.tintColor = .darkGray
             self.likeBtn.tintColor = .systemTeal
             segmentTabsSelection.selectedSegmentTintColor = .systemTeal
             
         case 2:
             selectedOption = 2
-            emptyData()
+            fetchRecommend()
             self.watchlistBtn.setImage(UIImage(systemName: "video.badge.checkmark"), for: .normal)
             self.likeBtn.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
             self.recommendBtn.setImage(UIImage(systemName: "person.fill.badge.plus"), for: .normal)
@@ -563,7 +575,8 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
             
             self.watchlistBtn.tintColor = .darkGray
             self.likeBtn.tintColor = .darkGray
-            segmentTabsSelection.selectedSegmentTintColor = .darkGray
+            self.recommendBtn.tintColor = UIColor(named: "Danger_600")
+            segmentTabsSelection.selectedSegmentTintColor = UIColor(named: "Danger_600")
             print("Recommended selected")
             
         default:
@@ -599,6 +612,48 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
         // 4
         present(nav, animated: true, completion: nil)
 
+    }
+    
+    
+    func fetchRecommend() {
+        
+        
+        
+        let network = NetworkURL()
+        
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/activity/recommendations/") else {return}
+                
+        guard let myTOken = defaults.string(forKey: "userToken") else {return}
+    
+        network.tokenCalls(RecommendProfile.self, url: myUrl, token: myTOken, methodType: "GET") { myResult, yourMessage in
+            
+            
+            switch myResult {
+                
+                
+            case .success(let userData):
+                FinalDataModel.recommendedProfile = userData
+                print("Recommemnd Data is \(userData.recommendedList)")
+                DispatchQueue.main.async {
+                    if let safeCount = userData.recommendedList?.count {
+                        self.recommendBtn.setTitle("\(safeCount)", for: .normal)
+                    }
+                   
+                    
+                    
+                    self.listCollectionView.reloadData()
+                }
+              
+            case .failure(let err):
+                print("Error is \(err)")
+                
+                
+            }
+        }
+        
+        
+        
+        
     }
 
     func emptyData() {
@@ -808,7 +863,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
            return FinalDataModel.userLikes?.count ?? 0
             
         case 2:
-            return recommendCount.count ?? 0
+            return FinalDataModel.recommendedProfile?.recommendedList?.count ?? 0
             
         default:
            return 1
@@ -816,7 +871,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             
         }
     }
-    
+    //ca6262
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let lay = collectionViewLayout as! UICollectionViewFlowLayout
         let widthPerItem = collectionView.frame.width / 3 - lay.minimumInteritemSpacing
@@ -841,6 +896,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
                 let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(posterURL)")
                 cell.posterImage.layer.cornerRadius = 6
                 cell.posterImage.sd_setImage(with: newURL)
+                cell.userProfileImage.isHidden = true
                 
                 
             }
@@ -855,20 +911,27 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
                 cell.posterImage.layer.cornerRadius = 10
                 cell.posterImage.sd_setImage(with: newURL)
                 cell.posterImage.layer.cornerCurve = .continuous
-                
+                cell.userProfileImage.isHidden = true
             }
             
             return cell
             
         case 2:
-            if let posterURL = FinalDataModel.userLikes?[indexPath.item].postersURL {
+            
+        
+            if let posterURL = FinalDataModel.recommendedProfile?.recommendedList?[indexPath.item].postersURL {
                 
                 let newURL = URL(string: "https://image.tmdb.org/t/p/w500/\(posterURL)")
                 cell.posterImage.layer.cornerRadius = 10
                 cell.posterImage.sd_setImage(with: newURL)
                 cell.posterImage.layer.cornerCurve = .continuous
                 
-                
+                cell.userProfileImage.isHidden = false
+            }
+            
+            if let avatarURL = FinalDataModel.recommendedProfile?.recommendedList?[indexPath.item].recommendedTo?.avatarURL {
+                let newURL = URL(string: avatarURL)
+                cell.userProfileImage.sd_setImage(with: newURL)
             }
             
             return cell
@@ -882,6 +945,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
                 let newURL = URL(string: "https://image.tmdb.orgg/t/p/w500/\(posterURL)")
                 cell.posterImage.layer.cornerRadius = 6
                 cell.posterImage.sd_setImage(with: newURL)
+                cell.userProfileImage.isHidden = true
                 
                 
             }

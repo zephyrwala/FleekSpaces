@@ -232,6 +232,8 @@
 		69D9E60C299E43CD000DE3E5 /* MoPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D9E60A299E43CC000DE3E5 /* MoPopUpViewController.xib */; };
 		69D9E610299F013E000DE3E5 /* ChatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D9E60F299F013E000DE3E5 /* ChatExtensions.swift */; };
 		69E0679C29B73994008AC2A0 /* Likes+Watchlist+Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E0679B29B73994008AC2A0 /* Likes+Watchlist+Follow.swift */; };
+		69E067A029BB1142008AC2A0 /* OtherUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E0679E29BB1142008AC2A0 /* OtherUserProfileViewController.swift */; };
+		69E067A129BB1142008AC2A0 /* OtherUserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E0679F29BB1142008AC2A0 /* OtherUserProfileViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -479,6 +481,8 @@
 		69D9E60A299E43CC000DE3E5 /* MoPopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoPopUpViewController.xib; sourceTree = "<group>"; };
 		69D9E60F299F013E000DE3E5 /* ChatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatExtensions.swift; sourceTree = "<group>"; };
 		69E0679B29B73994008AC2A0 /* Likes+Watchlist+Follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Likes+Watchlist+Follow.swift"; sourceTree = "<group>"; };
+		69E0679E29BB1142008AC2A0 /* OtherUserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserProfileViewController.swift; sourceTree = "<group>"; };
+		69E0679F29BB1142008AC2A0 /* OtherUserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherUserProfileViewController.xib; sourceTree = "<group>"; };
 		B074456520EDC420251F3A55 /* Pods_FleekSpaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FleekSpaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD892A40D7B9C0EAB09C348E /* Pods-FleekSpaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FleekSpaces.release.xcconfig"; path = "Target Support Files/Pods-FleekSpaces/Pods-FleekSpaces.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -844,6 +848,7 @@
 		69394667284628D100FE7574 /* FleekSpaces */ = {
 			isa = PBXGroup;
 			children = (
+				69E0679D29BB1119008AC2A0 /* OtherUsersProfile */,
 				6990E60929B0B1DE007F8499 /* VoiceKit */,
 				69AC5F5E29A5DF6000C30ECA /* SpacesV */,
 				6938498E2881373000EC5C61 /* ChatKit */,
@@ -1499,6 +1504,15 @@
 			path = SpacesExtensions;
 			sourceTree = "<group>";
 		};
+		69E0679D29BB1119008AC2A0 /* OtherUsersProfile */ = {
+			isa = PBXGroup;
+			children = (
+				69E0679E29BB1142008AC2A0 /* OtherUserProfileViewController.swift */,
+				69E0679F29BB1142008AC2A0 /* OtherUserProfileViewController.xib */,
+			);
+			path = OtherUsersProfile;
+			sourceTree = "<group>";
+		};
 		CECA015D65819323CA5FC61B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1704,6 +1718,7 @@
 				6930D5842859DEB00080528D /* GenreCollectionViewCell.xib in Resources */,
 				6942108028EC4D620065EB3C /* UserDataCollectionViewCell.xib in Resources */,
 				6939468E2847546C00FE7574 /* Section2CollectionViewCell.xib in Resources */,
+				69E067A129BB1142008AC2A0 /* OtherUserProfileViewController.xib in Resources */,
 				695EBBF22862DF3B00557D69 /* DetailEpisodeViewController.xib in Resources */,
 				69D527E32902AB69001B310C /* Diwali5.png in Resources */,
 				6930D5592856FBD40080528D /* MoreLikeThisCollectionViewCell.xib in Resources */,
@@ -1795,6 +1810,7 @@
 				695EBBFF2864502200557D69 /* SignInViewController.swift in Sources */,
 				69D9E5FE299CD377000DE3E5 /* RecommendChatViewController.swift in Sources */,
 				695836D128FD305E006887FE /* UpcomingMoviesCollectionViewCell.swift in Sources */,
+				69E067A029BB1142008AC2A0 /* OtherUserProfileViewController.swift in Sources */,
 				692600B7284DE24500B6D801 /* AddSubCollectionViewCell.swift in Sources */,
 				695EBBF12862DF3B00557D69 /* DetailEpisodeViewController.swift in Sources */,
 				69691DAE28F56AF400CE8B36 /* RegisterViewController.swift in Sources */,

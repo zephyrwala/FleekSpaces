@@ -291,6 +291,7 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
     //MARK: - Like List
     private func presentLikeList() {
         let detailViewController = RecommendChatViewController()
+        detailViewController.recommendToUid = conversationId
         detailViewController.movieDelegate = self
         detailViewController.selectedOption = 1
         let nav = UINavigationController(rootViewController: detailViewController)

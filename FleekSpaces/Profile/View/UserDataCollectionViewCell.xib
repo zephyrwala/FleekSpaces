@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,11 +24,20 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SOo-nD-wZi">
                                 <rect key="frame" x="0.0" y="0.0" width="115" height="156"/>
                             </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W5m-Lv-qQf">
+                                <rect key="frame" x="76" y="6" width="33" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="0k1-zD-aIa"/>
+                                    <constraint firstAttribute="height" constant="33" id="7jI-NT-jsa"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="SOo-nD-wZi" secondAttribute="trailing" id="GdJ-1o-rXf"/>
                             <constraint firstItem="SOo-nD-wZi" firstAttribute="leading" secondItem="y3i-Ue-vkC" secondAttribute="leading" id="tdo-31-8oc"/>
+                            <constraint firstItem="W5m-Lv-qQf" firstAttribute="top" secondItem="y3i-Ue-vkC" secondAttribute="top" constant="6" id="xuc-PT-ERu"/>
+                            <constraint firstAttribute="trailing" secondItem="W5m-Lv-qQf" secondAttribute="trailing" constant="6" id="xvu-xW-T8Z"/>
                             <constraint firstAttribute="bottom" secondItem="SOo-nD-wZi" secondAttribute="bottom" id="yX3-b4-h8q"/>
                             <constraint firstItem="SOo-nD-wZi" firstAttribute="top" secondItem="y3i-Ue-vkC" secondAttribute="top" id="z4W-2q-Iap"/>
                         </constraints>
@@ -45,6 +54,7 @@
             <size key="customSize" width="115" height="156"/>
             <connections>
                 <outlet property="posterImage" destination="SOo-nD-wZi" id="2tf-Ey-K4o"/>
+                <outlet property="userProfileImage" destination="W5m-Lv-qQf" id="oVu-9o-liU"/>
             </connections>
             <point key="canvasLocation" x="23.846153846153847" y="-17.061611374407583"/>
         </collectionViewCell>

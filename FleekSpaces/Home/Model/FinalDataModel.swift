@@ -66,6 +66,8 @@ class FinalDataModel: NSObject {
     static var myFollowers: [GetFollower]?
     
     static var followerRequest: FollowersRequest?
+    
+    static var recommendedProfile: RecommendProfile?
 }
 
 
@@ -281,20 +283,97 @@ class SpacesFeedElement: Codable {
     }
 }
 
+
 // MARK: - OttDetails
 class OttDetails: Codable {
-    let ottDetailsIN, us: In?
+    let ottDetailsIN: In?
+    let us: Us?
 
     enum CodingKeys: String, CodingKey {
         case ottDetailsIN = "IN"
         case us = "US"
     }
 
-    init(ottDetailsIN: In?, us: In?) {
+    init(ottDetailsIN: In?, us: Us?) {
         self.ottDetailsIN = ottDetailsIN
         self.us = us
     }
 }
+
+// MARK: - RecommendProfile
+class RecommendProfile: Codable {
+    let recommendedBy: Recommended?
+    let recommendedList: [RecommendedProList]?
+
+    enum CodingKeys: String, CodingKey {
+        case recommendedBy = "recommended_by"
+        case recommendedList = "recommended_list"
+    }
+
+    init(recommendedBy: Recommended?, recommendedList: [RecommendedProList]?) {
+        self.recommendedBy = recommendedBy
+        self.recommendedList = recommendedList
+    }
+}
+
+// MARK: - Recommended
+class RecommendedPro: Codable {
+    let userID: String?
+    let firebaseUid: String?
+    let name: String?
+    let phoneNumber: String?
+    let avatarURL: String?
+
+    enum CodingKeys: String, CodingKey {
+        case userID = "user_id"
+        case firebaseUid = "firebase_uid"
+        case name
+        case phoneNumber = "phone_number"
+        case avatarURL = "avatar_url"
+    }
+
+    init(userID: String?, firebaseUid: String?, name: String?, phoneNumber: String?, avatarURL: String?) {
+        self.userID = userID
+        self.firebaseUid = firebaseUid
+        self.name = name
+        self.phoneNumber = phoneNumber
+        self.avatarURL = avatarURL
+    }
+}
+
+
+
+// MARK: - RecommendedList
+class RecommendedProList: Codable {
+    let recommendedTo: RecommendedPro?
+    let showType: ShowType?
+    let showID: String?
+    let title, postersURL: String?
+    let showDetails: ShowDetails?
+    let createdAt: String?
+
+    enum CodingKeys: String, CodingKey {
+        case recommendedTo = "recommended_to"
+        case showType = "show_type"
+        case showID = "show_id"
+        case title
+        case postersURL = "posters_url"
+        case showDetails = "show_details"
+        case createdAt = "created_at"
+    }
+
+    init(recommendedTo: RecommendedPro?, showType: ShowType?, showID: String?, title: String?, postersURL: String?, showDetails: ShowDetails?, createdAt: String?) {
+        self.recommendedTo = recommendedTo
+        self.showType = showType
+        self.showID = showID
+        self.title = title
+        self.postersURL = postersURL
+        self.showDetails = showDetails
+        self.createdAt = createdAt
+    }
+}
+
+
 
 
 

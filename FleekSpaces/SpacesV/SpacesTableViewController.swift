@@ -181,6 +181,7 @@ class SpacesTableViewController: UITableViewController {
             cell.likeBtnDelegate = self
             cell.followBtnDelegate = self
             cell.watchlistbtnDelegate = self
+            cell.openUserProfileDelegate = self
             cell.setupCell(fromData: spacesData )
            
             cell.selectionStyle = .none

@@ -7,11 +7,16 @@
 
 import UIKit
 
-extension SpacesTableViewController: PassLikesData, FollowBtnTap, WatchlistBtnTap {
+extension SpacesTableViewController: PassLikesData, FollowBtnTap, WatchlistBtnTap, OpenUserProfile {
+    func openUserProfile(sender: UIButton) {
+        let vc = OtherUserProfileViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     
     
+    //watchlist action
     
     func watchlistBtnTap(sender: UIButton, cell: SpacesTableViewCell) {
         if let safeIndexPath = self.tableView.indexPath(for: cell) {

@@ -19,6 +19,14 @@ protocol PassLikesData: AnyObject {
 }
 
 
+//open profile
+
+protocol OpenUserProfile: AnyObject {
+    
+    func openUserProfile(sender: UIButton)
+    
+}
+
 //follow btn del
 protocol FollowBtnTap: AnyObject {
     func followBtnTap(sender: UIButton, cell: SpacesTableViewCell)
@@ -34,10 +42,12 @@ protocol WatchlistBtnTap: AnyObject {
 class SpacesTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var userProfileBtn: UIButton!
     @IBOutlet weak var followBtn: UIButton!
     @IBOutlet weak var datesTime: UILabel!
     @IBOutlet weak var likeAnim: LottieAnimationView!
     @IBOutlet weak var cardBG: UIView!
+    var openUserProfileDelegate: OpenUserProfile?
     var likeBtnDelegate: PassLikesData?
     var followBtnDelegate: FollowBtnTap?
     var watchlistbtnDelegate: WatchlistBtnTap?
@@ -70,7 +80,7 @@ class SpacesTableViewCell: UITableViewCell {
         userProfilePic.makeItGolGol()
         platformIcon.makeItGolGol()
         
-        
+        userProfileBtn.setTitle("", for: .normal)
         posterShadowCast.layer.shadowColor = UIColor.black.cgColor
         posterShadowCast.layer.shadowOpacity = 0.6
         posterShadowCast.layer.shadowOffset = .zero
@@ -82,6 +92,13 @@ class SpacesTableViewCell: UITableViewCell {
         
     }
 
+    //open user profile stuff
+    
+    @IBAction func openUserProfileBtnTapped(_ sender: UIButton) {
+        
+        openUserProfileDelegate?.openUserProfile(sender: sender)
+    }
+    
     
     //follow btn tap
     @IBAction func followBtnTap(_ sender: UIButton) {

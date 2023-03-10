@@ -55,7 +55,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="86Q-hb-RsW">
                                                             <rect key="frame" x="0.0" y="0.0" width="130" height="45"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qd-0X-EHQ">
+                                                                <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qd-0X-EHQ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="65" height="45"/>
                                                                     <color key="tintColor" name="Fleek_500"/>
                                                                     <state key="normal" title="Button"/>
@@ -64,7 +64,7 @@
                                                                         <action selector="likeBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="i26-sF-eOa"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNY-R6-aZL">
+                                                                <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNY-R6-aZL">
                                                                     <rect key="frame" x="65" y="0.0" width="65" height="45"/>
                                                                     <color key="tintColor" systemColor="systemYellowColor"/>
                                                                     <state key="normal" title="Button"/>
@@ -180,14 +180,29 @@
                                                     <constraint firstAttribute="width" constant="50" id="cSo-gX-0pb"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hn2-gy-bqw">
+                                                <rect key="frame" x="3" y="1" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="74e-BH-Un9"/>
+                                                    <constraint firstAttribute="height" constant="50" id="93o-QR-GjS"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="openUserProfileBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="17u-Jr-tC6"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="Hn2-gy-bqw" firstAttribute="centerY" secondItem="dbF-uc-4J7" secondAttribute="centerY" id="6nz-Ry-reb"/>
                                             <constraint firstItem="jls-kq-9Oc" firstAttribute="top" secondItem="dbF-uc-4J7" secondAttribute="top" id="GBh-d4-7OG"/>
                                             <constraint firstItem="DY2-9D-3Rr" firstAttribute="centerY" secondItem="dbF-uc-4J7" secondAttribute="centerY" id="T5a-we-ij1"/>
+                                            <constraint firstItem="DY2-9D-3Rr" firstAttribute="centerY" secondItem="dbF-uc-4J7" secondAttribute="centerY" id="Z0r-36-4jo"/>
                                             <constraint firstItem="jls-kq-9Oc" firstAttribute="leading" secondItem="DY2-9D-3Rr" secondAttribute="trailing" constant="12" id="bJM-Ew-3IW"/>
                                             <constraint firstAttribute="bottom" secondItem="jls-kq-9Oc" secondAttribute="bottom" id="bWQ-s6-2nS"/>
                                             <constraint firstItem="DY2-9D-3Rr" firstAttribute="leading" secondItem="dbF-uc-4J7" secondAttribute="leading" constant="3" id="ccH-vI-2kP"/>
                                             <constraint firstAttribute="height" constant="52" id="lpK-uG-qtt"/>
+                                            <constraint firstItem="Hn2-gy-bqw" firstAttribute="leading" secondItem="dbF-uc-4J7" secondAttribute="leading" constant="3" id="nYc-CF-QCH"/>
                                             <constraint firstAttribute="trailing" secondItem="jls-kq-9Oc" secondAttribute="trailing" id="of7-QI-l0V"/>
                                         </constraints>
                                     </view>
@@ -237,6 +252,7 @@
                 <outlet property="platformIcon" destination="Zn5-js-DWR" id="2VL-Qr-L6n"/>
                 <outlet property="posterShadowCast" destination="61b-lM-MAu" id="Skg-LI-G7v"/>
                 <outlet property="userActivityLabels" destination="NAE-5H-GWr" id="Tl6-d1-fuF"/>
+                <outlet property="userProfileBtn" destination="Hn2-gy-bqw" id="Nx6-52-cmd"/>
                 <outlet property="userProfilePic" destination="DY2-9D-3Rr" id="H08-ht-Wjr"/>
                 <outlet property="visBlur" destination="DXE-iD-5gi" id="LcB-i7-oGc"/>
                 <outlet property="watchlistBtn" destination="XNY-R6-aZL" id="izW-fj-nzP"/>
