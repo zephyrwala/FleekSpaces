@@ -8,8 +8,17 @@
 import UIKit
 
 extension SpacesTableViewController: PassLikesData, FollowBtnTap, WatchlistBtnTap, OpenUserProfile {
-    func openUserProfile(sender: UIButton) {
+    func openUserProfile(sender: UIButton, cell: SpacesTableViewCell) {
         let vc = OtherUserProfileViewController()
+        if let safeIndexPath = self.tableView.indexPath(for: cell) {
+            
+            if let safeUserID = FinalDataModel.spacesFeedElement?[safeIndexPath.row].user?.userID {
+                
+                vc.setupUserProfile(otherUserID: safeUserID)
+            }
+            
+        }
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

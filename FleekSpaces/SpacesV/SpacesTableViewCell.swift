@@ -23,7 +23,7 @@ protocol PassLikesData: AnyObject {
 
 protocol OpenUserProfile: AnyObject {
     
-    func openUserProfile(sender: UIButton)
+    func openUserProfile(sender: UIButton, cell: SpacesTableViewCell)
     
 }
 
@@ -96,7 +96,7 @@ class SpacesTableViewCell: UITableViewCell {
     
     @IBAction func openUserProfileBtnTapped(_ sender: UIButton) {
         
-        openUserProfileDelegate?.openUserProfile(sender: sender)
+        openUserProfileDelegate?.openUserProfile(sender: sender, cell: self)
     }
     
     
