@@ -186,7 +186,6 @@
 		69691DAE28F56AF400CE8B36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69691DAC28F56AF400CE8B36 /* RegisterViewController.swift */; };
 		69691DAF28F56AF400CE8B36 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69691DAD28F56AF400CE8B36 /* RegisterViewController.xib */; };
 		6970641229B1F44200B4A26E /* bluewave.json in Resources */ = {isa = PBXBuildFile; fileRef = 6970641129B1F44200B4A26E /* bluewave.json */; };
-		6990E5E429B0677D007F8499 /* InstantSearchVoiceOverlay in Frameworks */ = {isa = PBXBuildFile; productRef = 6990E5E329B0677D007F8499 /* InstantSearchVoiceOverlay */; };
 		6990E60D29B0B239007F8499 /* AiBroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990E60B29B0B239007F8499 /* AiBroViewController.swift */; };
 		6990E60E29B0B239007F8499 /* AiBroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6990E60C29B0B239007F8499 /* AiBroViewController.xib */; };
 		6990E61029B1BE96007F8499 /* recording.json in Resources */ = {isa = PBXBuildFile; fileRef = 6990E60F29B1BE96007F8499 /* recording.json */; };
@@ -234,6 +233,19 @@
 		69E0679C29B73994008AC2A0 /* Likes+Watchlist+Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E0679B29B73994008AC2A0 /* Likes+Watchlist+Follow.swift */; };
 		69E067A029BB1142008AC2A0 /* OtherUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E0679E29BB1142008AC2A0 /* OtherUserProfileViewController.swift */; };
 		69E067A129BB1142008AC2A0 /* OtherUserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E0679F29BB1142008AC2A0 /* OtherUserProfileViewController.xib */; };
+		69E067AB29BC7459008AC2A0 /* NewProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067AA29BC7459008AC2A0 /* NewProfileViewController.swift */; };
+		69E067BB29BC93C1008AC2A0 /* Parchment in Frameworks */ = {isa = PBXBuildFile; productRef = 69E067BA29BC93C1008AC2A0 /* Parchment */; };
+		69E067BD29BC9479008AC2A0 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067BC29BC9479008AC2A0 /* ContentViewController.swift */; };
+		69E067BF29BC964B008AC2A0 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067BE29BC964B008AC2A0 /* BasicViewController.swift */; };
+		69E067C729BCFC7B008AC2A0 /* WatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067C529BCFC7B008AC2A0 /* WatchViewController.swift */; };
+		69E067C829BCFC7B008AC2A0 /* WatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E067C629BCFC7B008AC2A0 /* WatchViewController.xib */; };
+		69E067CC29BD031E008AC2A0 /* LikeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067CA29BD031E008AC2A0 /* LikeListViewController.swift */; };
+		69E067CD29BD031E008AC2A0 /* LikeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E067CB29BD031E008AC2A0 /* LikeListViewController.xib */; };
+		69E067D229BD7372008AC2A0 /* RecommendListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067D029BD7372008AC2A0 /* RecommendListVC.swift */; };
+		69E067D329BD7372008AC2A0 /* RecommendListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E067D129BD7372008AC2A0 /* RecommendListVC.xib */; };
+		69E067D729BD8FD0008AC2A0 /* FollowingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067D529BD8FD0008AC2A0 /* FollowingsViewController.swift */; };
+		69E067D829BD8FD0008AC2A0 /* FollowingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E067D629BD8FD0008AC2A0 /* FollowingsViewController.xib */; };
+		69E067DA29BD9972008AC2A0 /* IconPagingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067D929BD9972008AC2A0 /* IconPagingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -483,6 +495,18 @@
 		69E0679B29B73994008AC2A0 /* Likes+Watchlist+Follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Likes+Watchlist+Follow.swift"; sourceTree = "<group>"; };
 		69E0679E29BB1142008AC2A0 /* OtherUserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserProfileViewController.swift; sourceTree = "<group>"; };
 		69E0679F29BB1142008AC2A0 /* OtherUserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherUserProfileViewController.xib; sourceTree = "<group>"; };
+		69E067AA29BC7459008AC2A0 /* NewProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProfileViewController.swift; sourceTree = "<group>"; };
+		69E067BC29BC9479008AC2A0 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		69E067BE29BC964B008AC2A0 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
+		69E067C529BCFC7B008AC2A0 /* WatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchViewController.swift; sourceTree = "<group>"; };
+		69E067C629BCFC7B008AC2A0 /* WatchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchViewController.xib; sourceTree = "<group>"; };
+		69E067CA29BD031E008AC2A0 /* LikeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListViewController.swift; sourceTree = "<group>"; };
+		69E067CB29BD031E008AC2A0 /* LikeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeListViewController.xib; sourceTree = "<group>"; };
+		69E067D029BD7372008AC2A0 /* RecommendListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendListVC.swift; sourceTree = "<group>"; };
+		69E067D129BD7372008AC2A0 /* RecommendListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendListVC.xib; sourceTree = "<group>"; };
+		69E067D529BD8FD0008AC2A0 /* FollowingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingsViewController.swift; sourceTree = "<group>"; };
+		69E067D629BD8FD0008AC2A0 /* FollowingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowingsViewController.xib; sourceTree = "<group>"; };
+		69E067D929BD9972008AC2A0 /* IconPagingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPagingCell.swift; sourceTree = "<group>"; };
 		B074456520EDC420251F3A55 /* Pods_FleekSpaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FleekSpaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD892A40D7B9C0EAB09C348E /* Pods-FleekSpaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FleekSpaces.release.xcconfig"; path = "Target Support Files/Pods-FleekSpaces/Pods-FleekSpaces.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -499,8 +523,8 @@
 				6963B3E529A9C9B7007C4DEF /* OpenAISwift in Frameworks */,
 				6995FED8297913E800190253 /* ActivityView in Frameworks */,
 				693946AA2847842200FE7574 /* SDWebImage in Frameworks */,
+				69E067BB29BC93C1008AC2A0 /* Parchment in Frameworks */,
 				05BAF937230305A929A057A5 /* Pods_FleekSpaces.framework in Frameworks */,
-				6990E5E429B0677D007F8499 /* InstantSearchVoiceOverlay in Frameworks */,
 				690182F7286C72BD00DF046E /* JGProgressHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -848,6 +872,7 @@
 		69394667284628D100FE7574 /* FleekSpaces */ = {
 			isa = PBXGroup;
 			children = (
+				69E067A929BC7436008AC2A0 /* NewProfileVC */,
 				69E0679D29BB1119008AC2A0 /* OtherUsersProfile */,
 				6990E60929B0B1DE007F8499 /* VoiceKit */,
 				69AC5F5E29A5DF6000C30ECA /* SpacesV */,
@@ -1507,10 +1532,69 @@
 		69E0679D29BB1119008AC2A0 /* OtherUsersProfile */ = {
 			isa = PBXGroup;
 			children = (
+				69E067A529BC5BF9008AC2A0 /* Test */,
 				69E0679E29BB1142008AC2A0 /* OtherUserProfileViewController.swift */,
 				69E0679F29BB1142008AC2A0 /* OtherUserProfileViewController.xib */,
 			);
 			path = OtherUsersProfile;
+			sourceTree = "<group>";
+		};
+		69E067A529BC5BF9008AC2A0 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		69E067A929BC7436008AC2A0 /* NewProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				69E067D429BD8FAE008AC2A0 /* FollowingVC */,
+				69E067CE29BD732C008AC2A0 /* RecommendVC */,
+				69E067C929BD0300008AC2A0 /* LikeListVC */,
+				69E067C029BCF627008AC2A0 /* WatclistVC */,
+				69E067AA29BC7459008AC2A0 /* NewProfileViewController.swift */,
+				69E067BC29BC9479008AC2A0 /* ContentViewController.swift */,
+				69E067BE29BC964B008AC2A0 /* BasicViewController.swift */,
+				69E067D929BD9972008AC2A0 /* IconPagingCell.swift */,
+			);
+			path = NewProfileVC;
+			sourceTree = "<group>";
+		};
+		69E067C029BCF627008AC2A0 /* WatclistVC */ = {
+			isa = PBXGroup;
+			children = (
+				69E067C529BCFC7B008AC2A0 /* WatchViewController.swift */,
+				69E067C629BCFC7B008AC2A0 /* WatchViewController.xib */,
+			);
+			path = WatclistVC;
+			sourceTree = "<group>";
+		};
+		69E067C929BD0300008AC2A0 /* LikeListVC */ = {
+			isa = PBXGroup;
+			children = (
+				69E067CA29BD031E008AC2A0 /* LikeListViewController.swift */,
+				69E067CB29BD031E008AC2A0 /* LikeListViewController.xib */,
+			);
+			path = LikeListVC;
+			sourceTree = "<group>";
+		};
+		69E067CE29BD732C008AC2A0 /* RecommendVC */ = {
+			isa = PBXGroup;
+			children = (
+				69E067D029BD7372008AC2A0 /* RecommendListVC.swift */,
+				69E067D129BD7372008AC2A0 /* RecommendListVC.xib */,
+			);
+			path = RecommendVC;
+			sourceTree = "<group>";
+		};
+		69E067D429BD8FAE008AC2A0 /* FollowingVC */ = {
+			isa = PBXGroup;
+			children = (
+				69E067D529BD8FD0008AC2A0 /* FollowingsViewController.swift */,
+				69E067D629BD8FD0008AC2A0 /* FollowingsViewController.xib */,
+			);
+			path = FollowingVC;
 			sourceTree = "<group>";
 		};
 		CECA015D65819323CA5FC61B /* Frameworks */ = {
@@ -1552,7 +1636,7 @@
 				69D527D629027EE5001B310C /* Lottie */,
 				6995FED7297913E800190253 /* ActivityView */,
 				6963B3E429A9C9B7007C4DEF /* OpenAISwift */,
-				6990E5E329B0677D007F8499 /* InstantSearchVoiceOverlay */,
+				69E067BA29BC93C1008AC2A0 /* Parchment */,
 			);
 			productName = FleekSpaces;
 			productReference = 69394665284628D100FE7574 /* FleekSpaces.app */;
@@ -1611,7 +1695,7 @@
 				69D527D529027EE5001B310C /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				6995FED6297913E800190253 /* XCRemoteSwiftPackageReference "ActivityView" */,
 				6963B3E329A9C9B7007C4DEF /* XCRemoteSwiftPackageReference "OpenAISwift" */,
-				6990E5E229B0677D007F8499 /* XCRemoteSwiftPackageReference "voice-overlay-ios" */,
+				69E067B929BC93C0008AC2A0 /* XCRemoteSwiftPackageReference "Parchment" */,
 			);
 			productRefGroup = 69394666284628D100FE7574 /* Products */;
 			projectDirPath = "";
@@ -1631,6 +1715,7 @@
 				69D527D02901B013001B310C /* Diwali.png in Resources */,
 				695EBBE32861AAD400557D69 /* SeasonsViewController.xib in Resources */,
 				69D527DA290280C6001B310C /* firework.json in Resources */,
+				69E067CD29BD031E008AC2A0 /* LikeListViewController.xib in Resources */,
 				6938499E2881B31300EC5C61 /* BooksHeaderCRV.xib in Resources */,
 				6990E60E29B0B239007F8499 /* AiBroViewController.xib in Resources */,
 				6963B3FF29ACDBC9007C4DEF /* ProfileTitlesCollectionReusableView.xib in Resources */,
@@ -1645,6 +1730,7 @@
 				691205DD29B2F34900F0E808 /* FollowersViewController.xib in Resources */,
 				695EBBDC28619DEF00557D69 /* tvshow.json in Resources */,
 				69598DCD28D879E10071E1D1 /* NewChatUsersVC.xib in Resources */,
+				69E067C829BCFC7B008AC2A0 /* WatchViewController.xib in Resources */,
 				695EBC002864502200557D69 /* SignInViewController.xib in Resources */,
 				6963C5DC2954BE40000E6C45 /* xmas2.png in Resources */,
 				6963C5DB2954BE40000E6C45 /* xmas1.png in Resources */,
@@ -1653,6 +1739,8 @@
 				693946B2284896DF00FE7574 /* ChooseSubsViewController.xib in Resources */,
 				69D527E42902AB69001B310C /* Diwali6.png in Resources */,
 				6930D57C2859DB4B0080528D /* GenreBottomViewController.xib in Resources */,
+				69E067D329BD7372008AC2A0 /* RecommendListVC.xib in Resources */,
+				69E067D829BD8FD0008AC2A0 /* FollowingsViewController.xib in Resources */,
 				693849A8288270DD00EC5C61 /* BookSectionCollectionViewCell.xib in Resources */,
 				6930D5422851F5290080528D /* MovieInfoCollectionViewCell.xib in Resources */,
 				6963B3F229ACC762007C4DEF /* HeaderCollectionViewCell.xib in Resources */,
@@ -1809,6 +1897,7 @@
 				6930D53C2851D3A60080528D /* MovieDetailViewController.swift in Sources */,
 				695EBBFF2864502200557D69 /* SignInViewController.swift in Sources */,
 				69D9E5FE299CD377000DE3E5 /* RecommendChatViewController.swift in Sources */,
+				69E067D229BD7372008AC2A0 /* RecommendListVC.swift in Sources */,
 				695836D128FD305E006887FE /* UpcomingMoviesCollectionViewCell.swift in Sources */,
 				69E067A029BB1142008AC2A0 /* OtherUserProfileViewController.swift in Sources */,
 				692600B7284DE24500B6D801 /* AddSubCollectionViewCell.swift in Sources */,
@@ -1838,14 +1927,17 @@
 				6939468D2847546C00FE7574 /* Section2CollectionViewCell.swift in Sources */,
 				6930D5332851B53D0080528D /* TrendingWorldCollectionViewCell.swift in Sources */,
 				694393BE2875571600CEC3C4 /* ChatUser.swift in Sources */,
+				69E067BD29BC9479008AC2A0 /* ContentViewController.swift in Sources */,
 				6990E61329B1CCF0007F8499 /* SwiftSiriWaveformView.swift in Sources */,
 				692600C5284E203100B6D801 /* ChatCVCell.swift in Sources */,
 				693946892847545900FE7574 /* Section1CollectionViewCell.swift in Sources */,
 				6942107F28EC4D620065EB3C /* UserDataCollectionViewCell.swift in Sources */,
+				69E067CC29BD031E008AC2A0 /* LikeListViewController.swift in Sources */,
 				69643BFB28706913007128C0 /* ConversationsTableViewCell.swift in Sources */,
 				694393C32876B2A400CEC3C4 /* ChatLogView.swift in Sources */,
 				6919333529B32E7A006CA14B /* NotificationsCell.swift in Sources */,
 				69AC5F6029A5DFA100C30ECA /* SpacesTableViewController.swift in Sources */,
+				69E067BF29BC964B008AC2A0 /* BasicViewController.swift in Sources */,
 				69394669284628D100FE7574 /* AppDelegate.swift in Sources */,
 				69C4996E28698012000F4394 /* EmailSignInViewController.swift in Sources */,
 				6930D54F285346A60080528D /* MovieCastCell.swift in Sources */,
@@ -1870,6 +1962,7 @@
 				691205DC29B2F34900F0E808 /* FollowersViewController.swift in Sources */,
 				6939466B284628D100FE7574 /* SceneDelegate.swift in Sources */,
 				69D527CA29019578001B310C /* iconTableViewCell.swift in Sources */,
+				69E067D729BD8FD0008AC2A0 /* FollowingsViewController.swift in Sources */,
 				694393B82874566500CEC3C4 /* FirebaseManager.swift in Sources */,
 				6930D55C285700B70080528D /* MoreLikeThisCRV.swift in Sources */,
 				6922ECC928869C3100865540 /* ChatsViewController.swift in Sources */,
@@ -1888,8 +1981,10 @@
 				6930D56C2858544B0080528D /* ActorDetailViewController.swift in Sources */,
 				6930D5832859DEB00080528D /* GenreCollectionViewCell.swift in Sources */,
 				695EBBD2285B22E900557D69 /* OnboardingViewController.swift in Sources */,
+				69E067AB29BC7459008AC2A0 /* NewProfileViewController.swift in Sources */,
 				695EBBE82861B2F800557D69 /* SeasonCell.swift in Sources */,
 				693946952847577D00FE7574 /* Section1HeaderCRV.swift in Sources */,
+				69E067DA29BD9972008AC2A0 /* IconPagingCell.swift in Sources */,
 				6939469B284757BB00FE7574 /* Section2CRV.swift in Sources */,
 				6939467E2847338000FE7574 /* HomeViewController.swift in Sources */,
 				693946A0284757EA00FE7574 /* Section3CRV.swift in Sources */,
@@ -1899,6 +1994,7 @@
 				6930D5372851B55B0080528D /* TrendingtCollectionReusableView.swift in Sources */,
 				6930D5762858AA850080528D /* filmographyHeader.swift in Sources */,
 				69D9E60B299E43CD000DE3E5 /* MoPopUpViewController.swift in Sources */,
+				69E067C729BCFC7B008AC2A0 /* WatchViewController.swift in Sources */,
 				6922ECCB2887FEE400865540 /* FinalDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2268,14 +2364,6 @@
 				kind = branch;
 			};
 		};
-		6990E5E229B0677D007F8499 /* XCRemoteSwiftPackageReference "voice-overlay-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/algolia/voice-overlay-ios#:~:text=InstantSearch%20VoiceOverlay%20repo%27s%20URL";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		6995FED6297913E800190253 /* XCRemoteSwiftPackageReference "ActivityView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftUI-Plus/ActivityView.git";
@@ -2289,6 +2377,14 @@
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
 				branch = master;
+				kind = branch;
+			};
+		};
+		69E067B929BC93C0008AC2A0 /* XCRemoteSwiftPackageReference "Parchment" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rechsteiner/Parchment";
+			requirement = {
+				branch = main;
 				kind = branch;
 			};
 		};
@@ -2325,11 +2421,6 @@
 			package = 69691DA928F5696400CE8B36 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
 		};
-		6990E5E329B0677D007F8499 /* InstantSearchVoiceOverlay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6990E5E229B0677D007F8499 /* XCRemoteSwiftPackageReference "voice-overlay-ios" */;
-			productName = InstantSearchVoiceOverlay;
-		};
 		6995FED7297913E800190253 /* ActivityView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6995FED6297913E800190253 /* XCRemoteSwiftPackageReference "ActivityView" */;
@@ -2339,6 +2430,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 69D527D529027EE5001B310C /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		69E067BA29BC93C1008AC2A0 /* Parchment */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69E067B929BC93C0008AC2A0 /* XCRemoteSwiftPackageReference "Parchment" */;
+			productName = Parchment;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -133,11 +133,11 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
         super.viewDidLoad()
         checkSignIn()
        
-        profileImage.makeItGolGol()
+//        profileImage.makeItGolGol()
      
         fetchUserMovieData()
         fetchUserWatchlistData()
-        fetchRecommendData()
+        fetchRecommend()
         setupButtons()
 
         changeProfile.setTitle("", for: .normal)
@@ -170,7 +170,7 @@ class ProfileViewController: UIViewController, DataEnteredDelegate, UINavigation
     override func viewWillAppear(_ animated: Bool) {
         
         checkSignInViewAppear()
-//        profileImage.makeItGolGol()
+        profileImage.makeItGolGol()
         profileImage.makeitBorderGolGol()
      
         fetchUserMovieData()
@@ -863,7 +863,8 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
            return FinalDataModel.userLikes?.count ?? 0
             
         case 2:
-            return FinalDataModel.recommendedProfile?.recommendedList?.count ?? 0
+            return FinalDataModel.recommendedProfile?.recommendedList?.count ??
+            0
             
         default:
            return 1

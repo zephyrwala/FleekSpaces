@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="followersCount" destination="ghL-ym-AXY" id="vVI-Qb-EsI"/>
                 <outlet property="followingCount" destination="amb-8j-gep" id="m1B-6N-7y5"/>
+                <outlet property="parchingView" destination="HbN-nb-nqV" id="ixk-kh-5gf"/>
                 <outlet property="userName" destination="7G4-5H-b6K" id="4X1-2M-wva"/>
                 <outlet property="userProfileBG" destination="UVM-L0-ddj" id="CEL-zL-y5O"/>
                 <outlet property="userProfilePic" destination="hKI-Sn-p5j" id="DLH-tw-rFE"/>
@@ -133,12 +134,20 @@
                                 <constraint firstItem="UVM-L0-ddj" firstAttribute="leading" secondItem="zNv-bO-8UR" secondAttribute="leading" id="skV-Vt-LIX"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HbN-nb-nqV">
+                            <rect key="frame" x="0.0" y="358" width="375" height="454"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" name="BGColor"/>
                     <constraints>
                         <constraint firstItem="zNv-bO-8UR" firstAttribute="top" secondItem="BYC-Lw-ZcI" secondAttribute="top" id="0yT-k9-AkK"/>
+                        <constraint firstAttribute="bottom" secondItem="HbN-nb-nqV" secondAttribute="bottom" id="Gla-Px-dHK"/>
                         <constraint firstItem="zNv-bO-8UR" firstAttribute="leading" secondItem="BYC-Lw-ZcI" secondAttribute="leading" id="anY-jZ-oQI"/>
+                        <constraint firstAttribute="trailing" secondItem="HbN-nb-nqV" secondAttribute="trailing" id="iQQ-YU-FtI"/>
                         <constraint firstAttribute="trailing" secondItem="zNv-bO-8UR" secondAttribute="trailing" id="pu6-PE-maq"/>
+                        <constraint firstItem="HbN-nb-nqV" firstAttribute="leading" secondItem="BYC-Lw-ZcI" secondAttribute="leading" id="vK9-B8-PpB"/>
+                        <constraint firstItem="HbN-nb-nqV" firstAttribute="top" secondItem="zNv-bO-8UR" secondAttribute="bottom" constant="8" symbolic="YES" id="zV6-O4-yyB"/>
                     </constraints>
                 </view>
             </subviews>

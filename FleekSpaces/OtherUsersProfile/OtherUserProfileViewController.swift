@@ -7,12 +7,14 @@
 
 import UIKit
 
+
 class OtherUserProfileViewController: UIViewController {
     
     
     @IBOutlet weak var userProfileBG: UIImageView!
     @IBOutlet weak var userProfilePic: UIImageView!
     
+    @IBOutlet weak var parchingView: UIView!
     
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var followersCount: UILabel!
@@ -26,6 +28,9 @@ class OtherUserProfileViewController: UIViewController {
 
         userProfilePic.makeItGolGol()
         // Do any additional setup after loading the view.
+   
+//        view.constrainToEdges(pagingViewController.view)
+       
     }
 
     

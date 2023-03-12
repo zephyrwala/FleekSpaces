@@ -6,14 +6,14 @@
 //
 
 import UIKit
-import InstantSearchVoiceOverlay
+
 
 enum DeepLink: String {
     case home
     case profile
 }
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollViewDelegate, VoiceOverlayDelegate {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollViewDelegate {
     
     //MARK: - Over lay delegate
     func recording(text: String?, final: Bool?, error: Error?) {
@@ -27,7 +27,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
    
     @IBOutlet weak var subsCollectionHts: NSLayoutConstraint!
 
-    let voiceOverlay = VoiceOverlayController()
+   
     var scrollSize = 0.0
     var isMovieSelected = true
     var isIndiaSelected = true
@@ -77,12 +77,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        voiceOverlay.delegate = self
-           
-           // If you want to start recording as soon as modal view pops up, change to true
-        voiceOverlay.settings.autoStart = true
-        voiceOverlay.settings.autoStop = true
-        voiceOverlay.settings.showResultScreen = true
+      
         fetchCurrentUser()
         self.testViewHt.constant = 250
         self.collectionHt.constant = 250

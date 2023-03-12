@@ -12,7 +12,6 @@ class FollowersViewController: UIViewController, UITableViewDelegate, UITableVie
 
     //outlets
     
-    @IBOutlet weak var followersFollowingSegment: UISegmentedControl!
     @IBOutlet weak var followersTableView: UITableView!
     
     var myFollowers : [GetFollower]?
@@ -25,7 +24,8 @@ class FollowersViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
 
-        fetchFollowers()
+//        fetchFollowers()
+        fetchFollowings()
 //        fetchFollowings()
         setupTableView()
         
@@ -42,30 +42,7 @@ class FollowersViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
     
-    @IBAction func segmentSelected(_ sender: UISegmentedControl) {
-        
-        
-        switch sender.selectedSegmentIndex {
-            
-        case 0:
-            selectedSegment = 0
-            
-            fetchFollowers()
-            
-        case 1:
-            
-            selectedSegment = 1
-            fetchFollowings()
-            
-            
-        default:
-            print("default")
-            
-            
-        }
-        
-        
-    }
+
     
     
     
@@ -167,52 +144,21 @@ class FollowersViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch selectedSegment {
-        case 0:
-            return myFollowers?.count ?? 1
-        case 1:
-            return myFollowing?.count ?? 1
-        default:
-            return myFollowers?.count ?? 1
-            
-        }
+      
+        return myFollowing?.count ?? 1
        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "followersa", for: indexPath) as! FollowersFollowingTableViewCell
         
-        switch selectedSegment {
-            
-        case 0:
-            
-            if let safeIndex = myFollowers?[indexPath.row] {
-                cell.setupCell(fromData: safeIndex)
-            }
-            
-            
-            return cell
-            
-        case 1:
-            
-            if let safeIndex = myFollowing?[indexPath.row] {
-                cell.setupCell(fromData: safeIndex)
-            }
-            
-            
-            return cell
-            
-            
-        default:
-            if let safeIndex = myFollowers?[indexPath.row] {
-                cell.setupCell(fromData: safeIndex)
-            }
-            
-            
-            return cell
-            
-            
+   
+        if let safeIndex = myFollowing?[indexPath.row] {
+            cell.setupCell(fromData: safeIndex)
         }
+        
+        
+        return cell
       
     }
     

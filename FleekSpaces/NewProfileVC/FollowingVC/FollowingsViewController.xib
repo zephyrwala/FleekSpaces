@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FollowingsViewController" customModule="FleekSpaces" customModuleProvider="target">
+            <connections>
+                <outlet property="followingTableView" destination="1Zu-OO-HLa" id="7Ua-5f-flP"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1Zu-OO-HLa">
+                    <rect key="frame" x="5" y="109" width="383" height="699"/>
+                    <color key="backgroundColor" name="BGColor"/>
+                </tableView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Zsx-qR-Zym">
+                    <rect key="frame" x="15" y="66" width="363" height="35"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 Followers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfB-Rv-39H">
+                            <rect key="frame" x="0.0" y="0.0" width="181.66666666666666" height="35"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" name="Neutral_300"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Online" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0W-2s-iPP">
+                            <rect key="frame" x="181.66666666666663" y="0.0" width="181.33333333333337" height="35"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" name="Neutral_130"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="5sv-aM-jak"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="F4F-66-L6F"/>
+                        <constraint firstAttribute="height" constant="35" id="UVL-Ii-4qX"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="dAV-PX-8ZJ"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="pwN-Ei-KXL"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="BGColor"/>
+            <constraints>
+                <constraint firstItem="1Zu-OO-HLa" firstAttribute="top" secondItem="Zsx-qR-Zym" secondAttribute="bottom" constant="8" id="BDc-hy-fE4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Zsx-qR-Zym" secondAttribute="trailing" constant="15" id="VcM-gn-YWy"/>
+                <constraint firstItem="1Zu-OO-HLa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="c2R-Yo-q3C"/>
+                <constraint firstItem="Zsx-qR-Zym" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="grB-ct-Rcf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1Zu-OO-HLa" secondAttribute="bottom" constant="10" id="iLm-M0-Dxb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1Zu-OO-HLa" secondAttribute="trailing" constant="5" id="mhn-dB-Mzi"/>
+                <constraint firstItem="1Zu-OO-HLa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="t4S-dG-Tu4"/>
+            </constraints>
+            <point key="canvasLocation" x="2" y="-1"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="BGColor">
+            <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Neutral_130">
+            <color red="0.42399999499320984" green="0.55699998140335083" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Neutral_300">
+            <color red="0.79600000381469727" green="0.79600000381469727" blue="0.79600000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -46,6 +46,15 @@
       }
     },
     {
+      "identity" : "parchment",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rechsteiner/Parchment",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9d8e973ed3ff4ef1c5c05410bf9d29ad85ef5c81"
+      }
+    },
+    {
       "identity" : "sdwebimage",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage",
@@ -61,15 +70,6 @@
       "state" : {
         "revision" : "cd8625b7cf11a97698e180d28bb7d5d357196678",
         "version" : "2.0.2"
-      }
-    },
-    {
-      "identity" : "voice-overlay-ios#:~:text=instantsearch%20voiceoverlay%20repo%27s%20url",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/algolia/voice-overlay-ios#:~:text=InstantSearch%20VoiceOverlay%20repo%27s%20URL",
-      "state" : {
-        "revision" : "55a1047be9e0d9e4d4295ef127cc31b3ef7b8b54",
-        "version" : "1.2.0"
       }
     },
     {
