@@ -40,7 +40,7 @@ class BasicViewController: PagingViewController, PagingViewControllerDataSource,
         return 100
     }
     
-    
+    let pagingViewController = PagingViewController()
     fileprivate let icons = [
         "video.badge.checkmark",
         "hand.thumbsup",
@@ -75,6 +75,7 @@ class BasicViewController: PagingViewController, PagingViewControllerDataSource,
         return IconItem(icon: icons[index], index: index)
     }
     
+ 
 
     let viewControllers = [
         WatchViewController(),
@@ -92,7 +93,7 @@ class BasicViewController: PagingViewController, PagingViewControllerDataSource,
       
        
        
-        let pagingViewController = PagingViewController()
+      
         pagingViewController.register(IconPagingCell.self, for: IconItem.self)
         pagingViewController.menuItemSize = .fixed(width: 60, height: 60)
         pagingViewController.dataSource = self
@@ -101,7 +102,7 @@ class BasicViewController: PagingViewController, PagingViewControllerDataSource,
         pagingViewController.sizeDelegate = self
         menuItemSize = .fixed(width: 100, height: 50)
        
-       
+        
         pagingViewController.menuBackgroundColor = UIColor(named: "BGColor")!
         pagingViewController.indicatorColor = .systemTeal
         pagingViewController.textColor = .darkGray

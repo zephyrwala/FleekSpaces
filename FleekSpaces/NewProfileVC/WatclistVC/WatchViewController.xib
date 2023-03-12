@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WatchViewController" customModule="FleekSpaces" customModuleProvider="target">
             <connections>
+                <outlet property="totalWatchListCount" destination="HT2-aF-wWV" id="zTB-hX-qr8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="watchListoCollectionView" destination="mZb-DV-RSH" id="SRH-ID-rdv"/>
             </connections>

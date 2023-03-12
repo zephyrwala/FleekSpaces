@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gqv-gu-JFS">
                         <rect key="frame" x="6" y="6" width="318" height="72"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bene" translatesAutoresizingMaskIntoConstraints="NO" id="lyi-7k-f0U">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bene" translatesAutoresizingMaskIntoConstraints="NO" id="lyi-7k-f0U">
                                 <rect key="frame" x="0.0" y="0.0" width="318" height="72"/>
                             </imageView>
                             <visualEffectView opaque="NO" alpha="0.95999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ijo-zM-5WU">
@@ -30,7 +30,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="318" height="72"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <blurEffect style="systemChromeMaterialDark"/>
+                                <vibrancyEffect>
+                                    <blurEffect style="systemChromeMaterialDark"/>
+                                </vibrancyEffect>
                             </visualEffectView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bene" translatesAutoresizingMaskIntoConstraints="NO" id="mSP-7a-r8C">
                                 <rect key="frame" x="15" y="8.6666666666666643" width="55" height="55"/>

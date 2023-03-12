@@ -38,6 +38,9 @@ class WatchViewController: UIViewController, UICollectionViewDataSource, UIColle
 
     @IBOutlet weak var watchListoCollectionView: UICollectionView!
     
+    @IBOutlet weak var totalWatchListCount: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -89,6 +92,10 @@ class WatchViewController: UIViewController, UICollectionViewDataSource, UIColle
                 DispatchQueue.main.async {
                     
                     UserDefaults.standard.set(FinalDataModel.fetchWatchList?.count, forKey: "watchCount")
+                    
+                    if let safeWatchCOunt = FinalDataModel.fetchWatchList?.count {
+                        self.totalWatchListCount.text = "\(safeWatchCOunt) Watchlist"
+                    }
                         
 //                    self.watchlistBtn.setTitle("\(userData.count)", for: .normal)
                     

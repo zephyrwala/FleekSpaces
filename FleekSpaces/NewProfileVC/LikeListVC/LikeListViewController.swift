@@ -12,6 +12,9 @@ class LikeListViewController: UIViewController, UICollectionViewDataSource, UICo
     
     @IBOutlet weak var likeListCollectionView: UICollectionView!
     
+    @IBOutlet weak var totalLIkes: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,6 +66,10 @@ class LikeListViewController: UIViewController, UICollectionViewDataSource, UICo
                     
 //                    self.likeBtn.setTitle("\(userData.count)", for: .normal)
                     UserDefaults.standard.set(FinalDataModel.userLikes?.count, forKey: "likesCont")
+                    
+                    if let safeLikes = FinalDataModel.userLikes?.count {
+                        self.totalLIkes.text = "\(safeLikes) Likes"
+                    }
                     self.likeListCollectionView.reloadData()
                 }
                 for users in userData {

@@ -582,6 +582,7 @@
                         <segue destination="qw8-oE-OlF" kind="relationship" relationship="viewControllers" id="QHz-Xr-Q33"/>
                         <segue destination="G9X-7b-Adr" kind="relationship" relationship="viewControllers" id="bbt-Tb-pPT"/>
                         <segue destination="Dqb-hx-E2l" kind="relationship" relationship="viewControllers" id="2Nk-l6-Mtd"/>
+                        <segue destination="NxM-fX-QkL" kind="relationship" relationship="viewControllers" id="omc-ZF-LOo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wra-ZO-tfD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1034,16 +1035,16 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLM-QV-fvp">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bene" translatesAutoresizingMaskIntoConstraints="NO" id="cIA-ds-mtg">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bo3" translatesAutoresizingMaskIntoConstraints="NO" id="cIA-ds-mtg">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                                             </imageView>
                                             <visualEffectView opaque="NO" alpha="0.73999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x0g-bT-cw6">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oIt-3h-jox">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </view>
-                                                <blurEffect style="systemUltraThinMaterialDark"/>
+                                                <blurEffect style="systemChromeMaterialDark"/>
                                             </visualEffectView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bene" translatesAutoresizingMaskIntoConstraints="NO" id="Eq0-5T-1mW">
                                                 <rect key="frame" x="137.66666666666666" y="80" width="100" height="100"/>
@@ -1055,7 +1056,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="pu6-dG-Srn">
                                                 <rect key="frame" x="21" y="200" width="333" height="80"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQD-cO-MRR">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQD-cO-MRR">
                                                         <rect key="frame" x="0.0" y="0.0" width="333" height="37"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -1068,13 +1069,13 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="37"/>
                                                                 <color key="tintColor" name="avatarViewBackground"/>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="tinted" image="person.fill.badge.plus" catalog="system" title="Following"/>
+                                                                <buttonConfiguration key="configuration" style="tinted" image="person.fill.badge.plus" catalog="system" title="Invite Friends"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1y-tq-q8A">
                                                                 <rect key="frame" x="171.66666666666663" y="0.0" width="161.33333333333337" height="37"/>
                                                                 <color key="tintColor" name="avatarViewBackground"/>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="tinted" image="bubble.left.and.bubble.right" catalog="system" title="Chat"/>
+                                                                <buttonConfiguration key="configuration" style="tinted" image="square.and.pencil" catalog="system" title="Edit Profile"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -1091,9 +1092,9 @@
                                             <constraint firstAttribute="trailing" secondItem="x0g-bT-cw6" secondAttribute="trailing" id="XoA-U4-V9Z"/>
                                             <constraint firstItem="pu6-dG-Srn" firstAttribute="top" secondItem="Eq0-5T-1mW" secondAttribute="bottom" constant="20" id="Z0w-ZA-loi"/>
                                             <constraint firstItem="x0g-bT-cw6" firstAttribute="leading" secondItem="uLM-QV-fvp" secondAttribute="leading" id="efY-cT-vo7"/>
-                                            <constraint firstAttribute="bottom" secondItem="cIA-ds-mtg" secondAttribute="bottom" id="mUE-vr-XqG"/>
+                                            <constraint firstAttribute="bottom" secondItem="cIA-ds-mtg" secondAttribute="bottom" constant="-60" id="mUE-vr-XqG"/>
                                             <constraint firstAttribute="trailing" secondItem="pu6-dG-Srn" secondAttribute="trailing" constant="21" id="oKK-tG-w15"/>
-                                            <constraint firstAttribute="bottom" secondItem="x0g-bT-cw6" secondAttribute="bottom" id="rTY-xU-nfK"/>
+                                            <constraint firstAttribute="bottom" secondItem="x0g-bT-cw6" secondAttribute="bottom" constant="-60" id="rTY-xU-nfK"/>
                                             <constraint firstItem="Eq0-5T-1mW" firstAttribute="centerX" secondItem="uLM-QV-fvp" secondAttribute="centerX" id="wJP-FD-vfp"/>
                                             <constraint firstItem="cIA-ds-mtg" firstAttribute="leading" secondItem="uLM-QV-fvp" secondAttribute="leading" id="xem-JV-NJW"/>
                                             <constraint firstItem="pu6-dG-Srn" firstAttribute="leading" secondItem="uLM-QV-fvp" secondAttribute="leading" constant="21" id="zIy-hw-3oD"/>
@@ -1109,7 +1110,7 @@
                                     <constraint firstItem="uLM-QV-fvp" firstAttribute="leading" secondItem="ZMB-R6-D39" secondAttribute="leading" id="oUQ-gq-3PL"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbr-pY-dzO">
+                            <containerView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbr-pY-dzO">
                                 <rect key="frame" x="0.0" y="300" width="375" height="512"/>
                                 <connections>
                                     <segue destination="hXA-jf-WwL" kind="embed" id="O3d-V8-dMt"/>
@@ -1128,10 +1129,16 @@
                             <constraint firstItem="ZMB-R6-D39" firstAttribute="leading" secondItem="GK1-Qm-sHW" secondAttribute="leading" id="v7c-Gu-WgV"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="HMN-du-iaE"/>
+                    <connections>
+                        <outlet property="profilePic" destination="Eq0-5T-1mW" id="Z0z-SL-TKw"/>
+                        <outlet property="userCoverPic" destination="cIA-ds-mtg" id="YJ6-O1-XCt"/>
+                        <outlet property="userName" destination="hQD-cO-MRR" id="2Yv-Ca-nS6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RRP-TN-6bc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5140" y="1999.5073891625616"/>
+            <point key="canvasLocation" x="6082.3999999999996" y="1999.5073891625616"/>
         </scene>
         <!--Chat-->
         <scene sceneID="xY7-hb-8Oa">
@@ -1195,7 +1202,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kTw-5X-7Ud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4574" y="2050"/>
+            <point key="canvasLocation" x="6084" y="2631"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="OpR-NP-8VK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NxM-fX-QkL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person" id="hc4-ll-Ofc"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qaB-Ri-Wy3">
+                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5Fr-gg-Dj4" kind="relationship" relationship="rootViewController" id="aXy-kI-1kw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5aB-fL-ssW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5140" y="1999.5073891625616"/>
         </scene>
     </scenes>
     <resources>
@@ -1204,6 +1230,7 @@
         <image name="banner_bg" width="1308" height="636"/>
         <image name="bell.badge" catalog="system" width="125" height="128"/>
         <image name="bene" width="500" height="750"/>
+        <image name="bo3" width="916" height="1200"/>
         <image name="bubble.left.and.bubble.right" catalog="system" width="128" height="96"/>
         <image name="bubble.left.and.bubble.right.fill" catalog="system" width="128" height="97"/>
         <image name="gear.badge" catalog="system" width="128" height="122"/>
@@ -1223,6 +1250,7 @@
         <image name="popcorn" catalog="system" width="102" height="128"/>
         <image name="popcorn.fill" catalog="system" width="102" height="128"/>
         <image name="shareplay" catalog="system" width="128" height="75"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="113"/>
         <image name="text.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="text.bubble.rtl" catalog="system" width="128" height="110"/>
         <image name="tv-2 1" width="480" height="480"/>

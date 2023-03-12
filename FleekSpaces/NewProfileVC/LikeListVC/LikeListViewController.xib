@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LikeListViewController" customModule="FleekSpaces" customModuleProvider="target">
             <connections>
                 <outlet property="likeListCollectionView" destination="IJl-Y0-Mcl" id="PMn-zh-NUP"/>
+                <outlet property="totalLIkes" destination="Oav-tO-6gs" id="gH7-AQ-DKd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
