@@ -8,7 +8,7 @@
 import UIKit
 
 
-class NewProfileViewController: UIViewController {
+class NewProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     
     @IBOutlet weak var profilePic: UIImageView!
@@ -21,7 +21,52 @@ class NewProfileViewController: UIViewController {
     var vc2 = LoadsViewController()
     var vc3 = LoadsViewController()
     let defaults = UserDefaults.standard
+    @IBOutlet weak var inviteBtn: UIButton!
+    
+    var menuItems: [UIAction] {
+        return [
+            UIAction(title: "Take Photo", image: UIImage(systemName: "camera"), handler: { (_) in
+           
+                self.presentCamera()
+                
+            }),
+            UIAction(title: "Choose Photo", image: UIImage(systemName: "photo.on.rectangle"), handler: { (_) in
+                
+            
+                self.presentPhotoPicker()
+                
+            }),
+            UIAction(title: "Sign Out", image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), handler: { (_) in
+                
+              
+                try? FirebaseManager.shared.auth.signOut()
+    //            NotificationCenter.default.post(name: NSNotification.Name("dismissSwiftUI"), object: nil)
+               let controller = LoginVC()
+                self.navigationController?.pushViewController(controller, animated: true)
+               
+                
+                
+            }),
+       
+            UIAction(title: "Change App Icon!", image: UIImage(systemName: "wand.and.stars.inverse"),  attributes: .destructive, handler: { (_) in
+                
+                let controller = IconChangerViewController()
+                self.present(controller, animated: true)
+
+//                self.movieDelegate?.tvShowSelected()
+            })
+   
+            
+        ]
+    }
+    
+    var demoMenu: UIMenu {
+        return UIMenu(title: "Profile Settings", image: nil, identifier: nil, options: [], children: menuItems)
+    }
+    
   
+    @IBOutlet weak var editProfileBtn: UIButton!
+    
     var myfireBaseUID = ""
     var myEmailID = ""
     
@@ -30,6 +75,8 @@ class NewProfileViewController: UIViewController {
 
         
         profilePic.makeItGolGol()
+        configureEditProfileButton()
+        setupButton()
 //        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
 //            self.displayUIAlert(yourMessage: "You need to login to access your profile!")
 //            print("COuld not find firebase uid")
@@ -48,8 +95,91 @@ class NewProfileViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchCurrentUser()
+//        fetchCurrentUser()
         
+    }
+    
+    func setupButton() {
+        
+        editProfileBtn.layer.borderWidth = 1
+        editProfileBtn.layer.cornerRadius = 9
+        inviteBtn.layer.cornerRadius = 9
+        editProfileBtn.layer.borderColor = UIColor.darkGray.cgColor
+        inviteBtn.layer.borderColor = UIColor.darkGray.cgColor
+        inviteBtn.layer.borderWidth = 1
+    }
+    
+    @IBAction func inviteFriendsBtnTap(_ sender: Any) {
+        
+        
+        let shareText = "👋🏻 Hey there! Let's discover some cool movies & TV shows on Fleek Spaces 🍿 on https://getfleek.app/"
+        let textShare = [shareText]
+        let activityViewController = UIActivityViewController(activityItems: textShare , applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    
+    //MARK: - edit Profile actions
+    
+    //MARK: - Present Camera
+    func presentCamera() {
+        
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+        
+        
+    }
+    
+    
+    //MARK: - show photo picker
+    
+    func presentPhotoPicker() {
+        
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+        
+        
+        
+    }
+    
+    
+  
+    
+    func configureEditProfileButton() {
+        editProfileBtn.menu = demoMenu
+        editProfileBtn.showsMenuAsPrimaryAction = true
+    }
+    
+    
+   
+    
+    
+    
+    //MARK: - Camera and Photo picker functions
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+        picker.dismiss(animated: true, completion: nil)
+       
+        
+       
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+   
+        picker.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {return}
+        
+        self.profilePic.image = selectedImage
+       
+    
     }
     
     //Fetch Firebase details:

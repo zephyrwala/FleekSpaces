@@ -67,8 +67,15 @@ class BasicViewController: PagingViewController, PagingViewControllerDataSource,
         viewControllers.count
     }
     
+    
+   
+    
+    
     func pagingViewController(_: Parchment.PagingViewController, viewControllerAt index: Int) -> UIViewController {
-        viewControllers[index]
+       
+      
+        return viewControllers[index]
+       
     }
     
     func pagingViewController(_: Parchment.PagingViewController, pagingItemAt index: Int) -> Parchment.PagingItem {
@@ -106,7 +113,7 @@ class BasicViewController: PagingViewController, PagingViewControllerDataSource,
         pagingViewController.menuBackgroundColor = UIColor(named: "BGColor")!
         pagingViewController.indicatorColor = .systemTeal
         pagingViewController.textColor = .darkGray
-        pagingViewController.selectedTextColor = .systemTeal
+        pagingViewController.selectedTextColor = .systemCyan
         var uiedge = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 //        pagingViewController.select(index: 1)
 //        pagingViewController.borderOptions = .visible(height: 3, zIndex: 0, insets: uiedge)
@@ -135,5 +142,9 @@ class BasicViewController: PagingViewController, PagingViewControllerDataSource,
 //        view.constrainToEdges(pagingViewController.view)
 //        pagingViewController.didMove(toParent: self)
     }
+    
+    
+   
+    
 
 }

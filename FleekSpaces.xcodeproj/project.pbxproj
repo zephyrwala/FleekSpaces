@@ -246,6 +246,7 @@
 		69E067D729BD8FD0008AC2A0 /* FollowingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067D529BD8FD0008AC2A0 /* FollowingsViewController.swift */; };
 		69E067D829BD8FD0008AC2A0 /* FollowingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E067D629BD8FD0008AC2A0 /* FollowingsViewController.xib */; };
 		69E067DA29BD9972008AC2A0 /* IconPagingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067D929BD9972008AC2A0 /* IconPagingCell.swift */; };
+		69E067DD29BF1E50008AC2A0 /* EditProfile+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067DC29BF1E50008AC2A0 /* EditProfile+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -507,6 +508,7 @@
 		69E067D529BD8FD0008AC2A0 /* FollowingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingsViewController.swift; sourceTree = "<group>"; };
 		69E067D629BD8FD0008AC2A0 /* FollowingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowingsViewController.xib; sourceTree = "<group>"; };
 		69E067D929BD9972008AC2A0 /* IconPagingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPagingCell.swift; sourceTree = "<group>"; };
+		69E067DC29BF1E50008AC2A0 /* EditProfile+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfile+Extension.swift"; sourceTree = "<group>"; };
 		B074456520EDC420251F3A55 /* Pods_FleekSpaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FleekSpaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD892A40D7B9C0EAB09C348E /* Pods-FleekSpaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FleekSpaces.release.xcconfig"; path = "Target Support Files/Pods-FleekSpaces/Pods-FleekSpaces.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1553,7 +1555,7 @@
 				69E067CE29BD732C008AC2A0 /* RecommendVC */,
 				69E067C929BD0300008AC2A0 /* LikeListVC */,
 				69E067C029BCF627008AC2A0 /* WatclistVC */,
-				69E067AA29BC7459008AC2A0 /* NewProfileViewController.swift */,
+				69E067DB29BF1E26008AC2A0 /* NewProfile */,
 				69E067BC29BC9479008AC2A0 /* ContentViewController.swift */,
 				69E067BE29BC964B008AC2A0 /* BasicViewController.swift */,
 				69E067D929BD9972008AC2A0 /* IconPagingCell.swift */,
@@ -1595,6 +1597,15 @@
 				69E067D629BD8FD0008AC2A0 /* FollowingsViewController.xib */,
 			);
 			path = FollowingVC;
+			sourceTree = "<group>";
+		};
+		69E067DB29BF1E26008AC2A0 /* NewProfile */ = {
+			isa = PBXGroup;
+			children = (
+				69E067AA29BC7459008AC2A0 /* NewProfileViewController.swift */,
+				69E067DC29BF1E50008AC2A0 /* EditProfile+Extension.swift */,
+			);
+			path = NewProfile;
 			sourceTree = "<group>";
 		};
 		CECA015D65819323CA5FC61B /* Frameworks */ = {
@@ -1903,6 +1914,7 @@
 				692600B7284DE24500B6D801 /* AddSubCollectionViewCell.swift in Sources */,
 				695EBBF12862DF3B00557D69 /* DetailEpisodeViewController.swift in Sources */,
 				69691DAE28F56AF400CE8B36 /* RegisterViewController.swift in Sources */,
+				69E067DD29BF1E50008AC2A0 /* EditProfile+Extension.swift in Sources */,
 				6938499D2881B31300EC5C61 /* BooksHeaderCRV.swift in Sources */,
 				693849AC28829D0300EC5C61 /* BookPreviewUIViewViewController.swift in Sources */,
 				69643C022872BDD8007128C0 /* ContentView.swift in Sources */,
