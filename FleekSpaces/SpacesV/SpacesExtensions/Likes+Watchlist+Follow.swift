@@ -20,12 +20,29 @@ extension SpacesTableViewController: PassLikesData, FollowBtnTap, WatchlistBtnTa
 //        }
         
         
-        
+        //now we can pass the user id and fetch the data
     //TODO: - Uncomment the above
+        
+        if let safeIndexPath = self.tableView.indexPath(for: cell) {
+            
+            if let safeUserID = FinalDataModel.spacesFeedElement?[safeIndexPath.row].user?.userID {
+                
+                
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "nuProfile") as! NewProfileViewController
+                vc.isMyProfile = false
+                vc.otherProfileID = safeUserID
+             
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+                
+            }
+            
+            
+        }
 //        let vc = NewProfileViewController()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "nuProfile")
-        self.navigationController?.pushViewController(vc, animated: true)
+   
     }
     
     

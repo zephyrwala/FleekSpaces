@@ -10,11 +10,19 @@ import UIKit
 
 class NewProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    
+    var isMyProfile = true
     @IBOutlet weak var profilePic: UIImageView!
     
+    @IBOutlet weak var chatBtn: UIButton!
+    
+    var otherProfileID = ""
+    @IBOutlet weak var followingBtn: UIButton!
     var chatUser: ChatUser?
     @IBOutlet weak var userName: UILabel!
+    
+    @IBOutlet weak var heightConstants: NSLayoutConstraint!
+    var bounds = UIScreen.main.bounds
+    
     
     @IBOutlet weak var userCoverPic: UIImageView!
     var vc1 = LoadsViewController()
@@ -70,6 +78,9 @@ class NewProfileViewController: UIViewController, UINavigationControllerDelegate
     var myfireBaseUID = ""
     var myEmailID = ""
     
+    @IBOutlet weak var proWidth: NSLayoutConstraint!
+    @IBOutlet weak var proheight: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -84,7 +95,8 @@ class NewProfileViewController: UIViewController, UINavigationControllerDelegate
 //        }
         
         fetchCurrentUser()
-        
+        adjustHeight()
+        checkMyProfile()
        
         
         // Do any additional setup after loading the view.
@@ -94,10 +106,42 @@ class NewProfileViewController: UIViewController, UINavigationControllerDelegate
     }
     
     
+    //check my profile
+    func checkMyProfile() {
+        if isMyProfile {
+            followingBtn.isHidden = true
+            chatBtn.isHidden = true
+        } else {
+            
+            followingBtn.isHidden = false
+            chatBtn.isHidden = false
+            inviteBtn.isHidden = true
+            editProfileBtn.isHidden = true
+        }
+    }
+    
+    //Check height
+    func adjustHeight() {
+        
+        var width = bounds.size.width
+        var height = bounds.size.height
+        
+        if height < 800 {
+            proheight.constant = 80
+            proWidth.constant = 80
+            self.heightConstants.constant = height * 0.4
+        }
+        self.heightConstants.constant = height * 0.37
+        self.view.layoutIfNeeded()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
 //        fetchCurrentUser()
         
+        
+        print("OTHER PERSON ID \(self.otherProfileID)")
     }
+    
     
     func setupButton() {
         

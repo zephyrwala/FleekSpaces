@@ -49,6 +49,9 @@ class WatchViewController: UIViewController, UICollectionViewDataSource, UIColle
         fetchUserWatchlistData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        fetchUserWatchlistData()
+    }
 
     func setupCollectionView() {
         

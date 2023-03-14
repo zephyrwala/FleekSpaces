@@ -23,6 +23,9 @@ class LikeListViewController: UIViewController, UICollectionViewDataSource, UICo
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        fetchUserMovieData()
+    }
     
     func setupCollectionView() {
         

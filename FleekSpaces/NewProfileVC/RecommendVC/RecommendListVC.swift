@@ -22,6 +22,11 @@ class RecommendListVC: UIViewController, UICollectionViewDataSource, UICollectio
     }
 
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        fetchRecommend()
+    }
+    
     func setupCollectionView() {
         
         recommendsListCollectionView.delegate = self
