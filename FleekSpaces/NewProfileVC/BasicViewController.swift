@@ -35,6 +35,7 @@ struct IconItem: PagingItem, Hashable {
     }
 }
 
+
 class BasicViewController: PagingViewController, PagingViewControllerDataSource, PagingViewControllerSizeDelegate {
     func pagingViewController(_: Parchment.PagingViewController, widthForPagingItem pagingItem: Parchment.PagingItem, isSelected: Bool) -> CGFloat {
         return 100
@@ -62,6 +63,9 @@ class BasicViewController: PagingViewController, PagingViewControllerDataSource,
 //
 //
 //    ]
+    
+    
+  
 
     func numberOfViewControllers(in pagingViewController: Parchment.PagingViewController) -> Int {
         viewControllers.count

@@ -32,8 +32,12 @@ extension SpacesTableViewController: PassLikesData, FollowBtnTap, WatchlistBtnTa
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "nuProfile") as! NewProfileViewController
                 vc.isMyProfile = false
+                
                 vc.otherProfileID = safeUserID
              
+                
+                UserDefaults.standard.set(safeUserID, forKey: "otherUserID")
+//                self.present(vc, animated: true)
                 self.navigationController?.pushViewController(vc, animated: true)
                 
                 

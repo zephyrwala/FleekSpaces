@@ -11,6 +11,7 @@ import UIKit
 class NewProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var isMyProfile = true
+
     @IBOutlet weak var profilePic: UIImageView!
     
     @IBOutlet weak var chatBtn: UIButton!
@@ -86,33 +87,47 @@ class NewProfileViewController: UIViewController, UINavigationControllerDelegate
 
         
         profilePic.makeItGolGol()
-        configureEditProfileButton()
-        setupButton()
-//        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
-//            self.displayUIAlert(yourMessage: "You need to login to access your profile!")
-//            print("COuld not find firebase uid")
-//            return
-//        }
-        
-        fetchCurrentUser()
         adjustHeight()
-        checkMyProfile()
-       
-        
+      
+     
         // Do any additional setup after loading the view.
         
         
         
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+//        UserDefaults.standard.set(true, forKey: "isMyProfile")
+//        isMyProfile = true
+    }
+  
     
-    //check my profile
+    //MARK: - check my profile logic
     func checkMyProfile() {
-        if isMyProfile {
+        if isMyProfile == true {
+            //hide other profile btns
             followingBtn.isHidden = true
             chatBtn.isHidden = true
+          
+                UserDefaults.standard.set(true, forKey: "isMyProfile")
+           
+//            UserDefaults.standard.set(true, forKey: "isMyProfile")
+            //configure current buttons
+            configureEditProfileButton()
+            setupButton()
+            //fetch current data
+            fetchCurrentUser()
+            
+            
+           
         } else {
             
+           
+         
+                UserDefaults.standard.set(self.otherProfileID, forKey: "otherUserID")
+            
+            UserDefaults.standard.set(false, forKey: "isMyProfile")
+            setupUserProfile(otherUserID: otherProfileID)
             followingBtn.isHidden = false
             chatBtn.isHidden = false
             inviteBtn.isHidden = true
@@ -135,11 +150,21 @@ class NewProfileViewController: UIViewController, UINavigationControllerDelegate
         self.view.layoutIfNeeded()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
 //        fetchCurrentUser()
         
+//
+//        print("OTHER PERSON ID \(self.otherProfileID)")
+//
+//
+//        UserDefaults.standard.set(isMyProfile, forKey: "isMyProfile")
+//
+//        let safeProfile = UserDefaults.standard.bool(forKey: "isMyProfile")
+//
+//        print("Isitmyprofile ? \(safeProfile)")
         
-        print("OTHER PERSON ID \(self.otherProfileID)")
+        checkMyProfile()
+
     }
     
     
@@ -271,6 +296,63 @@ class NewProfileViewController: UIViewController, UINavigationControllerDelegate
         }
     }
     
+    
+//MARK: - Fetch Other profile
+    
+    
+    //MARK: - Setup Profile
+    func setupUserProfile(otherUserID: String) {
+        
+       
+        
+        //https://api-space-dev.getfleek.app/users/get_user_details?user_id=0a0c4e5d-25df-427b-9d84-760e658b9a51
+        let network = NetworkURL()
+        
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/users/get_user_details?user_id=\(otherUserID)") else {return}
+                        
+        print("safe URL = \(myUrl)")
+                
+        guard let myTOken = UserDefaults.standard.string(forKey: "userToken") else {return}
+    
+        network.tokenCalls(OtherUserProfile.self, url: myUrl, token: myTOken, methodType: "GET") { myResult, yourMessage in
+            
+            
+            switch myResult {
+                
+                
+            case .success(let userData):
+                FinalDataModel.otherUserProfile = userData
+                DispatchQueue.main.async {
+                    
+                    self.userName.text = userData.name
+//                    if let safeFollowers = userData.followersCount {
+//                        self.followersCount.text = "\(safeFollowers) Followers"
+//                    }
+//
+//                    if let safeFollowing = userData.followingCount {
+//                        self.followingCount.text = "\(safeFollowing) Following"
+//                    }
+                    
+                    if let otherUserProfilePic = userData.avatarURL {
+                        if let safeURL = URL(string: otherUserProfilePic) {
+                            self.profilePic.sd_setImage(with: safeURL)
+                            //FIXME: - uncomment the below once the profile is sorted
+//                            self.userCoverPic.sd_setImage(with: safeURL)
+                        }
+                    }
+                }
+               
+                    
+                
+            case .failure(let err):
+                print("Error is \(err)")
+                
+                
+            }
+        }
+        
+        
+    }
     
     //MARK: - save fcm token here
     

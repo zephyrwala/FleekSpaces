@@ -14,17 +14,29 @@ class LikeListViewController: UIViewController, UICollectionViewDataSource, UICo
     
     @IBOutlet weak var totalLIkes: UILabel!
     
+    var isMyProfile = UserDefaults.standard.bool(forKey: "isMyProfile")
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupCollectionView()
-        fetchUserMovieData()
+        
         // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        fetchUserMovieData()
+        if isMyProfile {
+            fetchUserMovieData()
+        }else {
+            guard let otherUserID = UserDefaults.standard.string(forKey: "otherUserID") else {return}
+            
+            
+            fetchOtherUserMovieData(otherUserID: otherUserID)
+            
+            
+        }
+        
     }
     
     func setupCollectionView() {
@@ -46,6 +58,49 @@ class LikeListViewController: UIViewController, UICollectionViewDataSource, UICo
         
     }
 
+    
+    
+    
+    //MARK: - Fetch other user data
+    
+    
+    func fetchOtherUserMovieData(otherUserID: String) {
+        
+        let network = NetworkURL()
+        
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/activity/get_likes_dislikes_of_user/?user_id=\(otherUserID)") else {return}
+                
+        guard let myTOken = UserDefaults.standard.string(forKey: "userToken") else {return}
+    
+        network.tokenCalls([UserLike].self, url: myUrl, token: myTOken, methodType: "GET") { myResult, yourMessage in
+            
+            
+            switch myResult {
+                
+                
+            case .success(let userData):
+                FinalDataModel.userLikes = userData
+                DispatchQueue.main.async {
+                    
+//                    self.likeBtn.setTitle("\(userData.count)", for: .normal)
+                    UserDefaults.standard.set(FinalDataModel.userLikes?.count, forKey: "likesCont")
+                    
+                    if let safeLikes = FinalDataModel.userLikes?.count {
+                        self.totalLIkes.text = "\(safeLikes) Likes"
+                    }
+                    self.likeListCollectionView.reloadData()
+                }
+                for users in userData {
+                    print("Movie liked are \(users.title)")
+                    
+                }
+            case .failure(let err):
+                print("Error is \(err)")
+                
+                
+            }
+        }
+    }
     //MARK: - Fetch user data
     
     

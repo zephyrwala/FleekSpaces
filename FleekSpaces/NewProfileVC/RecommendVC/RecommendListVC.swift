@@ -10,21 +10,29 @@ import UIKit
 class RecommendListVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
   
 
-    
+    var isMyProfile = UserDefaults.standard.bool(forKey: "isMyProfile")
     @IBOutlet weak var recommendsListCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupCollectionView()
-        fetchRecommend()
+//        fetchRecommend()
         // Do any additional setup after loading the view.
     }
 
     
     override func viewWillAppear(_ animated: Bool) {
+        if isMyProfile {
+            fetchRecommend()
+        } else {
+            
+            guard let otherUserID = UserDefaults.standard.string(forKey: "otherUserID") else {return}
+            
+            fetchOtheruserRecommend(otherUserID: otherUserID)
+            
+        }
         
-        fetchRecommend()
     }
     
     func setupCollectionView() {
@@ -44,7 +52,7 @@ class RecommendListVC: UIViewController, UICollectionViewDataSource, UICollectio
         
     }
 
-    
+    //MARK: - Recommend Current user
     func fetchRecommend() {
         
         
@@ -87,6 +95,51 @@ class RecommendListVC: UIViewController, UICollectionViewDataSource, UICollectio
     }
     
     
+    //MARK: - Fetch Other User Recommend
+    func fetchOtheruserRecommend(otherUserID: String) {
+        
+        
+        //https://api-space-dev.getfleek.app/activity/get_recommendations_list?user_id=0a0c4e5d-25df-427b-9d84-760e658b9a51
+        let network = NetworkURL()
+        
+        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/activity/get_recommendations_list/?user_id=\(otherUserID)") else {return}
+                
+        guard let myTOken = UserDefaults.standard.string(forKey: "userToken") else {return}
+    
+        network.tokenCalls(RecommendProfile.self, url: myUrl, token: myTOken, methodType: "GET") { myResult, yourMessage in
+            
+            
+            switch myResult {
+                
+                
+            case .success(let userData):
+                FinalDataModel.recommendedProfile = userData
+                print("Recommemnd Data is \(userData.recommendedList)")
+                DispatchQueue.main.async {
+                    if let safeCount = userData.recommendedList?.count {
+//                        self.recommendBtn.setTitle("\(safeCount)", for: .normal)
+                    }
+                   
+                    
+                    
+                    self.recommendsListCollectionView.reloadData()
+                }
+              
+            case .failure(let err):
+                print("Error is \(err)")
+                
+                
+            }
+        }
+        
+        
+        
+        
+    }
+    
+    
+    
+    //MARK: - COllection view stuff
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let lay = collectionViewLayout as! UICollectionViewFlowLayout
         let widthPerItem = collectionView.frame.width / 3 - lay.minimumInteritemSpacing
