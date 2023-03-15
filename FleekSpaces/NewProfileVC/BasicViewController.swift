@@ -8,6 +8,7 @@
 import UIKit
 import Parchment
 
+//MARK: Icon struct remains the same
 struct IconItem: PagingItem, Hashable {
     let icon: String
     let index: Int

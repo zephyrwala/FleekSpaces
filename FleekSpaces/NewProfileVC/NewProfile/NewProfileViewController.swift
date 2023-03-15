@@ -14,10 +14,10 @@ class NewProfileViewController: UIViewController, UINavigationControllerDelegate
 
     @IBOutlet weak var profilePic: UIImageView!
     
-    @IBOutlet weak var chatBtn: UIButton!
+   
     
     var otherProfileID = ""
-    @IBOutlet weak var followingBtn: UIButton!
+  
     var chatUser: ChatUser?
     @IBOutlet weak var userName: UILabel!
     
@@ -106,8 +106,7 @@ class NewProfileViewController: UIViewController, UINavigationControllerDelegate
     func checkMyProfile() {
         if isMyProfile == true {
             //hide other profile btns
-            followingBtn.isHidden = true
-            chatBtn.isHidden = true
+          
           
                 UserDefaults.standard.set(true, forKey: "isMyProfile")
            
@@ -128,10 +127,8 @@ class NewProfileViewController: UIViewController, UINavigationControllerDelegate
             
             UserDefaults.standard.set(false, forKey: "isMyProfile")
             setupUserProfile(otherUserID: otherProfileID)
-            followingBtn.isHidden = false
-            chatBtn.isHidden = false
-            inviteBtn.isHidden = true
-            editProfileBtn.isHidden = true
+           
+            
         }
     }
     

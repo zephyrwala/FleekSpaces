@@ -247,6 +247,10 @@
 		69E067D829BD8FD0008AC2A0 /* FollowingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E067D629BD8FD0008AC2A0 /* FollowingsViewController.xib */; };
 		69E067DA29BD9972008AC2A0 /* IconPagingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067D929BD9972008AC2A0 /* IconPagingCell.swift */; };
 		69E067DD29BF1E50008AC2A0 /* EditProfile+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067DC29BF1E50008AC2A0 /* EditProfile+Extension.swift */; };
+		69E067E029C19799008AC2A0 /* Basic2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067DF29C19799008AC2A0 /* Basic2ViewController.swift */; };
+		69E067E629C19F35008AC2A0 /* OtherPersonNewProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067E529C19F35008AC2A0 /* OtherPersonNewProfileVC.swift */; };
+		69E067E929C1C2C4008AC2A0 /* OtherWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067E729C1C2C4008AC2A0 /* OtherWatchlistViewController.swift */; };
+		69E067EA29C1C2C5008AC2A0 /* OtherWatchlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E067E829C1C2C4008AC2A0 /* OtherWatchlistViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -509,6 +513,10 @@
 		69E067D629BD8FD0008AC2A0 /* FollowingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowingsViewController.xib; sourceTree = "<group>"; };
 		69E067D929BD9972008AC2A0 /* IconPagingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPagingCell.swift; sourceTree = "<group>"; };
 		69E067DC29BF1E50008AC2A0 /* EditProfile+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfile+Extension.swift"; sourceTree = "<group>"; };
+		69E067DF29C19799008AC2A0 /* Basic2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basic2ViewController.swift; sourceTree = "<group>"; };
+		69E067E529C19F35008AC2A0 /* OtherPersonNewProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPersonNewProfileVC.swift; sourceTree = "<group>"; };
+		69E067E729C1C2C4008AC2A0 /* OtherWatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherWatchlistViewController.swift; sourceTree = "<group>"; };
+		69E067E829C1C2C4008AC2A0 /* OtherWatchlistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherWatchlistViewController.xib; sourceTree = "<group>"; };
 		B074456520EDC420251F3A55 /* Pods_FleekSpaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FleekSpaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD892A40D7B9C0EAB09C348E /* Pods-FleekSpaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FleekSpaces.release.xcconfig"; path = "Target Support Files/Pods-FleekSpaces/Pods-FleekSpaces.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -874,6 +882,7 @@
 		69394667284628D100FE7574 /* FleekSpaces */ = {
 			isa = PBXGroup;
 			children = (
+				69E067DE29C19748008AC2A0 /* OtherPersonNewProfile */,
 				69E067A929BC7436008AC2A0 /* NewProfileVC */,
 				69E0679D29BB1119008AC2A0 /* OtherUsersProfile */,
 				6990E60929B0B1DE007F8499 /* VoiceKit */,
@@ -1608,6 +1617,49 @@
 			path = NewProfile;
 			sourceTree = "<group>";
 		};
+		69E067DE29C19748008AC2A0 /* OtherPersonNewProfile */ = {
+			isa = PBXGroup;
+			children = (
+				69E067E429C19EFB008AC2A0 /* OtherPersonVC */,
+				69E067E329C199B5008AC2A0 /* OtherRecommend */,
+				69E067E229C199AF008AC2A0 /* OtherLikes */,
+				69E067E129C199A1008AC2A0 /* OtherWatchlist */,
+				69E067DF29C19799008AC2A0 /* Basic2ViewController.swift */,
+			);
+			path = OtherPersonNewProfile;
+			sourceTree = "<group>";
+		};
+		69E067E129C199A1008AC2A0 /* OtherWatchlist */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OtherWatchlist;
+			sourceTree = "<group>";
+		};
+		69E067E229C199AF008AC2A0 /* OtherLikes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OtherLikes;
+			sourceTree = "<group>";
+		};
+		69E067E329C199B5008AC2A0 /* OtherRecommend */ = {
+			isa = PBXGroup;
+			children = (
+				69E067E729C1C2C4008AC2A0 /* OtherWatchlistViewController.swift */,
+				69E067E829C1C2C4008AC2A0 /* OtherWatchlistViewController.xib */,
+			);
+			path = OtherRecommend;
+			sourceTree = "<group>";
+		};
+		69E067E429C19EFB008AC2A0 /* OtherPersonVC */ = {
+			isa = PBXGroup;
+			children = (
+				69E067E529C19F35008AC2A0 /* OtherPersonNewProfileVC.swift */,
+			);
+			path = OtherPersonVC;
+			sourceTree = "<group>";
+		};
 		CECA015D65819323CA5FC61B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1753,6 +1805,7 @@
 				69E067D329BD7372008AC2A0 /* RecommendListVC.xib in Resources */,
 				69E067D829BD8FD0008AC2A0 /* FollowingsViewController.xib in Resources */,
 				693849A8288270DD00EC5C61 /* BookSectionCollectionViewCell.xib in Resources */,
+				69E067EA29C1C2C5008AC2A0 /* OtherWatchlistViewController.xib in Resources */,
 				6930D5422851F5290080528D /* MovieInfoCollectionViewCell.xib in Resources */,
 				6963B3F229ACC762007C4DEF /* HeaderCollectionViewCell.xib in Resources */,
 				69D527D22901B013001B310C /* Halloween.png in Resources */,
@@ -1905,6 +1958,7 @@
 				693849A7288270DD00EC5C61 /* BookSectionCollectionViewCell.swift in Sources */,
 				692600C2284E1F8500B6D801 /* ChatUIViewController.swift in Sources */,
 				693946C02848C42C00FE7574 /* SelectedSubCollectionViewCell.swift in Sources */,
+				69E067E629C19F35008AC2A0 /* OtherPersonNewProfileVC.swift in Sources */,
 				6930D53C2851D3A60080528D /* MovieDetailViewController.swift in Sources */,
 				695EBBFF2864502200557D69 /* SignInViewController.swift in Sources */,
 				69D9E5FE299CD377000DE3E5 /* RecommendChatViewController.swift in Sources */,
@@ -1949,6 +2003,7 @@
 				694393C32876B2A400CEC3C4 /* ChatLogView.swift in Sources */,
 				6919333529B32E7A006CA14B /* NotificationsCell.swift in Sources */,
 				69AC5F6029A5DFA100C30ECA /* SpacesTableViewController.swift in Sources */,
+				69E067E929C1C2C4008AC2A0 /* OtherWatchlistViewController.swift in Sources */,
 				69E067BF29BC964B008AC2A0 /* BasicViewController.swift in Sources */,
 				69394669284628D100FE7574 /* AppDelegate.swift in Sources */,
 				69C4996E28698012000F4394 /* EmailSignInViewController.swift in Sources */,
@@ -2001,6 +2056,7 @@
 				6939467E2847338000FE7574 /* HomeViewController.swift in Sources */,
 				693946A0284757EA00FE7574 /* Section3CRV.swift in Sources */,
 				693946AC28487D9500FE7574 /* OfflineModel.swift in Sources */,
+				69E067E029C19799008AC2A0 /* Basic2ViewController.swift in Sources */,
 				69D9E610299F013E000DE3E5 /* ChatExtensions.swift in Sources */,
 				6963B40329AF54FD007C4DEF /* header2CollectionReusableView.swift in Sources */,
 				6930D5372851B55B0080528D /* TrendingtCollectionReusableView.swift in Sources */,
