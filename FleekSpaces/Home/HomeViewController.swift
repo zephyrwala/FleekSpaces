@@ -321,6 +321,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
     
     func setupSubsCollectionView() {
         
+        
         subsCollectionView.delegate = self
         subsCollectionView.dataSource = self
         subsCollectionView.collectionViewLayout = subLayoutCells()
@@ -1346,6 +1347,8 @@ extension HomeViewController: UICollectionViewDataSource {
      
         //section ends here
     }
+    
+
     //configure the cel
 
     
@@ -1369,8 +1372,8 @@ extension HomeViewController: UICollectionViewDataSource {
                 cell.selectedSub.makeItGolGol()
                 
                
-          
-//                cell.setupLogos(fromData: myLogos[indexPath.item])
+               
+                //                cell.setupLogos(fromData: myLogos[indexPath.item])
                 
                 return cell
                 
@@ -1381,7 +1384,7 @@ extension HomeViewController: UICollectionViewDataSource {
 
                 
                 cell.setupLogos(fromData: myLogos[indexPath.item])
-                
+              
                 return cell
                 
             }

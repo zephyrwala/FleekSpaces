@@ -8,6 +8,14 @@
 import UIKit
 import SDWebImage
 
+class GradientBorderView: UIView {
+    var gradientColors: [UIColor] = [.systemGreen, .systemMint] {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+}
+
 class Section1CollectionViewCell: UICollectionViewCell {
     
    
@@ -31,10 +39,19 @@ class Section1CollectionViewCell: UICollectionViewCell {
                   self.layer.borderWidth = 4
                   UIView.animate(withDuration: 1) {
                       self.selectedSub.alpha = 1
+                      self.transform = CGAffineTransform(scaleX: 1, y: 1)
                   }
+                  var gradientColors: [UIColor] = [.systemTeal, .systemPink] {
+                         didSet {
+                             setNeedsLayout()
+                         }
+                     }
+                  
                   
 //                  self.layer.animateBorderColor(from: UIColor.systemTeal, to: mainCOlor, withDuration: 2.1)
-                  self.layer.borderColor = UIColor(named: "Fleek_400")?.cgColor
+//                  self.layer.borderColor = UIColor(named: "Fleek_600")?.cgColor
+                  let gradient = UIImage.gradientImage(bounds: bounds, colors: gradientColors)
+                  self.layer.borderColor = UIColor(patternImage: gradient).cgColor
               } else {
                    self.layer.borderWidth = 0
                   self.layer.borderColor = UIColor(.gray).cgColor
@@ -52,7 +69,7 @@ class Section1CollectionViewCell: UICollectionViewCell {
    
     //MARK: - Setup cell with new api data
     func setupStreamCells(fromData: StreamingElement) {
-        
+       
         if let imageURL = fromData.iconURL {
             
 //            self.selectedSub.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/original\(imageURL)"))
@@ -112,3 +129,21 @@ class Section1CollectionViewCell: UICollectionViewCell {
 
 
 
+
+extension UIImage {
+    static func gradientImage(bounds: CGRect, colors: [UIColor]) -> UIImage {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = colors.map(\.cgColor)
+
+        // This makes it left to right, default is top to bottom
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+
+        return renderer.image { ctx in
+            gradientLayer.render(in: ctx.cgContext)
+        }
+    }
+}
