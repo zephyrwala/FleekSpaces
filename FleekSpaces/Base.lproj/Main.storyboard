@@ -68,7 +68,7 @@
                             <view opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ojJ-bg-CFu">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                                 <subviews>
-                                    <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7w9-Ev-26l">
+                                    <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7w9-Ev-26l">
                                         <rect key="frame" x="0.0" y="120" width="375" height="120"/>
                                         <color key="backgroundColor" name="Background"/>
                                         <color key="tintColor" name="BGColor"/>
@@ -118,6 +118,12 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vwq-HN-BFf">
                                                         <rect key="frame" x="184" y="0.0" width="116" height="50"/>
                                                         <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AaaII" translatesAutoresizingMaskIntoConstraints="NO" id="T8R-OQ-Ctc">
+                                                                <rect key="frame" x="81" y="0.0" width="35" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="35" id="u5R-Am-L8W"/>
+                                                                </constraints>
+                                                            </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSL-eZ-oaM">
                                                                 <rect key="frame" x="67" y="0.0" width="49" height="50"/>
                                                                 <constraints>
@@ -125,19 +131,21 @@
                                                                 </constraints>
                                                                 <color key="tintColor" name="Fleek_400"/>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" image="mic.badge.plus" catalog="system">
-                                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
-                                                                </buttonConfiguration>
+                                                                <buttonConfiguration key="configuration" style="plain"/>
                                                                 <connections>
                                                                     <action selector="aiBroBtnTap:" destination="f0F-g1-Vab" eventType="touchUpInside" id="ZMV-GN-tkM"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="T8R-OQ-Ctc" secondAttribute="bottom" id="4xW-iE-f2T"/>
                                                             <constraint firstAttribute="bottom" secondItem="OSL-eZ-oaM" secondAttribute="bottom" id="BfN-f8-CZb"/>
+                                                            <constraint firstAttribute="trailing" secondItem="T8R-OQ-Ctc" secondAttribute="trailing" id="FqJ-xO-36d"/>
                                                             <constraint firstItem="OSL-eZ-oaM" firstAttribute="top" secondItem="vwq-HN-BFf" secondAttribute="top" id="X7t-93-CPd"/>
+                                                            <constraint firstItem="T8R-OQ-Ctc" firstAttribute="centerY" secondItem="vwq-HN-BFf" secondAttribute="centerY" id="an9-Tg-PQj"/>
                                                             <constraint firstItem="OSL-eZ-oaM" firstAttribute="leading" secondItem="vwq-HN-BFf" secondAttribute="leading" constant="67" id="joE-0b-C1c"/>
                                                             <constraint firstAttribute="trailing" secondItem="OSL-eZ-oaM" secondAttribute="trailing" id="pSc-8D-18e"/>
+                                                            <constraint firstItem="T8R-OQ-Ctc" firstAttribute="top" secondItem="vwq-HN-BFf" secondAttribute="top" id="yZ4-wr-ChW"/>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yl0-S4-jH1">
@@ -145,9 +153,12 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="45" id="l4m-WF-kH1"/>
                                                         </constraints>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" name="Neutral_400"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="searchBtnTapped:" destination="f0F-g1-Vab" eventType="touchUpInside" id="wc7-Pf-bon"/>
                                                         </connections>
@@ -214,7 +225,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UYr-jF-iaX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92.753623188405811" y="569.86607142857144"/>
+            <point key="canvasLocation" x="92" y="569.70443349753702"/>
         </scene>
         <!--Spaces Table View Controller-->
         <scene sceneID="540-j5-Ywg">
@@ -581,7 +592,6 @@
                         <segue destination="FFa-df-FJe" kind="relationship" relationship="viewControllers" id="efL-Hs-XtV"/>
                         <segue destination="qw8-oE-OlF" kind="relationship" relationship="viewControllers" id="QHz-Xr-Q33"/>
                         <segue destination="G9X-7b-Adr" kind="relationship" relationship="viewControllers" id="bbt-Tb-pPT"/>
-                        <segue destination="Dqb-hx-E2l" kind="relationship" relationship="viewControllers" id="2Nk-l6-Mtd"/>
                         <segue destination="NxM-fX-QkL" kind="relationship" relationship="viewControllers" id="omc-ZF-LOo"/>
                     </connections>
                 </tabBarController>
@@ -1163,7 +1173,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEO-bd-SdM">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bo1" translatesAutoresizingMaskIntoConstraints="NO" id="qWh-hn-IH6">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a3" translatesAutoresizingMaskIntoConstraints="NO" id="qWh-hn-IH6">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                                             </imageView>
                                             <visualEffectView opaque="NO" alpha="0.74000000953674316" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ft-pD-j0D">
@@ -1258,6 +1268,10 @@
                             <constraint firstItem="pm4-ft-OYE" firstAttribute="top" secondItem="anx-zo-ZuH" secondAttribute="bottom" id="a71-jk-hRf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="profilePic" destination="FbM-fq-Ob2" id="Pvd-qv-9dr"/>
+                        <outlet property="userName" destination="YjE-E8-gAQ" id="xLc-k9-aRg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSV-Wb-7J1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1295,12 +1309,13 @@
         <scene sceneID="qDt-qZ-i4a">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qw8-oE-OlF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Spaces" image="popcorn" catalog="system" badgeValue="new" id="JKC-42-h8k">
+                    <tabBarItem key="tabBarItem" title="Spaces" badgeValue="new" id="JKC-42-h8k">
+                        <imageReference key="image" image="popcorn" catalog="system"/>
                         <imageReference key="selectedImage" image="popcorn.fill" catalog="system" renderingMode="template"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="hY9-23-FjK">
-                        <rect key="frame" x="0.0" y="47" width="375" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="47" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="BtnGreenColor"/>
                     </navigationBar>
@@ -1320,6 +1335,7 @@
                     <view key="view" contentMode="scaleToFill" id="byA-a3-tEc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="512"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="MPE-Ur-iZT"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                     </view>
                 </viewController>
@@ -1353,6 +1369,7 @@
                     <view key="view" contentMode="scaleToFill" id="cYm-mf-rgY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="512"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="qL1-gL-Tn8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
@@ -1362,13 +1379,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AaaII" width="1006" height="1006"/>
         <image name="Actor view" width="64" height="64"/>
         <image name="Chats" width="325" height="88"/>
+        <image name="a3" width="2368" height="2752"/>
         <image name="banner_bg" width="1308" height="636"/>
         <image name="bell.badge" catalog="system" width="125" height="128"/>
         <image name="bene" width="500" height="750"/>
         <image name="benedict" width="1414" height="2048"/>
-        <image name="bo1" width="799" height="1036"/>
         <image name="bo3" width="916" height="1200"/>
         <image name="bubble.left.and.bubble.right" catalog="system" width="128" height="96"/>
         <image name="bubble.left.and.bubble.right.fill" catalog="system" width="128" height="97"/>
@@ -1379,7 +1397,6 @@
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
-        <image name="mic.badge.plus" catalog="system" width="121" height="128"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.badge.plus" catalog="system" width="128" height="125"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>

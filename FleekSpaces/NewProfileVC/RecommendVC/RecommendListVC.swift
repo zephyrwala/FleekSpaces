@@ -9,7 +9,9 @@ import UIKit
 
 class RecommendListVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
   
-
+    @IBOutlet weak var recommendCount: UILabel!
+    
+    private let refreshControl = UIRefreshControl()
     var isMyProfile = UserDefaults.standard.bool(forKey: "isMyProfile")
     @IBOutlet weak var recommendsListCollectionView: UICollectionView!
     
@@ -17,22 +19,43 @@ class RecommendListVC: UIViewController, UICollectionViewDataSource, UICollectio
         super.viewDidLoad()
 
         setupCollectionView()
-//        fetchRecommend()
+        refresh()
         // Do any additional setup after loading the view.
     }
 
     
     override func viewWillAppear(_ animated: Bool) {
-        if isMyProfile {
-            fetchRecommend()
-        } else {
-            
-            guard let otherUserID = UserDefaults.standard.string(forKey: "otherUserID") else {return}
-            
-            fetchOtheruserRecommend(otherUserID: otherUserID)
-            
-        }
+//        if isMyProfile {
+//            fetchRecommend()
+//        } else {
+//
+//            guard let otherUserID = UserDefaults.standard.string(forKey: "otherUserID") else {return}
+//
+//            fetchOtheruserRecommend(otherUserID: otherUserID)
+//
+//        }
+        fetchRecommend()
+
         
+    }
+    
+    
+    func refresh() {
+        
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(didPullToRefresh(_:)), for: .valueChanged)
+        refreshControl.layer.zPosition = -1
+        recommendsListCollectionView.alwaysBounceVertical = true
+        recommendsListCollectionView.refreshControl = refreshControl // iOS 10+
+    }
+    
+    
+    @objc
+    private func didPullToRefresh(_ sender: Any) {
+        // Do you your api calls in here, and then asynchronously remember to stop the
+        // refreshing when you've got a result (either positive or negative)
+        fetchRecommend()
+        refreshControl.endRefreshing()
     }
     
     func setupCollectionView() {
@@ -74,6 +97,8 @@ class RecommendListVC: UIViewController, UICollectionViewDataSource, UICollectio
                 print("Recommemnd Data is \(userData.recommendedList)")
                 DispatchQueue.main.async {
                     if let safeCount = userData.recommendedList?.count {
+                        
+                        self.recommendCount.text = "\(safeCount) Recommendations"
 //                        self.recommendBtn.setTitle("\(safeCount)", for: .normal)
                     }
                    
@@ -95,48 +120,7 @@ class RecommendListVC: UIViewController, UICollectionViewDataSource, UICollectio
     }
     
     
-    //MARK: - Fetch Other User Recommend
-    func fetchOtheruserRecommend(otherUserID: String) {
-        
-        
-        //https://api-space-dev.getfleek.app/activity/get_recommendations_list?user_id=0a0c4e5d-25df-427b-9d84-760e658b9a51
-        let network = NetworkURL()
-        
-        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/activity/get_recommendations_list/?user_id=\(otherUserID)") else {return}
-                
-        guard let myTOken = UserDefaults.standard.string(forKey: "userToken") else {return}
-    
-        network.tokenCalls(RecommendProfile.self, url: myUrl, token: myTOken, methodType: "GET") { myResult, yourMessage in
-            
-            
-            switch myResult {
-                
-                
-            case .success(let userData):
-                FinalDataModel.recommendedProfile = userData
-                print("Recommemnd Data is \(userData.recommendedList)")
-                DispatchQueue.main.async {
-                    if let safeCount = userData.recommendedList?.count {
-//                        self.recommendBtn.setTitle("\(safeCount)", for: .normal)
-                    }
-                   
-                    
-                    
-                    self.recommendsListCollectionView.reloadData()
-                }
-              
-            case .failure(let err):
-                print("Error is \(err)")
-                
-                
-            }
-        }
-        
-        
-        
-        
-    }
-    
+ 
     
     
     //MARK: - COllection view stuff

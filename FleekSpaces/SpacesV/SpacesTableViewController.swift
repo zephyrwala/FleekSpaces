@@ -149,7 +149,7 @@ class SpacesTableViewController: UITableViewController {
                 DispatchQueue.main.async {
                     
                    
-                    self.followMessage = userData.message ?? "You have succesfully followed."
+//                    self.followMessage = userData.message ?? "You have succesfully followed."
                        //save in variable
 //                    self.watchlistBtn.setTitle("\(userData.count)", for: .normal)
 //

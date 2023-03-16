@@ -191,6 +191,14 @@
 		6990E61029B1BE96007F8499 /* recording.json in Resources */ = {isa = PBXBuildFile; fileRef = 6990E60F29B1BE96007F8499 /* recording.json */; };
 		6990E61329B1CCF0007F8499 /* SwiftSiriWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990E61229B1CCF0007F8499 /* SwiftSiriWaveformView.swift */; };
 		6990E61529B1CEE2007F8499 /* waves.json in Resources */ = {isa = PBXBuildFile; fileRef = 6990E61429B1CEE1007F8499 /* waves.json */; };
+		6991010029C1CAEC00460388 /* OtherLikesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699100FE29C1CAEC00460388 /* OtherLikesViewController.swift */; };
+		6991010129C1CAEC00460388 /* OtherLikesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 699100FF29C1CAEC00460388 /* OtherLikesViewController.xib */; };
+		6991010429C1D80200460388 /* OtherRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991010229C1D80200460388 /* OtherRecommendViewController.swift */; };
+		6991010529C1D80200460388 /* OtherRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6991010329C1D80200460388 /* OtherRecommendViewController.xib */; };
+		6991010929C1E60000460388 /* OtherProFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991010729C1E60000460388 /* OtherProFollowersViewController.swift */; };
+		6991010A29C1E60000460388 /* OtherProFollowersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6991010829C1E60000460388 /* OtherProFollowersViewController.xib */; };
+		6991010E29C1ECC500460388 /* OtherproFollowingsaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991010C29C1ECC500460388 /* OtherproFollowingsaViewController.swift */; };
+		6991010F29C1ECC500460388 /* OtherproFollowingsaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6991010D29C1ECC500460388 /* OtherproFollowingsaViewController.xib */; };
 		6995FED8297913E800190253 /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = 6995FED7297913E800190253 /* ActivityView */; };
 		6995FEDB297DAC9A00190253 /* RealTimeDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6995FEDA297DAC9A00190253 /* RealTimeDatabaseManager.swift */; };
 		69AC5F6029A5DFA100C30ECA /* SpacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AC5F5F29A5DFA100C30ECA /* SpacesTableViewController.swift */; };
@@ -460,6 +468,14 @@
 		6990E60F29B1BE96007F8499 /* recording.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = recording.json; sourceTree = "<group>"; };
 		6990E61229B1CCF0007F8499 /* SwiftSiriWaveformView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSiriWaveformView.swift; sourceTree = "<group>"; };
 		6990E61429B1CEE1007F8499 /* waves.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waves.json; sourceTree = "<group>"; };
+		699100FE29C1CAEC00460388 /* OtherLikesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherLikesViewController.swift; sourceTree = "<group>"; };
+		699100FF29C1CAEC00460388 /* OtherLikesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherLikesViewController.xib; sourceTree = "<group>"; };
+		6991010229C1D80200460388 /* OtherRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherRecommendViewController.swift; sourceTree = "<group>"; };
+		6991010329C1D80200460388 /* OtherRecommendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherRecommendViewController.xib; sourceTree = "<group>"; };
+		6991010729C1E60000460388 /* OtherProFollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProFollowersViewController.swift; sourceTree = "<group>"; };
+		6991010829C1E60000460388 /* OtherProFollowersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherProFollowersViewController.xib; sourceTree = "<group>"; };
+		6991010C29C1ECC500460388 /* OtherproFollowingsaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherproFollowingsaViewController.swift; sourceTree = "<group>"; };
+		6991010D29C1ECC500460388 /* OtherproFollowingsaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherproFollowingsaViewController.xib; sourceTree = "<group>"; };
 		6995FEDA297DAC9A00190253 /* RealTimeDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeDatabaseManager.swift; sourceTree = "<group>"; };
 		69AC5F5F29A5DFA100C30ECA /* SpacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesTableViewController.swift; sourceTree = "<group>"; };
 		69AC5F6129A5E02300C30ECA /* SpacesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesTableViewCell.swift; sourceTree = "<group>"; };
@@ -1375,6 +1391,24 @@
 			path = Waveform;
 			sourceTree = "<group>";
 		};
+		6991010629C1E54D00460388 /* OtherFollowers */ = {
+			isa = PBXGroup;
+			children = (
+				6991010729C1E60000460388 /* OtherProFollowersViewController.swift */,
+				6991010829C1E60000460388 /* OtherProFollowersViewController.xib */,
+			);
+			path = OtherFollowers;
+			sourceTree = "<group>";
+		};
+		6991010B29C1ECA000460388 /* OtherFollowing */ = {
+			isa = PBXGroup;
+			children = (
+				6991010C29C1ECC500460388 /* OtherproFollowingsaViewController.swift */,
+				6991010D29C1ECC500460388 /* OtherproFollowingsaViewController.xib */,
+			);
+			path = OtherFollowing;
+			sourceTree = "<group>";
+		};
 		6995FED9297DAC1200190253 /* RealtimeDB */ = {
 			isa = PBXGroup;
 			children = (
@@ -1620,6 +1654,8 @@
 		69E067DE29C19748008AC2A0 /* OtherPersonNewProfile */ = {
 			isa = PBXGroup;
 			children = (
+				6991010B29C1ECA000460388 /* OtherFollowing */,
+				6991010629C1E54D00460388 /* OtherFollowers */,
 				69E067E429C19EFB008AC2A0 /* OtherPersonVC */,
 				69E067E329C199B5008AC2A0 /* OtherRecommend */,
 				69E067E229C199AF008AC2A0 /* OtherLikes */,
@@ -1632,6 +1668,8 @@
 		69E067E129C199A1008AC2A0 /* OtherWatchlist */ = {
 			isa = PBXGroup;
 			children = (
+				6991010229C1D80200460388 /* OtherRecommendViewController.swift */,
+				6991010329C1D80200460388 /* OtherRecommendViewController.xib */,
 			);
 			path = OtherWatchlist;
 			sourceTree = "<group>";
@@ -1639,6 +1677,8 @@
 		69E067E229C199AF008AC2A0 /* OtherLikes */ = {
 			isa = PBXGroup;
 			children = (
+				699100FE29C1CAEC00460388 /* OtherLikesViewController.swift */,
+				699100FF29C1CAEC00460388 /* OtherLikesViewController.xib */,
 			);
 			path = OtherLikes;
 			sourceTree = "<group>";
@@ -1801,6 +1841,7 @@
 				693946962847577D00FE7574 /* Section1HeaderCRV.xib in Resources */,
 				693946B2284896DF00FE7574 /* ChooseSubsViewController.xib in Resources */,
 				69D527E42902AB69001B310C /* Diwali6.png in Resources */,
+				6991010129C1CAEC00460388 /* OtherLikesViewController.xib in Resources */,
 				6930D57C2859DB4B0080528D /* GenreBottomViewController.xib in Resources */,
 				69E067D329BD7372008AC2A0 /* RecommendListVC.xib in Resources */,
 				69E067D829BD8FD0008AC2A0 /* FollowingsViewController.xib in Resources */,
@@ -1825,7 +1866,9 @@
 				69394675284628D500FE7574 /* LaunchScreen.storyboard in Resources */,
 				6963B3EA29ACC00D007C4DEF /* ChatDetailProfileViewController.xib in Resources */,
 				6919333629B32E7A006CA14B /* NotificationsCell.xib in Resources */,
+				6991010A29C1E60000460388 /* OtherProFollowersViewController.xib in Resources */,
 				692600C6284E203100B6D801 /* ChatCVCell.xib in Resources */,
+				6991010F29C1ECC500460388 /* OtherproFollowingsaViewController.xib in Resources */,
 				69AC5F6D29A661F500C30ECA /* catWatch.json in Resources */,
 				6930D5342851B53D0080528D /* TrendingWorldCollectionViewCell.xib in Resources */,
 				692600BF284E09A200B6D801 /* Section2HeadersCRV.xib in Resources */,
@@ -1859,6 +1902,7 @@
 				693849AD28829D0300EC5C61 /* BookPreviewUIViewViewController.xib in Resources */,
 				693946BD2848B22F00FE7574 /* SearchCollectionCell.xib in Resources */,
 				693849A328826FE700EC5C61 /* BooksDetailViewController.xib in Resources */,
+				6991010529C1D80200460388 /* OtherRecommendViewController.xib in Resources */,
 				69D527C629016572001B310C /* IconChangerViewController.xib in Resources */,
 				69D527E62902AB69001B310C /* Diwali3.png in Resources */,
 				69D9E607299CE9BB000DE3E5 /* PasterCollectionViewCell.xib in Resources */,
@@ -1943,6 +1987,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69E0679C29B73994008AC2A0 /* Likes+Watchlist+Follow.swift in Sources */,
+				6991010929C1E60000460388 /* OtherProFollowersViewController.swift in Sources */,
 				693946852847518C00FE7574 /* NavCollectionViewCell.swift in Sources */,
 				693357DD2894088000C49506 /* EpisodeCardsViewController.swift in Sources */,
 				695EBBE22861AAD400557D69 /* SeasonsViewController.swift in Sources */,
@@ -2026,6 +2071,7 @@
 				6995FEDB297DAC9A00190253 /* RealTimeDatabaseManager.swift in Sources */,
 				693357D82893F66700C49506 /* SeasonCardCVC.swift in Sources */,
 				69AC5F6329A5E02300C30ECA /* SpacesTableViewCell.swift in Sources */,
+				6991010029C1CAEC00460388 /* OtherLikesViewController.swift in Sources */,
 				691205DC29B2F34900F0E808 /* FollowersViewController.swift in Sources */,
 				6939466B284628D100FE7574 /* SceneDelegate.swift in Sources */,
 				69D527CA29019578001B310C /* iconTableViewCell.swift in Sources */,
@@ -2053,6 +2099,8 @@
 				693946952847577D00FE7574 /* Section1HeaderCRV.swift in Sources */,
 				69E067DA29BD9972008AC2A0 /* IconPagingCell.swift in Sources */,
 				6939469B284757BB00FE7574 /* Section2CRV.swift in Sources */,
+				6991010E29C1ECC500460388 /* OtherproFollowingsaViewController.swift in Sources */,
+				6991010429C1D80200460388 /* OtherRecommendViewController.swift in Sources */,
 				6939467E2847338000FE7574 /* HomeViewController.swift in Sources */,
 				693946A0284757EA00FE7574 /* Section3CRV.swift in Sources */,
 				693946AC28487D9500FE7574 /* OfflineModel.swift in Sources */,
@@ -2229,7 +2277,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;
@@ -2268,7 +2316,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;

@@ -19,15 +19,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
     func recording(text: String?, final: Bool?, error: Error?) {
         
         
-        
+      
         
     }
     
 
-   
+    let animationDuration: Double = 1.0
+    let delayBase: Double = 1.0
     @IBOutlet weak var subsCollectionHts: NSLayoutConstraint!
 
    
+    let notificationFeedback = UINotificationFeedbackGenerator()
     var scrollSize = 0.0
     var isMovieSelected = true
     var isIndiaSelected = true
@@ -106,6 +108,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+       
+        let indexPath:IndexPath = IndexPath(row: 0, section: 0)
+            subsCollectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .top)
+    }
     //Ai Bro button tap
     
     @IBAction func aiBroBtnTap(_ sender: Any) {
@@ -126,7 +133,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
 //           )
 //
 //
-        
+        notificationFeedback.notificationOccurred(.success)
         let vc = AiBroViewController()
         self.present(vc, animated: true)
         
@@ -321,9 +328,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         subsCollectionView.register(UINib(nibName: "Section2CRV", bundle: nil), forSupplementaryViewOfKind: self.sec1, withReuseIdentifier: "sec2Header")
         subsCollectionView.allowsMultipleSelection = false
         
+        
+         let indexPath:IndexPath = IndexPath(row: 0, section: 0)
+             subsCollectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .top)
  //TODO: - remove this
       
-        
+        subsCollectionView.showsHorizontalScrollIndicator = true
     }
     
     
@@ -525,6 +535,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 DispatchQueue.main.async {
                     MyMovieDataModel.streamingPlatform = streams
                     self.subsCollectionView.reloadData()
+                    
+                     let indexPath:IndexPath = IndexPath(row: 0, section: 0)
+                    self.subsCollectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .top)
                 }
                 
                 for eachStreams in streams {
@@ -1334,6 +1347,7 @@ extension HomeViewController: UICollectionViewDataSource {
         //section ends here
     }
     //configure the cel
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
      
@@ -1355,6 +1369,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 cell.selectedSub.makeItGolGol()
                 
                
+          
 //                cell.setupLogos(fromData: myLogos[indexPath.item])
                 
                 return cell

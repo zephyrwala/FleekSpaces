@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OtherRecommendViewController" customModule="FleekSpaces" customModuleProvider="target">
+            <connections>
+                <outlet property="otherRecommendCollectionView" destination="nqA-DL-9b5" id="Q2q-Ai-phS"/>
+                <outlet property="totalRecommend" destination="NPb-Wm-Fyr" id="0zY-Ar-4qX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="nqA-DL-9b5">
+                    <rect key="frame" x="5" y="109" width="383" height="709"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dbS-nF-71C">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wXy-ka-YTy">
+                    <rect key="frame" x="15" y="66" width="363" height="35"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 Recommendations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPb-Wm-Fyr">
+                            <rect key="frame" x="0.0" y="0.0" width="181.66666666666666" height="35"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" name="Neutral_300"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Friends" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkn-aN-dOE">
+                            <rect key="frame" x="181.66666666666663" y="0.0" width="181.33333333333337" height="35"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" name="Neutral_130"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="8p0-wl-rrS"/>
+                        <constraint firstAttribute="height" constant="35" id="p78-Tl-tPu"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="sx9-0I-nxg"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="wff-tF-I6b"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="wXy-ka-YTy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="L9O-Zu-QVU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wXy-ka-YTy" secondAttribute="trailing" constant="15" id="Q00-2N-tgc"/>
+                <constraint firstItem="nqA-DL-9b5" firstAttribute="top" secondItem="wXy-ka-YTy" secondAttribute="bottom" constant="8" id="Xia-hn-VDc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="nqA-DL-9b5" secondAttribute="bottom" id="aNC-pl-Qsh"/>
+                <constraint firstItem="nqA-DL-9b5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="bjh-wP-CYb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nqA-DL-9b5" secondAttribute="trailing" constant="5" id="koA-SF-7A7"/>
+                <constraint firstItem="nqA-DL-9b5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="p6J-Pb-qiG"/>
+            </constraints>
+            <point key="canvasLocation" x="1" y="-1"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Neutral_130">
+            <color red="0.42399999499320984" green="0.55699998140335083" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Neutral_300">
+            <color red="0.79600000381469727" green="0.79600000381469727" blue="0.79600000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

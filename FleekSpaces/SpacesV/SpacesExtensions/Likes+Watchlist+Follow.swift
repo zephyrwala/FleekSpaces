@@ -269,32 +269,61 @@ extension SpacesTableViewController: PassLikesData, FollowBtnTap, WatchlistBtnTa
     
     func followBtnTap(sender: UIButton,  cell: SpacesTableViewCell) {
         
+        guard let indexPath = self.tableView.indexPath(for: cell) else {return}
+        guard let safeName = FinalDataModel.spacesFeedElement?[indexPath.row].user?.name else {return}
         
-
         
-        if let indexPath = self.tableView.indexPath(for: cell) {
-            if let safeFirebaseUID =  FinalDataModel.spacesFeedElement?[indexPath.row].user?.firebaseUid {
-                
-                sendFollowRequest(firebaseUID: safeFirebaseUID)
-                print("\(FinalDataModel.spacesFeedElement?[indexPath.row].user?.firebaseUid)")
-            }
-            
-           
-        }
-       
-       
-        
-        let alert = UIAlertController(title: "Awesome! 🥹", message: self.followMessage, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Follow Request", message: "Would you like to follow, \(safeName)?", preferredStyle: .alert)
 //        cell.followBtn.isHidden = true
-        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { alerts in
+        alert.addAction(UIAlertAction(title: "Yes", style: .cancel, handler: { alerts in
             
            
-            self.navigationController?.popToRootViewController(animated: true)
+            
+            
+//            self.navigationController?.popToRootViewController(animated: true)
+            
+           
+                if let safeFirebaseUID =  FinalDataModel.spacesFeedElement?[indexPath.row].user?.firebaseUid {
+                    
+                    self.sendFollowRequest(firebaseUID: safeFirebaseUID)
+                    print("\(FinalDataModel.spacesFeedElement?[indexPath.row].user?.firebaseUid)")
+                    
+//                    let currentCell = IndexPath(row: indexPath.row, section: 0)
+//                    self.tableView.reloadRows(at: [currentCell], with: .automatic)
+                    
+//                    cell.followBtn.setTitle("Following", for: .normal)
+                    self.fetchSpacesFeed()
+                    
+                    
+                }
+                
+               
+            
+            
+            
+//            DispatchQueue.main.async {
+////                self.tableView.reloadData()
+//                cell.followBtn.isHidden = true
+//            }
+//           
             
 //            self.dismiss(animated: true) {
 //                NotificationCenter.default.post(name: NSNotification.Name("startSwiftUI"), object: nil)
 //            }
         }))
+
+        
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { alert in
+            self.dismiss(animated: true)
+        }))
+        
+        
+        
+       
+       
+       
+        
+ 
         present(alert, animated: true)
     }
     

@@ -100,11 +100,11 @@ class Basic2ViewController: PagingViewController, PagingViewControllerDataSource
     
     
     let viewControllers = [
-        WatchViewController(),
-        LikeListViewController(),
-       RecommendListVC(),
-        FollowingsViewController(),
-        FollowersViewController()
+        OtherWatchlistViewController(),
+        OtherLikesViewController(),
+       OtherRecommendViewController(),
+        OtherProFollowersViewController(),
+        OtherproFollowingsaViewController()
 //        SpacesTableViewController()
        
     ]

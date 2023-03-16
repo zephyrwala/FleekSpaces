@@ -9,7 +9,8 @@ import UIKit
 import SDWebImage
 
 class Section1CollectionViewCell: UICollectionViewCell {
-
+    
+   
     @IBOutlet weak var selectedSub: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,16 +22,28 @@ class Section1CollectionViewCell: UICollectionViewCell {
           willSet {
               if newValue {
                   
-                  guard let mainCOlor = UIColor(named: "BtnGreenColor") else {
+                  guard let mainCOlor = UIColor(named: "Fleek_400") else {
                       return
                   }
                   self.layer.cornerRadius = selectedSub.frame.size.width / 2
-                  self.layer.borderWidth = 3
+                  let generator = UIImpactFeedbackGenerator(style: .light)
+                             generator.impactOccurred()
+                  self.layer.borderWidth = 4
+                  UIView.animate(withDuration: 1) {
+                      self.selectedSub.alpha = 1
+                  }
+                  
 //                  self.layer.animateBorderColor(from: UIColor.systemTeal, to: mainCOlor, withDuration: 2.1)
-                  self.layer.borderColor = UIColor(named: "BtnGreenColor")?.cgColor
+                  self.layer.borderColor = UIColor(named: "Fleek_400")?.cgColor
               } else {
                    self.layer.borderWidth = 0
                   self.layer.borderColor = UIColor(.gray).cgColor
+                 
+                  UIView.animate(withDuration: 1) {
+                      self.selectedSub.alpha = 0.3
+                      
+                  }
+                 
                 
               }
           }

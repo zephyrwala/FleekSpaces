@@ -9,7 +9,7 @@ import UIKit
 
 class LikeListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    
+    private let refreshControl = UIRefreshControl()
     @IBOutlet weak var likeListCollectionView: UICollectionView!
     
     @IBOutlet weak var totalLIkes: UILabel!
@@ -21,23 +21,47 @@ class LikeListViewController: UIViewController, UICollectionViewDataSource, UICo
         super.viewDidLoad()
 
         setupCollectionView()
+        refresh()
         
         // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        if isMyProfile {
-            fetchUserMovieData()
-        }else {
-            guard let otherUserID = UserDefaults.standard.string(forKey: "otherUserID") else {return}
-            
-            
-            fetchOtherUserMovieData(otherUserID: otherUserID)
-            
-            
-        }
+        fetchUserMovieData()
+//        if isMyProfile {
+//
+//        }else {
+//            guard let otherUserID = UserDefaults.standard.string(forKey: "otherUserID") else {return}
+//
+//
+//            fetchOtherUserMovieData(otherUserID: otherUserID)
+//
+//
+//        }
         
     }
+    
+    
+    
+    
+    func refresh() {
+        
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(didPullToRefresh(_:)), for: .valueChanged)
+        refreshControl.layer.zPosition = -1
+        likeListCollectionView.alwaysBounceVertical = true
+        likeListCollectionView.refreshControl = refreshControl // iOS 10+
+    }
+    
+    
+    @objc
+    private func didPullToRefresh(_ sender: Any) {
+        // Do you your api calls in here, and then asynchronously remember to stop the
+        // refreshing when you've got a result (either positive or negative)
+        fetchUserMovieData()
+        refreshControl.endRefreshing()
+    }
+    
     
     func setupCollectionView() {
         
@@ -61,46 +85,7 @@ class LikeListViewController: UIViewController, UICollectionViewDataSource, UICo
     
     
     
-    //MARK: - Fetch other user data
-    
-    
-    func fetchOtherUserMovieData(otherUserID: String) {
-        
-        let network = NetworkURL()
-        
-        guard let myUrl = URL(string: "https://api-space-dev.getfleek.app/activity/get_likes_dislikes_of_user/?user_id=\(otherUserID)") else {return}
-                
-        guard let myTOken = UserDefaults.standard.string(forKey: "userToken") else {return}
-    
-        network.tokenCalls([UserLike].self, url: myUrl, token: myTOken, methodType: "GET") { myResult, yourMessage in
-            
-            
-            switch myResult {
-                
-                
-            case .success(let userData):
-                FinalDataModel.userLikes = userData
-                DispatchQueue.main.async {
-                    
-//                    self.likeBtn.setTitle("\(userData.count)", for: .normal)
-                    UserDefaults.standard.set(FinalDataModel.userLikes?.count, forKey: "likesCont")
-                    
-                    if let safeLikes = FinalDataModel.userLikes?.count {
-                        self.totalLIkes.text = "\(safeLikes) Likes"
-                    }
-                    self.likeListCollectionView.reloadData()
-                }
-                for users in userData {
-                    print("Movie liked are \(users.title)")
-                    
-                }
-            case .failure(let err):
-                print("Error is \(err)")
-                
-                
-            }
-        }
-    }
+
     //MARK: - Fetch user data
     
     

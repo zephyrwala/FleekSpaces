@@ -11,6 +11,7 @@ class FollowersViewController: UIViewController, UITableViewDelegate, UITableVie
   
 
     //outlets
+    @IBOutlet weak var followingCOunt: UILabel!
     
     @IBOutlet weak var followersTableView: UITableView!
     
@@ -25,13 +26,17 @@ class FollowersViewController: UIViewController, UITableViewDelegate, UITableVie
         
 
 //        fetchFollowers()
-        fetchFollowings()
+       
 //        fetchFollowings()
         setupTableView()
         
         // Do any additional setup after loading the view.
     }
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchFollowings()
+    }
 
     //setup table view
     func setupTableView() {
@@ -124,7 +129,7 @@ class FollowersViewController: UIViewController, UITableViewDelegate, UITableVie
                        //save in variable
 //                    self.watchlistBtn.setTitle("\(userData.count)", for: .normal)
 //
-                    
+                    self.followingCOunt.text = "\(userData.count) Following"
                     self.followersTableView.reloadData()
                 }
              

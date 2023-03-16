@@ -102,7 +102,7 @@ class SpacesTableViewCell: UITableViewCell {
     
     //follow btn tap
     @IBAction func followBtnTap(_ sender: UIButton) {
-        
+        self.followBtn.isHidden = true
         followBtnDelegate?.followBtnTap(sender: sender, cell: self)
     }
     

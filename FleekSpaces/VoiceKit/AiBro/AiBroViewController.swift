@@ -74,6 +74,12 @@ class AiBroViewController: UIViewController, SFSpeechRecognizerDelegate {
         // Do any additional setup after loading the view.
     }
     
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.synthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)
+        
+    }
+    
     //MARK: - Setup AI
     func setupAI() {
         

@@ -6,12 +6,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FollowersViewController" customModule="FleekSpaces" customModuleProvider="target">
             <connections>
                 <outlet property="followersTableView" destination="jbh-0T-hRj" id="SSc-b6-Ql0"/>
+                <outlet property="followingCOunt" destination="5IL-Py-qXD" id="RUs-j9-jeB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,7 +27,7 @@
                     <color key="backgroundColor" name="BGColor"/>
                 </tableView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9Zh-4A-OHv">
-                    <rect key="frame" x="15" y="54" width="345" height="35"/>
+                    <rect key="frame" x="15" y="62" width="345" height="35"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5IL-Py-qXD">
                             <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="35"/>
@@ -36,25 +38,23 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Online" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBl-ec-ycD">
                             <rect key="frame" x="172.66666666666663" y="0.0" width="172.33333333333337" height="35"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" name="Neutral_130"/>
+                            <color key="textColor" systemColor="systemCyanColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <color key="backgroundColor" name="BGColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="35" id="43R-mw-faN"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="9vt-71-TQH"/>
-                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="O7V-gy-Ybf"/>
-                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="yy9-Td-sFt"/>
+                        <constraint firstAttribute="height" constant="35" id="hi1-RP-Fhl"/>
                     </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="BGColor"/>
             <constraints>
-                <constraint firstItem="jbh-0T-hRj" firstAttribute="top" secondItem="9Zh-4A-OHv" secondAttribute="bottom" constant="8" id="5x0-jd-GWt"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9Zh-4A-OHv" secondAttribute="trailing" constant="15" id="Sie-7j-P1t"/>
-                <constraint firstItem="9Zh-4A-OHv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="Wkr-9n-E3i"/>
+                <constraint firstItem="jbh-0T-hRj" firstAttribute="top" secondItem="9Zh-4A-OHv" secondAttribute="bottom" id="J8m-Ur-W6m"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jbh-0T-hRj" secondAttribute="trailing" constant="5" id="apS-pH-0YL"/>
+                <constraint firstItem="9Zh-4A-OHv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="eg3-vZ-kc2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9Zh-4A-OHv" secondAttribute="trailing" constant="15" id="kdS-wc-YXv"/>
                 <constraint firstItem="jbh-0T-hRj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="wBc-2U-knA"/>
                 <constraint firstItem="jbh-0T-hRj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="yWZ-VT-Obg"/>
                 <constraint firstItem="jbh-0T-hRj" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="10" id="zrR-6I-qf9"/>
@@ -66,11 +66,11 @@
         <namedColor name="BGColor">
             <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Neutral_130">
-            <color red="0.42399999499320984" green="0.55699998140335083" blue="0.76499998569488525" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <namedColor name="Neutral_300">
             <color red="0.79600000381469727" green="0.79600000381469727" blue="0.79600000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

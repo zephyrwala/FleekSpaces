@@ -46,7 +46,7 @@ class BasicViewController: PagingViewController, PagingViewControllerDataSource,
     fileprivate let icons = [
         "video.badge.checkmark",
         "hand.thumbsup",
-        "person.line.dotted.person.fill",
+        "shared.with.you",
         "person.fill.checkmark",
         "person.3.sequence"
        
@@ -116,9 +116,9 @@ class BasicViewController: PagingViewController, PagingViewControllerDataSource,
        
         
         pagingViewController.menuBackgroundColor = UIColor(named: "BGColor")!
-        pagingViewController.indicatorColor = .systemTeal
+        pagingViewController.indicatorColor = .systemCyan
         pagingViewController.textColor = .darkGray
-        pagingViewController.selectedTextColor = .systemCyan
+        pagingViewController.selectedTextColor = .white
         var uiedge = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 //        pagingViewController.select(index: 1)
 //        pagingViewController.borderOptions = .visible(height: 3, zIndex: 0, insets: uiedge)
