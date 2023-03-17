@@ -148,21 +148,30 @@
                                                             <constraint firstItem="T8R-OQ-Ctc" firstAttribute="top" secondItem="vwq-HN-BFf" secondAttribute="top" id="yZ4-wr-ChW"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yl0-S4-jH1">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lTG-LH-Ksx">
                                                         <rect key="frame" x="300" y="0.0" width="45" height="50"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yl0-S4-jH1">
+                                                                <rect key="frame" x="0.0" y="0.0" width="45" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="45" id="k2N-mB-M50"/>
+                                                                </constraints>
+                                                                <color key="tintColor" name="Neutral_400"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="searchBtnTapped:" destination="f0F-g1-Vab" eventType="touchUpInside" id="wc7-Pf-bon"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="45" id="l4m-WF-kH1"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Yl0-S4-jH1" secondAttribute="trailing" id="8Zl-Rw-WKX"/>
+                                                            <constraint firstItem="Yl0-S4-jH1" firstAttribute="top" secondItem="lTG-LH-Ksx" secondAttribute="top" id="gsZ-k8-e8H"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Yl0-S4-jH1" secondAttribute="bottom" id="rqs-oq-LuS"/>
+                                                            <constraint firstAttribute="width" constant="45" id="yez-nj-9LZ"/>
                                                         </constraints>
-                                                        <color key="tintColor" name="Neutral_400"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain">
-                                                            <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
-                                                        </buttonConfiguration>
-                                                        <connections>
-                                                            <action selector="searchBtnTapped:" destination="f0F-g1-Vab" eventType="touchUpInside" id="wc7-Pf-bon"/>
-                                                        </connections>
-                                                    </button>
+                                                    </view>
                                                 </subviews>
                                             </stackView>
                                         </subviews>

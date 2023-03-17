@@ -199,6 +199,10 @@
 		6991010A29C1E60000460388 /* OtherProFollowersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6991010829C1E60000460388 /* OtherProFollowersViewController.xib */; };
 		6991010E29C1ECC500460388 /* OtherproFollowingsaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991010C29C1ECC500460388 /* OtherproFollowingsaViewController.swift */; };
 		6991010F29C1ECC500460388 /* OtherproFollowingsaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6991010D29C1ECC500460388 /* OtherproFollowingsaViewController.xib */; };
+		6991011229C46B0000460388 /* Search2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991011029C46B0000460388 /* Search2ViewController.swift */; };
+		6991011329C46B0000460388 /* Search2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6991011129C46B0000460388 /* Search2ViewController.xib */; };
+		6991011629C481E800460388 /* RecentTrendinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991011429C481E800460388 /* RecentTrendinCollectionViewCell.swift */; };
+		6991011729C481E800460388 /* RecentTrendinCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6991011529C481E800460388 /* RecentTrendinCollectionViewCell.xib */; };
 		6995FED8297913E800190253 /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = 6995FED7297913E800190253 /* ActivityView */; };
 		6995FEDB297DAC9A00190253 /* RealTimeDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6995FEDA297DAC9A00190253 /* RealTimeDatabaseManager.swift */; };
 		69AC5F6029A5DFA100C30ECA /* SpacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AC5F5F29A5DFA100C30ECA /* SpacesTableViewController.swift */; };
@@ -476,6 +480,10 @@
 		6991010829C1E60000460388 /* OtherProFollowersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherProFollowersViewController.xib; sourceTree = "<group>"; };
 		6991010C29C1ECC500460388 /* OtherproFollowingsaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherproFollowingsaViewController.swift; sourceTree = "<group>"; };
 		6991010D29C1ECC500460388 /* OtherproFollowingsaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherproFollowingsaViewController.xib; sourceTree = "<group>"; };
+		6991011029C46B0000460388 /* Search2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search2ViewController.swift; sourceTree = "<group>"; };
+		6991011129C46B0000460388 /* Search2ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Search2ViewController.xib; sourceTree = "<group>"; };
+		6991011429C481E800460388 /* RecentTrendinCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTrendinCollectionViewCell.swift; sourceTree = "<group>"; };
+		6991011529C481E800460388 /* RecentTrendinCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentTrendinCollectionViewCell.xib; sourceTree = "<group>"; };
 		6995FEDA297DAC9A00190253 /* RealTimeDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeDatabaseManager.swift; sourceTree = "<group>"; };
 		69AC5F5F29A5DFA100C30ECA /* SpacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesTableViewController.swift; sourceTree = "<group>"; };
 		69AC5F6129A5E02300C30ECA /* SpacesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesTableViewCell.swift; sourceTree = "<group>"; };
@@ -739,6 +747,8 @@
 				6930D564285712A70080528D /* SearchResults */,
 				6930D55F28570A270080528D /* SearchViewController.swift */,
 				6930D56028570A270080528D /* SearchViewController.xib */,
+				6991011029C46B0000460388 /* Search2ViewController.swift */,
+				6991011129C46B0000460388 /* Search2ViewController.xib */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -748,6 +758,8 @@
 			children = (
 				6930D565285712E20080528D /* SearchResultCVC.swift */,
 				6930D566285712E20080528D /* SearchResultCVC.xib */,
+				6991011429C481E800460388 /* RecentTrendinCollectionViewCell.swift */,
+				6991011529C481E800460388 /* RecentTrendinCollectionViewCell.xib */,
 			);
 			path = SearchResults;
 			sourceTree = "<group>";
@@ -1880,6 +1892,7 @@
 				693357D92893F66700C49506 /* SeasonCardCVC.xib in Resources */,
 				693946922847548500FE7574 /* Section3CollectionViewCell.xib in Resources */,
 				69C4996F28698012000F4394 /* EmailSignInViewController.xib in Resources */,
+				6991011329C46B0000460388 /* Search2ViewController.xib in Resources */,
 				691205E229B2F4D300F0E808 /* FollowersFollowingTableViewCell.xib in Resources */,
 				6963B40429AF54FD007C4DEF /* header2CollectionReusableView.xib in Resources */,
 				69D527EA2902C02F001B310C /* default.png in Resources */,
@@ -1901,6 +1914,7 @@
 				69394672284628D500FE7574 /* Assets.xcassets in Resources */,
 				693849AD28829D0300EC5C61 /* BookPreviewUIViewViewController.xib in Resources */,
 				693946BD2848B22F00FE7574 /* SearchCollectionCell.xib in Resources */,
+				6991011729C481E800460388 /* RecentTrendinCollectionViewCell.xib in Resources */,
 				693849A328826FE700EC5C61 /* BooksDetailViewController.xib in Resources */,
 				6991010529C1D80200460388 /* OtherRecommendViewController.xib in Resources */,
 				69D527C629016572001B310C /* IconChangerViewController.xib in Resources */,
@@ -2078,6 +2092,7 @@
 				69E067D729BD8FD0008AC2A0 /* FollowingsViewController.swift in Sources */,
 				694393B82874566500CEC3C4 /* FirebaseManager.swift in Sources */,
 				6930D55C285700B70080528D /* MoreLikeThisCRV.swift in Sources */,
+				6991011629C481E800460388 /* RecentTrendinCollectionViewCell.swift in Sources */,
 				6922ECC928869C3100865540 /* ChatsViewController.swift in Sources */,
 				6963B3F529ACC7C3007C4DEF /* recPosterCollectionViewCell.swift in Sources */,
 				693849902881375F00EC5C61 /* RecentChatKitViewController.swift in Sources */,
@@ -2102,6 +2117,7 @@
 				6991010E29C1ECC500460388 /* OtherproFollowingsaViewController.swift in Sources */,
 				6991010429C1D80200460388 /* OtherRecommendViewController.swift in Sources */,
 				6939467E2847338000FE7574 /* HomeViewController.swift in Sources */,
+				6991011229C46B0000460388 /* Search2ViewController.swift in Sources */,
 				693946A0284757EA00FE7574 /* Section3CRV.swift in Sources */,
 				693946AC28487D9500FE7574 /* OfflineModel.swift in Sources */,
 				69E067E029C19799008AC2A0 /* Basic2ViewController.swift in Sources */,
@@ -2277,7 +2293,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;
@@ -2316,7 +2332,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;

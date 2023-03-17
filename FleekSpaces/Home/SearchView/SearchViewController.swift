@@ -7,9 +7,11 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UICollectionViewDelegate, UISearchBarDelegate {
+class SearchViewController: UIViewController, UICollectionViewDelegate, UISearchBarDelegate, UICollectionViewDelegateFlowLayout {
 
     let sec2 = "sec2ID"
+    var totalTrending = [Worldwide]()
+    let searchController = UISearchController(searchResultsController: nil)
     @IBOutlet weak var recentSearchCollectionView: UICollectionView!
     @IBOutlet weak var recentSearchView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -23,13 +25,23 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
 //        if let mainData = MyMovieDataModel.upcoming?.results {
 //            filteredData = mainData
 //        }
-        searchBar.becomeFirstResponder()
-        recentSearchView.isHidden = true
         
-//        setupRecentSearchCollectionView()
+        setupCollectionView()
+        fetchWorldWideTVTrending()
+      
+        searchController.searchBar.barStyle = .default
+        searchController.searchBar.tintColor = .systemTeal
+        searchController.searchBar.searchBarStyle = .minimal
+        searchBar.becomeFirstResponder()
+        recentSearchView.isHidden = false
+        
+        searchCollectionView.keyboardDismissMode = UIScrollView.KeyboardDismissMode.onDrag
+        setupRecentSearchCollectionView()
 //        setupCollectionView()
         // Do any additional setup after loading the view.
     }
+    
+   
     
     func fetchResults(searchWord: String) {
         
@@ -44,6 +56,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
                 
                 DispatchQueue.main.async {
                     self.searchCollectionView.reloadData()
+                    
                 }
               
                 
@@ -56,6 +69,58 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
             
         }
         
+    }
+    
+    
+    //MARK: - Worldwide Trending
+    
+    func fetchWorldWideTVTrending() {
+        
+        let network = NetworkURL()
+        let url = URL(string: "https://api-space-dev.getfleek.app/shows/get_universal_trending/?type=tv_series")
+        
+        network.theBestNetworkCall([Worldwide].self, url: url) { myResult, yourMessage in
+            
+            DispatchQueue.main.async {
+                switch myResult {
+                    
+                case .success(let movieData):
+                    print("Movie is here \(movieData)")
+                    FinalDataModel.worldWide = movieData
+                   
+    //                self.displayUIAlert(yourMessage: "Movie data \(movieData)")
+                    for eachMovie in movieData {
+                        
+                        
+                        self.totalTrending.append(eachMovie)
+                        self.recentSearchCollectionView.reloadData()
+                        
+                    }
+                    
+                case .failure(let err):
+                    print("Failure in TV show fetch")
+    //                self.displayUIAlert(yourMessage: "Error \(err)")
+                    
+                }
+            }
+      
+            
+        }
+        
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if collectionView == recentSearchCollectionView {
+            
+            let lay = collectionViewLayout as! UICollectionViewFlowLayout
+            let widthPerItem = collectionView.frame.width / 3 - lay.minimumInteritemSpacing
+            
+            return CGSize(width:widthPerItem, height:75)
+            
+        }
+     
+        return CGSize(width:320, height:175)
     }
 
     @IBAction func backBtnTap(_ sender: Any) {
@@ -74,11 +139,14 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
         
         recentSearchCollectionView.delegate = self
         recentSearchCollectionView.dataSource = self
-        recentSearchCollectionView.collectionViewLayout = recentLayoutCells()
-        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical //.horizontal
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        recentSearchCollectionView.setCollectionViewLayout(layout, animated: true)
         
         //register cells
-        recentSearchCollectionView.register(UINib(nibName: "Section2CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "sec2")
+        recentSearchCollectionView.register(UINib(nibName: "RecentTrendinCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "trendSearch")
         
         //register header
         
@@ -146,7 +214,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
                 myItem.contentInsets.top = 10
                 
                 //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(180)), subitems: [myItem])
+                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200)), subitems: [myItem])
                 
                 //section size
                 
@@ -171,7 +239,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
                 myItem.contentInsets.top = 10
                 
                 //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.7), heightDimension: .absolute(300)), subitems: [myItem])
+                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(210)), subitems: [myItem])
                 
                 //section size
                 
@@ -203,7 +271,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
             case 0:
                
                 //item size
-                let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1)))
+                let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.20), heightDimension: .fractionalHeight(1)))
                 
                 myItem.contentInsets.trailing = 10
                 myItem.contentInsets.bottom = 10
@@ -211,13 +279,13 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
                 myItem.contentInsets.top = 10
                 
                 //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(270)), subitems: [myItem])
+                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(150)), subitems: [myItem])
                 
                 //section size
                 
                 let section = NSCollectionLayoutSection(group: myGroup)
                 
-//                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                section.orthogonalScrollingBehavior = .continuous
                 
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec2, alignment: .top)
 //                header.pinToVisibleBounds = true
@@ -237,7 +305,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
                 myItem.contentInsets.top = 10
                 
                 //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.7), heightDimension: .absolute(300)), subitems: [myItem])
+                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.9), heightDimension: .absolute(300)), subitems: [myItem])
                 
                 //section size
                 
@@ -356,7 +424,7 @@ extension SearchViewController: UICollectionViewDataSource {
             
         case recentSearchCollectionView:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sec2Header", for: indexPath) as! Section2CRV
-            header.headerText.text = "Recent Search"
+            header.headerText.text = "Trending Search"
            
            
             return header
@@ -415,17 +483,26 @@ extension SearchViewController: UICollectionViewDataSource {
         
         
         case recentSearchCollectionView:
-            var selectedController = MovieDetailViewController()
-            if let jsonData = MyMovieDataModel.upcoming?.results {
-    
-                selectedController.passedData = jsonData[indexPath.item]
-    
+           
+            if let safeTitle = totalTrending[indexPath.item].title {
+//                self.searchBar.text = safeTitle
+
+                guard let escapeAdd = safeTitle.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return}
+                recentSearchView.isHidden = true
+
+                fetchResults(searchWord: escapeAdd)
+
+
+
+
+
             }
+            
             
 //            selectedController.passedData = filteredData[indexPath.item]
             
                 
-            navigationController?.pushViewController(selectedController, animated: true)
+            
             
         default:
             var selectedController = MovieDetailViewController()
@@ -450,7 +527,7 @@ extension SearchViewController: UICollectionViewDataSource {
         
         switch collectionView {
         case recentSearchCollectionView:
-            return MyMovieDataModel.upcoming?.results?.count ?? 3
+            return totalTrending.count - 9
             
         case searchCollectionView:
             return FinalDataModel.searchResult?.count ?? 4
@@ -477,13 +554,20 @@ extension SearchViewController: UICollectionViewDataSource {
         switch collectionView {
             
         case recentSearchCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sec2", for: indexPath) as! Section2CollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "trendSearch", for: indexPath) as! RecentTrendinCollectionViewCell
             
-            if let myMovieDataStuff = FinalDataModel.worldWide {
-                
-                cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
-                
-            }
+//            if let myMovieDataStuff = FinalDataModel.worldWide {
+//
+////                cell.setupCell(fromData: myMovieDataStuff[indexPath.item])
+//
+//                let randoms = myMovieDataStuff.shuffled()
+//                cell.setupCell(fromData: randoms[indexPath.item])
+//            }
+            
+            let shuffleRandom = totalTrending.shuffled()
+            
+            cell.setupCell(fromData: shuffleRandom[indexPath.item])
+            
             
             return cell
             

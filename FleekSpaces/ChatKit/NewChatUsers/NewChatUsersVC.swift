@@ -67,12 +67,12 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
         //        spinny.show(in: view)
         fetchAllUsers()
         searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
+//        searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
-//        testTable.tableHeaderView = searchController.searchBar
+        testTable.tableHeaderView = searchController.searchBar
         //        testTable.tableHeaderView?.constraints =
         
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = false
         searchController.searchBar.barStyle = .default
         searchController.searchBar.tintColor = .systemTeal
         searchController.searchBar.searchBarStyle = .minimal
