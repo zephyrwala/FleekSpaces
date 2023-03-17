@@ -1315,7 +1315,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="hY9-23-FjK">
-                        <rect key="frame" x="0.0" y="47" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="47" width="375" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="BtnGreenColor"/>
                     </navigationBar>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -60,11 +61,13 @@
                         <constraint firstAttribute="trailing" secondItem="B0e-ki-X12" secondAttribute="trailing" constant="10" id="zSq-oj-qmJ"/>
                     </constraints>
                 </view>
-                <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" text="" placeholder="Search here" translatesAutoresizingMaskIntoConstraints="NO" id="LGv-0A-QLA">
-                    <rect key="frame" x="10" y="110" width="344" height="51"/>
+                <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search movies &amp; tv shows" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LGv-0A-QLA">
+                    <rect key="frame" x="10" y="110" width="394" height="51"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="51" id="mvZ-Cb-W2q"/>
                     </constraints>
+                    <color key="tintColor" name="BtnGreenColor"/>
+                    <color key="barTintColor" name="cellBorderColor"/>
                     <textInputTraits key="textInputTraits"/>
                     <scopeButtonTitles>
                         <string>Title</string>
@@ -103,35 +106,20 @@
                         <constraint firstAttribute="trailing" secondItem="r9M-QV-EEW" secondAttribute="trailing" id="zgR-xZ-0vr"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFg-F4-Znm">
-                    <rect key="frame" x="359" y="121" width="50" height="31"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="31" id="i6u-xd-NlW"/>
-                    </constraints>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="slider.horizontal.3" catalog="system"/>
-                    <connections>
-                        <action selector="filterTapBtn:" destination="-1" eventType="touchUpInside" id="cRO-6b-3ZI"/>
-                    </connections>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="BGColor"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="LGv-0A-QLA" secondAttribute="trailing" constant="60" id="0C0-h8-0Fc"/>
                 <constraint firstItem="xIt-fZ-k0h" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0C3-wx-iIV"/>
                 <constraint firstAttribute="bottom" secondItem="bBU-e8-s34" secondAttribute="bottom" constant="2" id="Agm-f6-W78"/>
-                <constraint firstItem="bBU-e8-s34" firstAttribute="top" secondItem="pFg-F4-Znm" secondAttribute="bottom" constant="33" id="CLY-yu-qRH"/>
                 <constraint firstItem="Qrl-6X-rvD" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Ebl-Q0-b5u"/>
                 <constraint firstItem="LGv-0A-QLA" firstAttribute="top" secondItem="xIt-fZ-k0h" secondAttribute="bottom" constant="10" id="Mg0-xf-jWj"/>
                 <constraint firstItem="Qrl-6X-rvD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="N3y-B5-VlM"/>
-                <constraint firstItem="pFg-F4-Znm" firstAttribute="leading" secondItem="LGv-0A-QLA" secondAttribute="trailing" constant="5" id="NTy-3M-VxF"/>
                 <constraint firstAttribute="bottom" secondItem="Qrl-6X-rvD" secondAttribute="bottom" id="VHa-MP-9DR"/>
                 <constraint firstItem="Qrl-6X-rvD" firstAttribute="top" secondItem="LGv-0A-QLA" secondAttribute="bottom" constant="24" id="Wux-fF-Og5"/>
                 <constraint firstItem="xIt-fZ-k0h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gBp-hu-hep"/>
                 <constraint firstItem="LGv-0A-QLA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="hBw-aO-zMQ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pFg-F4-Znm" secondAttribute="trailing" constant="5" id="hdL-F6-1op"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LGv-0A-QLA" secondAttribute="trailing" constant="10" id="t8T-Em-xcP"/>
                 <constraint firstItem="xIt-fZ-k0h" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="uYm-PM-da0"/>
                 <constraint firstItem="bBU-e8-s34" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="2" id="vev-HG-Cam"/>
                 <constraint firstItem="bBU-e8-s34" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="2" id="vuf-2f-cGs"/>
@@ -142,10 +130,15 @@
         </view>
     </objects>
     <resources>
-        <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
         <namedColor name="BGColor">
             <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BtnGreenColor">
+            <color red="0.0" green="0.67500001192092896" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="cellBorderColor">
+            <color red="0.68599998950958252" green="0.68599998950958252" blue="0.68599998950958252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

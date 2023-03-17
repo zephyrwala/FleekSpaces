@@ -1036,6 +1036,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 if let selectedOTT = movieData.streamingServiceName {
                     fetchOTTtvShow(ottName: "\(selectedOTT)")
                     fetchOTTmovie(ottName: "\(selectedOTT)")
+                   
                     homeCollectionViews.reloadData()
                 }
                 

@@ -333,11 +333,12 @@ extension UITableView {
         let tableViewHeight = self.bounds.size.height
         let cells = self.visibleCells
         var delayCounter = 0
+       
         for cell in cells {
             cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
         }
         for cell in cells {
-            UIView.animate(withDuration: 1.6, delay: 0.08 * Double(delayCounter),usingSpringWithDamping: 0.9, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+            UIView.animate(withDuration: 1.6, delay: 0.08 * Double(delayCounter),usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 cell.transform = CGAffineTransform.identity
             }, completion: nil)
             delayCounter += 1
@@ -346,5 +347,27 @@ extension UITableView {
 }
 
 
+
+
+
+extension UICollectionView {
+
+    func reloadWithAnimation() {
+        
+        self.reloadData()
+        let tableViewHeight = self.bounds.size.height
+        let cells = self.visibleCells
+       
+       
+        for cell in cells {
+            cell.alpha = 0
+            UIView.animate(withDuration: 6, delay: 0.9) {
+                
+                cell.alpha = 1
+            }
+        }
+        
+    }
+}
 
 

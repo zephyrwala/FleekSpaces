@@ -23,6 +23,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
 //        if let mainData = MyMovieDataModel.upcoming?.results {
 //            filteredData = mainData
 //        }
+        searchBar.becomeFirstResponder()
         recentSearchView.isHidden = true
         
 //        setupRecentSearchCollectionView()
@@ -264,10 +265,16 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("\(searchBar.text) is entered tap")
         if let safeText = searchBar.text {
+            if safeText.count > 1 {
+                guard let escapeAdd = safeText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return}
+                setupCollectionView()
+                fetchResults(searchWord: escapeAdd)
+            } else if safeText.count == 0 {
+                FinalDataModel.searchResult?.removeAll()
+                self.searchCollectionView.reloadData()
+            }
             
-            guard let escapeAdd = safeText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return}
-            setupCollectionView()
-            fetchResults(searchWord: escapeAdd)
+          
         }
     }
     //MARK: - Searchbar stuff
@@ -275,25 +282,39 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         recentSearchView.isHidden = true
-        filteredData = []
-        guard let mainData = MyMovieDataModel.upcoming?.results else {return}
-        if let looper = MyMovieDataModel.upcoming?.results {
+//        filteredData = []
+//        guard let mainData = MyMovieDataModel.upcoming?.results else {return}
+//        if let looper = MyMovieDataModel.upcoming?.results {
+//
+//            for result in looper  {
+//                if let textFilter = result.title {
+//
+//                    if textFilter.lowercased().contains(searchText.lowercased()) {
+//
+//                        filteredData.append(result)
+//                    }
+//
+//
+//                }
+//
+//            }
+//
+//            searchCollectionView.reloadData()
+//
+//        }
+        
+        
+        if let safeText = searchBar.text {
             
-            for result in looper  {
-                if let textFilter = result.title {
-                    
-                    if textFilter.lowercased().contains(searchText.lowercased()) {
-                        
-                        filteredData.append(result)
-                    }
-                    
-                   
-                }
-                
+            guard let escapeAdd = safeText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return}
+            if safeText.count == 0 {
+                FinalDataModel.searchResult?.removeAll()
+                searchCollectionView.reloadData()
+            } else {
+                setupCollectionView()
+                fetchResults(searchWord: escapeAdd)
             }
-            
-            searchCollectionView.reloadData()
-            
+           
         }
         
         
