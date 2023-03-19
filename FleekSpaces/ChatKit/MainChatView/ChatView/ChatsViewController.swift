@@ -111,6 +111,8 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         
         
         configureMessageInputBar()
+        print("Newchathismessage = \(newChatThisMessage) and \(newChatThisMessage?.email) \(newChatThisMessage?.uid)")
+        
 //        messageInputBar.inputTextView.becomeFirstResponder()
         let secondVC = RecommendChatViewController()
               secondVC.movieDelegate = self
@@ -175,17 +177,38 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
         
         avatarImage.contentMode = .scaleAspectFill
         avatarImage.clipsToBounds = true
-        if let photoUrl =  thisMessage?.profileImageUrl {
-            if let safeURL = URL(string: photoUrl) {
-            print("safe photo url \(safeURL)")
-            avatarImage.sd_setImage(with: safeURL, placeholderImage: UIImage(named: "a1"), options: [.refreshCached, .retryFailed]) { (image, error, type, url) in
-                if let image = image {
-                   
-                    button.setImage(image, for: .normal)
+        
+        if thisMessage != nil {
+           
+            if let photoUrl =  thisMessage?.profileImageUrl {
+                if let safeURL = URL(string: photoUrl) {
+                print("safe photo url \(safeURL)")
+                avatarImage.sd_setImage(with: safeURL, placeholderImage: UIImage(named: "a1"), options: [.refreshCached, .retryFailed]) { (image, error, type, url) in
+                    if let image = image {
+                       
+                        button.setImage(image, for: .normal)
+                    }
                 }
             }
+            }
+        } else {
+            
+            if let photoUrl =  newChatThisMessage?.profileImageUrl {
+                if let safeURL = URL(string: photoUrl) {
+                print("safe photo url \(safeURL)")
+                avatarImage.sd_setImage(with: safeURL, placeholderImage: UIImage(named: "a1"), options: [.refreshCached, .retryFailed]) { (image, error, type, url) in
+                    if let image = image {
+                       
+                        button.setImage(image, for: .normal)
+                    }
+                }
+            }
+            }
+            
+            
+            
         }
-        }
+      
       
         
 //        button.imageView?.layer.cornerRadius = 20
@@ -215,9 +238,18 @@ class ChatViewController: MessagesViewController, MessagesDataSource, MessagesLa
 
             print("Share to fb")
             let vc = ChatDetailProfileViewController()
-            if let safeURL = thisMessage?.profileImageUrl {
-                vc.profileImageUrls = safeURL
+            if thisMessage != nil {
+                
+                if let safeURL = thisMessage?.profileImageUrl {
+                    vc.profileImageUrls = safeURL
+                }
+            } else {
+                if let safeURL = newChatThisMessage?.profileImageUrl {
+                    vc.profileImageUrls = safeURL
+                }
+                
             }
+          
            
             if let safeID = conversationId {
                 vc.otherUserIDis = safeID
@@ -771,6 +803,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         
         self.handleSend(sendThisText: text)
        
+        self.persistRecentNewChatMessage(persistThis: text)
 //        guard let safeUserName = vm.chatUser?.email.components(separatedBy: "@").first else {return}
        
         print("user token is \(fcmTokenofUser)")
@@ -1324,6 +1357,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             
         } else {
             
+            print("newthismessage photoURL \(thisMessage?.profileImageUrl)")
             if let photoUrl =  thisMessage?.profileImageUrl {
                let safeURL = URL(string: photoUrl)
                 avatarView.sd_setImage(with: safeURL)

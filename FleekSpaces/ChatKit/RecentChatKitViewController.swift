@@ -444,6 +444,8 @@ extension RecentChatKitViewController: UICollectionViewDataSource {
         let model = recentMessages[indexPath.row]
         let vc = ChatViewController(with: model.email, id: model.id)
         
+        
+        //NOTE: - This message is saved here
         vc.thisMessage = model
         vc.title = model.username
         print("\(model.email) and from id \(model.fromId)")

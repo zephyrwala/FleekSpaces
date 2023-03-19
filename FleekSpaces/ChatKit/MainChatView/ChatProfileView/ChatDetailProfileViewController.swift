@@ -337,16 +337,16 @@ extension ChatDetailProfileViewController: UICollectionViewDataSource, UICollect
             return 1
         
         case 1:
-            return FinalDataModel.recommendedBy?.recommendedList?.count ?? 1
+            return FinalDataModel.recommendedBy?.recommendedList?.count ?? 0
             
         case 2:
             
             
-            return FinalDataModel.recommendedTo?.recommendedList?.count ?? 1
+            return FinalDataModel.recommendedTo?.recommendedList?.count ?? 0
             
             
         default:
-            return 1
+            return 0
         }
     }
     

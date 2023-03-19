@@ -163,6 +163,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
             return
         }
         
+        defaults.set(uid, forKey: "myUID")
         FirebaseManager.shared.firestore.collection("users").document(uid).getDocument { snapshot, error in
             if let error = error {
                 self.displayUIAlert(yourMessage: "Failed to fetch current user: \(error)")

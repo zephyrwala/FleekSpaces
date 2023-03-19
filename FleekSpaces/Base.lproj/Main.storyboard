@@ -1182,10 +1182,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEO-bd-SdM">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a3" translatesAutoresizingMaskIntoConstraints="NO" id="qWh-hn-IH6">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bene" translatesAutoresizingMaskIntoConstraints="NO" id="qWh-hn-IH6">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                                             </imageView>
-                                            <visualEffectView opaque="NO" alpha="0.74000000953674316" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ft-pD-j0D">
+                                            <visualEffectView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ft-pD-j0D">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qF6-Jk-vZy">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
@@ -1216,14 +1216,36 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="37.333333333333336"/>
                                                                 <color key="tintColor" name="avatarViewBackground"/>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="tinted" image="person.fill.checkmark" catalog="system" title=" Following"/>
+                                                                <buttonConfiguration key="configuration" style="gray" title=" Following">
+                                                                    <imageReference key="image" image="person.fill.checkmark" catalog="system" renderingMode="hierarchical">
+                                                                        <hierarchicalColors>
+                                                                            <color systemColor="systemTealColor"/>
+                                                                            <color systemColor="secondaryLabelColor"/>
+                                                                            <color red="0.0" green="0.4039215686" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        </hierarchicalColors>
+                                                                    </imageReference>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="followBtnAction:" destination="VPZ-ga-Gcn" eventType="touchUpInside" id="47i-th-xhc"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwm-iK-SIA">
                                                                 <rect key="frame" x="171.66666666666663" y="0.0" width="161.33333333333337" height="37.333333333333336"/>
-                                                                <color key="tintColor" name="Info_300"/>
+                                                                <color key="tintColor" name="avatarViewBackground"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title="Edit Profile" image="square.and.pencil" catalog="system"/>
-                                                                <buttonConfiguration key="configuration" style="tinted" image="bubble.left.and.bubble.right" catalog="system" title=" Chat"/>
+                                                                <buttonConfiguration key="configuration" style="gray" title=" Chat">
+                                                                    <imageReference key="image" image="bubble.left.and.bubble.right" catalog="system" renderingMode="hierarchical">
+                                                                        <hierarchicalColors>
+                                                                            <color name="Fleek_600"/>
+                                                                            <color name="Info_300"/>
+                                                                            <color red="0.0" green="0.4039215686" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        </hierarchicalColors>
+                                                                    </imageReference>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="chatBtnTapAction:" destination="VPZ-ga-Gcn" eventType="touchUpInside" id="tas-C5-F9H"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -1278,7 +1300,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="chatBtn" destination="Lwm-iK-SIA" id="HmE-4g-ofI"/>
                         <outlet property="profilePic" destination="FbM-fq-Ob2" id="Pvd-qv-9dr"/>
+                        <outlet property="userCoverPic" destination="qWh-hn-IH6" id="u6l-EQ-ygc"/>
                         <outlet property="userName" destination="YjE-E8-gAQ" id="xLc-k9-aRg"/>
                     </connections>
                 </viewController>
@@ -1326,7 +1350,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="hY9-23-FjK">
                         <rect key="frame" x="0.0" y="47" width="375" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" name="BtnGreenColor"/>
+                        <color key="tintColor" name="Info_300"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1391,7 +1415,6 @@
         <image name="AaaII" width="1006" height="1006"/>
         <image name="Actor view" width="64" height="64"/>
         <image name="Chats" width="325" height="88"/>
-        <image name="a3" width="2368" height="2752"/>
         <image name="banner_bg" width="1308" height="636"/>
         <image name="bell.badge" catalog="system" width="125" height="128"/>
         <image name="bene" width="500" height="750"/>
@@ -1467,6 +1490,9 @@
         <namedColor name="avatarViewBackground">
             <color red="0.55699998140335083" green="0.55699998140335083" blue="0.57599997520446777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -1475,6 +1501,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
