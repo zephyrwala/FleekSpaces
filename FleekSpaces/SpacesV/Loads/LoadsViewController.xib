@@ -26,7 +26,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
-                    <blurEffect style="systemThinMaterialDark"/>
+                    <blurEffect style="systemChromeMaterialDark"/>
                 </visualEffectView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJv-na-4ol" customClass="LottieAnimationView" customModule="Lottie">
                     <rect key="frame" x="21" y="167" width="333" height="303"/>
@@ -34,7 +34,7 @@
                         <constraint firstAttribute="height" constant="303" id="fjZ-LM-3c7"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="catWatch"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="popscorn"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzX-5P-dU3">

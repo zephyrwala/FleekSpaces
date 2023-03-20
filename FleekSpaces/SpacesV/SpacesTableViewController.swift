@@ -45,11 +45,12 @@ class SpacesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       checkSignIn()
         self.tableView.isHidden = true
         
         
         let vc = LoadsViewController()
-        vc.loadmeText = "Spaces (alpha) is loading . . .                               This is an alpha build and work in progress, stay tuned for further updates"
+        vc.loadmeText = "Spaces Feed is loading . . ."
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
         
@@ -61,9 +62,18 @@ class SpacesTableViewController: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
-        fetchSpacesFeed()
+       
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkSignIn()
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     @objc
@@ -122,6 +132,56 @@ class SpacesTableViewController: UITableViewController {
         
     }
     
+    
+    
+    func checkSignIn() {
+        
+        if  FirebaseManager.shared.auth.currentUser == nil {
+           loginPrompt()
+        } else {
+            
+            fetchSpacesFeed()
+        }
+    }
+    
+    
+    //MARK: - Login Prompt
+    
+    func loginPrompt() {
+        
+        let actionSheet = UIAlertController(title: "Oops 🤔", message: "You must login to view the Spaces Feed!", preferredStyle: .alert)
+        
+      
+        
+       
+    
+        //TODO: - On Cancel try to push to another view
+        
+        actionSheet.addAction(UIAlertAction(title: "Log In", style: .default, handler: { [weak self] _ in
+            
+            
+            
+            let controller = LoginVC()
+                
+           
+            self?.navigationController?.pushViewController(controller, animated: true)
+//            self?.present(controller, animated: true)
+            
+          
+            
+        }))
+        
+        
+       
+        
+       
+        
+    
+        
+        present(actionSheet, animated: true)
+        
+        
+    }
     
     //MARK: - Send Follow Request
     

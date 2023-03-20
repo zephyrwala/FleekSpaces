@@ -69,7 +69,7 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
         searchController.searchResultsUpdater = self
 //        searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
-        testTable.tableHeaderView = searchController.searchBar
+//        testTable.tableHeaderView = searchController.searchBar
         //        testTable.tableHeaderView?.constraints =
         
         self.navigationController?.navigationBar.isHidden = false

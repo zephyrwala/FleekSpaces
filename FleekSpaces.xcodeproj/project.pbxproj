@@ -203,6 +203,8 @@
 		6991011329C46B0000460388 /* Search2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6991011129C46B0000460388 /* Search2ViewController.xib */; };
 		6991011629C481E800460388 /* RecentTrendinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991011429C481E800460388 /* RecentTrendinCollectionViewCell.swift */; };
 		6991011729C481E800460388 /* RecentTrendinCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6991011529C481E800460388 /* RecentTrendinCollectionViewCell.xib */; };
+		6991011929C8681100460388 /* popscorn.json in Resources */ = {isa = PBXBuildFile; fileRef = 6991011829C8681100460388 /* popscorn.json */; };
+		6991011F29C86B3800460388 /* loadlum.json in Resources */ = {isa = PBXBuildFile; fileRef = 6991011E29C86B3700460388 /* loadlum.json */; };
 		6995FED8297913E800190253 /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = 6995FED7297913E800190253 /* ActivityView */; };
 		6995FEDB297DAC9A00190253 /* RealTimeDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6995FEDA297DAC9A00190253 /* RealTimeDatabaseManager.swift */; };
 		69AC5F6029A5DFA100C30ECA /* SpacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AC5F5F29A5DFA100C30ECA /* SpacesTableViewController.swift */; };
@@ -484,6 +486,8 @@
 		6991011129C46B0000460388 /* Search2ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Search2ViewController.xib; sourceTree = "<group>"; };
 		6991011429C481E800460388 /* RecentTrendinCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTrendinCollectionViewCell.swift; sourceTree = "<group>"; };
 		6991011529C481E800460388 /* RecentTrendinCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentTrendinCollectionViewCell.xib; sourceTree = "<group>"; };
+		6991011829C8681100460388 /* popscorn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = popscorn.json; sourceTree = "<group>"; };
+		6991011E29C86B3700460388 /* loadlum.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadlum.json; sourceTree = "<group>"; };
 		6995FEDA297DAC9A00190253 /* RealTimeDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeDatabaseManager.swift; sourceTree = "<group>"; };
 		69AC5F5F29A5DFA100C30ECA /* SpacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesTableViewController.swift; sourceTree = "<group>"; };
 		69AC5F6129A5E02300C30ECA /* SpacesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesTableViewCell.swift; sourceTree = "<group>"; };
@@ -1523,6 +1527,8 @@
 			children = (
 				6970641129B1F44200B4A26E /* bluewave.json */,
 				6990E61429B1CEE1007F8499 /* waves.json */,
+				6991011E29C86B3700460388 /* loadlum.json */,
+				6991011829C8681100460388 /* popscorn.json */,
 				69AC5F6E29A745E700C30ECA /* likeThumb.json */,
 				6990E60F29B1BE96007F8499 /* recording.json */,
 				69AC5F6C29A661F500C30ECA /* catWatch.json */,
@@ -1841,6 +1847,7 @@
 				69D527E52902AB69001B310C /* Diwali8.png in Resources */,
 				6930D53D2851D3A60080528D /* MovieDetailViewController.xib in Resources */,
 				69AC5F6929A63B3900C30ECA /* LoadsViewController.xib in Resources */,
+				6991011F29C86B3800460388 /* loadlum.json in Resources */,
 				695836D228FD305E006887FE /* UpcomingMoviesCollectionViewCell.xib in Resources */,
 				691205DD29B2F34900F0E808 /* FollowersViewController.xib in Resources */,
 				695EBBDC28619DEF00557D69 /* tvshow.json in Resources */,
@@ -1884,6 +1891,7 @@
 				69AC5F6D29A661F500C30ECA /* catWatch.json in Resources */,
 				6930D5342851B53D0080528D /* TrendingWorldCollectionViewCell.xib in Resources */,
 				692600BF284E09A200B6D801 /* Section2HeadersCRV.xib in Resources */,
+				6991011929C8681100460388 /* popscorn.json in Resources */,
 				6930D573285899E40080528D /* ActorBioCVC.xib in Resources */,
 				69C499792869BDB4000F4394 /* LoginEmailViewController.xib in Resources */,
 				6970641229B1F44200B4A26E /* bluewave.json in Resources */,
@@ -2293,7 +2301,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;
@@ -2332,7 +2340,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = FleekSpaces/FleekSpaces.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;

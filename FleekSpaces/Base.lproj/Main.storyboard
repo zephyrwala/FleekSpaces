@@ -1054,7 +1054,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLM-QV-fvp">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bo3" translatesAutoresizingMaskIntoConstraints="NO" id="cIA-ds-mtg">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spaces_pattern" translatesAutoresizingMaskIntoConstraints="NO" id="cIA-ds-mtg">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                                             </imageView>
                                             <visualEffectView opaque="NO" alpha="0.73999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x0g-bT-cw6">
@@ -1065,8 +1065,9 @@
                                                 </view>
                                                 <blurEffect style="systemChromeMaterialDark"/>
                                             </visualEffectView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bene" translatesAutoresizingMaskIntoConstraints="NO" id="Eq0-5T-1mW">
-                                                <rect key="frame" x="137.66666666666666" y="80" width="100" height="100"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Eq0-5T-1mW">
+                                                <rect key="frame" x="137.66666666666666" y="81" width="100" height="98.666666666666686"/>
+                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="E2Z-DY-TES"/>
                                                     <constraint firstAttribute="width" constant="100" id="gDM-Xi-si5"/>
@@ -1182,7 +1183,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEO-bd-SdM">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bene" translatesAutoresizingMaskIntoConstraints="NO" id="qWh-hn-IH6">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spaces_pattern" translatesAutoresizingMaskIntoConstraints="NO" id="qWh-hn-IH6">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                                             </imageView>
                                             <visualEffectView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ft-pD-j0D">
@@ -1193,8 +1194,9 @@
                                                 </view>
                                                 <blurEffect style="systemChromeMaterialDark"/>
                                             </visualEffectView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="benedict" translatesAutoresizingMaskIntoConstraints="NO" id="FbM-fq-Ob2">
-                                                <rect key="frame" x="137.66666666666666" y="80" width="100" height="100"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FbM-fq-Ob2">
+                                                <rect key="frame" x="137.66666666666666" y="81" width="100" height="98.666666666666686"/>
+                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="AUX-bO-rI7"/>
                                                     <constraint firstAttribute="width" constant="100" id="P8z-vW-zXh"/>
@@ -1415,11 +1417,9 @@
         <image name="AaaII" width="1006" height="1006"/>
         <image name="Actor view" width="64" height="64"/>
         <image name="Chats" width="325" height="88"/>
+        <image name="Spaces_pattern" width="1440" height="2880"/>
         <image name="banner_bg" width="1308" height="636"/>
         <image name="bell.badge" catalog="system" width="125" height="128"/>
-        <image name="bene" width="500" height="750"/>
-        <image name="benedict" width="1414" height="2048"/>
-        <image name="bo3" width="916" height="1200"/>
         <image name="bubble.left.and.bubble.right" catalog="system" width="128" height="96"/>
         <image name="bubble.left.and.bubble.right.fill" catalog="system" width="128" height="97"/>
         <image name="gear.badge" catalog="system" width="128" height="122"/>

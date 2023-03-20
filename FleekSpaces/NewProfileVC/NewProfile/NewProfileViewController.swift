@@ -96,11 +96,66 @@ class NewProfileViewController: UIViewController, UINavigationControllerDelegate
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        checkSignInViewAppear()
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
 //        UserDefaults.standard.set(true, forKey: "isMyProfile")
 //        isMyProfile = true
     }
   
+    
+    //MARK: - Sign In Check will appear
+    func checkSignInViewAppear() {
+        
+        if  FirebaseManager.shared.auth.currentUser == nil {
+           loginPrompt()
+        } else {
+            
+            fetchCurrentUser()
+            checkMyProfile()
+        }
+    }
+    
+    
+    //MARK: - Login Prompt
+    
+    func loginPrompt() {
+        
+        let actionSheet = UIAlertController(title: "Oops 🤔", message: "You must login to view the Profile Section!", preferredStyle: .alert)
+        
+      
+        
+       
+    
+        //TODO: - On Cancel try to push to another view
+        
+        actionSheet.addAction(UIAlertAction(title: "Log In", style: .default, handler: { [weak self] _ in
+            
+            
+            
+            let controller = LoginVC()
+                
+           
+            self?.navigationController?.pushViewController(controller, animated: true)
+//            self?.present(controller, animated: true)
+            
+          
+            
+        }))
+        
+        
+       
+        
+       
+        
+    
+        
+        present(actionSheet, animated: true)
+        
+        
+    }
     
     //MARK: - check my profile logic
     func checkMyProfile() {
@@ -160,7 +215,7 @@ class NewProfileViewController: UIViewController, UINavigationControllerDelegate
 //
 //        print("Isitmyprofile ? \(safeProfile)")
         
-        checkMyProfile()
+      
 
     }
     
@@ -334,7 +389,7 @@ class NewProfileViewController: UIViewController, UINavigationControllerDelegate
                         if let safeURL = URL(string: otherUserProfilePic) {
                             self.profilePic.sd_setImage(with: safeURL)
                             //FIXME: - uncomment the below once the profile is sorted
-//                            self.userCoverPic.sd_setImage(with: safeURL)
+                            self.userCoverPic.sd_setImage(with: safeURL)
                         }
                     }
                 }
@@ -416,7 +471,7 @@ class NewProfileViewController: UIViewController, UINavigationControllerDelegate
                         if let safeURL = URL(string: otherUserProfilePic) {
                             self.profilePic.sd_setImage(with: safeURL)
                             //FIXME: - uncomment the below once the profile is sorted
-//                            self.userCoverPic.sd_setImage(with: safeURL)
+                            self.userCoverPic.sd_setImage(with: safeURL)
                         }
                     }
                 }
