@@ -193,7 +193,7 @@
                                     <constraint firstAttribute="bottom" secondItem="YYY-32-UgT" secondAttribute="bottom" constant="45" id="zLL-ME-r9L"/>
                                 </constraints>
                             </view>
-                            <blurEffect style="systemThickMaterialDark"/>
+                            <blurEffect style="systemChromeMaterialDark"/>
                         </visualEffectView>
                     </subviews>
                     <constraints>
