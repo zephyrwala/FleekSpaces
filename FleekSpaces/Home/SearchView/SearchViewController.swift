@@ -42,6 +42,9 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     }
     
    
+    override func viewWillLayoutSubviews() {
+        self.navigationController?.isNavigationBarHidden = true
+    }
     
     func fetchResults(searchWord: String) {
         

@@ -35,10 +35,10 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="61b-lM-MAu">
-                                                    <rect key="frame" x="15" y="80" width="329" height="440"/>
+                                                    <rect key="frame" x="18" y="80" width="323" height="440"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="show 3" translatesAutoresizingMaskIntoConstraints="NO" id="otL-lh-2uO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="329" height="440"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="show 3" translatesAutoresizingMaskIntoConstraints="NO" id="otL-lh-2uO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="323" height="440"/>
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
@@ -123,12 +123,12 @@
                                                 <constraint firstAttribute="trailing" secondItem="4HV-ao-l1T" secondAttribute="trailing" constant="15" id="SlA-8y-uYv"/>
                                                 <constraint firstItem="Nrr-7p-oqi" firstAttribute="leading" secondItem="xFO-e0-cID" secondAttribute="leading" constant="10" id="cmu-NO-Vea"/>
                                                 <constraint firstItem="4HV-ao-l1T" firstAttribute="top" secondItem="61b-lM-MAu" secondAttribute="bottom" constant="5" id="qzJ-hb-3J6"/>
-                                                <constraint firstItem="61b-lM-MAu" firstAttribute="leading" secondItem="xFO-e0-cID" secondAttribute="leading" constant="15" id="rZM-Me-5jy"/>
+                                                <constraint firstItem="61b-lM-MAu" firstAttribute="leading" secondItem="xFO-e0-cID" secondAttribute="leading" constant="18" id="rZM-Me-5jy"/>
                                                 <constraint firstItem="4HV-ao-l1T" firstAttribute="leading" secondItem="xFO-e0-cID" secondAttribute="leading" constant="15" id="wuX-lq-pxE"/>
-                                                <constraint firstAttribute="trailing" secondItem="61b-lM-MAu" secondAttribute="trailing" constant="15" id="y00-iB-dap"/>
+                                                <constraint firstAttribute="trailing" secondItem="61b-lM-MAu" secondAttribute="trailing" constant="18" id="y00-iB-dap"/>
                                             </constraints>
                                         </view>
-                                        <blurEffect style="systemThinMaterialDark"/>
+                                        <blurEffect style="systemUltraThinMaterialDark"/>
                                     </visualEffectView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbF-uc-4J7">
                                         <rect key="frame" x="15" y="15" width="329" height="52"/>

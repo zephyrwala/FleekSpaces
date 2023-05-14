@@ -12,6 +12,7 @@ import JGProgressHUD
 class SpacesTableViewController: UITableViewController {
    
     
+    @IBOutlet weak var searchBtnTapped: UIBarButtonItem!
     
 
     
@@ -75,6 +76,16 @@ class SpacesTableViewController: UITableViewController {
         checkSignIn()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
+    
+    @IBAction func searchTappedBtn(_ sender: Any) {
+        
+        
+        let controller = SearchViewController()
+//        self.present(controller, animated: true)
+        navigationController?.pushViewController(controller, animated: true)
+        
+    }
+    
     
     @objc
     func refresh(sender:AnyObject)

@@ -261,10 +261,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="R9o-1V-MWm">
-                        <barButtonItem key="rightBarButtonItem" id="X5d-to-54a">
+                        <barButtonItem key="leftBarButtonItem" id="X5d-to-54a">
                             <imageReference key="image" image="bell.badge" catalog="system" renderingMode="original" variableValue="1"/>
+                            <color key="tintColor" name="AAI_Text"/>
                             <connections>
                                 <action selector="notificationBtn:" destination="7It-lD-Zct" id="t2K-Tf-AAP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="RaW-mk-og6">
+                            <color key="tintColor" name="Neutral_500"/>
+                            <connections>
+                                <action selector="searchTappedBtn:" destination="7It-lD-Zct" id="Pds-o1-I01"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -280,6 +287,9 @@
                             </fragment>
                         </attributedString>
                     </refreshControl>
+                    <connections>
+                        <outlet property="searchBtnTapped" destination="RaW-mk-og6" id="TZe-g2-7yE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTT-Jf-G4o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1349,8 +1359,8 @@
                         <imageReference key="selectedImage" image="popcorn.fill" catalog="system" renderingMode="template"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="hY9-23-FjK">
-                        <rect key="frame" x="0.0" y="47" width="375" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hY9-23-FjK">
+                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="Info_300"/>
                     </navigationBar>

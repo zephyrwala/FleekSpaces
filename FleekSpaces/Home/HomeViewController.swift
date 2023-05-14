@@ -88,8 +88,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         fetchNewStreaming()
 //        fetchNowPlaying()
 //        fetchTopRated()
-        fetchOTTtvShow(ottName: "Netflix")
-        fetchOTTmovie(ottName: "Netflix")
+       
+        
         fetchTVshows()
         fetchWorldWideTrending()
         fetchUpcomingMovies()
@@ -99,7 +99,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         print("Access token: \(UserDefaults.standard.string(forKey: "userToken"))")
        
        
-        
+        let indexPath:IndexPath = IndexPath(row: 0, section: 0)
+            subsCollectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .top)
        
         
       
@@ -108,11 +109,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-       
-        let indexPath:IndexPath = IndexPath(row: 0, section: 0)
-            subsCollectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .top)
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//
+//        let indexPath:IndexPath = IndexPath(row: 0, section: 0)
+//            subsCollectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .top)
+//    }
     //Ai Bro button tap
     
     @IBAction func aiBroBtnTap(_ sender: Any) {
@@ -397,8 +398,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 switch myResult {
                     
                 case .success(let movieData):
-                    print("Movie is here \(movieData)")
-                    FinalDataModel.ottMovie = movieData
+                    
+                    let shuffles = movieData.shuffled()
+                    FinalDataModel.ottMovie = shuffles
                     self.homeCollectionViews.reloadData()
     //                self.displayUIAlert(yourMessage: "Movie data \(movieData)")
                     for eachMovie in movieData {
@@ -451,8 +453,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 switch myResult {
                     
                 case .success(let movieData):
-                    print("Movie is here \(movieData)")
-                    FinalDataModel.ottShow = movieData
+                    let shuffled = movieData.shuffled()
+                    
+                    FinalDataModel.ottShow = shuffled
                     self.homeCollectionViews.reloadData()
     //                self.displayUIAlert(yourMessage: "Movie data \(movieData)")
                     for eachMovie in movieData {
@@ -534,9 +537,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 
             case .success(let streams):
                 print("This is streams \(streams)")
+                let randoms = streams.shuffled()
                 DispatchQueue.main.async {
-                    MyMovieDataModel.streamingPlatform = streams
+                    MyMovieDataModel.streamingPlatform = randoms
                    
+                    if let safeName = MyMovieDataModel.streamingPlatform?[0].streamingServiceName {
+                        print("Safename = \(safeName)")
+                        self.fetchOTTtvShow(ottName: safeName )
+                        self.fetchOTTmovie(ottName: safeName)
+                    }
                     self.subsCollectionView.reloadData()
                     
                      let indexPath:IndexPath = IndexPath(row: 0, section: 0)
@@ -640,8 +649,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 switch myResult {
                     
                 case .success(let movieData):
-                    print("Movie is here \(movieData)")
-                    FinalDataModel.worldWide = movieData
+                
+                    let shufflea = movieData.shuffled()
+                    FinalDataModel.worldWide = shufflea
                     self.homeCollectionViews.reloadData()
     //                self.displayUIAlert(yourMessage: "Movie data \(movieData)")
                     for eachMovie in movieData {

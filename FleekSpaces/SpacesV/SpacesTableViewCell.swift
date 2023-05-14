@@ -70,11 +70,11 @@ class SpacesTableViewCell: UITableViewCell {
         likeAnim.isHidden = true
         mainPoster.layer.cornerRadius = 9
         mainPoster.layer.cornerCurve = .continuous
-        cardBG.layer.cornerRadius = 15
+        cardBG.layer.cornerRadius = 12
         cardBG.layer.cornerCurve = .continuous
-        bgPosterImage.layer.cornerRadius = 15
+        bgPosterImage.layer.cornerRadius = 12
         bgPosterImage.layer.cornerCurve = .continuous
-        visBlur.layer.cornerRadius = 15
+        visBlur.layer.cornerRadius = 12
         visBlur.clipsToBounds = true
         visBlur.layer.cornerCurve = .continuous
         userProfilePic.makeItGolGol()
