@@ -127,7 +127,7 @@ class NewChatUsersVC: UIViewController, UITableViewDataSource, UITableViewDelega
                         DispatchQueue.main.async {
                             self.testTable.reloadData()
                             self.chatLabels.text = "New Chat 👥"
-                            self.chatdialog.text = "Chat with \(self.users.count) users during this beta build. Soon we will have private friend list."
+                            self.chatdialog.text = "Share your Movies & Tv show recommendations with our \(self.users.count) new users"
                             //                            self.spinny.dismiss(animated: true)
                         }
                         

@@ -14,7 +14,7 @@ class Section3CollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        posterImage.layer.cornerRadius = 16
+        posterImage.layer.cornerRadius = 6
         bgView.layer.cornerRadius = 30
     }
 
@@ -28,7 +28,7 @@ class Section3CollectionViewCell: UICollectionViewCell {
         }
        
         
-        posterImage.layer.cornerRadius = 16
+        posterImage.layer.cornerRadius = 6
 
         
     }

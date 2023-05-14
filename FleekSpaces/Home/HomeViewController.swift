@@ -32,7 +32,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
     let notificationFeedback = UINotificationFeedbackGenerator()
     var scrollSize = 0.0
     var isMovieSelected = true
-    var isIndiaSelected = true
+    var isIndiaSelected = false
     var chatUser: ChatUser?
     var indiaMovies: [Movies]?
     var usaMovies: [Movies]?
@@ -536,6 +536,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 print("This is streams \(streams)")
                 DispatchQueue.main.async {
                     MyMovieDataModel.streamingPlatform = streams
+                   
                     self.subsCollectionView.reloadData()
                     
                      let indexPath:IndexPath = IndexPath(row: 0, section: 0)
@@ -864,13 +865,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 //item size
                 let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 
-                myItem.contentInsets.trailing = 10
+                myItem.contentInsets.trailing = 5
                 myItem.contentInsets.bottom = 10
-                myItem.contentInsets.leading = 10
+                myItem.contentInsets.leading = 5
                 myItem.contentInsets.top = 10
                 
                 //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(220)), subitems: [myItem])
+                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(260)), subitems: [myItem])
                 
                 //section size
                 
@@ -890,13 +891,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 //item size
                 let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 
-                myItem.contentInsets.trailing = 10
+                myItem.contentInsets.trailing = 5
                 myItem.contentInsets.bottom = 10
-                myItem.contentInsets.leading = 10
+                myItem.contentInsets.leading = 5
                 myItem.contentInsets.top = 10
                 
                 //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(220)), subitems: [myItem])
+                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(260)), subitems: [myItem])
                 
                 //section size
                 
@@ -918,13 +919,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 //item size
                 let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 
-                myItem.contentInsets.trailing = 10
+                myItem.contentInsets.trailing = 5
                 myItem.contentInsets.bottom = 10
-                myItem.contentInsets.leading = 10
+                myItem.contentInsets.leading = 5
                 myItem.contentInsets.top = 10
                 
                 //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(220)), subitems: [myItem])
+                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(260)), subitems: [myItem])
                 
                 //section size
                 
@@ -946,9 +947,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 //item size
                 let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 
-                myItem.contentInsets.trailing = 10
+                myItem.contentInsets.trailing = 5
                 myItem.contentInsets.bottom = 10
-                myItem.contentInsets.leading = 10
+                myItem.contentInsets.leading = 5
                 myItem.contentInsets.top = 10
                 
                 //group size
@@ -1499,6 +1500,7 @@ extension HomeViewController: UICollectionViewDataSource {
         case subsCollectionView:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sec2Header", for: indexPath) as! Section2CRV
             header.headerText.text = "🫧 Select One"
+            header.headerText.textColor = .white
             
             return header
             

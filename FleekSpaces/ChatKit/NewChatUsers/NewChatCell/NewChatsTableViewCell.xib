@@ -19,17 +19,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vT9-vh-1Ur">
-                        <rect key="frame" x="3" y="17" width="314" height="45"/>
+                        <rect key="frame" x="3" y="15.666666666666664" width="314" height="48"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ccl-ki-2ol">
-                                <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="1rE-5k-eio"/>
-                                    <constraint firstAttribute="width" constant="45" id="mng-n5-Gq7"/>
+                                    <constraint firstAttribute="height" constant="48" id="1rE-5k-eio"/>
+                                    <constraint firstAttribute="width" constant="48" id="mng-n5-Gq7"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHd-sl-zP7">
-                                <rect key="frame" x="55" y="0.0" width="259" height="45"/>
+                                <rect key="frame" x="58" y="0.0" width="256" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" name="cellBorderColor"/>
                                 <nil key="highlightedColor"/>

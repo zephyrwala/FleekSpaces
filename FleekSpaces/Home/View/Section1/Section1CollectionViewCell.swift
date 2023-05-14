@@ -41,7 +41,7 @@ class Section1CollectionViewCell: UICollectionViewCell {
                       self.selectedSub.alpha = 1
                       self.transform = CGAffineTransform(scaleX: 1, y: 1)
                   }
-                  var gradientColors: [UIColor] = [.systemTeal, .systemPink] {
+                  var gradientColors: [UIColor] = [UIColor(named: "AAI")!, .systemTeal] {
                          didSet {
                              setNeedsLayout()
                          }
@@ -57,7 +57,7 @@ class Section1CollectionViewCell: UICollectionViewCell {
                   self.layer.borderColor = UIColor(.gray).cgColor
                  
                   UIView.animate(withDuration: 1) {
-                      self.selectedSub.alpha = 0.3
+                      self.selectedSub.alpha = 0.4
                       
                   }
                  

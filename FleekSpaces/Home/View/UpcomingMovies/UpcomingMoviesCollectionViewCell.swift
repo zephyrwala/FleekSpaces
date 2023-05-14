@@ -36,7 +36,7 @@ class UpcomingMoviesCollectionViewCell: UICollectionViewCell {
         }
        
         
-        posterImage.layer.cornerRadius = 16
+        posterImage.layer.cornerRadius = 6
         
         releaseDate.text = fromData.releaseDate
         guard let safeTitle = fromData.title else {return}
@@ -44,7 +44,7 @@ class UpcomingMoviesCollectionViewCell: UICollectionViewCell {
         movieName.text = safeTitle
         
      
-        roundCorners(with: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner], radius: 20)
+        roundCorners(with: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner], radius: 6)
 
        
         guard let safeDate = fromData.releaseDate else {return}

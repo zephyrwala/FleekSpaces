@@ -13,7 +13,7 @@ class Section2CollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        posterImage.layer.cornerRadius = 16
+        posterImage.layer.cornerRadius = 6
     }
     
     func setupCell(fromData: Worldwide){
@@ -23,7 +23,7 @@ class Section2CollectionViewCell: UICollectionViewCell {
             let newURL = URL(string: "https://image.tmdb.org/t/p/w500\(posterUrl)")
             self.posterImage.sd_setImage(with: newURL)
             
-            posterImage.layer.cornerRadius = 16
+            posterImage.layer.cornerRadius = 6
         }
         
         
@@ -37,7 +37,7 @@ class Section2CollectionViewCell: UICollectionViewCell {
             print("poster url is \(newURL)")
             self.posterImage.sd_setImage(with: newURL)
             
-            posterImage.layer.cornerRadius = 16
+            posterImage.layer.cornerRadius = 6
         }
         
         

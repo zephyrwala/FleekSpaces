@@ -156,7 +156,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="45" id="k2N-mB-M50"/>
                                                                 </constraints>
-                                                                <color key="tintColor" name="Neutral_400"/>
+                                                                <color key="tintColor" name="AAI_Text"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
                                                                 <connections>
@@ -713,13 +713,13 @@
                         <barButtonItem key="backBarButtonItem" title="back" id="5oT-Xo-4Tx"/>
                         <barButtonItem key="leftBarButtonItem" title="Open AI" id="RHO-uK-py3">
                             <imageReference key="image" image="shareplay" catalog="system" symbolScale="default"/>
-                            <color key="tintColor" name="DealsGradient1"/>
+                            <color key="tintColor" name="AAI_Text"/>
                             <connections>
                                 <action selector="chaBotBtnTap:" destination="Ppb-iH-IIp" id="uqr-GN-wDL"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New Chat" image="plus" catalog="system" style="plain" id="aci-9G-8bl">
-                            <color key="tintColor" name="BtnGreenColor"/>
+                            <color key="tintColor" name="AAI_Text"/>
                             <connections>
                                 <action selector="addChatBtnTap:" destination="Ppb-iH-IIp" id="McQ-Fd-uLF"/>
                             </connections>
@@ -1063,7 +1063,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </view>
-                                                <blurEffect style="systemChromeMaterialDark"/>
+                                                <blurEffect style="systemMaterialDark"/>
                                             </visualEffectView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Eq0-5T-1mW">
                                                 <rect key="frame" x="137.66666666666666" y="81" width="100" height="98.666666666666686"/>
@@ -1350,7 +1350,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="hY9-23-FjK">
-                        <rect key="frame" x="0.0" y="47" width="375" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="47" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="Info_300"/>
                     </navigationBar>
@@ -1445,6 +1445,9 @@
         <image name="text.bubble.rtl" catalog="system" width="128" height="110"/>
         <image name="tv-2 1" width="480" height="480"/>
         <image name="video.fill.badge.checkmark" catalog="system" width="128" height="88"/>
+        <namedColor name="AAI_Text">
+            <color red="0.76078431372549016" green="0.76078431372549016" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BGColor">
             <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -1456,9 +1459,6 @@
         </namedColor>
         <namedColor name="CoinMessageColor">
             <color red="0.85900002717971802" green="0.91399997472763062" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="DealsGradient1">
-            <color red="0.36500000953674316" green="0.63899999856948853" blue="0.72899997234344482" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Fleek_400">
             <color red="0.21600000560283661" green="0.87099999189376831" blue="0.68999999761581421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

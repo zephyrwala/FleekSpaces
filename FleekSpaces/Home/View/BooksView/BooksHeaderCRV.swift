@@ -18,14 +18,15 @@ class BooksHeaderCRV: UICollectionReusableView {
     var conutryDelegate: CountrySelection?
     var menuItems: [UIAction] {
         return [
-            UIAction(title: "IND", image: UIImage(named: "inr"), handler: { (_) in
+            UIAction(title: "USA", image: UIImage(named: "usa"), handler: { (_) in
               
-                self.conutryDelegate?.indiaSelected()
+                self.conutryDelegate?.usaSelected()
                 
             }),
-            UIAction(title: "USA", image: UIImage(named: "usa"), handler: { (_) in
+            UIAction(title: "IND", image: UIImage(named: "inr"), handler: { (_) in
                 
-                self.conutryDelegate?.usaSelected()
+               
+                self.conutryDelegate?.indiaSelected()
             })
         ]
     }

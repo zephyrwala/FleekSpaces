@@ -19,7 +19,7 @@ final class ViewModel: ObservableObject {
     
     func setup() {
         
-        client = OpenAISwift(authToken: "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")
+        client = OpenAISwift(authToken: "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")
         
     }
     

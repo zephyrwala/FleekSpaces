@@ -48,7 +48,7 @@ class SpacesTableViewController: UITableViewController {
        checkSignIn()
         self.tableView.isHidden = true
         
-        
+        fetchAllUsers()
         let vc = LoadsViewController()
         vc.loadmeText = "Spaces Feed is loading . . ."
         vc.modalPresentationStyle = .overCurrentContext
@@ -81,7 +81,9 @@ class SpacesTableViewController: UITableViewController {
     {
         // Updating your data here...
 
+        
         fetchSpacesFeed()
+        checkCommon()
         self.tableView.reloadWithAnimation()
         self.refreshControl?.endRefreshing()
     }
@@ -180,6 +182,58 @@ class SpacesTableViewController: UITableViewController {
         
         present(actionSheet, animated: true)
         
+        
+    }
+    
+    //mark: Check common
+    func checkCommon() {
+        
+        
+        if let safeFollowers = FinalDataModel.spacesFeedElement {
+            
+            for chatUser in self.users {
+                for getFollower in safeFollowers {
+                
+                }
+               
+            }
+        }
+     
+       
+       
+        
+        print("finaldata")
+ 
+    }
+    
+    
+    //    MARK: - users fetch firestore
+    private func fetchAllUsers() {
+        
+        FirebaseManager.shared.firestore.collection("users")
+            .getDocuments { documentsSnapshot, error in
+                
+                if let error = error {
+                  
+                    print("Failed to fetch users: \(error)")
+                    return
+                }
+                
+             
+                
+                
+                documentsSnapshot?.documents.forEach({ snapshot in
+                    let user = try? snapshot.data(as: ChatUser.self)
+                    if user?.uid != FirebaseManager.shared.auth.currentUser?.uid {
+                        self.users.append(user!)
+                        DispatchQueue.main.async {
+                                                  
+                        }
+                        
+                    }
+                    
+                })
+            }
         
     }
     

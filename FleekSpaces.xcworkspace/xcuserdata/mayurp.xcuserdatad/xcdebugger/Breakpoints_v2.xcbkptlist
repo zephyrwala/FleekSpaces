@@ -174,8 +174,8 @@
             filePath = "FleekSpaces/Home/View/MovieDetailView/MovieDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "973"
-            endingLineNumber = "973"
+            startingLineNumber = "978"
+            endingLineNumber = "978"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
             <Locations>
@@ -1469,8 +1469,8 @@
             filePath = "FleekSpaces/SpacesV/SpacesTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2115,7 +2115,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "F2BE1DC9-DD35-483B-B942-DFE5046D4E6B - 1486e0534705c8c2"
+                  uuid = "F2BE1DC9-DD35-483B-B942-DFE5046D4E6B - 1486e05347063420"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2125,12 +2125,12 @@
                   urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "945"
-                  endingLineNumber = "945"
+                  startingLineNumber = "975"
+                  endingLineNumber = "975"
                   offsetFromSymbolStart = "120">
                </Location>
                <Location
-                  uuid = "F2BE1DC9-DD35-483B-B942-DFE5046D4E6B - 1486e0534705c8c2"
+                  uuid = "F2BE1DC9-DD35-483B-B942-DFE5046D4E6B - 1486e05347063420"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2140,8 +2140,8 @@
                   urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "945"
-                  endingLineNumber = "945"
+                  startingLineNumber = "975"
+                  endingLineNumber = "975"
                   offsetFromSymbolStart = "196">
                </Location>
             </Locations>
@@ -2179,7 +2179,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "1310FA01-CE34-4829-925D-21013B39C52C - 1486e05347063518"
+                  uuid = "1310FA01-CE34-4829-925D-21013B39C52C - 1486e05347063176"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2189,12 +2189,12 @@
                   urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "967"
-                  endingLineNumber = "967"
+                  startingLineNumber = "997"
+                  endingLineNumber = "997"
                   offsetFromSymbolStart = "1556">
                </Location>
                <Location
-                  uuid = "1310FA01-CE34-4829-925D-21013B39C52C - cecf84c71f86ea43"
+                  uuid = "1310FA01-CE34-4829-925D-21013B39C52C - cecf84c71f86ee6d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2204,8 +2204,8 @@
                   urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "968"
-                  endingLineNumber = "968"
+                  startingLineNumber = "998"
+                  endingLineNumber = "998"
                   offsetFromSymbolStart = "56">
                </Location>
             </Locations>
@@ -2227,7 +2227,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "7EBC72E1-6365-4007-A13B-A394308A20AC - 1486e05347063420"
+                  uuid = "7EBC72E1-6365-4007-A13B-A394308A20AC - 1486e0534706307e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2237,12 +2237,12 @@
                   urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "975"
-                  endingLineNumber = "975"
+                  startingLineNumber = "1005"
+                  endingLineNumber = "1005"
                   offsetFromSymbolStart = "1712">
                </Location>
                <Location
-                  uuid = "7EBC72E1-6365-4007-A13B-A394308A20AC - 1486e05347063420"
+                  uuid = "7EBC72E1-6365-4007-A13B-A394308A20AC - 1486e0534706307e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2252,8 +2252,8 @@
                   urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/ChatKit/MainChatView/ChatView/ChatsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "975"
-                  endingLineNumber = "975"
+                  startingLineNumber = "1005"
+                  endingLineNumber = "1005"
                   offsetFromSymbolStart = "1816">
                </Location>
             </Locations>
@@ -2289,6 +2289,96 @@
             endingLineNumber = "978"
             landmarkName = "persistRecentNewChatMessage(persistThis:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "72196660-D90F-4A93-AA11-F2909059088F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FleekSpaces/NewProfileVC/FollowingVC/FollowingsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "64C73631-F183-4D0C-A9B0-BEFDF3F7DB64"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FleekSpaces/NewProfileVC/FollowingVC/FollowingsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F6C2E95F-5DDB-4E31-9546-5FBA904873D8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FleekSpaces/NewProfileVC/FollowingVC/FollowingsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8F5C7A5F-1AB5-4CDF-B380-6626F9CDE201"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FleekSpaces/NewProfileVC/FollowingVC/FollowingsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "FollowingsViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4AE6CC9-A7EC-4B96-9930-C47487178729"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FleekSpaces/NewProfileVC/FollowingVC/FollowingsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FAB4C29B-D670-47A3-AA8A-D2796C27A229"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FleekSpaces/NewProfileVC/FollowingVC/FollowingsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "204"
+            endingLineNumber = "204">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

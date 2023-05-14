@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -134,7 +134,7 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWz-1k-2C9">
                     <rect key="frame" x="20" y="501" width="374" height="45"/>
-                    <color key="backgroundColor" name="BtnGreenColor"/>
+                    <color key="backgroundColor" name="AAI"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Sce-VH-oZh"/>
                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="45" id="V1l-ts-cx2"/>
@@ -164,7 +164,7 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pQ-y9-eJZ">
                                     <rect key="frame" x="20" y="124" width="374" height="45"/>
-                                    <color key="backgroundColor" name="BtnGreenColor"/>
+                                    <color key="backgroundColor" name="AAI"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="aEh-a2-SKZ"/>
                                     </constraints>
@@ -359,6 +359,9 @@
     <resources>
         <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
+        <namedColor name="AAI">
+            <color red="0.41568627450980394" green="0.41568627450980394" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BGColor">
             <color red="0.063000001013278961" green="0.063000001013278961" blue="0.063000001013278961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
