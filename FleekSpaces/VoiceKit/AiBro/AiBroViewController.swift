@@ -104,12 +104,10 @@ class AiBroViewController: UIViewController, SFSpeechRecognizerDelegate {
 
        
         synthesizer.speak(utterance)
-      
-        
-        
+
     }
     
-    
+    //MARK: - AudioSession Config
     func configureAudioSessionCategory() {
       print("Configuring audio session")
       do {

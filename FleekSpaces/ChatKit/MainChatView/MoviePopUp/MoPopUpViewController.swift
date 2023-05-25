@@ -65,7 +65,7 @@ class MoPopUpViewController: UIViewController {
         guard let safeShowID = myShowID else {return}
         guard let safePosterURL = myposterURL else {return}
         
-        print("safe show is \(safeShowType)")
+       
         if safeShowType == "movie" {
             
             addLikes(showType: safeShowType, myTitle: safeTitle, myShowID: safeTitle, myPosterURL: safePosterURL)

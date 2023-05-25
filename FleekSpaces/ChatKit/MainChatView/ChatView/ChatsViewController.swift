@@ -1460,12 +1460,9 @@ extension ChatViewController: PassMovieDelegate {
   
     func cellTapped(posterString: String, showID: String, showType: String) {
         
-//                self.messages.append(Message(sender: self.selfSender, messageId: "1", sentDate: Date(), kind: .photo(Media(placeholderImage: UIImage(named: "a2")!, size: CGSize(width: 200, height: 200)))))
-////
-        ///
+
                 if let safeURL = URL(string: posterString) {
 
-//                    self.messages.append(Message(sender: selfSender, messageId: "3", sentDate: Date(), kind: .photo(Media(url:safeURL, placeholderImage: UIImage(named: "a1")!, size: CGSize(width: 200, height: 300)))))
 
                     print("test photo 1")
                 }

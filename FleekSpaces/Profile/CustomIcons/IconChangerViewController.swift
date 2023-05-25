@@ -118,7 +118,7 @@ class IconChangerViewController: UIViewController, UITableViewDataSource, UITabl
                     return
                 }
                 self.lottieViewAnimation.isHidden = false
-                print("Icon Updated")
+               
                 self.lottiePlay()
                
             }

@@ -21,10 +21,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-//        recentSearchView.isHidden = false
-//        if let mainData = MyMovieDataModel.upcoming?.results {
-//            filteredData = mainData
-//        }
+
         
         setupCollectionView()
         fetchWorldWideTVTrending()
@@ -332,7 +329,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     }
     
     
- 
+ //MARK: - Search button stuff
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("\(searchBar.text) is entered tap")
         if let safeText = searchBar.text {
@@ -353,27 +350,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         recentSearchView.isHidden = true
-//        filteredData = []
-//        guard let mainData = MyMovieDataModel.upcoming?.results else {return}
-//        if let looper = MyMovieDataModel.upcoming?.results {
-//
-//            for result in looper  {
-//                if let textFilter = result.title {
-//
-//                    if textFilter.lowercased().contains(searchText.lowercased()) {
-//
-//                        filteredData.append(result)
-//                    }
-//
-//
-//                }
-//
-//            }
-//
-//            searchCollectionView.reloadData()
-//
-//        }
-        
+
         
         if let safeText = searchBar.text {
             
@@ -390,15 +367,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
         
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }
 
