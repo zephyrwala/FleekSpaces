@@ -66,6 +66,7 @@
 		6930D57C2859DB4B0080528D /* GenreBottomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6930D57A2859DB4B0080528D /* GenreBottomViewController.xib */; };
 		6930D5832859DEB00080528D /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6930D5812859DEB00080528D /* GenreCollectionViewCell.swift */; };
 		6930D5842859DEB00080528D /* GenreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6930D5822859DEB00080528D /* GenreCollectionViewCell.xib */; };
+		69324A332A2B9EEC009596F4 /* SpaceImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69324A312A2B5464009596F4 /* SpaceImageProvider.swift */; };
 		693357D82893F66700C49506 /* SeasonCardCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693357D62893F66700C49506 /* SeasonCardCVC.swift */; };
 		693357D92893F66700C49506 /* SeasonCardCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 693357D72893F66700C49506 /* SeasonCardCVC.xib */; };
 		693357DD2894088000C49506 /* EpisodeCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693357DB2894088000C49506 /* EpisodeCardsViewController.swift */; };
@@ -219,6 +220,11 @@
 		69C4996F28698012000F4394 /* EmailSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69C4996D28698012000F4394 /* EmailSignInViewController.xib */; };
 		69C499782869BDB4000F4394 /* LoginEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C499762869BDB4000F4394 /* LoginEmailViewController.swift */; };
 		69C499792869BDB4000F4394 /* LoginEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69C499772869BDB4000F4394 /* LoginEmailViewController.xib */; };
+		69D2B0B92A2CC1070083CFD4 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D2B0B82A2CC1070083CFD4 /* Meme.swift */; };
+		69D2B0BB2A2CC1250083CFD4 /* MemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D2B0BA2A2CC1250083CFD4 /* MemeService.swift */; };
+		69D2B0BD2A2CC5220083CFD4 /* MemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D2B0BC2A2CC5220083CFD4 /* MemeView.swift */; };
+		69D2B0BE2A2CC9650083CFD4 /* MemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D2B0BA2A2CC1250083CFD4 /* MemeService.swift */; };
+		69D2B0BF2A2CC96A0083CFD4 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D2B0B82A2CC1070083CFD4 /* Meme.swift */; };
 		69D527C529016572001B310C /* IconChangerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D527C329016572001B310C /* IconChangerViewController.swift */; };
 		69D527C629016572001B310C /* IconChangerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69D527C429016572001B310C /* IconChangerViewController.xib */; };
 		69D527CA29019578001B310C /* iconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D527C829019578001B310C /* iconTableViewCell.swift */; };
@@ -265,6 +271,13 @@
 		69E067E629C19F35008AC2A0 /* OtherPersonNewProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067E529C19F35008AC2A0 /* OtherPersonNewProfileVC.swift */; };
 		69E067E929C1C2C4008AC2A0 /* OtherWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E067E729C1C2C4008AC2A0 /* OtherWatchlistViewController.swift */; };
 		69E067EA29C1C2C5008AC2A0 /* OtherWatchlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E067E829C1C2C4008AC2A0 /* OtherWatchlistViewController.xib */; };
+		69FE02622A31ABE300A666D9 /* catsnip.json in Resources */ = {isa = PBXBuildFile; fileRef = 69FE02612A31ABE300A666D9 /* catsnip.json */; };
+		69FE02642A31B06300A666D9 /* popo.json in Resources */ = {isa = PBXBuildFile; fileRef = 69FE02632A31B06200A666D9 /* popo.json */; };
+		69FE17302A2F4A2A00304B65 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FE172F2A2F4A2A00304B65 /* MovieService.swift */; };
+		69FE17322A2F4C6200304B65 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FE17312A2F4C6200304B65 /* MovieModel.swift */; };
+		69FE17342A2F4E4F00304B65 /* PosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FE17332A2F4E4F00304B65 /* PosterView.swift */; };
+		69FE176B2A2F63D700304B65 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FE172F2A2F4A2A00304B65 /* MovieService.swift */; };
+		69FE176C2A2F63DB00304B65 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FE17312A2F4C6200304B65 /* MovieModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -350,6 +363,7 @@
 		6930D57A2859DB4B0080528D /* GenreBottomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreBottomViewController.xib; sourceTree = "<group>"; };
 		6930D5812859DEB00080528D /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		6930D5822859DEB00080528D /* GenreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCollectionViewCell.xib; sourceTree = "<group>"; };
+		69324A312A2B5464009596F4 /* SpaceImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceImageProvider.swift; sourceTree = "<group>"; };
 		693357D62893F66700C49506 /* SeasonCardCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonCardCVC.swift; sourceTree = "<group>"; };
 		693357D72893F66700C49506 /* SeasonCardCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonCardCVC.xib; sourceTree = "<group>"; };
 		693357DB2894088000C49506 /* EpisodeCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCardsViewController.swift; sourceTree = "<group>"; };
@@ -501,6 +515,9 @@
 		69C4996D28698012000F4394 /* EmailSignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmailSignInViewController.xib; sourceTree = "<group>"; };
 		69C499762869BDB4000F4394 /* LoginEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailViewController.swift; sourceTree = "<group>"; };
 		69C499772869BDB4000F4394 /* LoginEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginEmailViewController.xib; sourceTree = "<group>"; };
+		69D2B0B82A2CC1070083CFD4 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
+		69D2B0BA2A2CC1250083CFD4 /* MemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeService.swift; sourceTree = "<group>"; };
+		69D2B0BC2A2CC5220083CFD4 /* MemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeView.swift; sourceTree = "<group>"; };
 		69D527C329016572001B310C /* IconChangerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconChangerViewController.swift; sourceTree = "<group>"; };
 		69D527C429016572001B310C /* IconChangerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconChangerViewController.xib; sourceTree = "<group>"; };
 		69D527C829019578001B310C /* iconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconTableViewCell.swift; sourceTree = "<group>"; };
@@ -545,6 +562,11 @@
 		69E067E529C19F35008AC2A0 /* OtherPersonNewProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPersonNewProfileVC.swift; sourceTree = "<group>"; };
 		69E067E729C1C2C4008AC2A0 /* OtherWatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherWatchlistViewController.swift; sourceTree = "<group>"; };
 		69E067E829C1C2C4008AC2A0 /* OtherWatchlistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherWatchlistViewController.xib; sourceTree = "<group>"; };
+		69FE02612A31ABE300A666D9 /* catsnip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = catsnip.json; sourceTree = "<group>"; };
+		69FE02632A31B06200A666D9 /* popo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = popo.json; sourceTree = "<group>"; };
+		69FE172F2A2F4A2A00304B65 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
+		69FE17312A2F4C6200304B65 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		69FE17332A2F4E4F00304B65 /* PosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterView.swift; sourceTree = "<group>"; };
 		B074456520EDC420251F3A55 /* Pods_FleekSpaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FleekSpaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD892A40D7B9C0EAB09C348E /* Pods-FleekSpaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FleekSpaces.release.xcconfig"; path = "Target Support Files/Pods-FleekSpaces/Pods-FleekSpaces.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -914,6 +936,8 @@
 		69394667284628D100FE7574 /* FleekSpaces */ = {
 			isa = PBXGroup;
 			children = (
+				69FE172E2A2F4A1400304B65 /* MovieTrends */,
+				69D2B0B72A2CC0DC0083CFD4 /* MovieFacts */,
 				69E067DE29C19748008AC2A0 /* OtherPersonNewProfile */,
 				69E067A929BC7436008AC2A0 /* NewProfileVC */,
 				69E0679D29BB1119008AC2A0 /* OtherUsersProfile */,
@@ -1129,6 +1153,7 @@
 				694393D2287ED26700CEC3C4 /* FleekSpacesWidget.swift */,
 				694393D4287ED26C00CEC3C4 /* Assets.xcassets */,
 				694393D6287ED26C00CEC3C4 /* Info.plist */,
+				69324A312A2B5464009596F4 /* SpaceImageProvider.swift */,
 			);
 			path = FleekSpacesWidget;
 			sourceTree = "<group>";
@@ -1481,6 +1506,16 @@
 			path = LoginEmail;
 			sourceTree = "<group>";
 		};
+		69D2B0B72A2CC0DC0083CFD4 /* MovieFacts */ = {
+			isa = PBXGroup;
+			children = (
+				69D2B0B82A2CC1070083CFD4 /* Meme.swift */,
+				69D2B0BA2A2CC1250083CFD4 /* MemeService.swift */,
+				69D2B0BC2A2CC5220083CFD4 /* MemeView.swift */,
+			);
+			path = MovieFacts;
+			sourceTree = "<group>";
+		};
 		69D527C229016550001B310C /* CustomIcons */ = {
 			isa = PBXGroup;
 			children = (
@@ -1525,7 +1560,9 @@
 		69D527D8290280BA001B310C /* Anime */ = {
 			isa = PBXGroup;
 			children = (
+				69FE02632A31B06200A666D9 /* popo.json */,
 				6970641129B1F44200B4A26E /* bluewave.json */,
+				69FE02612A31ABE300A666D9 /* catsnip.json */,
 				6990E61429B1CEE1007F8499 /* waves.json */,
 				6991011E29C86B3700460388 /* loadlum.json */,
 				6991011829C8681100460388 /* popscorn.json */,
@@ -1718,6 +1755,16 @@
 			path = OtherPersonVC;
 			sourceTree = "<group>";
 		};
+		69FE172E2A2F4A1400304B65 /* MovieTrends */ = {
+			isa = PBXGroup;
+			children = (
+				69FE172F2A2F4A2A00304B65 /* MovieService.swift */,
+				69FE17312A2F4C6200304B65 /* MovieModel.swift */,
+				69FE17332A2F4E4F00304B65 /* PosterView.swift */,
+			);
+			path = MovieTrends;
+			sourceTree = "<group>";
+		};
 		CECA015D65819323CA5FC61B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1895,6 +1942,7 @@
 				6930D573285899E40080528D /* ActorBioCVC.xib in Resources */,
 				69C499792869BDB4000F4394 /* LoginEmailViewController.xib in Resources */,
 				6970641229B1F44200B4A26E /* bluewave.json in Resources */,
+				69FE02622A31ABE300A666D9 /* catsnip.json in Resources */,
 				693946C52848D15800FE7574 /* SelectedSubCRV.xib in Resources */,
 				69AC5F6F29A745E700C30ECA /* likeThumb.json in Resources */,
 				693357D92893F66700C49506 /* SeasonCardCVC.xib in Resources */,
@@ -1945,6 +1993,7 @@
 				693946A1284757EA00FE7574 /* Section3CRV.xib in Resources */,
 				694393C7287D5EF700CEC3C4 /* SignInEmbedViewController.xib in Resources */,
 				6990E61029B1BE96007F8499 /* recording.json in Resources */,
+				69FE02642A31B06300A666D9 /* popo.json in Resources */,
 				6930D54B285330BE0080528D /* YourHeaderCRV2.xib in Resources */,
 				6963C5DA2954BE40000E6C45 /* xmas0.png in Resources */,
 				6938499A2881B2A500EC5C61 /* BookCollectionViewCell.xib in Resources */,
@@ -2051,6 +2100,7 @@
 				6919333029B32E41006CA14B /* NotificationsTable.swift in Sources */,
 				6963B3F129ACC762007C4DEF /* HeaderCollectionViewCell.swift in Sources */,
 				692600BE284E09A200B6D801 /* Section2HeadersCRV.swift in Sources */,
+				69FE17342A2F4E4F00304B65 /* PosterView.swift in Sources */,
 				6924001B28AF99B000DFB033 /* LoginVC.swift in Sources */,
 				69643C102872D4D5007128C0 /* LoginView.swift in Sources */,
 				69D527C529016572001B310C /* IconChangerViewController.swift in Sources */,
@@ -2062,6 +2112,7 @@
 				694393BE2875571600CEC3C4 /* ChatUser.swift in Sources */,
 				69E067BD29BC9479008AC2A0 /* ContentViewController.swift in Sources */,
 				6990E61329B1CCF0007F8499 /* SwiftSiriWaveformView.swift in Sources */,
+				69FE17302A2F4A2A00304B65 /* MovieService.swift in Sources */,
 				692600C5284E203100B6D801 /* ChatCVCell.swift in Sources */,
 				693946892847545900FE7574 /* Section1CollectionViewCell.swift in Sources */,
 				6942107F28EC4D620065EB3C /* UserDataCollectionViewCell.swift in Sources */,
@@ -2091,6 +2142,7 @@
 				69C499782869BDB4000F4394 /* LoginEmailViewController.swift in Sources */,
 				6930D567285712E20080528D /* SearchResultCVC.swift in Sources */,
 				6995FEDB297DAC9A00190253 /* RealTimeDatabaseManager.swift in Sources */,
+				69FE17322A2F4C6200304B65 /* MovieModel.swift in Sources */,
 				693357D82893F66700C49506 /* SeasonCardCVC.swift in Sources */,
 				69AC5F6329A5E02300C30ECA /* SpacesTableViewCell.swift in Sources */,
 				6991010029C1CAEC00460388 /* OtherLikesViewController.swift in Sources */,
@@ -2106,11 +2158,13 @@
 				693849902881375F00EC5C61 /* RecentChatKitViewController.swift in Sources */,
 				6930D5582856FBD40080528D /* MoreLikeThisCollectionViewCell.swift in Sources */,
 				6963B3E929ACC00D007C4DEF /* ChatDetailProfileViewController.swift in Sources */,
+				69D2B0BD2A2CC5220083CFD4 /* MemeView.swift in Sources */,
 				6930D57B2859DB4B0080528D /* GenreBottomViewController.swift in Sources */,
 				695EBBFB2863294D00557D69 /* ProfileViewController.swift in Sources */,
 				69018300286CBCF400DF046E /* NewConversationViewController.swift in Sources */,
 				6930D54A285330BE0080528D /* YourHeaderCRV2.swift in Sources */,
 				6930D5412851F5290080528D /* MovieInfoCollectionViewCell.swift in Sources */,
+				69D2B0BB2A2CC1250083CFD4 /* MemeService.swift in Sources */,
 				693946812847345800FE7574 /* NetworkLayer.swift in Sources */,
 				695EBBF72863223F00557D69 /* OnboardingCollectionViewCell.swift in Sources */,
 				6930D572285899E40080528D /* ActorBioCVC.swift in Sources */,
@@ -2122,6 +2176,7 @@
 				693946952847577D00FE7574 /* Section1HeaderCRV.swift in Sources */,
 				69E067DA29BD9972008AC2A0 /* IconPagingCell.swift in Sources */,
 				6939469B284757BB00FE7574 /* Section2CRV.swift in Sources */,
+				69D2B0B92A2CC1070083CFD4 /* Meme.swift in Sources */,
 				6991010E29C1ECC500460388 /* OtherproFollowingsaViewController.swift in Sources */,
 				6991010429C1D80200460388 /* OtherRecommendViewController.swift in Sources */,
 				6939467E2847338000FE7574 /* HomeViewController.swift in Sources */,
@@ -2143,7 +2198,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69FE176C2A2F63DB00304B65 /* MovieModel.swift in Sources */,
+				69D2B0BE2A2CC9650083CFD4 /* MemeService.swift in Sources */,
+				69D2B0BF2A2CC96A0083CFD4 /* Meme.swift in Sources */,
 				694393D3287ED26700CEC3C4 /* FleekSpacesWidget.swift in Sources */,
+				69324A332A2B9EEC009596F4 /* SpaceImageProvider.swift in Sources */,
+				69FE176B2A2F63D700304B65 /* MovieService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2305,6 +2365,8 @@
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fleek Spaces";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to take a profile picture";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please allow access to microphone for audio to text";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to select a photo for your profile";
@@ -2321,7 +2383,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.30;
+				MARKETING_VERSION = 0.33;
 				PRODUCT_BUNDLE_IDENTIFIER = app.getfleek.fleekSpacesbeta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2344,6 +2406,8 @@
 				DEVELOPMENT_TEAM = R7BQ9GRCA6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FleekSpaces/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fleek Spaces";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to take a profile picture";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please allow access to microphone for audio to text";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to select a photo for your profile";
@@ -2360,7 +2424,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.30;
+				MARKETING_VERSION = 0.33;
 				PRODUCT_BUNDLE_IDENTIFIER = app.getfleek.fleekSpacesbeta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

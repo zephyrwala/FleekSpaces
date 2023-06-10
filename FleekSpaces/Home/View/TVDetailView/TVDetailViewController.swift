@@ -854,7 +854,12 @@ extension TVDetailViewController: UICollectionViewDataSource {
     
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        4
+        if tmdbID == nil {
+           return 3
+        } else {
+            return 4
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

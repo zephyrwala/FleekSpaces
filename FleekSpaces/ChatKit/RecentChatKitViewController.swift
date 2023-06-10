@@ -34,7 +34,7 @@ class RecentChatKitViewController: UIViewController, UICollectionViewDelegate {
 
       
         let vc = LoadsViewController()
-        vc.loadmeText = "Hello & Welcome to Spaces Chat 2.0! This is an overhaul from our previous chat. You can now send and receive your watchlist / liked movies."
+        vc.loadmeText = "Spaces Chat 2.1 is loading. Now you can share your movies & tv shows with your friends. "
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
         

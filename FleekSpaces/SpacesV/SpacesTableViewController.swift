@@ -51,7 +51,7 @@ class SpacesTableViewController: UITableViewController {
         
         fetchAllUsers()
         let vc = LoadsViewController()
-        vc.loadmeText = "Spaces Feed is loading . . ."
+        vc.loadmeText = "Tuning into your Spaces Feed"
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: true)
         
@@ -306,7 +306,7 @@ class SpacesTableViewController: UITableViewController {
             cell.likeBtnDelegate = self
             cell.followBtnDelegate = self
             cell.watchlistbtnDelegate = self
-            cell.openUserProfileDelegate = self
+//            cell.openUserProfileDelegate = self
             cell.setupCell(fromData: spacesData )
            
             cell.selectionStyle = .none
@@ -326,11 +326,54 @@ class SpacesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+//
+//        print("this is UID \(FinalDataModel.spacesFeedElement?[indexPath.item].user?.firebaseUid)")
+//
+//        if let safeModel = FinalDataModel.spacesFeedElement?[indexPath.item].postersURL {
+//            print("https://image.tmdb.org/t/p/w500\(safeModel)")
+//        }
         
-        print("this is UID \(FinalDataModel.spacesFeedElement?[indexPath.item].user?.firebaseUid)")
         
-        if let safeModel = FinalDataModel.spacesFeedElement?[indexPath.item].postersURL {
-            print("https://image.tmdb.org/t/p/w500\(safeModel)")
+        if let types = FinalDataModel.spacesFeedElement?[indexPath.item].showType {
+            
+            
+            switch types {
+                
+            case .movie :
+                print("Selected is movie")
+                var selectedController = MovieDetailViewController()
+                
+                if let movieDataId = FinalDataModel.spacesFeedElement?[indexPath.item].showID {
+                    
+                    selectedController.movieId = movieDataId
+                    selectedController.fetchMovieDetails(movieID: movieDataId)
+                    
+                  
+                    
+                }
+                
+                navigationController?.pushViewController(selectedController, animated: true)
+                
+            case .tvSeries :
+                print("Selected is tv show")
+                var selectedController = TVDetailViewController()
+                
+                
+                if let movieDataId = FinalDataModel.spacesFeedElement?[indexPath.item].showID {
+                    
+                    selectedController.showId = movieDataId
+                    selectedController.fetchMovieDetails(movieID: movieDataId)
+                    
+                  
+                    
+                }
+                
+                navigationController?.pushViewController(selectedController, animated: true)
+                
+            }
+            
+            
+            
         }
        
     }
@@ -341,37 +384,7 @@ class SpacesTableViewController: UITableViewController {
         return FinalDataModel.spacesFeedElement?.count ?? 1
     }
     
-    override func tableView(_ tableView: UITableView,
-                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        // ...
-        
-        let action = UIContextualAction(style: .normal,
-                                        title: "Like 👍🏼") { [weak self] (action, view, completionHandler) in
-                                            self?.handleMarkAsFavourite()
-                                            completionHandler(true)
-        }
-        action.backgroundColor = .black
-        
-        return UISwipeActionsConfiguration(actions: [action])
-    }
 
-    
-    override func tableView(_ tableView: UITableView,
-                       trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        
-        // ...
-        
-        
-        let action = UIContextualAction(style: .normal,
-                                        title: "Watchlist 📺") { [weak self] (action, view, completionHandler) in
-                                            self?.handleMarkAsFavourite()
-                                            completionHandler(true)
-        }
-        action.backgroundColor = .black
-        
-        return UISwipeActionsConfiguration(actions: [action])
-    }
     
     
     private func handleMarkAsFavourite() {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8NC-dj-m7u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8NC-dj-m7u">
     <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -304,7 +304,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SY1-Fn-J2I">
-                                <rect key="frame" x="16" y="107" width="343" height="159"/>
+                                <rect key="frame" x="16" y="110" width="343" height="159"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_bg" translatesAutoresizingMaskIntoConstraints="NO" id="DPr-yT-aly">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="159"/>
@@ -393,14 +393,14 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Chats" translatesAutoresizingMaskIntoConstraints="NO" id="iA8-Ko-ckZ">
-                                <rect key="frame" x="24" y="37" width="100" height="58"/>
+                                <rect key="frame" x="24" y="40" width="100" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="8kv-SP-chB"/>
                                     <constraint firstAttribute="height" constant="58" id="Xhm-M8-Hcg"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jn-xa-qAX">
-                                <rect key="frame" x="0.0" y="276" width="375" height="502"/>
+                                <rect key="frame" x="0.0" y="279" width="375" height="499"/>
                                 <color key="backgroundColor" name="BGColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0J-0i-85a">
@@ -607,7 +607,7 @@
                         </tabBarAppearance>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" name="AAI_Text"/>
+                                <color key="value" name="BtnGreenColor"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
                                 <color key="value" name="AAI"/>
@@ -631,7 +631,7 @@
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overCurrentContext" id="Ppb-iH-IIp" customClass="RecentChatKitViewController" customModule="FleekSpaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fji-TC-SqN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="638"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="635"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIn-ww-8ZC">
@@ -694,7 +694,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SEP-cU-feM">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="638"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="635"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AfW-w9-bqR">
                                     <size key="itemSize" width="128" height="128"/>
@@ -764,13 +764,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Actor view" translatesAutoresizingMaskIntoConstraints="NO" id="cW2-0v-d7H">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="345"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="348"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grad_layer" translatesAutoresizingMaskIntoConstraints="NO" id="Ch8-Vm-Vii" userLabel="grad">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="357"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="sZT-oV-Ima">
-                                <rect key="frame" x="0.0" y="97" width="375" height="260"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="260"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="46r-RU-1Hp">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
@@ -931,7 +931,7 @@
                                 </constraints>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FUI-Nq-ONv">
-                                <rect key="frame" x="6" y="357" width="363" height="455"/>
+                                <rect key="frame" x="6" y="360" width="363" height="452"/>
                                 <color key="backgroundColor" name="BGColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qiI-uE-34m">
                                     <size key="itemSize" width="128" height="128"/>
@@ -998,7 +998,7 @@
         <scene sceneID="Geg-9f-jaJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="FFa-df-FJe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="rM1-Re-y7u"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house" id="rM1-Re-y7u"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="B51-jq-K8R">
                         <autoresizingMask key="autoresizingMask"/>
@@ -1046,7 +1046,7 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person.fill" id="bRv-aS-Rca"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="0e9-bp-WZa">
-                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1334,10 +1334,10 @@
         <scene sceneID="xY7-hb-8Oa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G9X-7b-Adr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat" image="text.bubble.rtl" catalog="system" selectedImage="text.bubble.fill" id="boT-ie-Qf3"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="text.bubble.rtl" catalog="system" selectedImage="text.bubble" id="boT-ie-Qf3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ZMp-yt-IUa">
-                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="BtnGreenColor"/>
                         <color key="barTintColor" name="BtnGreenColor"/>
@@ -1362,13 +1362,13 @@
         <scene sceneID="qDt-qZ-i4a">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qw8-oE-OlF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Spaces" badgeValue="new" id="JKC-42-h8k">
+                    <tabBarItem key="tabBarItem" title="Spaces" badgeValue=":)" id="JKC-42-h8k">
                         <imageReference key="image" image="popcorn" catalog="system"/>
-                        <imageReference key="selectedImage" image="popcorn.fill" catalog="system" renderingMode="template"/>
+                        <imageReference key="selectedImage" image="popcorn" catalog="system" renderingMode="template"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hY9-23-FjK">
-                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="Info_300"/>
                     </navigationBar>
@@ -1403,7 +1403,7 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person" id="hc4-ll-Ofc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qaB-Ri-Wy3">
-                        <rect key="frame" x="0.0" y="47" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1445,7 +1445,6 @@
         <image name="grad_layer" width="1200" height="1200"/>
         <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
         <image name="house" catalog="system" width="128" height="104"/>
-        <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.badge.plus" catalog="system" width="128" height="125"/>
@@ -1456,10 +1455,9 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="popcorn" catalog="system" width="102" height="128"/>
-        <image name="popcorn.fill" catalog="system" width="102" height="128"/>
         <image name="shareplay" catalog="system" width="128" height="75"/>
         <image name="square.and.pencil" catalog="system" width="128" height="113"/>
-        <image name="text.bubble.fill" catalog="system" width="128" height="110"/>
+        <image name="text.bubble" catalog="system" width="128" height="110"/>
         <image name="text.bubble.rtl" catalog="system" width="128" height="110"/>
         <image name="tv-2 1" width="480" height="480"/>
         <image name="video.fill.badge.checkmark" catalog="system" width="128" height="88"/>

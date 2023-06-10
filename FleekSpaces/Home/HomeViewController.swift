@@ -1074,6 +1074,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 }
                 
                 if let tmdbDataID = FinalDataModel.ottMovie?[indexPath.item].tmdbID {
+                    selectedController.tmdbID = "\(tmdbDataID)"
                     selectedController.fetchMoreLikeThis(tmdbID: "\(tmdbDataID)")
                 }
                

@@ -847,7 +847,12 @@ extension MovieDetailViewController: UICollectionViewDataSource, likeBtnTap, wat
 
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        4
+        if self.tmdbID == nil {
+            return 3
+        } else {
+            return 4
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
