@@ -86,6 +86,7 @@ struct FleekSpacesWidgetEntryView : View {
         
         switch family {
             
+        
         case .systemSmall :
             ZStack {
                 if let image = UIImage(data: entry.memeData) {
@@ -232,14 +233,7 @@ struct FleekSpacesWidgetEntryView : View {
             ZStack {
                 if let image = UIImage(data: entry.memeData) {
                     
-                  
-                    
-                   
 
-                    
-//                     LinearGradient(gradient: .init(colors: [.clear, .blue]), startPoint: .center, endPoint: .bottom)
-//                        .opacity(0.9)
-                    
                     Image(uiImage: UIImage(data: entry.memeData)!)
                         .resizable()
                     .scaledToFill()
@@ -251,15 +245,7 @@ struct FleekSpacesWidgetEntryView : View {
                     
                     VStack(alignment: .leading, spacing: 0) {
                      
-                        
-//                        ZStack {
-//                            Image(uiImage: UIImage(data: entry.memeData)!)
-//                                .resizable()
-//                            .scaledToFill()
-//                        .frame(height: 200)
-//
-//
-//                        }
+
                        
                         ZStack {
                             

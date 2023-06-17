@@ -15,6 +15,21 @@
 		691205DD29B2F34900F0E808 /* FollowersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691205DB29B2F34900F0E808 /* FollowersViewController.xib */; };
 		691205E129B2F4D300F0E808 /* FollowersFollowingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691205DF29B2F4D300F0E808 /* FollowersFollowingTableViewCell.swift */; };
 		691205E229B2F4D300F0E808 /* FollowersFollowingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691205E029B2F4D300F0E808 /* FollowersFollowingTableViewCell.xib */; };
+		69147F8F2A3C8D610065EAE6 /* SpacesWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69147F8E2A3C8D610065EAE6 /* SpacesWatchApp.swift */; };
+		69147F912A3C8D610065EAE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69147F902A3C8D610065EAE6 /* ContentView.swift */; };
+		69147F932A3C8D620065EAE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69147F922A3C8D620065EAE6 /* Assets.xcassets */; };
+		69147F962A3C8D620065EAE6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69147F952A3C8D620065EAE6 /* Preview Assets.xcassets */; };
+		69147F992A3C8D620065EAE6 /* SpacesWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 69147F8C2A3C8D610065EAE6 /* SpacesWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		69147F9F2A3C8DEA0065EAE6 /* SpacesNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69147F9E2A3C8DEA0065EAE6 /* SpacesNetworkService.swift */; };
+		69147FA12A3C8E550065EAE6 /* SpacesWatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69147FA02A3C8E550065EAE6 /* SpacesWatchModel.swift */; };
+		69147FA32A3C8F3C0065EAE6 /* PlatformDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69147FA22A3C8F3C0065EAE6 /* PlatformDetailView.swift */; };
+		69147FA52A3C8F8B0065EAE6 /* PlatformCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69147FA42A3C8F8B0065EAE6 /* PlatformCellView.swift */; };
+		69147FA82A3C90A70065EAE6 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 69147FA72A3C90A70065EAE6 /* SDWebImageSwiftUI */; };
+		69147FAA2A3C91780065EAE6 /* PlatformDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69147FA92A3C91780065EAE6 /* PlatformDetailCellView.swift */; };
+		69147FAC2A3C954C0065EAE6 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 69147FAB2A3C954C0065EAE6 /* SDWebImageSwiftUI */; };
+		69147FAE2A3DAB3E0065EAE6 /* MovieTabSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69147FAD2A3DAB3E0065EAE6 /* MovieTabSection.swift */; };
+		69147FB12A3DAEF90065EAE6 /* TVDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69147FB02A3DAEF90065EAE6 /* TVDetailView.swift */; };
+		69147FB72A3DB8A10065EAE6 /* TVDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69147FB62A3DB8A10065EAE6 /* TVDetailCellView.swift */; };
 		6919333029B32E41006CA14B /* NotificationsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6919332E29B32E41006CA14B /* NotificationsTable.swift */; };
 		6919333129B32E41006CA14B /* NotificationsTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6919332F29B32E41006CA14B /* NotificationsTable.xib */; };
 		6919333529B32E7A006CA14B /* NotificationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6919333329B32E7A006CA14B /* NotificationsCell.swift */; };
@@ -124,7 +139,6 @@
 		694393B328740E9700CEC3C4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393B228740E9700CEC3C4 /* ImagePicker.swift */; };
 		694393B528744CA300CEC3C4 /* MainMessengerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393B428744CA300CEC3C4 /* MainMessengerView.swift */; };
 		694393B82874566500CEC3C4 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393B72874566500CEC3C4 /* FirebaseManager.swift */; };
-		694393BB2874694E00CEC3C4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 694393BA2874694E00CEC3C4 /* SDWebImageSwiftUI */; };
 		694393BE2875571600CEC3C4 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393BD2875571600CEC3C4 /* ChatUser.swift */; };
 		694393C12875609900CEC3C4 /* CreateNewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393C02875609900CEC3C4 /* CreateNewMessageView.swift */; };
 		694393C32876B2A400CEC3C4 /* ChatLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694393C22876B2A300CEC3C4 /* ChatLogView.swift */; };
@@ -281,6 +295,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		69147F972A3C8D620065EAE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6939465D284628D100FE7574 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69147F8B2A3C8D610065EAE6;
+			remoteInfo = "SpacesWatch Watch App";
+		};
 		694393D7287ED26C00CEC3C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6939465D284628D100FE7574 /* Project object */;
@@ -291,6 +312,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		69147F9A2A3C8D620065EAE6 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				69147F992A3C8D620065EAE6 /* SpacesWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		694393DD287ED26C00CEC3C4 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -312,6 +344,19 @@
 		691205DB29B2F34900F0E808 /* FollowersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowersViewController.xib; sourceTree = "<group>"; };
 		691205DF29B2F4D300F0E808 /* FollowersFollowingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersFollowingTableViewCell.swift; sourceTree = "<group>"; };
 		691205E029B2F4D300F0E808 /* FollowersFollowingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowersFollowingTableViewCell.xib; sourceTree = "<group>"; };
+		69147F8C2A3C8D610065EAE6 /* SpacesWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpacesWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69147F8E2A3C8D610065EAE6 /* SpacesWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesWatchApp.swift; sourceTree = "<group>"; };
+		69147F902A3C8D610065EAE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		69147F922A3C8D620065EAE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		69147F952A3C8D620065EAE6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		69147F9E2A3C8DEA0065EAE6 /* SpacesNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesNetworkService.swift; sourceTree = "<group>"; };
+		69147FA02A3C8E550065EAE6 /* SpacesWatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacesWatchModel.swift; sourceTree = "<group>"; };
+		69147FA22A3C8F3C0065EAE6 /* PlatformDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformDetailView.swift; sourceTree = "<group>"; };
+		69147FA42A3C8F8B0065EAE6 /* PlatformCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformCellView.swift; sourceTree = "<group>"; };
+		69147FA92A3C91780065EAE6 /* PlatformDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformDetailCellView.swift; sourceTree = "<group>"; };
+		69147FAD2A3DAB3E0065EAE6 /* MovieTabSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTabSection.swift; sourceTree = "<group>"; };
+		69147FB02A3DAEF90065EAE6 /* TVDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVDetailView.swift; sourceTree = "<group>"; };
+		69147FB62A3DB8A10065EAE6 /* TVDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVDetailCellView.swift; sourceTree = "<group>"; };
 		6919332E29B32E41006CA14B /* NotificationsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTable.swift; sourceTree = "<group>"; };
 		6919332F29B32E41006CA14B /* NotificationsTable.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsTable.xib; sourceTree = "<group>"; };
 		6919333329B32E7A006CA14B /* NotificationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCell.swift; sourceTree = "<group>"; };
@@ -572,13 +617,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		69147F892A3C8D610065EAE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69147FA82A3C90A70065EAE6 /* SDWebImageSwiftUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69394662284628D100FE7574 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69147FAC2A3C954C0065EAE6 /* SDWebImageSwiftUI in Frameworks */,
 				69691DAB28F5696400CE8B36 /* IQKeyboardManagerSwift in Frameworks */,
 				69D527D729027EE5001B310C /* Lottie in Frameworks */,
-				694393BB2874694E00CEC3C4 /* SDWebImageSwiftUI in Frameworks */,
 				693357E12895619000C49506 /* YouTubeiOSPlayerHelper in Frameworks */,
 				6963B3E529A9C9B7007C4DEF /* OpenAISwift in Frameworks */,
 				6995FED8297913E800190253 /* ActivityView in Frameworks */,
@@ -642,6 +695,41 @@
 				691205E029B2F4D300F0E808 /* FollowersFollowingTableViewCell.xib */,
 			);
 			path = FollowersView;
+			sourceTree = "<group>";
+		};
+		69147F8D2A3C8D610065EAE6 /* SpacesWatch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				69147FAF2A3DAED70065EAE6 /* TvViews */,
+				69147F8E2A3C8D610065EAE6 /* SpacesWatchApp.swift */,
+				69147F902A3C8D610065EAE6 /* ContentView.swift */,
+				69147F922A3C8D620065EAE6 /* Assets.xcassets */,
+				69147F942A3C8D620065EAE6 /* Preview Content */,
+				69147F9E2A3C8DEA0065EAE6 /* SpacesNetworkService.swift */,
+				69147FA02A3C8E550065EAE6 /* SpacesWatchModel.swift */,
+				69147FA22A3C8F3C0065EAE6 /* PlatformDetailView.swift */,
+				69147FA42A3C8F8B0065EAE6 /* PlatformCellView.swift */,
+				69147FA92A3C91780065EAE6 /* PlatformDetailCellView.swift */,
+				69147FAD2A3DAB3E0065EAE6 /* MovieTabSection.swift */,
+			);
+			path = "SpacesWatch Watch App";
+			sourceTree = "<group>";
+		};
+		69147F942A3C8D620065EAE6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				69147F952A3C8D620065EAE6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		69147FAF2A3DAED70065EAE6 /* TvViews */ = {
+			isa = PBXGroup;
+			children = (
+				69147FB02A3DAEF90065EAE6 /* TVDetailView.swift */,
+				69147FB62A3DB8A10065EAE6 /* TVDetailCellView.swift */,
+			);
+			path = TvViews;
 			sourceTree = "<group>";
 		};
 		6919332429B32D1C006CA14B /* Notifications */ = {
@@ -918,6 +1006,7 @@
 			children = (
 				69394667284628D100FE7574 /* FleekSpaces */,
 				694393D1287ED26700CEC3C4 /* FleekSpacesWidget */,
+				69147F8D2A3C8D610065EAE6 /* SpacesWatch Watch App */,
 				69394666284628D100FE7574 /* Products */,
 				46307DD670FBAE38BDCA787D /* Pods */,
 				CECA015D65819323CA5FC61B /* Frameworks */,
@@ -929,6 +1018,7 @@
 			children = (
 				69394665284628D100FE7574 /* FleekSpaces.app */,
 				694393CC287ED26600CEC3C4 /* FleekSpacesWidgetExtension.appex */,
+				69147F8C2A3C8D610065EAE6 /* SpacesWatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1778,6 +1868,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		69147F8B2A3C8D610065EAE6 /* SpacesWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69147F9D2A3C8D620065EAE6 /* Build configuration list for PBXNativeTarget "SpacesWatch Watch App" */;
+			buildPhases = (
+				69147F882A3C8D610065EAE6 /* Sources */,
+				69147F892A3C8D610065EAE6 /* Frameworks */,
+				69147F8A2A3C8D610065EAE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SpacesWatch Watch App";
+			packageProductDependencies = (
+				69147FA72A3C90A70065EAE6 /* SDWebImageSwiftUI */,
+			);
+			productName = "SpacesWatch Watch App";
+			productReference = 69147F8C2A3C8D610065EAE6 /* SpacesWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 		69394664284628D100FE7574 /* FleekSpaces */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69394679284628D500FE7574 /* Build configuration list for PBXNativeTarget "FleekSpaces" */;
@@ -1788,23 +1898,25 @@
 				69394663284628D100FE7574 /* Resources */,
 				C8A74360B47A85ACEA782EB7 /* [CP] Embed Pods Frameworks */,
 				694393DD287ED26C00CEC3C4 /* Embed App Extensions */,
+				69147F9A2A3C8D620065EAE6 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				694393D8287ED26C00CEC3C4 /* PBXTargetDependency */,
+				69147F982A3C8D620065EAE6 /* PBXTargetDependency */,
 			);
 			name = FleekSpaces;
 			packageProductDependencies = (
 				693946A92847842200FE7574 /* SDWebImage */,
 				690182F6286C72BD00DF046E /* JGProgressHUD */,
-				694393BA2874694E00CEC3C4 /* SDWebImageSwiftUI */,
 				693357E02895619000C49506 /* YouTubeiOSPlayerHelper */,
 				69691DAA28F5696400CE8B36 /* IQKeyboardManagerSwift */,
 				69D527D629027EE5001B310C /* Lottie */,
 				6995FED7297913E800190253 /* ActivityView */,
 				6963B3E429A9C9B7007C4DEF /* OpenAISwift */,
 				69E067BA29BC93C1008AC2A0 /* Parchment */,
+				69147FAB2A3C954C0065EAE6 /* SDWebImageSwiftUI */,
 			);
 			productName = FleekSpaces;
 			productReference = 69394665284628D100FE7574 /* FleekSpaces.app */;
@@ -1834,9 +1946,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					69147F8B2A3C8D610065EAE6 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
 					69394664284628D100FE7574 = {
 						CreatedOnToolsVersion = 13.4;
 					};
@@ -1857,13 +1972,13 @@
 			packageReferences = (
 				693946A82847842200FE7574 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				690182F5286C72BC00DF046E /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
-				694393B92874694D00CEC3C4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				693357DF2895618F00C49506 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
 				69691DA928F5696400CE8B36 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				69D527D529027EE5001B310C /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				6995FED6297913E800190253 /* XCRemoteSwiftPackageReference "ActivityView" */,
 				6963B3E329A9C9B7007C4DEF /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 				69E067B929BC93C0008AC2A0 /* XCRemoteSwiftPackageReference "Parchment" */,
+				69147FA62A3C90A70065EAE6 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 69394666284628D100FE7574 /* Products */;
 			projectDirPath = "";
@@ -1871,11 +1986,21 @@
 			targets = (
 				69394664284628D100FE7574 /* FleekSpaces */,
 				694393CB287ED26600CEC3C4 /* FleekSpacesWidgetExtension */,
+				69147F8B2A3C8D610065EAE6 /* SpacesWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		69147F8A2A3C8D610065EAE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69147F962A3C8D620065EAE6 /* Preview Assets.xcassets in Resources */,
+				69147F932A3C8D620065EAE6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69394663284628D100FE7574 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2053,6 +2178,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		69147F882A3C8D610065EAE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69147FB12A3DAEF90065EAE6 /* TVDetailView.swift in Sources */,
+				69147FAA2A3C91780065EAE6 /* PlatformDetailCellView.swift in Sources */,
+				69147FA12A3C8E550065EAE6 /* SpacesWatchModel.swift in Sources */,
+				69147F912A3C8D610065EAE6 /* ContentView.swift in Sources */,
+				69147F9F2A3C8DEA0065EAE6 /* SpacesNetworkService.swift in Sources */,
+				69147FB72A3DB8A10065EAE6 /* TVDetailCellView.swift in Sources */,
+				69147FAE2A3DAB3E0065EAE6 /* MovieTabSection.swift in Sources */,
+				69147FA52A3C8F8B0065EAE6 /* PlatformCellView.swift in Sources */,
+				69147FA32A3C8F3C0065EAE6 /* PlatformDetailView.swift in Sources */,
+				69147F8F2A3C8D610065EAE6 /* SpacesWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69394661284628D100FE7574 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2210,6 +2352,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		69147F982A3C8D620065EAE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69147F8B2A3C8D610065EAE6 /* SpacesWatch Watch App */;
+			targetProxy = 69147F972A3C8D620065EAE6 /* PBXContainerItemProxy */;
+		};
 		694393D8287ED26C00CEC3C4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 694393CB287ED26600CEC3C4 /* FleekSpacesWidgetExtension */;
@@ -2237,6 +2384,68 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		69147F9B2A3C8D620065EAE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SpacesWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = R7BQ9GRCA6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SpacesWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = app.getfleek.fleekSpacesbeta;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.getfleek.fleekSpacesbeta.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		69147F9C2A3C8D620065EAE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SpacesWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = R7BQ9GRCA6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SpacesWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = app.getfleek.fleekSpacesbeta;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.getfleek.fleekSpacesbeta.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
 		69394677284628D500FE7574 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2490,6 +2699,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		69147F9D2A3C8D620065EAE6 /* Build configuration list for PBXNativeTarget "SpacesWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69147F9B2A3C8D620065EAE6 /* Debug */,
+				69147F9C2A3C8D620065EAE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		69394660284628D100FE7574 /* Build configuration list for PBXProject "FleekSpaces" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2524,6 +2742,14 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
 			requirement = {
+				kind = exactVersion;
+				version = 2.2.0;
+			};
+		};
+		69147FA62A3C90A70065EAE6 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
 			};
@@ -2542,14 +2768,6 @@
 			requirement = {
 				branch = master;
 				kind = branch;
-			};
-		};
-		694393B92874694D00CEC3C4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
 			};
 		};
 		6963B3E329A9C9B7007C4DEF /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
@@ -2600,6 +2818,16 @@
 			package = 690182F5286C72BC00DF046E /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
 			productName = JGProgressHUD;
 		};
+		69147FA72A3C90A70065EAE6 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69147FA62A3C90A70065EAE6 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		69147FAB2A3C954C0065EAE6 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69147FA62A3C90A70065EAE6 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
 		693357E02895619000C49506 /* YouTubeiOSPlayerHelper */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 693357DF2895618F00C49506 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
@@ -2609,11 +2837,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 693946A82847842200FE7574 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
-		};
-		694393BA2874694E00CEC3C4 /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 694393B92874694D00CEC3C4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
 		};
 		6963B3E429A9C9B7007C4DEF /* OpenAISwift */ = {
 			isa = XCSwiftPackageProductDependency;
