@@ -25,7 +25,7 @@ struct ContentView: View {
         
         NavigationView{
         List {
-            ForEach(plats ?? [Platforms(streamingServiceName: "test", iconURL: "https://docs-assets.developer.apple.com/published/a151730046f7ac186031a760fe890b92/overview-hero@2x.png")]) { workout in
+            ForEach(plats ?? [Platforms(streamingServiceName: "loading", iconURL: "https://docs-assets.developer.apple.com/published/a151730046f7ac186031a760fe890b92/overview-hero@2x.png")]) { workout in
                 
 //                Button {
 //                    print(workout.streamingServiceName)
