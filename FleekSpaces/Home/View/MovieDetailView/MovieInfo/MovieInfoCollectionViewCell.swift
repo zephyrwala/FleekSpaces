@@ -44,6 +44,7 @@ protocol watchListTap: class {
 
 class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
    
+    @IBOutlet weak var videoHeight: NSLayoutConstraint!
     var liked = true
     @IBOutlet weak var watchBtn: UIButton!
     @IBOutlet weak var dislikeBtn: UIButton!
@@ -90,6 +91,13 @@ class MovieInfoCollectionViewCell: UICollectionViewCell, YTPlayerViewDelegate {
        
       
     
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            videoHeight.constant = 400
+            setNeedsLayout()
+        }else {
+            videoHeight.constant = 200
+            setNeedsLayout()
+        }
     }
 
     

@@ -22,17 +22,31 @@ class Section1CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var selectedSub: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        setNeedsLayout()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+           
+          
+//            if self.isSelected == true {
+//                self.selectedSub.alpha = 0.9
+//            }else {
+//                self.selectedSub.alpha = 0.1
+//            }
+//
+//        } else {
+            
+        }
         // Initialization code
        
     }
 
     override var isSelected: Bool {
+        
           willSet {
               if newValue {
                   
-                  guard let mainCOlor = UIColor(named: "Fleek_400") else {
-                      return
-                  }
+//                  guard let mainCOlor = UIColor(named: "Fleek_400") else {
+//                      return
+//                  }
                   self.layer.cornerRadius = selectedSub.frame.size.width / 2
                   let generator = UIImpactFeedbackGenerator(style: .light)
                              generator.impactOccurred()
@@ -47,9 +61,7 @@ class Section1CollectionViewCell: UICollectionViewCell {
                          }
                      }
                   
-                  
-//                  self.layer.animateBorderColor(from: UIColor.systemTeal, to: mainCOlor, withDuration: 2.1)
-//                  self.layer.borderColor = UIColor(named: "Fleek_600")?.cgColor
+
                   let gradient = UIImage.gradientImage(bounds: bounds, colors: gradientColors)
                   self.layer.borderColor = UIColor(patternImage: gradient).cgColor
               } else {
@@ -96,13 +108,7 @@ class Section1CollectionViewCell: UICollectionViewCell {
         let newURL = URL(string: "https://image.tmdb.org/t/p/original/\(fromData.posterPath!)")
         self.selectedSub.sd_setImage(with: newURL)
         
-//        selectedSub.layer.cornerRadius = 10
-//        selectedSub.layer.borderWidth = 20
-//        selectedSub.clipsToBounds = true
-//        selectedSub.layer.borderColor = UIColor.systemGray.cgColor
-//        selectedSub.makeItGolGol()
-//        self.titleCard.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 10)
-//        makeRounded()
+
         selectedSub.makeItGolGol()
         
     }

@@ -174,8 +174,8 @@
             filePath = "FleekSpaces/Home/View/MovieDetailView/MovieDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "983"
-            endingLineNumber = "983"
+            startingLineNumber = "1038"
+            endingLineNumber = "1038"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
             <Locations>
@@ -286,8 +286,8 @@
             filePath = "FleekSpaces/Home/View/TVDetailView/TVDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "447"
-            endingLineNumber = "447"
+            startingLineNumber = "499"
+            endingLineNumber = "499"
             landmarkName = "didTapLikeButtonTv(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -302,8 +302,8 @@
             filePath = "FleekSpaces/Home/View/TVDetailView/TVDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "453"
-            endingLineNumber = "453"
+            startingLineNumber = "505"
+            endingLineNumber = "505"
             landmarkName = "didTapLikeButtonTv(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -318,8 +318,8 @@
             filePath = "FleekSpaces/Home/View/TVDetailView/TVDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "560"
-            endingLineNumber = "560"
+            startingLineNumber = "612"
+            endingLineNumber = "612"
             landmarkName = "addLikes(like:dislike:)"
             landmarkType = "7">
             <Locations>
@@ -366,8 +366,8 @@
             filePath = "FleekSpaces/Home/View/TVDetailView/TVDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "567"
-            endingLineNumber = "567"
+            startingLineNumber = "619"
+            endingLineNumber = "619"
             landmarkName = "addLikes(like:dislike:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -446,8 +446,8 @@
             filePath = "FleekSpaces/Home/View/TVDetailView/TVDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "557"
-            endingLineNumber = "557"
+            startingLineNumber = "609"
+            endingLineNumber = "609"
             landmarkName = "addLikes(like:dislike:)"
             landmarkType = "7">
             <Locations>
@@ -599,8 +599,8 @@
             filePath = "FleekSpaces/Home/View/TVDetailView/TVDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "753"
-            endingLineNumber = "753"
+            startingLineNumber = "805"
+            endingLineNumber = "805"
             landmarkName = "checkLikes()"
             landmarkType = "7">
             <Locations>
@@ -707,8 +707,8 @@
             filePath = "FleekSpaces/Home/View/TVDetailView/TVDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "731"
-            endingLineNumber = "731"
+            startingLineNumber = "783"
+            endingLineNumber = "783"
             landmarkName = "checkLikes()"
             landmarkType = "7">
          </BreakpointContent>
@@ -723,8 +723,8 @@
             filePath = "FleekSpaces/Home/View/TVDetailView/TVDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "736"
-            endingLineNumber = "736"
+            startingLineNumber = "788"
+            endingLineNumber = "788"
             landmarkName = "checkLikes()"
             landmarkType = "7">
          </BreakpointContent>
@@ -755,8 +755,8 @@
             filePath = "FleekSpaces/Home/View/TVDetailView/TVDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "734"
-            endingLineNumber = "734"
+            startingLineNumber = "786"
+            endingLineNumber = "786"
             landmarkName = "checkLikes()"
             landmarkType = "7">
          </BreakpointContent>
@@ -771,8 +771,8 @@
             filePath = "FleekSpaces/Home/View/TVDetailView/TVDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "765"
-            endingLineNumber = "765"
+            startingLineNumber = "817"
+            endingLineNumber = "817"
             landmarkName = "checkLikes()"
             landmarkType = "7">
          </BreakpointContent>
@@ -787,8 +787,8 @@
             filePath = "FleekSpaces/Home/View/TVDetailView/TVDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "778"
-            endingLineNumber = "778"
+            startingLineNumber = "830"
+            endingLineNumber = "830"
             landmarkName = "checkLikes()"
             landmarkType = "7">
          </BreakpointContent>
@@ -803,8 +803,8 @@
             filePath = "FleekSpaces/Home/View/TVDetailView/TVDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "466"
-            endingLineNumber = "466"
+            startingLineNumber = "518"
+            endingLineNumber = "518"
             landmarkName = "didTapLikeButtonTv(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -819,8 +819,8 @@
             filePath = "FleekSpaces/Home/View/MovieDetailView/MovieDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "814"
-            endingLineNumber = "814"
+            startingLineNumber = "869"
+            endingLineNumber = "869"
             landmarkName = "checkWatchlist()"
             landmarkType = "7">
             <Locations>
@@ -914,6 +914,66 @@
                   endingLineNumber = "814"
                   offsetFromSymbolStart = "2792">
                </Location>
+               <Location
+                  uuid = "CD395C64-EA05-4AFB-9644-FE5DA2086E2F - b7a0fef3afb3ce04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FleekSpaces.MovieDetailViewController.checkWatchlist() -&gt; ()"
+                  moduleName = "FleekSpaces"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/Home/View/MovieDetailView/MovieDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "812"
+                  endingLineNumber = "812"
+                  offsetFromSymbolStart = "2180">
+               </Location>
+               <Location
+                  uuid = "CD395C64-EA05-4AFB-9644-FE5DA2086E2F - b7a0fef3afb3ce04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FleekSpaces.MovieDetailViewController.checkWatchlist() -&gt; ()"
+                  moduleName = "FleekSpaces"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/Home/View/MovieDetailView/MovieDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "812"
+                  endingLineNumber = "812"
+                  offsetFromSymbolStart = "2792">
+               </Location>
+               <Location
+                  uuid = "CD395C64-EA05-4AFB-9644-FE5DA2086E2F - b7a0fef3afb3ce04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FleekSpaces.MovieDetailViewController.checkWatchlist() -&gt; ()"
+                  moduleName = "FleekSpaces"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/Home/View/MovieDetailView/MovieDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "812"
+                  endingLineNumber = "812"
+                  offsetFromSymbolStart = "2004">
+               </Location>
+               <Location
+                  uuid = "CD395C64-EA05-4AFB-9644-FE5DA2086E2F - b7a0fef3afb3ce04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FleekSpaces.MovieDetailViewController.checkWatchlist() -&gt; ()"
+                  moduleName = "FleekSpaces"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/Home/View/MovieDetailView/MovieDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "812"
+                  endingLineNumber = "812"
+                  offsetFromSymbolStart = "2608">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -959,8 +1019,8 @@
             filePath = "FleekSpaces/Home/View/TVDetailView/TVDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "773"
-            endingLineNumber = "773"
+            startingLineNumber = "825"
+            endingLineNumber = "825"
             landmarkName = "checkLikes()"
             landmarkType = "7">
             <Locations>
@@ -1848,8 +1908,8 @@
             filePath = "FleekSpaces/SpacesV/SpacesTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3278,8 +3338,8 @@
             filePath = "FleekSpaces/SpacesV/SpacesTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "awakeFromNib()"
             landmarkType = "7">
          </BreakpointContent>
@@ -3442,6 +3502,149 @@
             endingLineNumber = "19"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5B6D18EB-D978-4CB8-9F5B-603C3073FB37"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FleekSpaces/Home/View/Section1/Section1CollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "isSelected"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6798081B-4906-4A9B-9DC7-4352281B4CDF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FleekSpaces/Home/View/Section1/Section1CollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "isSelected"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "6798081B-4906-4A9B-9DC7-4352281B4CDF - fa46aed36d09799"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FleekSpaces.Section1CollectionViewCell.isSelected.willset : Swift.Bool"
+                  moduleName = "FleekSpaces"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/Home/View/Section1/Section1CollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "1236">
+               </Location>
+               <Location
+                  uuid = "6798081B-4906-4A9B-9DC7-4352281B4CDF - fa46aed36d0940d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FleekSpaces.Section1CollectionViewCell.isSelected.willset : Swift.Bool"
+                  moduleName = "FleekSpaces"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/Home/View/Section1/Section1CollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "1240">
+               </Location>
+               <Location
+                  uuid = "6798081B-4906-4A9B-9DC7-4352281B4CDF - fa46aed36d0940d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FleekSpaces.Section1CollectionViewCell.isSelected.willset : Swift.Bool"
+                  moduleName = "FleekSpaces"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/Home/View/Section1/Section1CollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "1156">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "668D78DE-9F41-4589-B713-710E102F7BD8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FleekSpaces/Home/View/Section1/Section1CollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "isSelected"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "668D78DE-9F41-4589-B713-710E102F7BD8 - fa46aed36d0944f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FleekSpaces.Section1CollectionViewCell.isSelected.willset : Swift.Bool"
+                  moduleName = "FleekSpaces"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/Home/View/Section1/Section1CollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "1420">
+               </Location>
+               <Location
+                  uuid = "668D78DE-9F41-4589-B713-710E102F7BD8 - fa46aed36d0944f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FleekSpaces.Section1CollectionViewCell.isSelected.willset : Swift.Bool"
+                  moduleName = "FleekSpaces"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mayurp/Documents/FleekSpaces/FleekSpaces/Home/View/Section1/Section1CollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "1324">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5AFA90B1-8744-4F29-889A-C8FAEDA9518A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FleekSpaces/Home/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1170"
+            endingLineNumber = "1170"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

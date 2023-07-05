@@ -333,10 +333,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
         
         
          let indexPath:IndexPath = IndexPath(row: 0, section: 0)
-             subsCollectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .top)
+        subsCollectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .top)
  //TODO: - remove this
       
         subsCollectionView.showsHorizontalScrollIndicator = true
+        
     }
     
     
@@ -808,29 +809,72 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 
             case 0:
                 
-                //item size
-                let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    
+                    //item size
+                    let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .absolute(90), heightDimension: .absolute(90)))
+                    
+                    
+                    
+                    myItem.contentInsets.trailing = 6
+                    myItem.contentInsets.bottom = 6
+                    myItem.contentInsets.leading = 6
+                    myItem.contentInsets.top = 6
+                    
+                    
+
+    //                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(88), heightDimension: .absolute(88)), subitems: [myItem])
+    //
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.15), heightDimension: .absolute(100)), subitems: [myItem])
+    //
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+                    section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                    
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec1, alignment: .top)
+                    header.pinToVisibleBounds = true
+                    section.boundarySupplementaryItems = [header]
+                    
+                    
+                    return section
+                    
+                } else {
+                    
+                    
+                    //item size
+                    let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                    
+                    
+                    
+                    myItem.contentInsets.trailing = 6
+                    myItem.contentInsets.bottom = 6
+                    myItem.contentInsets.leading = 6
+                    myItem.contentInsets.top = 6
+                    
+                    
+
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(88), heightDimension: .absolute(88)), subitems: [myItem])
+    //
+//                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.15), heightDimension: .absolute(100)), subitems: [myItem])
+    //
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+                    section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                    
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec1, alignment: .top)
+                    header.pinToVisibleBounds = true
+                    section.boundarySupplementaryItems = [header]
+                    
+                    
+                    return section
+                    
+                }
                 
-                myItem.contentInsets.trailing = 6
-                myItem.contentInsets.bottom = 6
-                myItem.contentInsets.leading = 6
-                myItem.contentInsets.top = 6
-                
-                //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(88), heightDimension: .absolute(88)), subitems: [myItem])
-                
-                //section size
-                
-                let section = NSCollectionLayoutSection(group: myGroup)
-                
-                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
-                
-                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec1, alignment: .top)
-                header.pinToVisibleBounds = true
-                section.boundarySupplementaryItems = [header]
-                
-                
-                return section
+             
                 
          
                 
@@ -880,20 +924,38 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 myItem.contentInsets.leading = 5
                 myItem.contentInsets.top = 10
                 
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.21), heightDimension: .absolute(260)), subitems: [myItem])
+                    
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+                    section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                    
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec2, alignment: .top)
+    //                header.pinToVisibleBounds = true
+                    section.boundarySupplementaryItems = [header]
+                    
+                    return section
+                } else {
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(260)), subitems: [myItem])
+                    
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+                    section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                    
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec2, alignment: .top)
+    //                header.pinToVisibleBounds = true
+                    section.boundarySupplementaryItems = [header]
+                    
+                    return section
+                    
+                }
                 //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(260)), subitems: [myItem])
-                
+               
                 //section size
-                
-                let section = NSCollectionLayoutSection(group: myGroup)
-                
-                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
-                
-                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec2, alignment: .top)
-//                header.pinToVisibleBounds = true
-                section.boundarySupplementaryItems = [header]
-                
-                return section
+              
         
                 
             case 1:
@@ -906,22 +968,47 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 myItem.contentInsets.leading = 5
                 myItem.contentInsets.top = 10
                 
-                //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(260)), subitems: [myItem])
                 
-                //section size
-                
-                let section = NSCollectionLayoutSection(group: myGroup)
-                
-                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
-                
-                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec3, alignment: .top)
-               
-//                header.pinToVisibleBounds = true
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.21), heightDimension: .absolute(260)), subitems: [myItem])
+                    
+                 
+                    
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+                    section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                    
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec3, alignment: .top)
+                   
+    //                header.pinToVisibleBounds = true
 
-                section.boundarySupplementaryItems = [header]
-                
-                return section
+                    section.boundarySupplementaryItems = [header]
+                    
+                    return section
+                } else {
+                    
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(260)), subitems: [myItem])
+                    
+                   
+                    
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+                    section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                    
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec3, alignment: .top)
+                   
+    //                header.pinToVisibleBounds = true
+
+                    section.boundarySupplementaryItems = [header]
+                    
+                    return section
+                }
+             
                 
                 
             
@@ -934,22 +1021,43 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 myItem.contentInsets.leading = 5
                 myItem.contentInsets.top = 10
                 
-                //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(260)), subitems: [myItem])
-                
-                //section size
-                
-                let section = NSCollectionLayoutSection(group: myGroup)
-                
-                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
-                
-                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec0, alignment: .top)
-               
-//                header.pinToVisibleBounds = true
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.21), heightDimension: .absolute(260)), subitems: [myItem])
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+                    section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                    
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec0, alignment: .top)
+                   
+    //                header.pinToVisibleBounds = true
 
-                section.boundarySupplementaryItems = [header]
+                    section.boundarySupplementaryItems = [header]
+                    
+                    return section
+                } else {
+                    
+                    //group size
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(260)), subitems: [myItem])
+                    
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+                    section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                    
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec0, alignment: .top)
+                   
+    //                header.pinToVisibleBounds = true
+
+                    section.boundarySupplementaryItems = [header]
+                    
+                    return section
+                }
                 
-                return section
+              
                 
                 
                 
@@ -962,22 +1070,43 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UIScrollVi
                 myItem.contentInsets.leading = 5
                 myItem.contentInsets.top = 10
                 
-                //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.90), heightDimension: .absolute(235)), subitems: [myItem])
-                
-                //section size
-                
-                let section = NSCollectionLayoutSection(group: myGroup)
-                
-                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
-                
-                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec4, alignment: .top)
-               
-//                header.pinToVisibleBounds = true
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    //group size
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.50), heightDimension: .absolute(235)), subitems: [myItem])
+                    
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+                    section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                    
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec4, alignment: .top)
+                   
+    //                header.pinToVisibleBounds = true
 
-                section.boundarySupplementaryItems = [header]
-                
-                return section
+                    section.boundarySupplementaryItems = [header]
+                    
+                    return section
+                } else {
+                    //group size
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.90), heightDimension: .absolute(235)), subitems: [myItem])
+                    
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+                    section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                    
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec4, alignment: .top)
+                   
+    //                header.pinToVisibleBounds = true
+
+                    section.boundarySupplementaryItems = [header]
+                    
+                    return section
+                    
+                }
+               
                 
                 
          
@@ -1040,7 +1169,9 @@ extension HomeViewController: UICollectionViewDataSource {
             
             cell.isSelected = true
 
-            print("hi")
+           
+            
+            print("cell selected")
             if let movieData = MyMovieDataModel.streamingPlatform?[indexPath.item] {
                 
                 print("Selected Service \(movieData.streamingServiceName)")

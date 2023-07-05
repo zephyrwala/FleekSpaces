@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -83,14 +83,13 @@
                                         <rect key="frame" x="276" y="0.0" width="86" height="91"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 mins ago" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ml4-88-Q8m">
-                                                <rect key="frame" x="10" y="10" width="66" height="71"/>
+                                                <rect key="frame" x="3.5" y="10" width="72.5" height="71"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" name="AAI_Text"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="ml4-88-Q8m" firstAttribute="leading" secondItem="W17-3D-16Q" secondAttribute="leading" constant="10" id="3wE-6b-bfz"/>
                                             <constraint firstAttribute="trailing" secondItem="ml4-88-Q8m" secondAttribute="trailing" constant="10" id="4Xj-Ib-CvI"/>
                                             <constraint firstAttribute="bottom" secondItem="ml4-88-Q8m" secondAttribute="bottom" constant="10" id="5F8-OC-0rs"/>
                                             <constraint firstItem="ml4-88-Q8m" firstAttribute="top" secondItem="W17-3D-16Q" secondAttribute="top" constant="10" id="Ypo-gR-L8m"/>

@@ -301,21 +301,33 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
             myItem.contentInsets.top = 0
             
             
-            //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(550)), subitems: [myItem])
-            
-            //section size
-            
-            let section = NSCollectionLayoutSection(group: myGroup)
-            
-            section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
-            
-//            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec1, alignment: .top)
-//            header.pinToVisibleBounds = true
-//            section.boundarySupplementaryItems = [header]
-            
-            
-            return section
+               
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    //group size
+                        let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(770)), subitems: [myItem])
+                    
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+                    section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                    
+          
+                    return section
+                } else {
+                    //group size
+                        let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(550)), subitems: [myItem])
+                    
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+                    section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
+                    
+          
+                    return section
+                }
+        
                 
                 
             case 1:
@@ -355,20 +367,39 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
                 myItem.contentInsets.top = 6
                 
                 //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.42), heightDimension: .absolute(240)), subitems: [myItem])
                 
-                //section size
-                
-                let section = NSCollectionLayoutSection(group: myGroup)
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.21), heightDimension: .absolute(240)), subitems: [myItem])
+                    
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
 
-                section.orthogonalScrollingBehavior = .groupPaging
-//
-                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec2, alignment: .top)
-//                header.pinToVisibleBounds = true
-                section.boundarySupplementaryItems = [header]
-                
-                
-                return section
+                    section.orthogonalScrollingBehavior = .groupPaging
+    //
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec2, alignment: .top)
+    //                header.pinToVisibleBounds = true
+                    section.boundarySupplementaryItems = [header]
+                    
+                    
+                    return section
+                } else {
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.42), heightDimension: .absolute(240)), subitems: [myItem])
+                    
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+
+                    section.orthogonalScrollingBehavior = .groupPaging
+    //
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec2, alignment: .top)
+    //                header.pinToVisibleBounds = true
+                    section.boundarySupplementaryItems = [header]
+                    
+                    
+                    return section
+                }
+              
                 
             case 3:
                 let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
@@ -378,24 +409,48 @@ class MovieDetailViewController: UIViewController, UICollectionViewDelegate {
                 myItem.contentInsets.leading = 10
                 myItem.contentInsets.top = 10
                 
-                //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(220)), subitems: [myItem])
-                
-                //section size
-                
-                let section = NSCollectionLayoutSection(group: myGroup)
-                
-                section.orthogonalScrollingBehavior = .continuous
-                
-                //TODO: - Setup header after the cell is generated.
-                
-                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec3, alignment: .top)
-//                header.pinToVisibleBounds = true
-                section.boundarySupplementaryItems = [header]
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    
+                    //group size
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.21), heightDimension: .absolute(220)), subitems: [myItem])
+                    
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+                    section.orthogonalScrollingBehavior = .continuous
+                    
+                    //TODO: - Setup header after the cell is generated.
+                    
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec3, alignment: .top)
+    //                header.pinToVisibleBounds = true
+                    section.boundarySupplementaryItems = [header]
 
-                return section
-        
-                
+                    return section
+            
+                    
+                } else {
+                    
+                    //group size
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.43), heightDimension: .absolute(220)), subitems: [myItem])
+                    
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+                    section.orthogonalScrollingBehavior = .continuous
+                    
+                    //TODO: - Setup header after the cell is generated.
+                    
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec3, alignment: .top)
+    //                header.pinToVisibleBounds = true
+                    section.boundarySupplementaryItems = [header]
+
+                    return section
+            
+                    
+                }
+            
                 
                 
                 

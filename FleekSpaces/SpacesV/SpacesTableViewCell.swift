@@ -41,6 +41,8 @@ protocol WatchlistBtnTap: AnyObject {
 
 class SpacesTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var leadingCell: NSLayoutConstraint!
+    @IBOutlet weak var trailingCell: NSLayoutConstraint!
     
     @IBOutlet weak var userProfileBtn: UIButton!
     @IBOutlet weak var followBtn: UIButton!
@@ -67,6 +69,14 @@ class SpacesTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.leadingCell.constant = 120
+            self.trailingCell.constant = 120
+        } else {
+            self.leadingCell.constant = 0
+            self.trailingCell.constant = 0
+        }
+        self.layoutIfNeeded()
         likeAnim.isHidden = true
         mainPoster.layer.cornerRadius = 9
         mainPoster.layer.cornerCurve = .continuous
@@ -143,7 +153,7 @@ class SpacesTableViewCell: UITableViewCell {
         let dayOfTheWeekString = dateFormatter.string(from: date!)
         
         let imageAttachment = NSTextAttachment()
-        imageAttachment.image = UIImage(systemName: "checkmark.circle")
+        imageAttachment.image = UIImage(named: "user0")
 
         if let safeCount = fromData.totalLikeCount {
             if safeCount != 0 {
@@ -231,7 +241,7 @@ class SpacesTableViewCell: UITableViewCell {
         if let safeUserProfilePic = fromData.user?.avatarURL {
             print("user profile pic = \(safeUserProfilePic)")
             let newURL = URL(string: safeUserProfilePic)
-            self.userProfilePic.sd_setImage(with: newURL, placeholderImage: UIImage(systemName: "person.circle"))
+            self.userProfilePic.sd_setImage(with: newURL, placeholderImage: UIImage(named: "pro0"))
             
         }
             

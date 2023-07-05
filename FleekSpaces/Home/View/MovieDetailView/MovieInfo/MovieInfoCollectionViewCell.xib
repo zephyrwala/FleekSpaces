@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -13,21 +13,18 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="movieInfo" reuseIdentifier="movieInfo" id="gTV-IL-0wX" customClass="MovieInfoCollectionViewCell" customModule="FleekSpaces" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="598"/>
+            <rect key="frame" x="0.0" y="0.0" width="400" height="734"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="400" height="598"/>
+                <rect key="frame" x="0.0" y="0.0" width="400" height="734"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96N-ph-7ty">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="598"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="734"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="show inside view 2" translatesAutoresizingMaskIntoConstraints="NO" id="XHW-Vc-mLO">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="397"/>
                                 <color key="tintColor" name="BorderColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="WT3-aP-tDL"/>
-                                </constraints>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Fjo-lj-Isi">
                                 <rect key="frame" x="188" y="90" width="24" height="24"/>
@@ -38,7 +35,7 @@
                                 <color key="color" name="Background"/>
                             </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ogc-Of-iwZ">
-                                <rect key="frame" x="15" y="203" width="370" height="290"/>
+                                <rect key="frame" x="15" y="400" width="370" height="229"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eIp-y1-VmK">
                                         <rect key="frame" x="0.0" y="0.0" width="370" height="50"/>
@@ -280,10 +277,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lr8-ZC-B6N">
-                                        <rect key="frame" x="0.0" y="152" width="370" height="90"/>
+                                        <rect key="frame" x="0.0" y="152" width="370" height="29"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ubb-XB-ZPT">
-                                                <rect key="frame" x="10" y="0.0" width="350" height="80"/>
+                                                <rect key="frame" x="10" y="0.0" width="350" height="19"/>
                                                 <string key="text">Armed with a clear vision and a brazen, 78-page plan, Richard Williams is determined to write his two daughters, Venus and Serena, into history. more</string>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -298,31 +295,31 @@
                                         </constraints>
                                     </view>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Duration: 76 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta1-HH-kSU">
-                                        <rect key="frame" x="0.0" y="246" width="370" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="185" width="370" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language: EN, HI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19z-tG-JJN">
-                                        <rect key="frame" x="0.0" y="246" width="370" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="185" width="370" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Year: 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2R2-wB-0ef">
-                                        <rect key="frame" x="0.0" y="246" width="370" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="185" width="370" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Director: Mohan Laal Khurana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8s-vR-cwV">
-                                        <rect key="frame" x="0.0" y="246" width="370" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="185" width="370" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VuM-SV-RvL">
-                                        <rect key="frame" x="0.0" y="250" width="370" height="40"/>
+                                        <rect key="frame" x="0.0" y="189" width="370" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ZJF-Ix-xtd"/>
                                         </constraints>
@@ -338,7 +335,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Ey-Km-17V">
-                                <rect key="frame" x="15" y="498" width="370" height="90"/>
+                                <rect key="frame" x="15" y="634" width="370" height="90"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XIz-g0-857">
                                         <rect key="frame" x="0.0" y="0.0" width="85" height="90"/>
@@ -432,9 +429,12 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gta-W8-sn0" customClass="YTPlayerView">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="203"/>
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                                 <color key="backgroundColor" name="Background"/>
                                 <color key="tintColor" name="Background"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="xqX-eV-2bY"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" name="BGColor"/>
@@ -467,7 +467,7 @@
                 <constraint firstItem="96N-ph-7ty" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lBs-So-kk1"/>
                 <constraint firstAttribute="bottom" secondItem="96N-ph-7ty" secondAttribute="bottom" id="r70-js-I8m"/>
             </constraints>
-            <size key="customSize" width="400" height="598"/>
+            <size key="customSize" width="400" height="734"/>
             <connections>
                 <outlet property="cat1" destination="5hm-Nk-zGw" id="WFS-4b-LiJ"/>
                 <outlet property="cat1Label" destination="ycR-fm-TUz" id="g3j-xM-mb2"/>
@@ -492,9 +492,10 @@
                 <outlet property="movieReleaseYear" destination="2R2-wB-0ef" id="TFy-Rl-r8P"/>
                 <outlet property="movieTitle" destination="96q-IS-UsW" id="nMQ-Vj-9a1"/>
                 <outlet property="utubePlayer" destination="Gta-W8-sn0" id="r5q-as-KTu"/>
+                <outlet property="videoHeight" destination="xqX-eV-2bY" id="zyE-Wk-MUm"/>
                 <outlet property="watchBtn" destination="53Z-Ed-4Dz" id="efX-As-Fiy"/>
             </connections>
-            <point key="canvasLocation" x="391.304347826087" y="297.32142857142856"/>
+            <point key="canvasLocation" x="391.304347826087" y="342.85714285714283"/>
         </collectionViewCell>
     </objects>
     <resources>

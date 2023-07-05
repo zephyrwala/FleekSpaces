@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -102,6 +102,7 @@
                                         <rect key="frame" x="120" y="657" width="135" height="110"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="10u-Ev-S0e"/>
+                                            <constraint firstAttribute="width" constant="135" id="n90-cE-R8Q"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="recording"/>
@@ -170,9 +171,9 @@
                                 <constraints>
                                     <constraint firstItem="D57-Ip-gAa" firstAttribute="top" secondItem="pZ2-sh-b5J" secondAttribute="top" constant="76" id="56y-fE-O6Z"/>
                                     <constraint firstAttribute="trailing" secondItem="UO8-Tf-Awt" secondAttribute="trailing" constant="21" id="5A9-qe-fps"/>
+                                    <constraint firstItem="YYY-32-UgT" firstAttribute="centerX" secondItem="pZ2-sh-b5J" secondAttribute="centerX" id="5Dt-Ad-mJc"/>
                                     <constraint firstAttribute="bottom" secondItem="MlG-2Z-4SG" secondAttribute="bottom" constant="45" id="8PA-rS-aPr"/>
                                     <constraint firstItem="uqw-wJ-REQ" firstAttribute="top" secondItem="UO8-Tf-Awt" secondAttribute="bottom" constant="6" id="B7r-3x-Oix"/>
-                                    <constraint firstItem="YYY-32-UgT" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="120" id="Ian-n0-vSc"/>
                                     <constraint firstAttribute="trailing" secondItem="edZ-dd-eF4" secondAttribute="trailing" constant="25" id="LYr-hc-LkM"/>
                                     <constraint firstItem="edZ-dd-eF4" firstAttribute="top" secondItem="pZ2-sh-b5J" secondAttribute="top" constant="75" id="NUk-VD-ATA"/>
                                     <constraint firstAttribute="trailing" secondItem="uqw-wJ-REQ" secondAttribute="trailing" constant="21" id="PUx-hA-VVN"/>
@@ -183,7 +184,6 @@
                                     <constraint firstAttribute="trailing" secondItem="D57-Ip-gAa" secondAttribute="trailing" constant="23" id="eYl-hJ-4wa"/>
                                     <constraint firstAttribute="trailing" secondItem="MlG-2Z-4SG" secondAttribute="trailing" constant="128" id="evp-DH-5Vq"/>
                                     <constraint firstItem="z6a-HZ-xKO" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="100" id="i0v-Zg-Ni3"/>
-                                    <constraint firstAttribute="trailing" secondItem="YYY-32-UgT" secondAttribute="trailing" constant="120" id="iqn-2L-sDz"/>
                                     <constraint firstAttribute="trailing" secondItem="3pB-Dr-5Le" secondAttribute="trailing" constant="25" id="oec-eQ-C3h"/>
                                     <constraint firstItem="UO8-Tf-Awt" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="21" id="pm7-kT-2l3"/>
                                     <constraint firstItem="edZ-dd-eF4" firstAttribute="leading" secondItem="pZ2-sh-b5J" secondAttribute="leading" constant="25" id="rsD-q2-Bo6"/>
