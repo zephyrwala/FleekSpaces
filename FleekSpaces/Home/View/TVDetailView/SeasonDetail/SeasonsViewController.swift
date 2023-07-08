@@ -187,27 +187,55 @@ class SeasonsViewController: UIViewController, UICollectionViewDelegate {
             case 0:
                
                 //item size
-                let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1)))
-                
-                myItem.contentInsets.trailing = 10
-                myItem.contentInsets.bottom = 10
-                myItem.contentInsets.leading = 10
-                myItem.contentInsets.top = 10
-                
-                //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(280)), subitems: [myItem])
-                
-                //section size
-                
-                let section = NSCollectionLayoutSection(group: myGroup)
-                
-//                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
-                
-                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec2, alignment: .top)
-//                header.pinToVisibleBounds = true
-                section.boundarySupplementaryItems = [header]
-                
-                return section
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    
+                    let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.33), heightDimension: .fractionalHeight(1)))
+                    
+                    myItem.contentInsets.trailing = 10
+                    myItem.contentInsets.bottom = 10
+                    myItem.contentInsets.leading = 10
+                    myItem.contentInsets.top = 10
+                    
+                    //group size
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(420)), subitems: [myItem])
+                    
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+
+                    
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec2, alignment: .top)
+    //                header.pinToVisibleBounds = true
+                    section.boundarySupplementaryItems = [header]
+                    
+                    return section
+                } else {
+                    
+                    let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1)))
+                    
+                    myItem.contentInsets.trailing = 10
+                    myItem.contentInsets.bottom = 10
+                    myItem.contentInsets.leading = 10
+                    myItem.contentInsets.top = 10
+                    
+                    //group size
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(280)), subitems: [myItem])
+                    
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+
+                    
+                    let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(50)), elementKind: self.sec2, alignment: .top)
+    //                header.pinToVisibleBounds = true
+                    section.boundarySupplementaryItems = [header]
+                    
+                    return section
+                    
+                }
+        
                 
                 
             default:

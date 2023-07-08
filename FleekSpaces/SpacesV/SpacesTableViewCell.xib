@@ -64,18 +64,20 @@
                                                             <subviews>
                                                                 <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qd-0X-EHQ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="65" height="45"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="tintColor" name="Fleek_500"/>
-                                                                    <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup" catalog="system"/>
+                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                    <state key="normal" image="hand.thumbsup" catalog="system"/>
                                                                     <connections>
                                                                         <action selector="likeBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="i26-sF-eOa"/>
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNY-R6-aZL">
                                                                     <rect key="frame" x="65" y="0.0" width="65" height="45"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="tintColor" systemColor="systemYellowColor"/>
-                                                                    <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" image="video.badge.plus" catalog="system"/>
+                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                    <state key="normal" image="video.badge.plus" catalog="system"/>
                                                                     <connections>
                                                                         <action selector="watchlistBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lcv-VH-djN"/>
                                                                     </connections>
@@ -151,14 +153,16 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="zsZ-Ze-37D">
                                                         <rect key="frame" x="-18" y="0.0" width="180" height="52"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Mayur likes Kabhi khushi kabhi gam tere karam," lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAE-5H-GWr">
-                                                                <rect key="frame" x="0.0" y="0.0" width="180" height="34.666666666666664"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Mayur likes Kabhi khushi kabhi gam tere karam," lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAE-5H-GWr">
+                                                                <rect key="frame" x="0.0" y="0.0" width="180" height="35"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" name="CoinMessageColor"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <size key="shadowOffset" width="1" height="-1"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3d" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f45-Fu-jtb">
-                                                                <rect key="frame" x="0.0" y="34.666666666666664" width="180" height="17.333333333333336"/>
+                                                                <rect key="frame" x="0.0" y="35" width="180" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -291,6 +295,9 @@
         <image name="video.badge.plus" catalog="system" width="128" height="92"/>
         <namedColor name="Background">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CoinMessageColor">
+            <color red="0.85900002717971802" green="0.91399997472763062" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Fleek_500">
             <color red="0.0" green="0.78799998760223389" blue="0.64300000667572021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

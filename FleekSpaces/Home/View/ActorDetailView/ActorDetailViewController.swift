@@ -129,29 +129,56 @@ class ActorDetailViewController: UIViewController, UICollectionViewDelegate {
                    
                case 1:
                    
-                   let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-                   
-                   myItem.contentInsets.trailing = 10
-                   myItem.contentInsets.bottom = 10
-                   myItem.contentInsets.leading = 10
-                   myItem.contentInsets.top = 10
-                   
-                   
-                   //group size
-                   let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200)), subitems: [myItem])
-                   
-                   //section size
-                   
-                   let section = NSCollectionLayoutSection(group: myGroup)
-                   
-                 
-                   
-                   let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(45)), elementKind: self.sec1, alignment: .top)
+                   if UIDevice.current.userInterfaceIdiom == .pad {
+                       let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1)))
+                       
+                       myItem.contentInsets.trailing = 10
+                       myItem.contentInsets.bottom = 10
+                       myItem.contentInsets.leading = 10
+                       myItem.contentInsets.top = 10
+                       
+                       
+                       //group size
+                       let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200)), subitems: [myItem])
+                       
+                       //section size
+                       
+                       let section = NSCollectionLayoutSection(group: myGroup)
+                       
+                     
+                       
+                       let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(45)), elementKind: self.sec1, alignment: .top)
 
-                   section.boundarySupplementaryItems = [header]
-                   
-                   
-                   return section
+                       section.boundarySupplementaryItems = [header]
+                       
+                       
+                       return section
+                   } else {
+                       let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                       
+                       myItem.contentInsets.trailing = 10
+                       myItem.contentInsets.bottom = 10
+                       myItem.contentInsets.leading = 10
+                       myItem.contentInsets.top = 10
+                       
+                       
+                       //group size
+                       let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200)), subitems: [myItem])
+                       
+                       //section size
+                       
+                       let section = NSCollectionLayoutSection(group: myGroup)
+                       
+                     
+                       
+                       let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(45)), elementKind: self.sec1, alignment: .top)
+
+                       section.boundarySupplementaryItems = [header]
+                       
+                       
+                       return section
+                   }
+              
      
                    
                    

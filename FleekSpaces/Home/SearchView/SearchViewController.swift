@@ -206,26 +206,43 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UISearch
             case 0:
                
                 //item size
-                let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
                 
-                myItem.contentInsets.trailing = 10
-                myItem.contentInsets.bottom = 10
-                myItem.contentInsets.leading = 10
-                myItem.contentInsets.top = 10
-                
-                //group size
-                let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200)), subitems: [myItem])
-                
-                //section size
-                
-                let section = NSCollectionLayoutSection(group: myGroup)
-                
-//                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
-                
-//                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: .init(widthDimension: .fractionalWidth(0.99), heightDimension: .absolute(35)), elementKind: self.newTOpID, alignment: .top)
-//                section.boundarySupplementaryItems = [header]
-                
-                return section
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1)))
+                    
+                    myItem.contentInsets.trailing = 10
+                    myItem.contentInsets.bottom = 10
+                    myItem.contentInsets.leading = 10
+                    myItem.contentInsets.top = 10
+                    
+                    //group size
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200)), subitems: [myItem])
+                    
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+     
+                    return section
+                } else {
+                    let myItem = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+                    
+                    myItem.contentInsets.trailing = 10
+                    myItem.contentInsets.bottom = 10
+                    myItem.contentInsets.leading = 10
+                    myItem.contentInsets.top = 10
+                    
+                    //group size
+                    let myGroup = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200)), subitems: [myItem])
+                    
+                    //section size
+                    
+                    let section = NSCollectionLayoutSection(group: myGroup)
+                    
+     
+                    return section
+                }
+            
                 
                 
             default:

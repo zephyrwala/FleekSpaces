@@ -2759,7 +2759,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.36;
+				MARKETING_VERSION = 0.42;
 				PRODUCT_BUNDLE_IDENTIFIER = app.getfleek.fleekSpacesbeta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -2804,7 +2804,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.36;
+				MARKETING_VERSION = 0.42;
 				PRODUCT_BUNDLE_IDENTIFIER = app.getfleek.fleekSpacesbeta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
